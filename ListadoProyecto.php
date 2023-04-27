@@ -42,37 +42,50 @@
         <option value="Descripción">Descripción</option>
         <option value="Nombre del Proyecto">Nombre del Proyecto</option>
       </select>
-      <div id="tabla-scroll">
-    <div id="contenedor-tabla">
-    <table>
-            <tr> 
-                <td class="sticky">Nombre del proyecto</td>
-                <td class="sticky">Objetivo</td>
-                <td class="sticky">Numero Estudiantes</td>
-                <td class="sticky">Tiempo Estimado</td>
-                <td class="sticky">Docente responsable</td>
-                <td class="sticky">Asignar a: </td>
-                <td class="sticky">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            </tr>
+      
+      <div class="tabla-scroll">
+	<table class = "tb-asp">
+			<tr> 
+				<td class="sticky">Nombre del proyecto</td>
+				<td class="sticky">Objetivo</td>
+				<td class="sticky">Numero Estudiantes</td>
+				<td class="sticky">Tiempo Estimado</td>
+				<td class="sticky">Docente responsable</td>
+				<td class="sticky">Asignar a: </td>
+				<td class="sticky">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			</tr>
             <tr>
-            <?php
-                $i = 0;
-                while ($i < 100) {
-                    ?>
-                    <tr <?php if($i%2==0) echo "class='par'" ?> >
-                        <th>Nombre</th>
-                        <th>Objetivo</th>
-                        <th>Numero Estudiantes</th>
-                        <th>Tiempo Estimado</th>
-                        <th>Docente responsable</th>
-                        <th>Asignar</th>
-                        <th><input type="submit" value="Solicitar"/></th>
-                    </tr>
-                    <?php
-                    $i++;
-                }
-                ?>
+			<?php
+				$i = 0;
+				while ($i < 100) {
+					?>
+					<tr <?php if($i%2==0) echo "class='par'" ?> >
+						<th class="tb-th-asp">Nombre</th>
+						<th class="tb-th-asp">Objetivo</th>
+						<th class="tb-th-asp">Numero Estudiantes</th>
+						<th class="tb-th-asp">Tiempo Estimado</th>
+						<th class="tb-th-asp">Docente responsable</th>
+						<form action="">
+							<th class="tb-th-asp">
+							<select name="comision">
+								<option>option 1</option>
+								<option>option 2</option>
+								<option>option 3</option>
+								<option> option 4 </option>
+								<option> option 5 </option>
+							</select>
+							</th>
+							<th class="tb-th-asp">
+								<input type="submit" value="Asignar">
+							</th>
+						</form>
+					</tr>
+					<?php
+					$i++;
+				}
+				?>
             </tr>
         </table>
-    </div>
-    </div>
+	</div>
+</body>
+</html>
