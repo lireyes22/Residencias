@@ -49,8 +49,20 @@
 						<th class="tb-th-asp">Numero Estudiantes</th>
 						<th class="tb-th-asp">Tiempo Estimado</th>
 						<th class="tb-th-asp">Docente responsable</th>
-						<th class="tb-th-asp">Asignar</th>
-						<th class="tb-th-asp">boton</th>
+						<form action="">
+							<th class="tb-th-asp">
+							<select name="comision">
+								<option>option 1</option>
+								<option>option 2</option>
+								<option>option 3</option>
+								<option> option 4 </option>
+								<option> option 5 </option>
+							</select>
+							</th>
+							<th class="tb-th-asp">
+								<input type="submit" value="Asignar">
+							</th>
+						</form>
 					</tr>
 					<?php
 					$i++;
