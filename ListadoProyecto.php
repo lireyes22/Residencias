@@ -35,12 +35,12 @@
     <img src="img/lupa.png" height="20" widt="20">&nbsp;&nbsp;<input name='buscar' type='text' size="20" value="" align="right">
          
         <select name="Selecion" id="Seleccion">
-        <option value="Enero">Seleccione uno...</option>
-        <option value="Febrero">Objetivo Proyecto</option>
-        <option value="Marzo">Participantes</option>
-        <option value="Abril">Campos</option>
-        <option value="Mayo">Descripción</option>
-        <option value="Junio">Nombre del Proyecto</option>
+        <option value="Seleccione uno...">Seleccione uno...</option>
+        <option value="Objetivo Proyecto">Objetivo Proyecto</option>
+        <option value="Participantes">Participantes</option>
+        <option value="Campos">Campos</option>
+        <option value="Descripción">Descripción</option>
+        <option value="Nombre del Proyecto">Nombre del Proyecto</option>
       </select>
       <div id="tabla-scroll">
     <div id="contenedor-tabla">
