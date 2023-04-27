@@ -4,7 +4,6 @@
 <head>
 	<title>Departamento Academico</title>
 	<link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/mystyle.css">
 </head>
 
 <body style="margin: 0;">
@@ -28,9 +27,8 @@
 			<a href="asigProyRes.php" class="button-link">Asignación de Solicitud de Residencia</a>
 		</div>
 	</div>
-	<div id="tabla-scroll">
-	<div id="contenedor-tabla">
-	<table>
+	<div class="tabla-scroll">
+	<table class = "tb-asp">
 			<tr> 
 				<td class="sticky">Nombre del proyecto</td>
 				<td class="sticky">Objetivo</td>
@@ -46,13 +44,13 @@
 				while ($i < 100) {
 					?>
 					<tr <?php if($i%2==0) echo "class='par'" ?> >
-						<th>Nombre</th>
-						<th>Objetivo</th>
-						<th>Numero Estudiantes</th>
-						<th>Tiempo Estimado</th>
-						<th>Docente responsable</th>
-						<th>Asignar</th>
-						<th>boton</th>
+						<th class="tb-th-asp">Nombre</th>
+						<th class="tb-th-asp">Objetivo</th>
+						<th class="tb-th-asp">Numero Estudiantes</th>
+						<th class="tb-th-asp">Tiempo Estimado</th>
+						<th class="tb-th-asp">Docente responsable</th>
+						<th class="tb-th-asp">Asignar</th>
+						<th class="tb-th-asp">boton</th>
 					</tr>
 					<?php
 					$i++;
@@ -60,7 +58,6 @@
 				?>
             </tr>
         </table>
-	</div>
 	</div>
 </body>
 </html>

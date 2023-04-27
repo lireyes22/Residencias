@@ -94,7 +94,42 @@ body {
     text-decoration: none;
     color: white;
 }
-
+.tabla-scroll{
+    /*width: 97.9%;*/
+    max-height: 366px;
+    border: 1px solid;
+    overflow:scroll;
+    background-color: azure;
+    margin: 2%;
+}
+.sticky{
+    position: sticky;
+    top: 0;
+    background-color: #bfc3c9;
+    min-width: 145.210px;
+    max-width: 145.210px;
+    border: 1px solid;
+}
+.par{
+    background-color: #dbe9ff;
+}
+.tb-th-asp{
+    min-width: 132.210px;
+    max-width: 132.210px;
+}
+.sticky, .tb-th-asp{
+    padding-right: 5px;
+    padding-left: 5px;
+    /*min-width: 132.210px;*/
+}
+.tb-asp{
+    width: 100%;
+}
+.tb-asp, .sticky, .tb-th-asp{
+    border: 1px solid;
+    border-collapse: collapse;
+    text-align: center;
+}
 @font-face {
     font-family: comfortaa;
     src: url("TipoLetra/Comfortaa-Bold");
