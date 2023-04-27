@@ -131,7 +131,7 @@ body {
     text-align: center;
 }
 /* Estilo de la barra de desplazamiento */
-::-webkit-scrollbar {
+  ::-webkit-scrollbar {
     width: 10px;
     background-color: #1E1E1E;
   }
