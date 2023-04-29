@@ -155,10 +155,41 @@ body {
   .izq-decision{
     float: left;
     background-color: #2A424D;
-    border: 1px solid;
+    border: 2px solid;
+    border-color: rgb(134, 123, 123);
+    min-height: 600px;
+    width: 20%;
+    color: white;
+    /*display: flex;
+    align-items: end;*/
+  }
+  .izq-decision input[type="submit"]{
+    margin-top: 5px;
+  }
+  .izq-decision p{
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-top: 30%;
+  }
+  p.izq-nomb-proy{ /* <><><> */
+    margin-left: 10%;
+    border: 2px solid;
+    border-color: white;
+    background-color: darkgray;
+    margin-top: 2em;
+    color: black;
+    
+  }
+  
+  .datos-proy{
+    border: 2px solid;
+    border-color: rgb(134, 123, 123);
+    min-height: 600px;
+    width: 80%;
+    float: right;
   }
 
-  .tb-th-asp input[type="submit"] {
+  .tb-th-asp input[type="submit"], .izq-decision input[type="submit"]{ /*BOTON PARA ACEPTAR*/
     background-color: green;
     color: white;
     border: 2px solid white;
@@ -167,14 +198,24 @@ body {
     font-size: 12px;
     font-weight: bold;
   }
-  
-  .tb-th-asp input[type="submit"]:hover {
+  .tb-th-asp input[type="submit"]:hover, .izq-decision input[type="submit"]:hover { /*HOVER PARA ACEPTAR*/
     cursor: pointer;
     background-color: white;
     color: green;
   }
 
+  .izq-decision input[type="submit"].denegar{ /*BOTON PARA DENEGAR*/
+    background-color: red;
+  }
+  .izq-decision input[type="submit"]:hover.denegar { /*HOVER PARA DENEGAR*/
+    background-color: white;
+    color: red;
+  }
 
+  .izq-decision input[type="submit"]{
+    margin-left: 30%;
+  }
+  
 @font-face {
     font-family: comfortaa;
     src: url("TipoLetra/Comfortaa-Bold");

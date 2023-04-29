@@ -32,17 +32,21 @@
 			<a href="a.html" class="button-link">Solicitudes de Residencia</a>
 			<a href="revProyRes.php" class="button-link">Solicitudes de Proyecto</a>
 		</div>
-	</div>
+	</div> 
 	<div>
 		<div class="izq-decision">
-			<h3>Nombre del Proyecto</h3>
+			<p>Nombre del Proyecto</p> 
 			<p class="izq-nomb-proy"><?php echo $idProy ?></p>
-			<input type="submit" value="Aceptar"> <br>
-			<input type="submit" value="Denegar">
+			<form action="a.html">
+				<input type="submit" value="Aceptar"> <br>
+				<input type="submit" value="Denegar" class="denegar">
+			</form>
 		</div>
-		<div class="datos-proy">
-
-		</div>
+		<form action="">
+			<div class="datos-proy">
+				<label for="objetivo"><textarea name="objetivo" cols="30" rows="10"></textarea> </label>
+			</div>
+		</form>
 	</div>
 </body>
 </html>
