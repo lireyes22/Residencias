@@ -152,6 +152,11 @@ body {
   ::-webkit-scrollbar-thumb:active {
     background-color: #0D47A1;
   }
+  .izq-decision{
+    float: left;
+    background-color: #2A424D;
+    border: 1px solid;
+  }
 
   .tb-th-asp input[type="submit"] {
     background-color: green;
@@ -168,6 +173,7 @@ body {
     background-color: white;
     color: green;
   }
+
 
 @font-face {
     font-family: comfortaa;
