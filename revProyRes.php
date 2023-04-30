@@ -1,6 +1,12 @@
+<?php 
+	include ('funciones.php');
+	$link = conn();
+    $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
+    $query = "SELECT * FROM SolicitudProyecto";
+    $result = mysqli_query($link, $query);
+?>
 <!DOCTYPE html>
 <html>
-
 <head>
 	<title>Profesor</title>
 	<link rel="stylesheet" href="style/style.css">
@@ -11,7 +17,7 @@
 		<div class="row">
 			<div class="left-column">
 				<a class="home-btn" href="a.html">
-					<h2><span style="margin-right: 10px;">Dep. Academico</span></h2>
+					<h2><span style="margin-right: 10px;">Profesor</span></h2>
 					<img src="img/sombrero.png" width="50px">
 				</a>
 			</div>
@@ -43,17 +49,17 @@
             <tr>
 			<?php
 				$i = 0;
-				while ($i < 100) {
+				while ($row = mysqli_fetch_array($result)){
 					?>
 					<tr <?php if($i%2==0) echo "class='par'" ?> >
-						<th class="tb-th-asp">Nombre</th>
-						<th class="tb-th-asp">Objetivo</th>
-						<th class="tb-th-asp">Numero Estudiantes</th>
-						<th class="tb-th-asp">Tiempo Estimado</th>
-						<th class="tb-th-asp">Docente responsable</th>
+						<th class="tb-th-asp"><p><?php echo $row[5]?></p></th>
+						<th class="tb-th-asp"><p><?php echo $row[6]?></p></th>
+						<th class="tb-th-asp"><p><?php echo $row[7]?></p></th>
+						<th class="tb-th-asp"><p>Tiempo Estimado</p></th>
+						<th class="tb-th-asp"><p>Docente responsable</p></th>
 						<form action="revProyRes-evalua.php" target="BLANK" method="post">
 							<th class="tb-th-asp">
-								<input type="hidden" name="idProy" value=<?php echo $i ?>>
+								<input type="hidden" name="idProy" value=<?php echo $row[0] ?>>
 								<input type="submit" value="Asignar">
 							</th>
 						</form>

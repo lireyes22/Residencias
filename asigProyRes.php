@@ -1,3 +1,10 @@
+<?php 
+	include ('funciones.php');
+	$link = conn();
+    $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
+    $query = "SELECT * FROM SolicitudProyecto";
+    $result = mysqli_query($link, $query);
+?>
 <!DOCTYPE html>
 <html>
 
@@ -43,12 +50,12 @@
             <tr>
 			<?php
 				$i = 0;
-				while ($i < 100) {
+				while ($row = mysqli_fetch_array($result)){
 					?>
 					<tr <?php if($i%2==0) echo "class='par'" ?> >
-						<th class="tb-th-asp">Nombre</th>
-						<th class="tb-th-asp">Objetivo</th>
-						<th class="tb-th-asp">Numero Estudiantes</th>
+						<th class="tb-th-asp"><p><?php echo $row[5]?></p></th>
+						<th class="tb-th-asp"><p><?php echo $row[6]?></p></th>
+						<th class="tb-th-asp"><p><?php echo $row[7]?></p></th>
 						<th class="tb-th-asp">Tiempo Estimado</th>
 						<th class="tb-th-asp">Docente responsable</th>
 						<form action="">
