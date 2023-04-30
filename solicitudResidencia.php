@@ -30,7 +30,7 @@
 			<a href="a.html" class="button-link">Lista Proyectos</a>
 		</div>
 	</div>
-    <article>
+    <article id="fm-re">
         <form action="" >
             <section id="datosProyecto">
                 <table class='form'>
@@ -247,7 +247,7 @@
                     </tr>
                 </table>
             </section>
-            <section class='pie'>
+            <section class='btn-sr'>
                 <div id="firma">
                     <div>
                         <label for="firma">Firma del Estudiante</label>

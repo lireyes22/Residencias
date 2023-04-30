@@ -266,27 +266,27 @@ body {
     box-sizing: border-box;
 }
 /*--------------F--------------------------*/
-  .tb-th-asp{
-    border: 0px;
-  }
-  article{
-    background-color: rgb(69, 129, 142);
-    padding: 30px;
-    border-top: solid;
-    border-color: white;
-  }
-  .tb-th-asp input[type="submit"]{
-    border-style: solid;
-  }
+.tb-th-asp{
+  border: 0px;
+}
+#fm-re{
+  background-color: rgb(69, 129, 142);
+  padding: 30px;
+  border-top: solid;
+  border-color: white;
+}
+.tb-th-asp input[type="submit"]{
+  border-style: solid;
+}
 
 .form td{
     width: 30%;
     height: 40px;
 }
-label{
+.form label{
     color: white;
 }
-section div{
+.btn-sr div{
     margin: 3% 5% 0% 5%;
     display: inline-block;
 }
@@ -296,7 +296,7 @@ section div{
   height: 30px;
   width: 120px;
 }
-input[type="file"]{
+.btn-sr input[type="file"]{
   position: relative;
   top: 0%;
   left:0%;
