@@ -50,11 +50,13 @@
 					<p><?php echo "Aqui va el impacto del proyecto" ?></p>
 					<textarea name="objetivo-2" cols="150" rows="4" disabled></textarea> 
 					<p>Lugar donde se va a desarrollar</p>
-					<input type="text" name="lugar" size="162" disabled> <br>
-					<label for="estudiantes-req">Cantidad de estudiantes requeridos: </label>
-					<input type="text" name="estudiantes-req" size="2" disabled>
-					<label for="tiempo-est">Tiempo estimado de proyecto: </label>
-					<input type="text" name="tiempo-est" size="10" disabled>
+					<input type="text" name="lugar" size="162" disabled> <br> <br> 
+					<div class="doble-fila">
+						<label class="lbl" for="estudiantes-req">Cantidad de estudiantes requeridos: </label>
+						<input class="res" type="text" name="estudiantes-req" size="2" disabled>
+						<label class="lbl" for="tiempo-est">Tiempo estimado de proyecto: </label>
+						<input class="res" type="text" name="tiempo-est" size="10" disabled>
+					</div>
 
 			</form>
 		</div>
