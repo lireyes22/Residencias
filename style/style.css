@@ -188,6 +188,9 @@ body {
     margin-right: 1%;
     float: right;
   }
+  .datos-proy label{
+    margin-top: 16px;
+  }
 
   .tb-th-asp input[type="submit"], .izq-decision input[type="submit"]{ /*BOTON PARA ACEPTAR*/
     background-color: green;
