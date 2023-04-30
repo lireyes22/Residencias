@@ -98,7 +98,7 @@ body {
     /*width: 97.9%;*/
     max-height: 366px;
     border: 1px solid;
-    overflow:scroll;
+    overflow: scroll;
     background-color: azure;
     margin: 2%;
 }
@@ -157,7 +157,7 @@ body {
     background-color: #2A424D;
     border: 2px solid;
     border-color: rgb(134, 123, 123);
-    min-height: 600px;
+    min-height: 1200px;
     width: 20%;
     color: white;
     /*display: flex;
@@ -169,7 +169,7 @@ body {
   .izq-decision p{
     margin-left: 2em;
     margin-right: 2em;
-    margin-top: 30%;
+    margin-top: 100%;
   }
   p.izq-nomb-proy{ /* <><><> */
     margin-left: 10%;
@@ -182,7 +182,7 @@ body {
   }
   
   .datos-proy{
-    min-height: 600px;
+    min-height: 1200px;
     width: 77%;
     margin-left: 1%;
     margin-right: 1%;
@@ -190,6 +190,33 @@ body {
   }
   .doble-fila .res, .doble-fila .lbl{
     margin-right: 1em;
+  }
+  .carrera-req{
+    float: left;
+  }
+  .propuesta-int{
+    float: right;
+    padding-right: 30%;
+  }
+  p.n-line{
+    padding-top: 10em;
+  }
+  table.tabla-benef {
+    border: 1px solid;
+  }
+  table.tabla-benef td{
+    padding: 10px;
+    border-right: 1px solid;
+    background-color:#bfc3c9;
+  }
+  tr.tr-td-gray td{
+    background-color: darkgray;
+  }
+  p._blanco{
+    color: white;
+   -webkit-text-fill-color: white;
+   -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
   }
   .tb-th-asp input[type="submit"], .izq-decision input[type="submit"]{ /*BOTON PARA ACEPTAR*/
     background-color: green;
