@@ -42,11 +42,13 @@
 				<input type="submit" value="Denegar" class="denegar">
 			</form>
 		</div>
-		<form action="">
-			<div class="datos-proy">
-				<label for="objetivo"><textarea name="objetivo" cols="30" rows="10"></textarea> </label>
-			</div>
-		</form>
+		<div class="datos-proy">
+			<form action="">
+					<p>Objetivo del proyecto </p> <textarea name="objetivo-1" cols="150" rows="4"></textarea> 
+					<p>Breve descripcion del proyecto</p> <textarea name="descripcion" cols="150" rows="4"></textarea> 
+					<p>Impacto del proyecto</p>
+			</form>
+		</div>
 	</div>
 </body>
 </html>
