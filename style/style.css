@@ -265,3 +265,45 @@ body {
     margin-bottom: 10px;
     box-sizing: border-box;
 }
+/*--------------F--------------------------*/
+  .tb-th-asp{
+    border: 0px;
+  }
+  article{
+    background-color: rgb(69, 129, 142);
+    padding: 30px;
+    border-top: solid;
+    border-color: white;
+  }
+  .tb-th-asp input[type="submit"]{
+    border-style: solid;
+  }
+
+.form td{
+    width: 30%;
+    height: 40px;
+}
+label{
+    color: white;
+}
+section div{
+    margin: 3% 5% 0% 5%;
+    display: inline-block;
+}
+
+.btn-sl{
+  border-style: solid;
+  height: 30px;
+  width: 120px;
+}
+input[type="file"]{
+  position: relative;
+  top: 0%;
+  left:0%;
+  right: 0%;
+  bottom: 0%;
+  width: 100%;
+  height: 100%;
+  /*opacity: 0%;*/
+}
+/*-------------F------------------*/
