@@ -51,11 +51,15 @@
 						<th class="tb-th-asp">Número Estudiantes</th>
 						<th class="tb-th-asp">Tiempo Estimado</th>
 						<th class="tb-th-asp">Asesor</th>
-						<form action="">
+						<form action="deptoAcaAsigAsesor.php" method="_POST" target ="blank">
 							<th class="tb-th-asp">
+								<input type="hidden" name="id" value="<?php echo $i ?>">
 								<input type="submit" value="Asignar">
 							</th>
+						</form>
+						<form action="deptoAcaReasigAsesor.php" method="_POST" target ="blank">
 							<th class="tb-th-asb">
+								<input type="hidden" name="id" value="<?php echo $i ?>">
 								<input type="submit" value="Reasignar">
 							</th>
 						</form>
