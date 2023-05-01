@@ -1,24 +1,49 @@
 <?php
-    function conn(){
-        $host = 'mapachitos.cisuktad1m53.us-east-2.rds.amazonaws.com';
-        $user = 'admin';
-        $password = 'mapachitos123';
-        $db = 'Residencias';
-        $conection = @mysqli_connect($host, $user, $password, $db);
+function conn(){
+    $host = 'mapachitos.cisuktad1m53.us-east-2.rds.amazonaws.com';
+    $user = 'admin';
+    $password = 'mapachitos123';
+    $db = 'Residencias';
+    $conection = @mysqli_connect($host, $user, $password, $db);
 
-        if(!$conection){
-            echo 'Error de conexion';
-            return null;
-        }
-        return $conection;
+    if(!$conection){
+        echo 'Error de conexion';
+        return null;
     }
+    return $conection;
+}
 
 
-        
-    function Ejemplo() {
-        $conection = conn();
-        $consulta = "select xd............";
-        $query = mysqli_query($conection, $consulta);
-        return $query;
-    }
+
+function Ejemplo() {
+    $conection = conn();
+    $consulta = "select xd............";
+    $query = mysqli_query($conection, $consulta);
+    return $query;
+}
+    //Funciones NEFTALI logueo
+function GenerarLogAlum() {
+    $sql = "SELECT Alumnos.CorreoInstitucional, Alumnos.ContrasenaCorreo, Usuarios.URol, Usuarios.UID
+    FROM Alumnos 
+    INNER JOIN Alumno_Usuarios ON Alumnos.NumeroControl = Alumno_Usuarios.NumeroControl
+    INNER JOIN Usuarios ON Alumno_Usuarios.UID = Usuarios.UID";
+    return $sql;
+}
+function GenerarLogAProf() {
+    $sql="SELECT Profesor.CorreoInstitucional, Profesor.ContrasenaCorreo, Usuarios.URol, Usuarios.UID
+    FROM Profesor 
+    INNER JOIN Profesor_Usuarios ON Profesor.RFCProfesor = Profesor_Usuarios.RFCProfesor
+    INNER JOIN Usuarios ON Profesor_Usuarios.UID = Usuarios.UID";
+    return $sql;
+}
+function GenerarLogJefDept() {
+    $sql="SELECT DepartamentoAcademico.CorreoInstitucional, DepartamentoAcademico.ContrasenaCorreo, Usuarios.URol, Usuarios.UID
+    FROM DepartamentoAcademico 
+    INNER JOIN DepartamentoAcademico_Usuarios ON DepartamentoAcademico.RFCDepartamentoAcademico = DepartamentoAcademico_Usuarios.RFCDepartamentoAcademico
+    INNER JOIN Usuarios ON DepartamentoAcademico_Usuarios.UID = Usuarios.UID";
+    return $sql;
+}
+function GenerarLogADeptVin() {
+    return $sql;
+}
 ?>

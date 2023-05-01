@@ -3,8 +3,8 @@ if (file_exists('funciones.php')) {
 	include 'funciones.php';
 	//echo "LLego bien";
 	$username = $_POST['username'];
-	$username = $_POST['password'];
-	$username = $_POST['rol'];
+	$password = $_POST['password'];
+	$rol = $_POST['rol'];
 
 	$conection = conn();
 	if ($conection->connect_error){
@@ -12,20 +12,23 @@ if (file_exists('funciones.php')) {
 		echo"<script>alert('Servidor Fuera de Linea')</script>";
 		echo"<script  language='javascript'>window.location='login.php'</script>"; 
 	}else{
-		//echo "Todo bien";
-		
-
-		$sql = "SELECT Alumnos.CorreoInstitucional, Alumnos.ContrasenaCorreo, Usuarios.URol, Usuarios.UID
-		FROM Alumnos 
-		INNER JOIN Alumno_Usuarios ON Alumnos.NumeroControl = Alumno_Usuarios.NumeroControl
-		INNER JOIN Usuarios ON Alumno_Usuarios.UID = Usuarios.UID";
+		//echo "Todo bien";		
+		if ($rol == "Alumno") {
+			$sql=GenerarLogAlum();
+		}elseif ($rol == "Profesor") {
+			$sql=GenerarLogAProf();
+		}elseif ($rol == "JefDept") {
+			$sql=GenerarLogJefDept();
+		}elseif ($rol == "DeptVin") {
+			$sql=GenerarLogADeptVin();
+		}		
 
 		$result = $conection->query($sql);
 
 		if ($result->num_rows > 0) {
-			$row = $result->fetch_assoc();
+			$row = $result->fetch_array(MYSQLI_ASSOC);
 
-			if (($row["CorreoInstitucional"]==$username) ) {
+			if (($row["CorreoInstitucional"]==$username) && ($row["ContrasenaCorreo"]==$password)) {
 
 				$_SESSION['loggedin'] = true;
 				$_SESSION['username'] = $username;
@@ -35,7 +38,13 @@ if (file_exists('funciones.php')) {
 				$resultado = mysqli_query($conection, $sql);
 				while ($row = mysqli_fetch_assoc($resultado)) {
 					if ($row['URol']=="Alumno") {
-						echo "Eres una bestia";
+						//echo "Eres una bestia";
+						//header('Location: index.php');
+					}
+					if($row['URol']=="Profesor"){
+						//header('Location: index.php');
+					}
+					if($row['URol']=="JefDeptAca"){
 						//header('Location: index.php');
 					}
 
@@ -43,12 +52,12 @@ if (file_exists('funciones.php')) {
 
 			} else{
 				echo"<script>alert('Contraseña incorrecta.')</script>";
-				echo"<script  language='javascript'>window.location='login.html'</script>";  
+				echo"<script  language='javascript'>window.location='login.php'</script>";  
 			}
 
 		} else { 
 			echo"<script>alert('Su usuario no existe')</script>";
-			echo"<script  language='javascript'>window.location='login.html'</script>";  
+			echo"<script  language='javascript'>window.location='login.php'</script>";  
 		}
 		mysqli_close($conection);
 	}

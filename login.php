@@ -22,7 +22,7 @@
 						<select class="combo-select" name="rol">
 							<option value="Alumno">Alumno</option>
 							<option value="Profesor">Profesor</option>
-							<option value="Trabajador">Trabajador</option>
+							<option value="JefDept">Jefe de departamento Academico</option>
 						</select>
 					</div>
 					<button type="submit" value="Enviar">Login</button>
