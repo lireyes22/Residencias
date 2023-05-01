@@ -14,13 +14,13 @@ if (file_exists('funciones.php')) {
 	}else{
 		//echo "Todo bien";		
 		if ($rol == "Alumno") {
-			$sql=GenerarLogAlum();
+			$sql=GenerarLogAlum($username);
 		}elseif ($rol == "Profesor") {
 			$sql=GenerarLogAProf($username);
 		}elseif ($rol == "JefDept") {
-			$sql=GenerarLogJefDept();
+			$sql=GenerarLogJefDept($username);
 		}elseif ($rol == "DeptVin") {
-			$sql=GenerarLogADeptVin();
+			$sql=GenerarLogADeptVin($username);
 		}		
 
 		$result = $conection->query($sql);
