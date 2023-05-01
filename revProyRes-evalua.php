@@ -1,5 +1,11 @@
 <?php 
 	$idProy = $_POST['idProy'];
+	include ('funciones.php');
+	$link = conn();
+    $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
+    $query = "SELECT * FROM SolicitudProyecto WHERE SPID = '$idProy'";
+    $result = mysqli_query($link, $query);
+	$row = mysqli_fetch_array($result);
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,7 +20,7 @@
 		<div class="row">
 			<div class="left-column">
 				<a class="home-btn" href="a.html">
-					<h2><span style="margin-right: 10px;">Dep. Academico</span></h2>
+					<h2><span style="margin-right: 10px;">Profesor</span></h2>
 					<img src="img/sombrero.png" width="50px">
 				</a>
 			</div>
@@ -36,7 +42,7 @@
 	<div>
 		<div class="izq-decision">
 			<p>Nombre del Proyecto</p> 
-			<p class="izq-nomb-proy"><?php echo $idProy; ?></p>
+			<p class="izq-nomb-proy"><?php echo $row[0]," - ",$row[5]; ?></p>
 			<form action="revProyRes.php">
 				<input type="submit" value="Aceptar"> <br>
 				<input type="submit" value="Denegar" class="denegar">
@@ -44,7 +50,7 @@
 		</div>
 		<div class="datos-proy">
 			<form action="">
-					<p class="_blanco">Objetivo del proyecto </p> <textarea name="objetivo-1" cols="150" rows="4" disabled></textarea> 
+					<p class="_blanco">Objetivo del proyecto </p> <textarea name="objetivo-1" cols="150" rows="4" disabled > <?php echo $row[6] ?> </textarea> 
 					<p class="_blanco">Breve descripcion del proyecto</p> <textarea name="descripcion" cols="150" rows="4" disabled></textarea> 
 					<p>Impacto del proyecto</p>
 					<p class="_blanco"><?php echo "Aqui va el impacto del proyecto" ?></p>
@@ -55,7 +61,7 @@
 					<input type="text" name="docente" size="155" disabled> <br> <br> 
 					<div class="doble-fila">
 						<label class="lbl" for="estudiantes-req">Cantidad de estudiantes requeridos: </label>
-						<input class="res" type="text" name="estudiantes-req" size="2" disabled>
+						<input class="res" type="text" name="estudiantes-req" size="2" disabled value=<?php echo $row[7]; ?>>
 						<label class="lbl" for="tiempo-est">Tiempo estimado de proyecto: </label>
 						<input class="res" type="text" name="tiempo-est" size="10" disabled> <br><br>
 						<div class="carrera-req">
