@@ -60,7 +60,7 @@
 						<form action="revProyRes-evalua.php" target="BLANK" method="post">
 							<th class="tb-th-asp">
 								<input type="hidden" name="idProy" value=<?php echo $row[0] ?>>
-								<input type="submit" value="Asignar">
+								<input type="submit" value="Revisar">
 							</th>
 						</form>
 					</tr>
