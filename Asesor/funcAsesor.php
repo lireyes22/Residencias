@@ -15,6 +15,9 @@ function conn(){
 
 function consultaRet($consulta) {
     $conection = conn();
+    $sql = "SELECT * FROM Usuarios
+    INNER JOIN 
+    ";
     $query = mysqli_query($conection, $consulta);
     // vaciar el buffer de resultados
     while (mysqli_next_result($conection)) { }
