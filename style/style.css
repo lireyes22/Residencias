@@ -260,14 +260,13 @@ p._blanco {
 }
 
 .tb-th-asp input[type="submit"]:hover,
-.izq-decision input[type="submit"]:hover {
-  /*HOVER PARA ACEPTAR*/
+.izq-decision input[type="submit"]:hover {/*HOVER PARA ACEPTAR*/
   cursor: pointer;
   background-color: white;
   color: green;
 }
 
-  .tb-th-asb input[type="submit"], .izq-decision input[type="submit"]{ /*BOTON PARA ACEPTAR*/
+  .tb-th-asb input[type="submit"]{ /*BOTON PARA ACEPTAR*/
     background-color: #45818e;
     color: white;
     border: 2px solid white;
@@ -277,7 +276,7 @@ p._blanco {
     font-weight: bold;
   }
 
-  .tb-th-asb input[type="submit"]:hover, .izq-decision input[type="submit"]:hover { /*HOVER PARA ACEPTAR*/
+  .tb-th-asb input[type="submit"]:hover { /*HOVER PARA ACEPTAR*/
     cursor: pointer;
     background-color: white;
     color: #45818e;
