@@ -38,15 +38,28 @@
 	</div>
 	<div class="main-cont">
 		<form action="">
-		<div>
-			<label for="noOficio">No. de Oficio</label>
-			
+		<div class="panel-izq">
+			<label for="noOficio">No. de Oficio: </label>
+			<input type="text" name="noOficio"> <br> <br>
+			<label for="depto">Departamento: </label>
+			<input type="text" name="depto"> <br> <br>
+			<label for="nombre">Nombre de Residente: </label>
+			<input type="text" name="nombre"> <br> <br>
+			<label for="periodo">Perido de Realizacion: </label>
+			<input type="text" name="periodo"> <br> <br>
 		</div>
-		<div>
-			
+		<div class="panel-der">
+			<label for="fecha">Fecha: </label>
+			<input type="date" name="fecha"> <br> <br>
+			<label for="docente">Docente: </label>
+			<input type="text" name="docente"> <br> <br>
+			<label for="carrera">Carrera: </label>
+			<input type="text" name="carrera"> <br> <br>
+			<label for="empresa">Empresa: </label>
+			<input type="text" name="empresa"> <br> <br>
 		</div>
 		<div class="tb-th-asp">
-			<input type="submit" value="Asignar">
+			<input class="medium" type="submit" value="Asignar">
 		</div>
 		</form>
 	</div>
