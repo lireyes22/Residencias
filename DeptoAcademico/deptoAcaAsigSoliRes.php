@@ -10,7 +10,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="left-column">
-				<a class="home-btn" href="a.html">
+				<a class="home-btn" href="index.php">
 					<h2><span style="margin-right: 10px;">Dep. Academico</span></h2>
 					<img src="../img/sombrero.png" width="50px">
 				</a>
