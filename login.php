@@ -15,17 +15,17 @@
 				<h1>Login</h1>
 			</div>
 			<div class="box2">
-				<form>							
+				<form action="procesarLogin.php" method="POST">							
 					<input type="text" id="username" name="username" placeholder="Usuario">
 					<input type="password" id="password" name="password" placeholder="Password">
 					<div class="combo">
-						<select class="combo-select">
-							<option value="option1">Alumno</option>
-							<option value="option2">Profesor</option>
-							<option value="option3">Trabajador</option>
+						<select class="combo-select" name="rol">
+							<option value="Alumno">Alumno</option>
+							<option value="Profesor">Profesor</option>
+							<option value="Trabajador">Trabajador</option>
 						</select>
 					</div>
-					<button type="submit">Login</button>
+					<button type="submit" value="Enviar">Login</button>
 				</form>
 			</div>
 		</div>
