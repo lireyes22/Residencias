@@ -1,0 +1,54 @@
+<?php 
+	include ('funciones.php');
+	$link = conn();
+    $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
+    $query = "SELECT * FROM SolicitudProyecto";
+    $result = mysqli_query($link, $query);
+?>
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Departamento Academico</title>
+	<link rel="stylesheet" href="style/style.css">
+</head>
+
+<body style="margin: 0;">
+	<div class="container">
+		<div class="row">
+			<div class="left-column">
+				<a class="home-btn" href="a.html">
+					<h2><span style="margin-right: 10px;">Dep. Academico</span></h2>
+					<img src="img/sombrero.png" width="50px">
+				</a>
+			</div>
+			<div class="center-column">
+				<h1>Asignación de Asesor</h1>
+			</div>
+			<div class="right-column">
+				<a href="a.html"><img src="img/logout.png" width="40px"></a>
+			</div>
+		</div>
+		<div class="button-row">
+			<a href="a.html" class="button-link">Profesores</a>
+			<a href="asigAsesor.php" class="button-link">Solicitudes de Residencias</a>
+			<a href="asigProyRes.php" class="button-link">Solicitudes de Proyectos</a>
+			<a href="a.html" class="button-link">Lista proyectos</a>
+		</div>
+	</div>
+	<div class="main-cont">
+		<form action="">
+		<div>
+			<label for="noOficio">No. de Oficio</label>
+			
+		</div>
+		<div>
+			
+		</div>
+		<div class="tb-th-asp">
+			<input type="submit" value="Asignar">
+		</div>
+		</form>
+	</div>
+</body>
+</html>
