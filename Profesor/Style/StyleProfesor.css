@@ -1,63 +1,43 @@
-/*-------------CSS PARA AsesorInternoSRP------------------*/
-.containerSRP {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.column-SRP1 {
-    width: 20%;
-    height: 100px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-left: 10px;
-    background-color: red;
-}
-
-.column-SRP2 {
-    width: 40%;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: blue;
-}
-
-.column-SRP3 {
-    width: 40%;
-    height: 100px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 10px;
-    background-color: green;
-}
-
-.home-btn {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
+/* Estilos para el botón del menú desplegable */
+.dropbtn {
+    background-color: #4CAF50;
     color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
 }
 
-/* TABLA DE ALUMNOS DEL ASESOR */
-table {
-    border-collapse: collapse;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    font-family: Arial, sans-serif;
+/* Estilos para la lista desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
 
-th,
-td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+.dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-th {
-    background-color: #eee;
-    font-weight: bold;
+.dropdown-content li a {
+    color: #f1f1f1;
+    background-color: #2A424D;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-content li a:hover {
+    background-color: #f1f1f1;
+    color: #2A424D;
+}
+
+/* Mostrar la lista desplegable cuando el botón es clickeado */
+.dropdown:hover .dropdown-content {
+    display: block;
 }

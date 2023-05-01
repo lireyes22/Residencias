@@ -45,7 +45,7 @@ if (file_exists('funciones.php')) {
 						//header('Location: index.php');
 					}
 					if($row['URol']=="Profesor"){
-						header('Location: indexProfesor.html');
+						header('Location: Profesor/indexProfesor.html');
 					}
 					if($row['URol']=="JefDeptAca"){
 						//header('Location: index.php');
