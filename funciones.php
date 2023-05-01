@@ -10,6 +10,7 @@ function conn(){
         echo 'Error de conexion';
         return null;
     }
+    mysqli_set_charset($conection, "utf8");
     return $conection;
 }
 
@@ -22,25 +23,25 @@ function Ejemplo() {
     return $query;
 }
     //Funciones NEFTALI logueo
-function GenerarLogAlum() {
+function GenerarLogAlum($correo) {
     $sql = "SELECT Alumnos.CorreoInstitucional, Alumnos.ContrasenaCorreo, Usuarios.URol, Usuarios.UID
     FROM Alumnos 
     INNER JOIN Alumno_Usuarios ON Alumnos.NumeroControl = Alumno_Usuarios.NumeroControl
-    INNER JOIN Usuarios ON Alumno_Usuarios.UID = Usuarios.UID";
+    INNER JOIN Usuarios ON Alumno_Usuarios.UID = Usuarios.UID WHERE Alumnos.CorreoInstitucional='$correo'";
     return $sql;
 }
-function GenerarLogAProf() {
+function GenerarLogAProf($correo) {
     $sql="SELECT Profesor.CorreoInstitucional, Profesor.ContrasenaCorreo, Usuarios.URol, Usuarios.UID
     FROM Profesor 
     INNER JOIN Profesor_Usuarios ON Profesor.RFCProfesor = Profesor_Usuarios.RFCProfesor
-    INNER JOIN Usuarios ON Profesor_Usuarios.UID = Usuarios.UID";
+    INNER JOIN Usuarios ON Profesor_Usuarios.UID = Usuarios.UID WHERE Profesor.CorreoInstitucional='$correo'";
     return $sql;
 }
-function GenerarLogJefDept() {
+function GenerarLogJefDept($correo) {
     $sql="SELECT DepartamentoAcademico.CorreoInstitucional, DepartamentoAcademico.ContrasenaCorreo, Usuarios.URol, Usuarios.UID
     FROM DepartamentoAcademico 
     INNER JOIN DepartamentoAcademico_Usuarios ON DepartamentoAcademico.RFCDepartamentoAcademico = DepartamentoAcademico_Usuarios.RFCDepartamentoAcademico
-    INNER JOIN Usuarios ON DepartamentoAcademico_Usuarios.UID = Usuarios.UID";
+    INNER JOIN Usuarios ON DepartamentoAcademico_Usuarios.UID = Usuarios.UID WHERE DepartamentoAcademico.CorreoInstitucional='$correo'";
     return $sql;
 }
 function GenerarLogADeptVin() {

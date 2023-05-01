@@ -16,7 +16,7 @@ if (file_exists('funciones.php')) {
 		if ($rol == "Alumno") {
 			$sql=GenerarLogAlum();
 		}elseif ($rol == "Profesor") {
-			$sql=GenerarLogAProf();
+			$sql=GenerarLogAProf($username);
 		}elseif ($rol == "JefDept") {
 			$sql=GenerarLogJefDept();
 		}elseif ($rol == "DeptVin") {
@@ -27,6 +27,9 @@ if (file_exists('funciones.php')) {
 
 		if ($result->num_rows > 0) {
 			$row = $result->fetch_array(MYSQLI_ASSOC);
+			echo $username;
+			echo $password;
+			echo $rol;
 
 			if (($row["CorreoInstitucional"]==$username) && ($row["ContrasenaCorreo"]==$password)) {
 
@@ -52,7 +55,7 @@ if (file_exists('funciones.php')) {
 
 			} else{
 				echo"<script>alert('Contraseña incorrecta.')</script>";
-				echo"<script  language='javascript'>window.location='login.php'</script>";  
+				//echo"<script  language='javascript'>window.location='login.php'</script>";  
 			}
 
 		} else { 
