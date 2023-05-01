@@ -33,9 +33,31 @@
     padding-right: 10px;
     background-color: green;
 }
+
 .home-btn {
     display: flex;
     align-items: center;
     text-decoration: none;
     color: white;
+}
+
+/* TABLA DE ALUMNOS DEL ASESOR */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #eee;
+    font-weight: bold;
 }
