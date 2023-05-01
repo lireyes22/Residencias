@@ -3,7 +3,7 @@
 
 <head>
 	<title>Departamento Academico</title>
-	<link rel="stylesheet" href="style/style.css">
+	<link rel="stylesheet" href="../style/style.css">
 </head>
 
 <body style="margin: 0;">
@@ -12,14 +12,14 @@
 			<div class="left-column">
 				<a class="home-btn" href="a.html">
 					<h2><span style="margin-right: 10px;">Dep. Academico</span></h2>
-					<img src="img/sombrero.png" width="50px">
+					<img src="../img/sombrero.png" width="50px">
 				</a>
 			</div>
 			<div class="center-column">
 				<h1>Asignación de Solicitud de Residencia</h1>
 			</div>
 			<div class="right-column">
-				<a href="a.html"><img src="img/logout.png" width="40px"></a>
+				<a href="a.html"><img src="../img/logout.png" width="40px"></a>
 			</div>
 		</div>
 		<div class="button-row">
