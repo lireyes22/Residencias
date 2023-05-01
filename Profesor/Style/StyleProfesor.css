@@ -1,6 +1,6 @@
 /* Estilos para el botón del menú desplegable */
 .dropbtn {
-    background-color: #4CAF50;
+    background-color: #2A424D;
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -40,4 +40,10 @@
 /* Mostrar la lista desplegable cuando el botón es clickeado */
 .dropdown:hover .dropdown-content {
     display: block;
+}
+.home-btn {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
 }
