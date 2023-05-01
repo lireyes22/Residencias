@@ -1,5 +1,5 @@
 <?php
-	include 'funciones.php';
+	include 'funcProfesor.php';
 ?>
 <!DOCTYPE html>
 <html>

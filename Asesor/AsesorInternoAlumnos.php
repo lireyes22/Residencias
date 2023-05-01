@@ -27,7 +27,7 @@
                 <h1>Titulo de pagina mamalona</h1>
             </div>
             <div class="right-column">
-                <a href="a.html"><img src="img/logout.png" width="40px"></a>
+                <a href="a.html"><img src="../img/logout.png" width="40px"></a>
             </div>
         </div>
         <div class="button-row">
