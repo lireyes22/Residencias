@@ -1,0 +1,63 @@
+/*-------------CSS PARA AsesorInternoSRP------------------*/
+.containerSRP {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.column-SRP1 {
+    width: 20%;
+    height: 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10px;
+    background-color: red;
+}
+
+.column-SRP2 {
+    width: 40%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+}
+
+.column-SRP3 {
+    width: 40%;
+    height: 100px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10px;
+    background-color: green;
+}
+
+.home-btn {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+/* TABLA DE ALUMNOS DEL ASESOR */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #eee;
+    font-weight: bold;
+}
