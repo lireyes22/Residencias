@@ -133,7 +133,7 @@ body {
 /* Estilo de la barra de desplazamiento */
   ::-webkit-scrollbar {
     width: 10px;
-    background-color: #1E1E1E;
+    height: 10px;
   }
   
   /* Estilo del botón de desplazamiento */
@@ -231,6 +231,21 @@ body {
     cursor: pointer;
     background-color: white;
     color: green;
+  }
+
+   .tb-th-asb input[type="submit"]{ /*BOTON PARA ACEPTAR*/
+    background-color: #45818e;
+    color: white;
+    border: 2px solid white;
+    border-radius: 0;
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  .tb-th-asb input[type="submit"]:hover{ /*HOVER PARA ACEPTAR*/
+    cursor: pointer;
+    background-color: white;
+    color: #45818e;
   }
 
   .izq-decision input[type="submit"].denegar{ /*BOTON PARA DENEGAR*/

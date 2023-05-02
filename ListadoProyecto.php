@@ -46,12 +46,11 @@
 	<div class="tabla-scroll">
 		<table class="tb-asp">
 			<tr>
-				<td class="sticky">Nombre del proyecto</td>
-				<td class="sticky">Objetivo</td>
-				<td class="sticky">Numero Estudiantes</td>
-				<td class="sticky">Tiempo Estimado</td>
-				<td class="sticky">Docente responsable</td>
-				<td class="sticky">Asignar a: </td>
+			<th class="sticky">Nombre del Proyecto</th>
+				<td class="sticky">Objetivo Proyecto</td>
+				<td class="sticky">Partcipantes</td>
+				<td class="sticky">Campos</td>
+				<td class="sticky">Descripción</td>
 				<td class="sticky">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 			</tr>
 			<tr>
@@ -60,23 +59,14 @@
 				while ($i < 100) {
 				?>
 			<tr <?php if ($i % 2 == 0) echo "class='par'" ?>>
-				<th class="tb-th-asp">Nombre</th>
-				<th class="tb-th-asp">Objetivo</th>
-				<th class="tb-th-asp">Numero Estudiantes</th>
-				<th class="tb-th-asp">Tiempo Estimado</th>
-				<th class="tb-th-asp">Docente responsable</th>
+				<th class="tb-th-asp">Nombre del Proyecto</th>
+				<th class="tb-th-asp">Objetivo Proyecto</th>
+				<th class="tb-th-asp">Partcipantes</th>
+				<th class="tb-th-asp">Campos</th>
+				<th class="tb-th-asp">Descripción</th>
 				<form action="">
 					<th class="tb-th-asp">
-						<select name="comision">
-							<option>option 1</option>
-							<option>option 2</option>
-							<option>option 3</option>
-							<option> option 4 </option>
-							<option> option 5 </option>
-						</select>
-					</th>
-					<th class="tb-th-asp">
-						<input type="submit" value="Asignar">
+						<input type="submit" value="Solicitar">
 					</th>
 				</form>
 			</tr>
