@@ -47,6 +47,8 @@
 			<input type="text" name="nombre" disabled> <br> <br>
 			<label for="periodo">Perido de Realizacion: </label>
 			<input type="text" name="periodo" disabled> <br> <br>
+			<label for="razon">Razon de la reasignacion: </label> 
+			<input type="text" name="razon"> <br> <br>
 		</div>
 		<div class="panel-der">
 			<label for="fecha">Fecha: </label>
