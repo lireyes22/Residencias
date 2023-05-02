@@ -257,11 +257,15 @@
                     </div>
                 </div>                  
             </div>
+
+            <div class="caja-tb-th-asp" >
+                    <center>
+                        <input type="submit" value="Enviar Solicitud">
+                    </center>
+                </div>
             </form>
-            <div class="caja tb-th-asp">
-                <input type="submit" value="Enviar Solicitud">
-            </div>
         </section>
+        
     </article>
     </fieldset>
     <footer></footer>
