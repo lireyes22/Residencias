@@ -117,9 +117,6 @@ body {
     min-width: 132.210px;
     max-width: 132.210px;
 }
-th.tb-th-asp{
-  border-right: 1px solid;
-}
 .sticky, .tb-th-asp{
     padding-right: 5px;
     padding-left: 5px;
@@ -129,16 +126,14 @@ th.tb-th-asp{
     width: 100%;
 }
 .tb-asp, .sticky, .tb-th-asp{
+    border: 1px solid;
     border-collapse: collapse;
     text-align: center;
-}
-td.sticky{
-  border: 1px solid;
 }
 /* Estilo de la barra de desplazamiento */
   ::-webkit-scrollbar {
     width: 10px;
-    
+    height: 10px;
   }
   
   /* Estilo del botón de desplazamiento */
@@ -238,6 +233,21 @@ td.sticky{
     color: green;
   }
 
+  .tb-th-asb input[type="submit"], .izq-decision input[type="submit"]{ /*BOTON PARA ACEPTAR*/
+    background-color: #45818e;
+    color: white;
+    border: 2px solid white;
+    border-radius: 0;
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  .tb-th-asb input[type="submit"]:hover, .izq-decision input[type="submit"]:hover { /*HOVER PARA ACEPTAR*/
+    cursor: pointer;
+    background-color: white;
+    color: #45818e;
+  }
+
   .izq-decision input[type="submit"].denegar{ /*BOTON PARA DENEGAR*/
     background-color: red;
   }
@@ -250,33 +260,6 @@ td.sticky{
     margin-left: 30%;
   }
   
-  .main-cont {
-    padding: 5em;
-    min-width: 91.3%;
-    min-height: 600px;
-  }
-  
-  .panel-izq {
-    float: left;
-  }
-  
-  .panel-izq label {
-    margin-left: 20em;
-  }
-  
-  .panel-der {
-    float: right;
-  }
-  
-  .panel-der input {
-    margin-right: 30em;
-  }
-  
-  .tb-th-asp .medium {
-    margin-left: 65em;
-  }
-  
-
 @font-face {
     font-family: comfortaa;
     src: url("TipoLetra/Comfortaa-Bold");
@@ -298,12 +281,10 @@ td.sticky{
     box-sizing: border-box;
 }
 /*--------------F--------------------------*/
-/* No le muevas a una clase general asi porfa
-  puedes usarla pero no cambies asi el estilo
 .tb-th-asp{
   border: 0px;
 }
-*/
+
 #fm-re{
   background-color: rgb(69, 129, 142);
   padding: 30px;
