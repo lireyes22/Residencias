@@ -138,7 +138,7 @@ td.sticky{
 /* Estilo de la barra de desplazamiento */
   ::-webkit-scrollbar {
     width: 10px;
-    background-color: #1E1E1E;
+    
   }
   
   /* Estilo del botón de desplazamiento */
