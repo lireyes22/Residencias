@@ -11,6 +11,7 @@
 <head>
 	<title>Departamento Academico</title>
 	<link rel="stylesheet" href="../style/style.css">
+	<link rel="stylesheet" href="style/styleDepto.css">
 </head>
 
 <body style="margin: 0;">
