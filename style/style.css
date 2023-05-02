@@ -125,6 +125,9 @@ body {
 .tb-asp{
     width: 100%;
 }
+th.tb-th-asp{ /* PELIGRO */ 
+  border-right: 1px solid;
+}
 .tb-asp, .sticky, .tb-th-asp{
     border: 1px solid;
     border-collapse: collapse;
