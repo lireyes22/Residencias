@@ -64,7 +64,7 @@
 							$row2 = mysqli_fetch_array($result2);						
 						?>
 						<th class="tb-th-asp"><?php if (!empty($row2[0])){  echo $row2[0];}else{ echo "Sin Responsable";} ?></th>
-						<form action="">
+						<form action="docs/generador.php"> 
 							<th class="tb-th-asp">
 							<select name="comision">
 								<?php 

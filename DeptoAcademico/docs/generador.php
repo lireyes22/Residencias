@@ -1,14 +1,14 @@
 <?php
-    $departamento = $_POST['departamento'];
-    $noOficio = $_POST['noOficio'];
-    $fecha = $_POST['fecha'];
-    $nombProfesor = $_POST['profesor'];
+    $departamento = $_POST['departamento']; 
+    $noOficio = $_POST['noOficio']; 
+    $fecha = $_POST['fecha']; 
+    $nombProfesor = $_POST['profesor']; 
     $dia = $_POST['dia'];
     $mes = $_POST['mes'];
-    $nombResidente = $_POST['residente'];
-    $carrera = $_POST['carrera'];
-    $nombProyecto = $_POST['proyecto'];
-    $firma = $_POST['firma'];
+    $nombResidente = $_POST['residente']; 
+    $carrera = $_POST['carrera']; 
+    $nombProyecto = $_POST['proyecto']; 
+    $firma = $_POST['firma']; 
     ob_start();
 ?>
     <?php
@@ -117,7 +117,7 @@ $imagenBase64 = "data:image/png;base64," . base64_encode(file_get_contents($nomb
 <?php 
     $doc = ob_get_clean();
     //echo $doc;
-    require_once 'lib/dompdf/autoload.inc.php';
+    require_once '../../lib/dompdf/autoload.inc.php';
     use Dompdf\Dompdf;
     $dompdf = new Dompdf();
 
