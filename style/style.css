@@ -126,7 +126,7 @@ body {
     width: 100%;
 }
 .tb-asp, .sticky, .tb-th-asp{
-    border: 1px solid;
+    /* border: 1px solid; */
     border-collapse: collapse;
     text-align: center;
 }
