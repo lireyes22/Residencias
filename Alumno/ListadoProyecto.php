@@ -3,7 +3,8 @@
 
 <head>
 	<title>Listado De Proyectos</title>
-	<link rel="stylesheet" href="style/style.css">
+	<link rel="stylesheet" href="styleAlumno.css">
+	<link rel="stylesheet" href="../style/style.css">
 
 </head>
 
