@@ -3,7 +3,7 @@
 
 <head>
 	<title>Mi sitio web</title>
-	<link rel="stylesheet" href="../style/style.css">
+	<link rel="stylesheet" href="/styleAlumno.css">
 </head>
 
 <body style="margin: 0;">
