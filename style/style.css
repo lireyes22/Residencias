@@ -117,6 +117,9 @@ body {
     min-width: 132.210px;
     max-width: 132.210px;
 }
+th.tb-th-asp{
+  border-right: 1px solid;
+}
 .sticky, .tb-th-asp{
     padding-right: 5px;
     padding-left: 5px;
@@ -126,9 +129,11 @@ body {
     width: 100%;
 }
 .tb-asp, .sticky, .tb-th-asp{
-    border: 1px solid;
     border-collapse: collapse;
     text-align: center;
+}
+td.sticky{
+  border: 1px solid;
 }
 /* Estilo de la barra de desplazamiento */
   ::-webkit-scrollbar {
@@ -266,10 +271,12 @@ body {
     box-sizing: border-box;
 }
 /*--------------F--------------------------*/
+/* No le muevas a una clase general asi porfa
+  puedes usarla pero no cambies asi el estilo
 .tb-th-asp{
   border: 0px;
 }
-
+*/
 #fm-re{
   background-color: rgb(69, 129, 142);
   padding: 30px;
