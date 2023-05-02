@@ -1,6 +1,6 @@
 <?php 
 	$idProy = $_POST['idProy'];
-	include ('funciones.php');
+	include ('funcProfesor.php');
 	$link = conn();
     $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
     $query = "SELECT * FROM SolicitudProyecto WHERE SPID = '$idProy'";
@@ -12,14 +12,14 @@
 
 <head>
 	<title>Profesor</title>
-	<link rel="stylesheet" href="style/style.css">
+	<link rel="stylesheet" href="../style/style.css">
 </head>
 
 <body style="margin: 0;">
 	<div class="container">
 		<div class="row">
 			<div class="left-column">
-				<a class="home-btn" href="a.html">
+				<a class="home-btn" href="index.php">
 					<h2><span style="margin-right: 10px;">Profesor</span></h2>
 					<img src="../img/sombrero.png" width="50px">
 				</a>
@@ -36,14 +36,14 @@
 			<a href="a.html" class="button-link">Proyectos Registrados</a>
 			<a href="a.html" class="button-link">Registrar Proyecto</a>
 			<a href="a.html" class="button-link">Solicitudes de Residencia</a>
-			<a href="revProyRes.php" class="button-link">Solicitudes de Proyecto</a>
+			<a href="profesorRevProyRes.php" class="button-link">Solicitudes de Proyecto</a>
 		</div>
 	</div> 
 	<div>
 		<div class="izq-decision">
 			<p>Nombre del Proyecto</p> 
 			<p class="izq-nomb-proy"><?php echo $row[0]," - ",$row[5]; ?></p>
-			<form action="revProyRes.php">
+			<form action="profesorRevProyRes.php">
 				<input type="submit" value="Aceptar"> <br>
 				<input type="submit" value="Denegar" class="denegar">
 			</form>
