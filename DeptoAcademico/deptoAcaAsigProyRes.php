@@ -57,15 +57,25 @@
 						<th class="tb-th-asp"><p><?php echo $row[6]?></p></th>
 						<th class="tb-th-asp"><p><?php echo $row[7]?></p></th>
 						<th class="tb-th-asp">Tiempo Estimado</th>
-						<th class="tb-th-asp">Docente responsable</th>
+						<?php 
+							$row2 = "NULL"; 
+							$query = "SELECT `Profesor`.`NombreCompleto`,`Profesor`.`DID`  FROM `SolicitudProyecto` INNER JOIN `Profesor_Usuarios` INNER JOIN `Profesor` ON `SolicitudProyecto`.`ID_Asesor_Sugerido` = `Profesor_Usuarios`.`UID`AND `Profesor_Usuarios`.`RFCProfesor` = `Profesor`.`RFCProfesor`  WHERE `SolicitudProyecto`.`ID_Asesor_Sugerido` = '$row[3]';";
+							$result2 = mysqli_query($link, $query);
+							$row2 = mysqli_fetch_array($result2);						
+						?>
+						<th class="tb-th-asp"><?php if (!empty($row2[0])){  echo $row2[0];}else{ echo "Sin Responsable";} ?></th>
 						<form action="">
 							<th class="tb-th-asp">
 							<select name="comision">
-								<option>option 1</option>
-								<option>option 2</option>
-								<option>option 3</option>
-								<option>option 4</option>
-								<option>option 5</option>
+								<?php 
+									$query2 = "SELECT RFCProfesor, NombreCompleto FROM Profesor WHERE Profesor.DID = '$row2[1]'";
+									$result3 = mysqli_query($link, $query2);
+									while ($row3 = mysqli_fetch_array($result3)){
+										?>
+											<option value="<?php echo $row3[0]; ?>"> <?php echo $row3[1] ?> </option>
+										<?php
+									}
+								?>
 							</select>
 							</th>
 							<th class="tb-th-asp">
