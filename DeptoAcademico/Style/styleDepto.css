@@ -1,0 +1,26 @@
+.main-cont {
+    padding: 5em;
+    min-width: 91.3%;
+    min-height: 600px;
+  }
+  
+  .panel-izq {
+    float: left;
+  }
+  
+  .panel-izq label {
+    margin-left: 20em;
+  }
+  
+  .panel-der {
+    float: right;
+  }
+  
+  .panel-der input {
+    margin-right: 30em;
+  }
+  
+  .tb-th-asp .medium {
+    margin-left: 65em;
+  }
+  
