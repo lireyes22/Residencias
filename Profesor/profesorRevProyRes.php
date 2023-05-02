@@ -29,10 +29,10 @@
 			</div>
 		</div>
 		<div class="button-row">
-			<a href="a.html" class="button-link">Comisiones</a>
+		<a href="a.html" class="button-link">Comisiones</a>
 			<a href="a.html" class="button-link">Proyectos Registrados</a>
 			<a href="a.html" class="button-link">Registrar Proyecto</a>
-			<a href="a.html" class="button-link">Solicitudes de Residencia</a>
+			<a href="profesorSoliRes.php" class="button-link">Solicitudes de Residencia</a>
 			<a href="profesorRevProyRes.php" class="button-link">Solicitudes de Proyecto</a>
 		</div>
 	</div>
