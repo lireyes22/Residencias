@@ -82,7 +82,7 @@
 					<input type="radio" name="ISC" value="" <?php echo "" ?> disabled>
 					<label for="ISC">Sistemas, bases de datos y plataformas computacionales (LGAC-2017-CHET-ISCO-14) ISC</label><br>
 					<p class="_blanco">¿Cómo se beneficiarán los estudiante?</p>
-					<table class="tabla-benef">
+					<?php /*<table class="tabla-benef">
 						<tr>
 							<td>Servicio Social</td>
 							<td><input type="text" name="srvSocial" disabled size="5"></td>
@@ -107,7 +107,8 @@
 							<td>Oportunidad laboral</td>
 							<td><input type="text" name="OportLab" disabled size="5"></td>
 						</tr>
-					</table>
+					</table>*/
+					?>
 					<p class="_blanco">Incluya las referencias esenciales para enmarcar el contenido de su propuesta.</p>
 					<textarea name="refEsenciales" cols="150" rows="4" disabled></textarea>
 			</form>
