@@ -26,9 +26,9 @@
 		</div>
 		<div class="button-row">
 			<a href="" class="button-link">Profesores</a>
-			<a href="a.html" class="button-link">Solicitudes de Residencia</a>
+			<a href="AlumSolicitudResidencia.php" class="button-link">Solicitudes de Residencia</a>
 			<a href="a.html" class="button-link">Solicitudes de Proyectos</a>
-			<a href="a.html" class="button-link">Lista Proyectos</a>
+			<a href="AlumListadoProyecto.php" class="button-link">Lista Proyectos</a>
 		</div>
 	</div>
     <br>
