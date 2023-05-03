@@ -244,29 +244,36 @@
                     <label for="telefono">Teléfono:</label>
                     <input type="tel" name="telAlumno" id="telefono" placeholder="983-445-6778" required>
                 </div>
-                <div id="firma" class="form-row">
-                    <div>
-                        <label for="firma">Firma del Estudiante: </label>
-                        <input type="file" id="firma" name="firma" required>
-                    </div>
-                </div>
-                <div id="antepro" class="form-row">
-                    <div>
-                        <label for="SRAnteProyecto">Anteproyecto: </label>
-                        <input type="file" id="SRAnteProyecto" name="SRAnteProyecto" required>
-                    </div>
-                </div>                  
-            </div>
 
-            <div class="caja-tb-th-asp" >
+            </div>                  
+        </div>
+
+            <div class="caja-tb-th-asp" align="center">
                     <center>
                         <input type="submit" value="Enviar Solicitud">
                     </center>
                 </div>
             </form>
         </section>
-        
+        <div align="left">
+                    <label for="SRAnteProyecto">Firma del estudiante: </label>
+                        <div class="form-group" align="left">
+                            <label for="file-input">
+                            <img src="../img/archivo.jpg" width="70px"/>
+                            </label>
+                            <input id="file-input" type="file" />
+                        </div>
+                    </div>
     </article>
+    <div align="right">
+                    <label for="SRAnteProyecto">Anteproyecto: </label>
+                        <div class="form-group" align="right">
+                            <label for="file-input">
+                            <img src="../img/archivo.jpg" width="70px"/>
+                            </label>
+                            <input id="file-input" type="file" />
+                        </div>
+                    </div>
     </fieldset>
     <footer></footer>
 </body>
