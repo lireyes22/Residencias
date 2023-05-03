@@ -73,9 +73,11 @@
 						<td><?php echo $row['SPVacantes']; ?></td>
 						<td><?php echo $row['campos']; ?></td>
 						<td><?php echo $row['descripcion']; ?></td>
-						<td>
-							<button class="tb-th-asp" data-proyecto-id="<?php echo $row['SPEstatus_Proyecto']; ?>">Solicitar</button>
-						</td>
+						<form action="">
+							<th class="tb-th-asp">
+								<input type="submit" value="Solicitar" data-proyecto-id="<?php echo $row['SPEstatus_Proyecto']; ?>">
+							</th>
+						</form>
 					</tr>
 				<?php
 					$i++;
