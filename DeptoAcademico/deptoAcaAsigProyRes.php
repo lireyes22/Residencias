@@ -53,13 +53,13 @@
 				while ($row = mysqli_fetch_array($result)){
 					?>
 					<tr <?php if($i%2==0) echo "class='par'" ?> >
-						<th class="tb-th-asp"><p><?php echo $row[5]?></p></th>
+						<th class="tb-th-asp"><p><?php echo $row[1]?></p></th>
+						<th class="tb-th-asp"><p><?php echo $row[2]?></p></th>
 						<th class="tb-th-asp"><p><?php echo $row[6]?></p></th>
-						<th class="tb-th-asp"><p><?php echo $row[7]?></p></th>
-						<th class="tb-th-asp">Tiempo Estimado</th>
+						<th class="tb-th-asp"><?php echo $row[7]?></th>
 						<?php 
 							$row2 = "NULL"; 
-							$query = "SELECT `Profesor`.`NombreCompleto`,`Profesor`.`DID`  FROM `SolicitudProyecto` INNER JOIN `Profesor_Usuarios` INNER JOIN `Profesor` ON `SolicitudProyecto`.`ID_Asesor_Sugerido` = `Profesor_Usuarios`.`UID`AND `Profesor_Usuarios`.`RFCProfesor` = `Profesor`.`RFCProfesor`  WHERE `SolicitudProyecto`.`ID_Asesor_Sugerido` = '$row[3]';";
+							$query = "SELECT `Profesor`.`NombreCompleto`,`Profesor`.`DID`  FROM `SolicitudProyecto` INNER JOIN `Profesor_Usuarios` INNER JOIN `Profesor` ON `SolicitudProyecto`.`UIDResponsable` = `Profesor_Usuarios`.`UID`AND `Profesor_Usuarios`.`RFCProfesor` = `Profesor`.`RFCProfesor`  WHERE `SolicitudProyecto`.`UIDResponsable` = '$row[3]';";
 							$result2 = mysqli_query($link, $query);
 							$row2 = mysqli_fetch_array($result2);						
 						?>

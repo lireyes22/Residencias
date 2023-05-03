@@ -2,7 +2,7 @@
 	include ('funcionesDepto.php');
 	$link = conn();
     $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
-    $query = "SELECT UAlumno, ID_Asesor_Sugerido, SPNombre_Proyecto FROM SolicitudProyecto WHERE SPEstatus_Proyecto = 'PENDIENTE'";
+    $query = "SELECT UAlumno, UIDResponsable, SPNombre_Proyecto FROM SolicitudProyecto WHERE SPEstatus = 'PENDIENTE'";
     $result = mysqli_query($link, $query);
 ?>
 <!DOCTYPE html>
