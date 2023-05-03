@@ -181,11 +181,7 @@
                     <div class="form-row">
                         <label for="ENombreEncargado">Nombre de la persona que firmará el acuerdo de trabajo. Estudiante- Escuela-Empresa:</label>
                         <input type="text" name="ENombreEncargado" id="ENombreEncargado" required>
-                    </div>
-                    <div class="form-row">
-                        <label for="puestoEncargado">Puesto:</label>
-                        <input type="text" name="puestoEncargado" id="puestoEncargado" required>
-                    </div>                      
+                    </div>                     
                 </div>
             </section>
         </article>
