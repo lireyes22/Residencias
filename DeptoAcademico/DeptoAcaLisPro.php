@@ -2,7 +2,7 @@
 	include ('funcionesDepto.php');
 	$link = conn();
     $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
-    $query = "SELECT SPNombre_Proyecto, SPObjetivoProyecto, SPVacantes, ID_Asesor_Sugerido FROM SolicitudProyecto WHERE SPEstatus_Proyecto = 'ACEPTADO'";
+    $query = "SELECT SPNombreProyecto, SPObjetivo, SPEstudiantesRequeridos, SDTiempoEstimado, UIDResponsable FROM SolicitudProyecto WHERE SPEstatus = 'ACEPTADO'";
     $result = mysqli_query($link, $query);
 ?>
 <!DOCTYPE html>
@@ -43,7 +43,7 @@
 				<td class="sticky">Objetivo</td>
 				<td class="sticky">Número Estudiantes</td>
 				<td class="sticky">Tiempo Estimado</td>
-				<td class="sticky">Asesor</td>
+				<td class="sticky">Responsable</td>
 				<td class="sticky">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td class="sticky">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 			</tr>
@@ -56,8 +56,8 @@
 						<th class="tb-th-asp"><p><?php echo $row[0]?></p></th>
 						<th class="tb-th-asp"><p><?php echo $row[1]?></p></th>
 						<th class="tb-th-asp"><p><?php echo $row[2]?></p></th>
-						<th class="tb-th-asp">Tiempo Estimado</th>
 						<th class="tb-th-asp"><p><?php echo $row[3]?></p></th>
+						<th class="tb-th-asp"><p><?php echo $row[4]?></p></th>
 						<form action="deptoAcaAsigAsesor.php" method="_POST" target ="blank">
 							<th class="tb-th-asp">
 								<input type="hidden" name="id" value="<?php echo $i ?>">
