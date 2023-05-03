@@ -57,9 +57,8 @@
 			<tr>
 			<th class="sticky">Nombre del Proyecto</th>
 				<td class="sticky">Objetivo Proyecto</td>
-				<td class="sticky">Partcipantes</td>
-				<td class="sticky">Campos</td>
 				<td class="sticky">Descripción</td>
+				<td class="sticky">Partcipantes</td>
 				<td class="sticky">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 			</tr>
 			<tr>
@@ -68,14 +67,15 @@
 				while ($row = mysqli_fetch_array($result)) {
 				?>
 					<tr <?php if ($i % 2 == 0) echo "class='par'" ?>>
-						<td><?php echo $row['SPNombre_Proyecto']; ?></td>
-						<td><?php echo $row['SPObjetivoProyecto']; ?></td>
-						<td><?php echo $row['SPVacantes']; ?></td>
-						<td><?php echo $row['campos']; ?></td>
-						<td><?php echo $row['descripcion']; ?></td>
-						<td>
-							<button class="tb-th-asp" data-proyecto-id="<?php echo $row['SPEstatus_Proyecto']; ?>">Solicitar</button>
-						</td>
+						<td><?php echo $row['SPNombreProyecto']; ?></td>
+						<td><?php echo $row['SPObjetivo']; ?></td>
+						<td><?php echo $row['SPDescripcion']; ?></td>
+						<td><?php echo $row['SPEstudiantesRequeridos']; ?></td>
+						<form action="">
+							<th class="tb-th-asp">
+								<input type="submit" value="Solicitar" data-proyecto-id="<?php echo $row['SPEstatus']; ?>">
+							</th>
+						</form>
 					</tr>
 				<?php
 					$i++;

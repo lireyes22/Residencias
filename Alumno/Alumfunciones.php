@@ -14,8 +14,6 @@ function conn(){
     return $conection;
 }
 
-
-
 function Ejemplo() {
     $conection = conn();
     $consulta = "select xd............";
