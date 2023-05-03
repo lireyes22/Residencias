@@ -59,7 +59,7 @@
 						<th class="tb-th-asp"><?php echo $row[7]?></th>
 						<?php 
 							$row2 = "NULL"; 
-							$query = "SELECT `Profesor`.`NombreCompleto`,`Profesor`.`DID`  FROM `SolicitudProyecto` INNER JOIN `Profesor_Usuarios` INNER JOIN `Profesor` ON `SolicitudProyecto`.`UIDResponsable` = `Profesor_Usuarios`.`UID`AND `Profesor_Usuarios`.`RFCProfesor` = `Profesor`.`RFCProfesor`  WHERE `SolicitudProyecto`.`UIDResponsable` = '$row[3]';";
+							$query = "SELECT `Profesor`.`NombreCompleto`,`Profesor`.`DID`  FROM `SolicitudProyecto` INNER JOIN `Profesor_Usuarios` INNER JOIN `Profesor` ON `SolicitudProyecto`.`UIDResponsable` = `Profesor_Usuarios`.`UID`AND `Profesor_Usuarios`.`RFCProfesor` = `Profesor`.`RFCProfesor`  WHERE `SolicitudProyecto`.`UIDResponsable` = '$row[11]';";
 							$result2 = mysqli_query($link, $query);
 							$row2 = mysqli_fetch_array($result2);						
 						?>

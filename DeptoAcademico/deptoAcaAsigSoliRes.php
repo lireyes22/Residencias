@@ -100,11 +100,11 @@
 								$rowDepto = mysqli_fetch_array($depto);
 							?>
 								<input type="hidden" name="departamento" value="<?php echo $rowDepto[0]; ?>">
-								<input type="hidden" name="noOficio" value="6061">
+								<input type="hidden" name="noOficio" value="6061"> 
 								<input type="hidden" name="firma" value="Vve+KIMdhPjSiPoA+oFPOI1+DHhbIZpAfjHDjdvuDpN9ga4g">
 								<input type="hidden" name="fecha" value="01-05-2023">
-								<input type="hidden" name="mes" value="06">
-								<input type="hidden" name="dia" value="01">
+								<input type="month" name="mes" value="01">
+								<input type="number" name="dia" value="01"  min="1" max="30">
 								<input type="hidden" name="proyecto" value="<?php echo $row[2]; ?>">
 								<input type="hidden" name="residente" value="<?php echo $rowAlumno[1]; ?>">
 								<input type="hidden" name="carrera" value="<?php echo $rowCarrera[0]; ?>">
