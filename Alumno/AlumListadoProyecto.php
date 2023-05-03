@@ -33,7 +33,7 @@
 			</div>
 		</div>
 		<div class="button-row">
-			<a href="a.html" class="button-link">Solicitud de residencia</a>
+			<a href="AlumSolicitudResidencia.php" class="button-link">Solicitud de residencia</a>
 			<a href="a.html" class="button-link">Proyectos</a>
 			<a href="a.html" class="button-link">Reporte</a>
 			<a href="a.html" class="button-link">Asesorias</a>
