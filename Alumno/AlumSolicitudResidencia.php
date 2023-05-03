@@ -1,3 +1,11 @@
+<?php 
+	include ('Alumfunciones.php');
+	$link = conn();
+    $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
+    $query = "SELECT * FROM SolicitudResidencia";
+    $result = mysqli_query($link, $query);
+?>
+
 <!DOCTYPE html>
 <html>
     
