@@ -1,0 +1,215 @@
+/*--- Body aplica tipo de letra ---*/
+@font-face {
+    font-family: 'Comfortaa';
+    src: url('ruta/a/Comfortaa-Bold.ttf') format('truetype');
+  }
+  
+  body {
+    font-family: 'Comfortaa', sans-serif;
+  }
+  
+/*--- Banner ---*/
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #2A424D;
+}
+
+/*--- Acomoda el contenedor ---*/
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.left-column {
+    width: 33%;
+    height: 100px;
+    /*margin: 10px;*/
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.right-column {
+    width: 33%;
+    height: 100px;
+    /*margin: 10px;*/
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10px;
+}
+
+/*--- Diseña los botones del banner ---*/
+.home-btn {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.button-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    /*padding: 0 20px;
+    margin: 10px;*/
+    /*background-color: #666;*/
+    background-color: #45818e86;
+    color: white;
+    /*border: 2px solid white;*/
+    text-align: center;
+    text-decoration: none;
+    /*border-radius: 5px;*/
+    flex: 1;
+}
+
+
+/* projectData */
+
+#projectData{
+    margin: 5px;
+}
+
+#enterpriseData{
+    margin: 5px;
+}
+
+#residentData{
+    margin: 5px;
+}
+
+/*--- Fondo y configuración para los fieldset ---*/
+.bg-fldst{
+    background-color: rgb(69, 129, 142);
+    padding: 30px;
+    border-top: solid;
+    border-color: white;
+    border-radius: 10px; /* ajusta el valor para cambiar el radio de los bordes */
+    border: 2px solid rgb(69, 129, 142);
+}
+
+.legend {
+    background-color: white;
+    border-radius: 10px;
+    padding: 5px 10px; /* opcional para dar más espacio al contenido */
+    border: 2px solid rgb(69, 129, 142);
+}
+
+/*--- Formato para los campos del fieldset ---*/
+.form-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+.form-row label {
+    flex-basis: 40%;
+    text-align: left;
+  }
+  
+.form-row input {
+    flex-basis: 40%;
+  }
+
+/*--- Divide en 3 columnas los campos y añade color a la letra ---*/
+
+.columnaL {
+    float: left;
+    width: 33.33%;
+    text-align: justify;
+    color: aliceblue;
+}
+
+.columnaC {
+    float: left;
+    width: 33.33%;
+    text-align: justify;
+    color: aliceblue;
+}
+
+.columnaR {
+    float: right;
+    width: 33.33%;
+    text-align: justify;
+    color: aliceblue;
+}
+
+.caja {
+    width: 70%; /* Ancho fijo para la caja */
+    margin: auto; /* Centrar horizontalmente */
+    padding-top: 300px; /* Separación desde arriba */
+    text-align: center; /* Centrar contenido dentro de la caja */
+  }  
+
+/*--- Configuración de botones ---*/
+.btn-sl{
+    border-style: solid;
+    height: 21px;
+    width: 96px;
+    color: #000000;
+  }
+
+.tb-th-asp input[type="submit"]{
+    border-style: solid;
+  }
+
+/*--- Estilo de la barra de desplazamiento ---*/
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #1E1E1E;
+  }
+  
+  /* Estilo del botón de desplazamiento */
+  ::-webkit-scrollbar-thumb {
+    background-color: #1976D2;
+    border: 2px solid #ffffff; /* Agregamos un borde blanco */
+    border-radius: 5px;
+  }
+  
+  /* Estilo del fondo de la barra de desplazamiento al pasar el cursor */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #1565C0;
+  }
+  
+  /* Estilo del fondo de la barra de desplazamiento cuando se presiona el botón de desplazamiento */
+  ::-webkit-scrollbar-thumb:active {
+    background-color: #0D47A1;
+  }
+
+  .caja-tb-th-asp input[type="submit"], .izq-decision input[type="submit"]{ /*BOTON PARA ACEPTAR*/
+    background-color: green;
+    color: white;
+    border: 2px solid white;
+    border-radius: 0;
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .caja-tb-th-asp {
+    padding-top: 300px;
+  }
+  .caja-tb-th-asp input[type="submit"]:hover, .izq-decision input[type="submit"]:hover { /*HOVER PARA ACEPTAR*/
+    cursor: pointer;
+    background-color: white;
+    color: green;
+  }
