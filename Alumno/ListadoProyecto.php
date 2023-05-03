@@ -1,3 +1,11 @@
+<?php 
+	include ('funcionesAlumno.php');
+	$link = conn();
+    $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
+    $query = "SELECT * FROM SolicitudProyecto";
+    $result = mysqli_query($link, $query);
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -55,26 +63,24 @@
 				<td class="sticky">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 			</tr>
 			<tr>
-				<?php
+			<?php
 				$i = 0;
-				while ($i < 100) {
+				while ($row = mysqli_fetch_array($result)) {
 				?>
-			<tr <?php if ($i % 2 == 0) echo "class='par'" ?>>
-				<th class="tb-th-asp">Nombre del Proyecto</th>
-				<th class="tb-th-asp">Objetivo Proyecto</th>
-				<th class="tb-th-asp">Partcipantes</th>
-				<th class="tb-th-asp">Campos</th>
-				<th class="tb-th-asp">Descripción</th>
-				<form action="">
-					<th class="tb-th-asp">
-						<input type="submit" value="Solicitar">
-					</th>
-				</form>
-			</tr>
-		<?php
+					<tr <?php if ($i % 2 == 0) echo "class='par'" ?>>
+						<td><?php echo $row['SPNombre_Proyecto']; ?></td>
+						<td><?php echo $row['SPObjetivoProyecto']; ?></td>
+						<td><?php echo $row['SPVacantes']; ?></td>
+						<td><?php echo $row['campos']; ?></td>
+						<td><?php echo $row['descripcion']; ?></td>
+						<td>
+							<button class=".caja-tb-th-asp" data-proyecto-id="<?php echo $row['SPEstatus_Proyecto']; ?>">Solicitar</button>
+						</td>
+					</tr>
+				<?php
 					$i++;
 				}
-		?>
+			?>
 		</tr>
 		</table>
 	</div>

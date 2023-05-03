@@ -209,6 +209,7 @@
     padding-top: 280px;
     width: 1000px;
   }
+  
   .caja-tb-th-asp input[type="submit"]:hover, .izq-decision input[type="submit"]:hover { /*HOVER PARA Enviar*/
     cursor: pointer;
     background-color: white;
