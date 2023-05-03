@@ -1,3 +1,10 @@
+<?php 
+	include ('funcionesDepto.php');
+	$link = conn();
+    $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
+    $query = "SELECT SPNombre_Proyecto, SPObjetivoProyecto, SPVacantes, ID_Asesor_Sugerido FROM SolicitudProyecto WHERE SPEstatus_Proyecto = 'ACEPTADO'";
+    $result = mysqli_query($link, $query);
+?>
 <!DOCTYPE html>
 <html>
 
@@ -43,14 +50,14 @@
             <tr>
 			<?php
 				$i = 0;
-				while ($i < 100) {
+				while ($row = mysqli_fetch_array($result)) {
 					?>
 					<tr <?php if($i%2==0) echo "class='par'" ?> >
-						<th class="tb-th-asp">Nombre Proyecto</th>
-						<th class="tb-th-asp">Objetivo</th>
-						<th class="tb-th-asp">Número Estudiantes</th>
+						<th class="tb-th-asp"><p><?php echo $row[0]?></p></th>
+						<th class="tb-th-asp"><p><?php echo $row[1]?></p></th>
+						<th class="tb-th-asp"><p><?php echo $row[2]?></p></th>
 						<th class="tb-th-asp">Tiempo Estimado</th>
-						<th class="tb-th-asp">Asesor</th>
+						<th class="tb-th-asp"><p><?php echo $row[3]?></p></th>
 						<form action="deptoAcaAsigAsesor.php" method="_POST" target ="blank">
 							<th class="tb-th-asp">
 								<input type="hidden" name="id" value="<?php echo $i ?>">
