@@ -2,7 +2,7 @@
 	include ('funcionesDepto.php');
 	$link = conn();
     $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
-    $query = "SELECT SolicitudResidencia.UAlumno, SolicitudProyecto.UIDResponsable, SolicitudProyecto.SPNombreProyecto FROM SolicitudProyecto INNER JOIN SolicitudResidencia INNER JOIN `BancoProyectos` ON SolicitudResidencia.`BPID` = BancoProyectos.`BPID` AND SolicitudProyecto.`SPID` = BancoProyectos.`SPID` WHERE SREstatus = 'PENDIENTE';";
+    $query = "SELECT SolicitudResidencia.UAlumno, SolicitudProyecto.UIDResponsable, SolicitudProyecto.SPNombreProyecto, SolicitudProyecto.SPID  FROM SolicitudProyecto INNER JOIN SolicitudResidencia INNER JOIN `BancoProyectos` ON SolicitudResidencia.`BPID` = BancoProyectos.`BPID` AND SolicitudProyecto.`SPID` = BancoProyectos.`SPID` WHERE SREstatus = 'PENDIENTE';";
     $result = mysqli_query($link, $query);
 ?>
 <!DOCTYPE html>
@@ -73,17 +73,21 @@
 						</th>
 						<th class="tb-th-asp"> - </th>
 						<?php
-							$profesor3 = "SELECT Profesor.NombreCompleto, Profesor.DID FROM Profesor INNER JOIN Profesor_Usuarios ON Profesor.RFCProfesor  = Profesor_Usuarios.RFCProfesor WHERE Profesor_Usuarios.UID = '$row[1]'";
+							$profesor3 = "SELECT Profesor.NombreCompleto FROM Profesor INNER JOIN Profesor_Usuarios ON Profesor.RFCProfesor  = Profesor_Usuarios.RFCProfesor WHERE Profesor_Usuarios.UID = '$row[1]'";
 							$profesor = mysqli_query($link, $profesor3);
 							$rowProfesor = mysqli_fetch_array($profesor);
+							$departamentoQ = "";//AQUI TENGO QUE SACAR EL DID DEL PROYECTO
+							$departamento = mysqli_query($link, $departamentoQ);
+							$rowDeptoID = mysqli_fetch_array($departamento);
 						?>
-						<th class="tb-th-asp"><?php echo $rowProfesor[0]; ?></th>
+
+						<th class="tb-th-asp"><?php echo $rowDeptoID[0]; ?></th>
 							<th class="tb-th-asp">
 							
 							<form action="docs/generador.php" method="POST" target="blank">
 							<select name="profesor">
 								<?php 
-									$comision = "SELECT NombreCompleto FROM Profesor WHERE Profesor.DID = '$rowProfesor[1]'";
+									$comision = "SELECT NombreCompleto FROM Profesor WHERE Profesor.DID = '$rowDeptoID[0]'";
 									$resultComision = mysqli_query($link, $comision);
 									while ($rowComision = mysqli_fetch_array($resultComision)){
 										?>
@@ -95,7 +99,7 @@
 							</th>
 							<th class="tb-th-asp">
 							<?php 
-								$query4 = "SELECT DNombre FROM Departamentos WHERE Departamentos.DID = '$rowProfesor[1]'";
+								$query4 = "SELECT DNombre FROM Departamentos WHERE Departamentos.DID = '$rowDeptoID[0]'";
 								$depto = mysqli_query($link, $query4);
 								$rowDepto = mysqli_fetch_array($depto);
 							?>
