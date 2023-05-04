@@ -53,14 +53,21 @@
                 </tr>
             </thead>
             <?php 
-                $query = consultaAsesorAlumno(15);
+                //$query = consultaAsesorAlumno($_SESSION['id']);
+                $query = consultaAsesorAlumno(14);
                 while($consulta = mysqli_fetch_array($query)){
+                    $idAlumno = $consulta['UAlumno'];
+                    $queryInfoAlumno = consultaUsuarioAlumno($idAlumno);
+                    $consultaAlumno = mysqli_fetch_array($queryInfoAlumno);
             ?>
             <form method="POST">
             <tbody>
-                <td>Celda 1,1</td>
-                <td>Celda 1,2</td>
-                <td>Celda 1,3</td>
+                <td><?php echo $consultaAlumno['NumeroControl']?></td>
+                <td><?php echo $consultaAlumno['NombreCompleto']?></td>
+                <td><?php echo $consultaAlumno['SemestreActual']?></td>
+                <td><?php echo $consultaAlumno['CorreoInstitucional']?></td>
+                <td><input type="submit" formaction="AsesorInternoEvaluacionSeguimiento.php" value="Evaluacion de Seguimiento"></td>
+                <td><input type="submit" formaction="AsesorInternoEvaluacionReporte.php" value="Evaluacion de Reporte Final"></td>
             </tbody>
             </form>
             <?php }//fin del while ?>
