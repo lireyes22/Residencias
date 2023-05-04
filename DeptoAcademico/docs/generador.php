@@ -4,7 +4,7 @@
     $fecha = $_POST['fecha']; 
     $nombProfesor = $_POST['profesor']; 
     $dia = $_POST['dia'];
-    $mes = $_POST['mes'];
+    $mesBef = $_POST['mes'];
     $nombResidente = $_POST['residente']; 
     $carrera = $_POST['carrera']; 
     $nombProyecto = $_POST['proyecto']; 
@@ -14,6 +14,31 @@
     <?php
 $nombreImagen = "target001.png";
 $imagenBase64 = "data:image/png;base64," . base64_encode(file_get_contents($nombreImagen));
+if ($mesBef == '1') {
+        $mes = "ENERO";
+    } else if( $mesBef == '2'){
+        $mes = "FEBRERO";
+    } else if( $mesBef == '3'){
+        $mes = "MARZO";
+    } else if( $mesBef == '4'){
+        $mes = "ABRIL";
+    } else if( $mesBef == '5'){
+        $mes = "MAYO";
+    } else if( $mesBef == '6'){
+        $mes = "JUNIO";
+    } else if( $mesBef == '7'){
+        $mes = "JULIO";
+    } else if( $mesBef == '8'){
+        $mes = "AGOSTO";
+    } else if( $mesBef == '9'){
+        $mes = "SEPTIEMBRE";
+    } else if( $mesBef == '10'){
+        $mes = "OCTUBRE";
+    } else if( $mesBef == '11'){
+        $mes = "NOVIEMBRE";
+    } else if( $mesBef == '12'){
+        $mes = "DICIEMBTE";
+    }
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
@@ -116,7 +141,8 @@ $imagenBase64 = "data:image/png;base64," . base64_encode(file_get_contents($nomb
 
 <?php 
     $doc = ob_get_clean();
-    //echo $doc;
+    echo $doc;
+    /*
     require_once '../../lib/dompdf/autoload.inc.php';
     use Dompdf\Dompdf;
     $dompdf = new Dompdf();
@@ -129,4 +155,5 @@ $imagenBase64 = "data:image/png;base64," . base64_encode(file_get_contents($nomb
     $dompdf->setPaper(array(0,0,750,990));
     $dompdf->render();
     $dompdf->stream("comision_.pdf",array("Attachment"=>false));
+    */
 ?>
