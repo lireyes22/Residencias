@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../style/StyleBase.css">
-	<link rel="stylesheet" href="style/StyleAsesor.css">
+	<link rel="stylesheet" href="Style/StyleAsesor.css">
     <title>Document</title>
 </head>
 
@@ -44,28 +44,26 @@
         <table>
             <thead>
                 <tr>
-                    <th>Encabezado 1</th>
-                    <th>Encabezado 2</th>
-                    <th>Encabezado 3</th>
+                    <th>Numero de control</th>
+                    <th>Nombre Completo</th>
+                    <th>Semestre Actual</th>
+                    <th>Correo Institucional</th>
+                    <th>Evaluacion de Seguimiento</th>
+                    <th>Evaluacion de Reporte Final</th>
                 </tr>
             </thead>
+            <?php 
+                $query = consultaAsesorAlumno(15);
+                while($consulta = mysqli_fetch_array($query)){
+            ?>
+            <form method="POST">
             <tbody>
-                <tr>
-                    <td>Celda 1,1</td>
-                    <td>Celda 1,2</td>
-                    <td>Celda 1,3</td>
-                </tr>
-                <tr>
-                    <td>Celda 2,1</td>
-                    <td>Celda 2,2</td>
-                    <td>Celda 2,3</td>
-                </tr>
-                <tr>
-                    <td>Celda 3,1</td>
-                    <td>Celda 3,2</td>
-                    <td>Celda 3,3</td>
-                </tr>
+                <td>Celda 1,1</td>
+                <td>Celda 1,2</td>
+                <td>Celda 1,3</td>
             </tbody>
+            </form>
+            <?php }//fin del while ?>
         </table>
     </div>
 </body>
