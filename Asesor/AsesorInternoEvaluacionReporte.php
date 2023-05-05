@@ -23,7 +23,7 @@
                 <h1>Evaluacion de Reporte</h1>
             </div>
             <div class="right-column">
-                <a href="a.html"><img src="img/logout.png" width="40px"></a>
+                <a href="a.html"><img src="../img/logout.png" width="40px"></a>
             </div>
         </div>
         <div class="button-row">
@@ -33,14 +33,109 @@
             <a href="a.html" class="button-link">Residencias</a>
         </div>
     </div>
-    <div class="containerEv">
+    <form action="">
+        <div class="containerEv">
+            <!-- Columna izquierda  -->
             <div class="column-Ev1">
-                <label for="">Numero de control:</label>
-                <input type="text" name="" id="">
+                <label for="" class="lb-inp txtSizeEv">Información:</label>
+                <label for="" class="lb-inp">Numero de control:</label> <br>
+                <input type="text" name="numControl" id="" class="lb-inp"> <br>
+                <label for="" class="lb-inp">Nombre del residente:</label> <br>
+                <input type="text" class="lb-inp" name="NombreResidente" id=""> <br>
+                <label for="" class="lb-inp">Nombre del Proyecto:</label> <br>
+                <input type="text" class="lb-inp" name="NombreProyecto" id=""> <br>
+                <label for="" class="lb-inp">Programa Educativo:</label> <br>
+                <input type="text" class="lb-inp" name="ProgramaEducativo" id=""> <br>
+                <label for="" class="lb-inp">Periodo de Realizacion:</label> <br>
+                <input type="text" class="lb-inp" name="PeriodoRealizacion" id=""> <br>
+                <input type="submit" value="Enviar" class="lb-inp btnEnviarEv">
             </div>
-            <div class="column-Ev2">Columna 2</div>
-            <div class="column-Ev3">Columna 3</div>
-    </div>
+            <!-- Columna central tabla  -->
+            <div class="column-Ev2">
+                <table class="tb-ev">
+                    <tr>
+                        <th>Criterios a evaluar</th>
+                        <th>Valor Máximo</th>
+                        <th>Evaluación Asesor Interno</th>
+                    </tr>
+                    <tr>
+                        <td>Agradecimientos</td>
+                        <td>0</td>
+                        <td><input type="number" name="Agradecimientos" min="0" max="0" step="1"></td>
+                    </tr>
+                    <tr>
+                        <td>Resumen</td>
+                        <td>2</td>
+                        <td><input type="number" name="Resumen" min="0" max="2" step="1"></td>
+                    </tr>
+                    <tr>
+                        <td>Índice</td>
+                        <td>2</td>
+                        <td><input type="number" name="Índice" min="0" max="2" step="1"></td>
+                    </tr>
+                    <tr>
+                        <td>Introducción</td>
+                        <td>5</td>
+                        <td><input type="number" name="Introducción" min="0" max="5" step="1"></td>
+                    </tr>
+                    <tr>
+                        <td>Antecedentes o marco Teórico</td>
+                        <td>5</td>
+                        <td><input type="number" name="Antecedentes" min="0" max="5" step="1"></td>
+                    </tr>
+                    <tr>
+                        <td>Justificación</td>
+                        <td>5</td>
+                        <td><input type="number" name="Justificación" min="0" max="5" step="1"></td>
+                    </tr>
+                    <tr>
+                        <td>Objetivos</td>
+                        <td>10</td>
+                        <td><input type="number" name="Objetivos" min="0" max="10" step="1"></td>
+                    </tr>
+                    <tr>
+                        <td>Metodología</td>
+                        <td>10</td>
+                        <td><input type="number" name="Metodología" min="0" max="10" step="1"></td>
+                    </tr>
+                    <tr>
+                        <td>Resultados</td>
+                        <td>15</td>
+                        <td><input type="number" name="Resultados" min="0" max="15" step="1"></td>
+                    </tr>
+                    <tr>
+                        <td>Discusiones</td>
+                        <td>25</td>
+                        <td><input type="number" name="Discusiones" min="0" max="25" step="1"></td>
+                    </tr>
+                    <tr>
+                        <td>Conclusiones</td>
+                        <td>15</td>
+                        <td><input type="number" name="Conclusiones" min="0" max="15" step="1"></td>
+                    </tr>
+                    <tr>
+                        <td>Fuentes de Información</td>
+                        <td>5</td>
+                        <td><input type="number" name="FuentesInformacion" min="0" max="5" step="1"></td>
+                    </tr>
+                </table>
+            </div>
+            <!-- Columna derecha  -->
+            <div class="column-Ev3">
+                <label class="txtSizeEvC3 mrgEvC3 lb-inp">Nombre del Asesor Interno:</label>
+                <input class="txtSizeEvC3 lb-inp" type="text" name="AsesorInterno">
+                <label class="txtSizeEvC3 mrgEvC3 lb-inp">Firma electronica:</label>
+                <input class="txtSizeEvC3 lb-inp" type="file" name="archivo">
+                <label class="txtSizeEvC3 mrgEvC3 lb-inp">Fecha de evaluación</label>
+                <input class="txtSizeEvC3 lb-inp" type="date" name="FechaEvaluacion">
+                <label class="txtSizeEvC3 mrgEvC3 lb-inp">Total Puntos:</label>
+                <input class="txtSizeEvC3 lb-inp" type="text" name="TotalPuntos">
+                <a style="text-decoration: none; color: white;" class="mrgEvC3 lb-inp" href="" download>Descargar reporte</a>
+
+
+            </div>
+        </div>
+    </form>
 </body>
 
 </html>

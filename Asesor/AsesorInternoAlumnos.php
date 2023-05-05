@@ -59,6 +59,7 @@
                     $idAlumno = $consulta['UAlumno'];
                     $queryInfoAlumno = consultaUsuarioAlumno($idAlumno);
                     $consultaAlumno = mysqli_fetch_array($queryInfoAlumno);
+                    $_COOKIE['UAlumno'] = $consulta['UAlumno'];
             ?>
             <form method="POST">
             <tbody>
