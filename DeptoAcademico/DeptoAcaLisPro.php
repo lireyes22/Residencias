@@ -2,7 +2,7 @@
 	include ('funcionesDepto.php');
 	$link = conn();
     $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
-    $query = "SELECT SPNombreProyecto, SPObjetivo, SPEstudiantesRequeridos, SDTiempoEstimado, UIDResponsable FROM SolicitudProyecto WHERE SPEstatus = 'ACEPTADO'";
+    $query = "SELECT * FROM SolicitudProyecto WHERE SPEstatus = 'ACEPTADO'";
     $result = mysqli_query($link, $query);
 ?>
 <!DOCTYPE html>
@@ -43,7 +43,7 @@
 				<td class="sticky">Objetivo</td>
 				<td class="sticky">Número Estudiantes</td>
 				<td class="sticky">Tiempo Estimado</td>
-				<td class="sticky">Responsable</td>
+				<td class="sticky">Docente Responsable</td>
 				<td class="sticky">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td class="sticky">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 			</tr>
@@ -53,20 +53,24 @@
 				while ($row = mysqli_fetch_array($result)) {
 					?>
 					<tr <?php if($i%2==0) echo "class='par'" ?> >
-						<th class="tb-th-asp"><p><?php echo $row[0]?></p></th>
 						<th class="tb-th-asp"><p><?php echo $row[1]?></p></th>
 						<th class="tb-th-asp"><p><?php echo $row[2]?></p></th>
-						<th class="tb-th-asp"><p><?php echo $row[3]?></p></th>
-						<th class="tb-th-asp"><p><?php echo $row[4]?></p></th>
+						<th class="tb-th-asp"><p><?php echo $row[6]?></p></th>
+						<th class="tb-th-asp"><p><?php echo $row[7]?></p></th>
+						<?php 
+							$row1 = "NULL"; 
+							$query = "SELECT `Profesor`.`NombreCompleto`,`Profesor`.`DID`  FROM `SolicitudProyecto` INNER JOIN `Profesor_Usuarios` INNER JOIN `Profesor` ON `SolicitudProyecto`.`UIDResponsable` = `Profesor_Usuarios`.`UID`AND `Profesor_Usuarios`.`RFCProfesor` = `Profesor`.`RFCProfesor`  WHERE `SolicitudProyecto`.`UIDResponsable` = '$row[11]';";
+							$result1 = mysqli_query($link, $query);
+							$row1 = mysqli_fetch_array($result1);						
+						?>
+						<th class="tb-th-asp"><?php if (!empty($row1[0])){  echo $row1[0];}else{ echo "Sin Responsable";} ?></th>
 						<form action="deptoAcaAsigAsesor.php" method="_POST" target ="blank">
 							<th class="tb-th-asp">
-								<input type="hidden" name="id" value="<?php echo $i ?>">
 								<input type="submit" value="Asignar">
 							</th>
 						</form>
 						<form action="deptoAcaReasigAsesor.php" method="_POST" target ="blank">
 							<th class="tb-th-asb">
-								<input type="hidden" name="id" value="<?php echo $i ?>">
 								<input type="submit" value="Reasignar">
 							</th>
 						</form>

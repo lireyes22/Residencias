@@ -46,7 +46,7 @@
 			<input type="text" name="depto" disabled> <br> <br>
 			<label for="nombre">Nombre de Residente: </label>
 			<input type="text" name="nombre" disabled> <br> <br>
-			<label for="periodo">Perido de Realizacion: </label>
+			<label for="periodo">Periodo de Realizacion: </label>
 			<input type="text" name="periodo" disabled> <br> <br>
 		</div>
 		<div class="panel-der">
@@ -54,11 +54,16 @@
 			<input type="date" name="fecha"> <br> <br>
 			<label for="docente">Docente: </label>
 			<select name="docente">
-				<option>Profesor 1</option>
-				<option>Profesor 2</option>
-				<option>Profesor 3</option>
-				<option>Profesor 4</option>
-			</select> <br> <br>
+			<?php 
+				 $query1 = "SELECT RFCProfesor, NombreCompleto FROM Profesor WHERE Profesor.DID = '5'";
+				 $result1 = mysqli_query($link, $query1);
+					  while ($row1 = mysqli_fetch_array($result1)){
+						    ?>
+				                <option value="<?php echo $row1[0]; ?>"> <?php echo $row1[1] ?> </option>
+										<?php
+							}
+				 ?> 
+				</select> <br> <br>
 			<label for="carrera">Carrera: </label>
 			<input type="text" name="carrera" disabled> <br> <br>
 			<label for="empresa">Empresa: </label>
