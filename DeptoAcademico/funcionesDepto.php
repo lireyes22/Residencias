@@ -44,7 +44,70 @@ function GenerarLogJefDept($correo) {
     INNER JOIN Usuarios ON DepartamentoAcademico_Usuarios.UID = Usuarios.UID WHERE DepartamentoAcademico.CorreoInstitucional='$correo'";
     return $sql;
 }
+/*
 function GenerarLogADeptVin() {
     return $sql;
+}*/
+function DID($UID){ //OBTIENE EL DEPARTAMENTO ID CON EL ID DEL USUARIO
+    $conection = conn();
+    $sql = "SELECT DepartamentoAcademico.`DID` FROM `DepartamentoAcademico` INNER JOIN `DepartamentoAcademico_Usuarios` ON `DepartamentoAcademico`.RFCDepartamentoAcademico = `DepartamentoAcademico_Usuarios`.RFCDepartamentoAcademico WHERE `DepartamentoAcademico_Usuarios`.UID = $UID;";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $query;
+}
+function listSolicProy($DID){ //LISTA DE SPID PENDIENTES Y EN EL DEPARTAMENTO SOLICITADO
+    $conection = conn();
+    $sql = "SELECT CarrerasSolicitudProyecto.`SPID` FROM `CarrerasSolicitudProyecto` INNER JOIN `Carreras` INNER JOIN `SolicitudProyecto` ON CarrerasSolicitudProyecto.`CID` = Carreras.`CID` AND CarrerasSolicitudProyecto.`SPID` = SolicitudProyecto.`SPID` WHERE Carreras.`DID` = $DID AND SolicitudProyecto.`SPEstatus`='PENDIENTE';";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $query;
+}
+function basicInfoProy($SPID){ //SPID, Nombre del proyecto, Objetivo, Numero Estudiantes, Tiempo Estimado, Nombre del Responsable
+    $conection = conn();
+    $sql = "CALL basicInfo($SPID)";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $query;
+}
+function listaDocentes($DID, $RFC){ //LISTA DE DOCENTES EN EL DEPARTAMENTO EXCEPTUANDO A UNO (UN RESPONSABLE O ASESOR), CONTIENE TODO DE PROFESORES
+    $conection = conn();
+    $sql = "SELECT * FROM Profesor WHERE Profesor.DID = $DID AND Profesor.RFCProfesor != '$RFC';";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $query;
+}
+function RFCprofesor($SPID){
+    $conection = conn();
+    $sql = "SELECT Profesor.`RFCProfesor` FROM Profesor INNER JOIN `SolicitudProyecto` INNER JOIN `Profesor_Usuarios` ON Profesor.`RFCProfesor` = Profesor_Usuarios.`RFCProfesor` AND Profesor_Usuarios.`UID` = SolicitudProyecto.`UIDResponsable`  WHERE SolicitudProyecto.`SPID` = $SPID;";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $query;
+}
+function insertComisionProyectoProfesor($_SPID, $_UProfesor, $_CPPFecha, $_CPPFechaLimite){ //INSERTAR UNA COMISION A UN ASESOR (REVISION DE PROPUESTA DE PROYECTO)
+    $conection = conn();
+    $sql = "INSERT INTO ComisionProyectoProfesor(UProfesor,SPID,CPPFechaElaboracion, CPPFechaLimite) VALUES(".$_UProfesor.",".$_SPID.",'$_CPPFecha','$_CPPFechaLimite');";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+}
+function alterSolicitudProyecto($_SPID, $_Estatus){ //ACTUALIZAR EL ESTADO DE UNA SOLICITUD DE PROYECTO
+    $conection = conn();
+    $sql = "UPDATE SolicitudProyecto SET SolicitudProyecto.SPEstatus = '$_Estatus' WHERE SolicitudProyecto.SPID = $_SPID;";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+}
+function UProfesor($RFCProfesor){ //OBTIENE EL UID DEL PROFESOR CON SU RFC
+    $conection = conn();
+    $sql = "SELECT Profesor_Usuarios.UID FROM Profesor INNER JOIN Profesor_Usuarios ON Profesor_Usuarios.RFCProfesor = Profesor.RFCProfesor WHERE Profesor.RFCProfesor = '$RFCProfesor';";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $query;
 }
 ?>

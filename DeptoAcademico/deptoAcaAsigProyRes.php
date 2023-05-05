@@ -1,13 +1,12 @@
 <?php 
 	include ('funcionesDepto.php');
-	$link = conn();
-    $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
-    $query = "SELECT * FROM SolicitudProyecto";
-    $result = mysqli_query($link, $query);
+	$UID = 13;
+	$DID = mysqli_fetch_array(DID($UID));
+    $result = listSolicProy($DID[0]);
 ?>
 <!DOCTYPE html>
 <html>
-
+ 
 <head>
 	<title>Departamento Academico</title>
 	<link rel="stylesheet" href="../style/style.css">
@@ -37,6 +36,8 @@
 		</div>
 	</div>
 	<div class="tabla-scroll">
+		
+	<form action="exc/insert.php" method="POST" target="blank">
 	<table class = "tb-asp">
 			<tr> 
 				<td class="sticky">Nombre del proyecto</td>
@@ -45,43 +46,42 @@
 				<td class="sticky">Tiempo Estimado</td>
 				<td class="sticky">Docente responsable</td>
 				<td class="sticky">Asignar a: </td>
-				<td class="sticky">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td class="sticky">Fecha Maxima</td>
 			</tr>
             <tr>
 			<?php
 				$i = 0;
-				while ($row = mysqli_fetch_array($result)){
+				while ($SPID = mysqli_fetch_array($result)){
+					$row = mysqli_fetch_array(basicInfoProy($SPID[0]));
 					?>
 					<tr <?php if($i%2==0) echo "class='par'" ?> >
 						<th class="tb-th-asp"><p><?php echo $row[1]?></p></th>
 						<th class="tb-th-asp"><p><?php echo $row[2]?></p></th>
-						<th class="tb-th-asp"><p><?php echo $row[6]?></p></th>
-						<th class="tb-th-asp"><?php echo $row[7]?></th>
-						<?php 
-							$row2 = "NULL"; 
-							$query = "SELECT `Profesor`.`NombreCompleto`,`Profesor`.`DID`  FROM `SolicitudProyecto` INNER JOIN `Profesor_Usuarios` INNER JOIN `Profesor` ON `SolicitudProyecto`.`UIDResponsable` = `Profesor_Usuarios`.`UID`AND `Profesor_Usuarios`.`RFCProfesor` = `Profesor`.`RFCProfesor`  WHERE `SolicitudProyecto`.`UIDResponsable` = '$row[11]';";
-							$result2 = mysqli_query($link, $query);
-							$row2 = mysqli_fetch_array($result2);						
-						?>
-						<th class="tb-th-asp"><?php if (!empty($row2[0])){  echo $row2[0];}else{ echo "Sin Responsable";} ?></th>
-						<form action="docs/generador.php"> 
+						<th class="tb-th-asp"><p><?php echo $row[3]?></p></th>
+						<th class="tb-th-asp"><?php echo $row[4]?> MESES</th>
+						<th class="tb-th-asp"><?php echo $row[5] ?></th> 
 							<th class="tb-th-asp">
-							<select name="comision">
-								<?php 
-									$query2 = "SELECT RFCProfesor, NombreCompleto FROM Profesor WHERE Profesor.DID = '$row2[1]'";
-									$result3 = mysqli_query($link, $query2);
-									while ($row3 = mysqli_fetch_array($result3)){
+							<select name="UProfesor">
+								<?php
+									$RFC = mysqli_fetch_array(RFCprofesor($row[0]));
+									$listaProfesores = listaDocentes($DID[0], $RFC[0]);
+									while ($profesor = mysqli_fetch_array($listaProfesores)){
 										?>
-											<option value="<?php echo $row3[0]; ?>"> <?php echo $row3[1] ?> </option>
+											<option value="<?php echo $profesor[0]; ?>"> <?php echo $profesor[1] ?> </option>
 										<?php
+										$UProfesor = mysqli_fetch_array(UProfesor($profesor[0]));
 									}
 								?>
 							</select>
 							</th>
 							<th class="tb-th-asp">
+								<?php /*<input type="hidden" name="UProfesor" value="<?php echo $UProfesor[0]; ?>">*/?>
+								<input type="hidden" name="SPID" value="<?php echo $row[0]; ?>">
+								<input type="number" name="mes" min="1" max="12" PLACEHOLDER="MES">
+								<input type="number" name="dia" min="1" max="30" PLACEHOLDER="DIA">
+								<input type="hidden" name="IDfuncion" value="ComisionProyectoProfesor">
 								<input type="submit" value="Asignar">
 							</th>
-						</form>
 					</tr>
 					<?php
 					$i++;
@@ -89,6 +89,7 @@
 				?>
             </tr>
         </table>
+	</form>
 	</div>
 </body>
 </html>

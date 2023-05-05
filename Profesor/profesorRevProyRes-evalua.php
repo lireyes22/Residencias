@@ -43,9 +43,10 @@
 		<div class="izq-decision">
 			<p>Nombre del Proyecto</p> 
 			<p class="izq-nomb-proy"><?php echo $row[1]; ?></p>
-			<form action="profesorRevProyRes.php">
-				<input type="submit" value="Aceptar"> <br>
-				<input type="submit" value="Denegar" class="denegar">
+			<form action="exc/insert.php" method="post">
+				<input type="hidden" name="SPID" value="<?php echo $idProy; ?>">
+				<input type="submit" name="desicion" value="Aceptar"> <br>
+				<input type="submit" name="desicion" value="Denegar" class="denegar">
 			</form>
 		</div>
 		<div class="datos-proy">
@@ -58,22 +59,29 @@
 					<p class="_blanco">Lugar donde se va a desarrollar</p>
 					<input type="text" name="lugar" size="155" disabled value="<?php echo $row[5] ?>"> <br> <br> 
 					<p class="_blanco">Docentes Responsables</p>
-					<input type="text" name="docente" size="155" disabled value="<?php echo $row[11] ?>"> <br> <br> 
+					<?php $profesor_nombre = mysqli_fetch_array(NombreProfesor($row[11])); ?>
+					<input type="text" name="docente" size="155" disabled value="<?php echo $profesor_nombre[0] ?>"> <br> <br> 
 					<div class="doble-fila">
 						<label class="lbl" for="estudiantes-req">Cantidad de estudiantes requeridos: </label>
 						<input class="res" type="text" name="estudiantes-req" size="2" disabled value=<?php echo $row[6]; ?>>
 						<label class="lbl" for="tiempo-est">Tiempo estimado de proyecto: </label>
-						<input class="res" type="text" name="tiempo-est" size="10" disabled value="<?php echo $row[7] ?>"> <br><br>
+						<input class="res" type="text" name="tiempo-est" size="10" disabled value="<?php echo $row[7] ?> MESES"> <br><br>
 						<div class="carrera-req">
 							<p class="_blanco">Carrera requerida de los estudiantes:</p>
-							<input type="checkbox" name="carrera-1" disabled <?php echo "checked"; ?>> <?php echo "Ing. en Tecnologías de la Información y Comunicaciones"; ?> <br> <br>
-							<input type="checkbox" name="carrera-2" disabled <?php echo "checked"; ?>> <?php echo "Ing. en Sistemas Computacionales"; ?> <br> <br>
-							<input type="checkbox" name="carrera-n" disabled <?php echo ""; ?>> <?php echo "Interdisciplinario"; ?> <br> <br>
+							<?php
+							$prevCarreras = carrerasSolicitud($row[0]);
+							while ($carreras = mysqli_fetch_array($prevCarreras)){
+								?>
+								<input type="checkbox" name="<?php echo $carreras[1]; ?>" value="<?php echo $carreras[1]; ?>" checked disabled><?php echo $carreras[0]; ?> <br><br>
+								<?php
+							} ?>
 						</div>
 						<div class="propuesta-int">
-							<p class="_blanco">Tipo de propuesta para integrarse al banco de:</p>
-							<input type="checkbox" name="carrera-1" disabled <?php echo "checked"; ?>> <?php echo "Ing. en Tecnologías de la Información y Comunicaciones"; ?> <br> <br>
-							<input type="checkbox" name="carrera-2" disabled <?php echo "checked"; ?>> <?php echo "Ing. en Sistemas Computacionales"; ?> <br> <br> 
+						
+						<input type="checkbox" name="INTERNO" value="INTERNO" <?php if($row[8]=='INTERNO') echo "checked" ?> disabled>INTERNO <br><br>	 
+						<input type="checkbox" name="EXTERNO" value="EXTERNO" <?php if($row[8]=='EXTERNO') echo "checked" ?> disabled>EXTERNO <br><br> 
+						<input type="checkbox" name="DUAL" value="DUAL" <?php if($row[8]=='DUAL') echo "checked" ?> disabled>DUAL<br><br> 
+						<input type="checkbox" name="CIIE" value="CIIE" <?php if($row[8]=='CIIE') echo "checked" ?> disabled>CIIE <br><br>
 						</div>
 					</div>
 					<p class="n-line">Línea de investigación que beneficia:</p>
