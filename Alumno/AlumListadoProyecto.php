@@ -71,8 +71,9 @@
 						<td><?php echo $row['SPObjetivo']; ?></td>
 						<td><?php echo $row['SPDescripcion']; ?></td>
 						<td><?php echo $row['SPEstudiantesRequeridos']; ?></td>
-						<form action="">
-							<th class="tb-th-asp">
+						<form action="AlumSolicitudResidencia.php" method="Post">
+							<th class="tb-th-asp"> 
+								<input type="hidden" name="enviar" value="<?php echo $row['SPID'];?>">
 								<input type="submit" value="Solicitar" data-proyecto-id="<?php echo $row['SPEstatus']; ?>">
 							</th>
 						</form>
