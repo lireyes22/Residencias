@@ -131,11 +131,8 @@
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp">Total Puntos:</label>
                 <input class="txtSizeEvC3 lb-inp" type="text" name="TotalPuntos">
                 <a style="text-decoration: none; color: white;" class="mrgEvC3 lb-inp" href="" download>Descargar reporte</a>
-
-
             </div>
         </div>
     </form>
 </body>
-
 </html>
