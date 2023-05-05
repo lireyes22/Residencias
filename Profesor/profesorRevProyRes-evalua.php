@@ -13,7 +13,7 @@
 <head>
 	<title>Profesor</title>
 	<link rel="stylesheet" href="../style/style.css">
-	<link rel="stylesheet" href="/Style/StyleProfesor.css">
+	<link rel="stylesheet" href="Style/StyleProfesor.css">
 </head>
 
 <body style="margin: 0;">
@@ -46,7 +46,8 @@
 			<p class="izq-nomb-proy"><?php echo $row[1]; ?></p>
 			<form action="exc/insert.php" method="post">
 				<input type="hidden" name="SPID" value="<?php echo $idProy; ?>">
-				<input class="obsrv" type="text" name="observaciones" PLACEHOLDER="Observaciones">
+				<input class="obsrv" type="text" name="observaciones" PLACEHOLDER="Observaciones" required size="38" maxlength="255">
+				<input type="hidden" name="IDfuncion" value="desicionProyecto">
 				<input type="submit" name="desicion" value="Aceptar"> <br>
 				<input type="submit" name="desicion" value="Denegar" class="denegar">
 			</form>
