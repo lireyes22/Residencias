@@ -71,20 +71,24 @@
 						?>
 						
 						</th>
-						<th class="tb-th-asp"> - </th>
+						<?php 
+							$queryTipo = "SELECT SPTipo FROM SolicitudProyecto WHERE SolicitudProyecto.SPID = $row[3]";
+							$tipo = mysqli_query($link, $queryTipo);
+							$rowTipo = mysqli_fetch_array($tipo);
+						?>
+						<th class="tb-th-asp"> <?php echo $rowTipo[0]; ?> </th>
 						<?php
-							$profesor3 = "SELECT Profesor.NombreCompleto FROM Profesor INNER JOIN Profesor_Usuarios ON Profesor.RFCProfesor  = Profesor_Usuarios.RFCProfesor WHERE Profesor_Usuarios.UID = '$row[1]'";
+							$profesor3 = "SELECT Profesor.NombreCompleto FROM Profesor INNER JOIN Profesor_Usuarios ON Profesor.RFCProfesor  = Profesor_Usuarios.RFCProfesor WHERE Profesor_Usuarios.UID = $row[1];";
 							$profesor = mysqli_query($link, $profesor3);
 							$rowProfesor = mysqli_fetch_array($profesor);
-							$departamentoQ = "";//AQUI TENGO QUE SACAR EL DID DEL PROYECTO
+							$departamentoQ = "SELECT Carreras.`DID` FROM `Carreras` INNER JOIN `CarrerasSolicitudProyecto` INNER JOIN `SolicitudProyecto` ON Carreras.`CID` = CarrerasSolicitudProyecto.`CID` AND SolicitudProyecto.`SPID` = CarrerasSolicitudProyecto.`SPID` WHERE CarrerasSolicitudProyecto.`SPID` = '$row[3]';";//AQUI TENGO QUE SACAR EL DID DEL PROYECTO
 							$departamento = mysqli_query($link, $departamentoQ);
 							$rowDeptoID = mysqli_fetch_array($departamento);
 						?>
 
-						<th class="tb-th-asp"><?php echo $rowDeptoID[0]; ?></th>
+						<th class="tb-th-asp"><?php echo $rowProfesor[0]; ?></th>
 							<th class="tb-th-asp">
 							
-							<form action="docs/generador.php" method="POST" target="blank">
 							<select name="profesor">
 								<?php 
 									$comision = "SELECT NombreCompleto FROM Profesor WHERE Profesor.DID = '$rowDeptoID[0]'";
@@ -92,8 +96,10 @@
 									while ($rowComision = mysqli_fetch_array($resultComision)){
 										?>
 											<option value="<?php echo $rowComision[0]; ?>"> <?php echo $rowComision[0] ?> </option>
+
 										<?php
-									}
+										$nombre = $rowComision[0];
+									} 
 								?>
 							</select>
 							</th>
@@ -103,16 +109,17 @@
 								$depto = mysqli_query($link, $query4);
 								$rowDepto = mysqli_fetch_array($depto);
 							?>
+								<form action="docs/generador.php" method="POST" target="blank">
+								<input type="hidden" name="profesor" value="<?php echo $nombre; ?>">
 								<input type="hidden" name="departamento" value="<?php echo $rowDepto[0]; ?>">
 								<input type="hidden" name="noOficio" value="6061"> 
 								<input type="hidden" name="firma" value="Vve+KIMdhPjSiPoA+oFPOI1+DHhbIZpAfjHDjdvuDpN9ga4g">
-								<input type="hidden" name="fecha" value="01-05-2023">
-								<input type="month" name="mes" value="01">
-								<input type="number" name="dia" value="01"  min="1" max="30">
+								<input type="hidden" name="fecha" value="<?php	echo date("d-m-Y"); ?>">
+								<input type="number" name="mes" min="1" max="12" PLACEHOLDER="MES">
+								<input type="number" name="dia" min="1" max="30" PLACEHOLDER="DIA">
 								<input type="hidden" name="proyecto" value="<?php echo $row[2]; ?>">
 								<input type="hidden" name="residente" value="<?php echo $rowAlumno[1]; ?>">
 								<input type="hidden" name="carrera" value="<?php echo $rowCarrera[0]; ?>">
-								
 								<input type="submit" value="Asignar">
 								</form>
 							</th>

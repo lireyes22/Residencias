@@ -13,12 +13,18 @@ function conn(){
     return $conection;
 }
 
-function consultaRet($consulta) {
+function consultaAsesorAlumno($idAsesor) {
     $conection = conn();
-    $sql = "SELECT * FROM Usuarios
-    INNER JOIN 
-    ";
-    $query = mysqli_query($conection, $consulta);
+    $sql = "CALL AsesorxAlumno($idAsesor)";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $query;
+}
+function consultaUsuarioAlumno($idAlumno) {
+    $conection = conn();
+    $sql = "CALL UsuarioxAlumno($idAlumno)";
+    $query = mysqli_query($conection, $sql);
     // vaciar el buffer de resultados
     while (mysqli_next_result($conection)) { }
     return $query;
