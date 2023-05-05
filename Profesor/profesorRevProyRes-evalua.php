@@ -13,6 +13,7 @@
 <head>
 	<title>Profesor</title>
 	<link rel="stylesheet" href="../style/style.css">
+	<link rel="stylesheet" href="/Style/StyleProfesor.css">
 </head>
 
 <body style="margin: 0;">
@@ -28,13 +29,13 @@
 				<h1>Solicitudes de Proyectos</h1>
 			</div>
 			<div class="right-column">
-				<a href="a.html"><img src="../img/logout.png" width="40px"></a>
+				<a href="index.php"><img src="../img/logout.png" width="40px"></a>
 			</div>
 		</div>
 		<div class="button-row">
-		<a href="a.html" class="button-link">Comisiones</a>
-			<a href="a.html" class="button-link">Proyectos Registrados</a>
-			<a href="a.html" class="button-link">Registrar Proyecto</a>
+		<a href="index.php" class="button-link">Comisiones</a>
+			<a href="index.php" class="button-link">Proyectos Registrados</a>
+			<a href="index.php" class="button-link">Registrar Proyecto</a>
 			<a href="profesorSoliRes.php" class="button-link">Solicitudes de Residencia</a>
 			<a href="profesorRevProyRes.php" class="button-link">Solicitudes de Proyecto</a>
 		</div>
@@ -45,6 +46,7 @@
 			<p class="izq-nomb-proy"><?php echo $row[1]; ?></p>
 			<form action="exc/insert.php" method="post">
 				<input type="hidden" name="SPID" value="<?php echo $idProy; ?>">
+				<input class="obsrv" type="text" name="observaciones" PLACEHOLDER="Observaciones">
 				<input type="submit" name="desicion" value="Aceptar"> <br>
 				<input type="submit" name="desicion" value="Denegar" class="denegar">
 			</form>
