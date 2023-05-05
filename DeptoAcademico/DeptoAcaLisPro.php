@@ -1,9 +1,8 @@
 <?php 
 	include ('funcionesDepto.php');
-	$link = conn();
-    $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
-    $query = "SELECT * FROM SolicitudProyecto WHERE SPEstatus = 'ACEPTADO'";
-    $result = mysqli_query($link, $query);
+	$UID = 13;
+	$DID = mysqli_fetch_array(DID($UID));
+    $result = listSolicProyAcep($DID[0]);
 ?>
 <!DOCTYPE html>
 <html>
@@ -50,20 +49,15 @@
             <tr>
 			<?php
 				$i = 0;
-				while ($row = mysqli_fetch_array($result)) {
+				while ($SPID = mysqli_fetch_array($result)){
+					$row = mysqli_fetch_array(basicInfoProy($SPID[0]));
 					?>
 					<tr <?php if($i%2==0) echo "class='par'" ?> >
 						<th class="tb-th-asp"><p><?php echo $row[1]?></p></th>
 						<th class="tb-th-asp"><p><?php echo $row[2]?></p></th>
-						<th class="tb-th-asp"><p><?php echo $row[6]?></p></th>
-						<th class="tb-th-asp"><p><?php echo $row[7]?></p></th>
-						<?php 
-							$row1 = "NULL"; 
-							$query = "SELECT `Profesor`.`NombreCompleto`,`Profesor`.`DID`  FROM `SolicitudProyecto` INNER JOIN `Profesor_Usuarios` INNER JOIN `Profesor` ON `SolicitudProyecto`.`UIDResponsable` = `Profesor_Usuarios`.`UID`AND `Profesor_Usuarios`.`RFCProfesor` = `Profesor`.`RFCProfesor`  WHERE `SolicitudProyecto`.`UIDResponsable` = '$row[11]';";
-							$result1 = mysqli_query($link, $query);
-							$row1 = mysqli_fetch_array($result1);						
-						?>
-						<th class="tb-th-asp"><?php if (!empty($row1[0])){  echo $row1[0];}else{ echo "Sin Responsable";} ?></th>
+						<th class="tb-th-asp"><p><?php echo $row[3]?></p></th>
+						<th class="tb-th-asp"><?php echo $row[4]?> MESES</th>
+						<th class="tb-th-asp"><?php if (!empty($row[5])){  echo $row[5];}else{ echo "Sin Responsable";} ?></th>
 						<form action="deptoAcaAsigAsesor.php" method="_POST" target ="blank">
 							<th class="tb-th-asp">
 								<input type="submit" value="Asignar">
