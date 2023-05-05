@@ -1,7 +1,7 @@
 <?php //INSERCION DE DATOS 
     include ('../funcionesDepto.php');
     $nFuncion = $_POST['IDfuncion'];
-    if($nFuncion = 'ComisionProyectoProfesor'){
+    if($nFuncion == 'ComisionProyectoProfesor'){
         $_SPID = $_POST['SPID'];
         $prevUPROF = $_POST['UProfesor'];
         $_UProfesor = mysqli_fetch_array(UProfesor($prevUPROF));

@@ -1,7 +1,7 @@
 <?php 
     include ('../funcProfesor.php');
     $nFuncion = $_POST['IDfuncion'];
-    if($nFuncion = 'desicionProyecto'){
+    if($nFuncion == 'desicionProyecto'){
         $_SPID = $_POST['SPID'];
         $_CPPEstatus = $_POST['desicion'];
         $_CPPObservaciones = $_POST['observaciones'];        
