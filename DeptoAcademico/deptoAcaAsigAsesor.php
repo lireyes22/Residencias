@@ -1,9 +1,8 @@
 <?php 
 	include ('funcionesDepto.php');
-	$link = conn();
-    $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
-    $query = "SELECT * FROM SolicitudProyecto";
-    $result = mysqli_query($link, $query);
+	$UID = 13;
+	$DID = mysqli_fetch_array(DID($UID));
+    $result = listSolicProyAcep($DID[0]);
 ?>
 <!DOCTYPE html>
 <html>
@@ -54,15 +53,16 @@
 			<input type="date" name="fecha"> <br> <br>
 			<label for="docente">Docente: </label>
 			<select name="docente">
-			<?php 
-				 $query1 = "SELECT RFCProfesor, NombreCompleto FROM Profesor WHERE Profesor.DID = '5'";
-				 $result1 = mysqli_query($link, $query1);
-					  while ($row1 = mysqli_fetch_array($result1)){
-						    ?>
-				                <option value="<?php echo $row1[0]; ?>"> <?php echo $row1[1] ?> </option>
-										<?php
-							}
-				 ?> 
+				<?php
+					$RFC = mysqli_fetch_array(RFCprofesor($row[0]));
+					$listaProfesores = listaDocentes($DID[0], $RFC[0]);
+						while ($profesor = mysqli_fetch_array($listaProfesores)){
+						?>
+							<option value="<?php echo $profesor[0]; ?>"> <?php echo $profesor[1] ?> </option>
+						<?php
+								$docente = mysqli_fetch_array(UProfesor($docente[0]));
+							}		
+						?>
 				</select> <br> <br>
 			<label for="carrera">Carrera: </label>
 			<input type="text" name="carrera" disabled> <br> <br>
