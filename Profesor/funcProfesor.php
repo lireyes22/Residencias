@@ -60,4 +60,19 @@
         // vaciar el buffer de resultados
         while (mysqli_next_result($conection)) { }
     }
+    function cargarBanco($SPID){
+        $conection = conn();
+        $sql = "INSERT INTO BancoProyectos(SPID) VALUES($SPID);";
+        $query = mysqli_query($conection, $sql);
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+    }
+    function existeBanco($SPID){
+        $conection = conn();
+        $sql = "SELECT * FROM BancoProyectos WHERE SPID = $SPID";
+        $query = mysqli_query($conection, $sql);
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        return $query;
+    }
 ?>

@@ -45,7 +45,7 @@
 	</div>
 	<div class="main-cont">
 	<form action="exc/insert.php" method="POST">
-	<input type="hidden" name="IDfuncion" value="reAsignacion">
+	<input type="hidden" name="IDfuncion" value="asignacion">
 		<div class="panel-izq">
 			<label for="noOficio">No. de Oficio: </label>
 			<input type="text" name="noOficio"> <br> <br>
