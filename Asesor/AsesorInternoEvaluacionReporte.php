@@ -152,11 +152,11 @@
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp">Firma electronica:</label>
                 <input class="txtSizeEvC3 lb-inp" type="file" name="archivo">
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp">Fecha de evaluación</label>
-                <input class="txtSizeEvC3 lb-inp" type="date" name="FechaEvaluacion" disabled>
+                <input class="txtSizeEvC3 lb-inp" type="date" name="FechaEvaluacion" value="<?php echo date('Y-m-d'); ?>" disabled>
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp">Total Puntos:</label>
                 <input class="txtSizeEvC3 lb-inp" type="text" name="TotalPuntos" disabled>
-                <input type="hidden" name="idSoliRes" value="<?php echo 2;/*$idSolicitudResidencia;*/ ?>">
-                <input type="submit" value="Enviar" formaction="AsesorInternoDescargarArchivo.php">
+                <input type="hidden" name="idSoliRes" value="<?php echo $idSolicitudResidencia; ?>">
+                <input class="txtSizeEvC3 mrgEvC3 lb-inp" type="submit" value="Descargar Reporte" formaction="AsesorInternoDescargarArchivo.php">
             </div>
         </div>
         

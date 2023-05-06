@@ -36,7 +36,7 @@
 			<a href="a.html" class="button-link">Faq &nbsp;<img src="../img/pregunta.jpg" width="20px"></a>
 		</div>
 	</div>
-	<form action="" method="post">
+	<form action="" method="post" enctype="multipart/form-data" action="AlumnoInsertarReporte.php">
 		
 		<div>
 			<h1>ESTRUCTURA DEL REPORTE</h1>

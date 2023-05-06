@@ -12,7 +12,6 @@ if (!$conection) {
 }
 mysqli_set_charset($conection, "utf8");
 
-// ID del archivo que queremos descargar
 $idSolicitudResidencia = $_POST['idSoliRes'];
 echo $idSolicitudResidencia;
 
@@ -23,7 +22,7 @@ echo $sql;
 $resultado = mysqli_query($conection, $sql);
 // Obtener la información del archivo
 if ($fila = mysqli_fetch_assoc($resultado)) {
-    $archivo = $fila['archivo'];
+    $archivo = $fila['RPContenido'];
     // Establecer las cabeceras para la descarga
     header("Content-Type: application/pdf");
     header("Content-Disposition: attachment; filename=documento.pdf");

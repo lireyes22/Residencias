@@ -16,19 +16,22 @@ function conn(){
 
 $conexion = conn();
 
-// Nombre del archivo y ruta
-$archivo = $_POST['ReporteFinal'];
+//Nombre del archivo y ruta
+$archivo = $_FILES['ReporteFinal']['tmp_name'];
 $idAlumno = $_POST['idAlumno'];
 
-
-// Lee el contenido del archivo
+//Lee el contenido del archivo
 $contenido = file_get_contents($archivo);
 
-// Query de inserción
-$sql = "CALL InsertarReporteFinal($idAlumno, '$contenido')";
+//Prepara la consulta SQL con parametros
+$sql = "CALL InsertarReporteFinal(?, ?)";
+$stmt = mysqli_prepare($conexion, $sql);
 
-// Ejecuta la consulta
-if (mysqli_query($conexion, $sql)) {
+//Asigna los valores de los parametros
+mysqli_stmt_bind_param($stmt, "is", $idAlumno, $contenido);
+
+//Ejecuta la consulta preparada
+if (mysqli_stmt_execute($stmt)) {
     echo "Archivo insertado correctamente.";
 } else {
     echo "Error al insertar archivo: " . mysqli_error($conexion);
@@ -36,4 +39,5 @@ if (mysqli_query($conexion, $sql)) {
 
 // Cierra la conexión
 mysqli_close($conexion);
+
 ?>
