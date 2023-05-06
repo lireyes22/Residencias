@@ -51,7 +51,7 @@
 				$i = 0;
 				while ($SPID = mysqli_fetch_array($result)){
 					$row = mysqli_fetch_array(basicInfoProy($SPID[0]));
-					?>
+					?> 
 					<tr <?php if($i%2==0) echo "class='par'" ?> >
 						<th class="tb-th-asp"><p><?php echo $row[1]?></p></th>
 						<th class="tb-th-asp"><p><?php echo $row[2]?></p></th>
@@ -61,13 +61,24 @@
 						<form action="deptoAcaAsigAsesor.php" method="POST" target ="blank">
 							<th class="tb-th-asp">
 								<input type="hidden" name="SPID" value="<?php echo $row[0];?>">
-								<input type="submit" value="Asignar">
+								<?php 
+									$BPID = mysqli_fetch_array(existeBanco($row[0]));
+									$asesor = mysqli_fetch_array(asesorInterno($BPID[0]));
+									if(empty($asesor)){
+										$asigna = 'submit';
+										$reasigna = "hidden";
+									}else{
+										$asigna = 'hidden';
+										$reasigna = "submit";
+									}
+								?>
+								<input type="<?php echo $asigna; ?>" value="Asignar">
 							</th>
 						</form>
 						<form action="deptoAcaReasigAsesor.php" method="POST" target="blank">
 							<th class="tb-th-asb">
 								<input type="hidden" name="SPID" value="<?php echo $row[0];?>">
-								<input type="submit" value="Reasignar">
+								<input type="<?php echo $reasigna; ?>" value="Reasignar">
 							</th>
 						</form>
 					</tr>

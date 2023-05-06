@@ -203,7 +203,6 @@ function existeBanco($SPID){
     while (mysqli_next_result($conection)) { }
     return $query;
 }
-
 //----------------------------------------------------------------------------------------------------------//
 function plantilla(){
     $conection = conn();
