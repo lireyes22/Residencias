@@ -46,11 +46,11 @@ function consultaCarreraAlumno($NumAlumno) {
     while (mysqli_next_result($conection)) { }
     return $query;
 }
-
-function Ejemplo() {
+function consultaProfesorAsesor($idAsesor) {
     $conection = conn();
-    $consulta = "select xd............";
-    $query = mysqli_query($conection, $consulta);
+    $sql = "CALL ProfesorxAsesor($idAsesor)";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
     return $query;
 }
-?>
