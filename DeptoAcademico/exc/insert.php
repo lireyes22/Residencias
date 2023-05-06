@@ -24,7 +24,17 @@
         }
         insertComisionAsesor($UID[0], $rBPID, $rCAPeriodo, $rRazon); //GENERAMOS UNA COMISION DE ASESOR
         nuevoAsesor($rBPID, $AIID[0]); //ACTUALIZAMOS EL BANCO AL NUEVO ASESOR, YA QUE ESTA ES UNA FUNCION PARA REASIGNACION
-    }
+    }else if($nFuncion == 'asignacion'){
+        $rBPID = $_POST['BPID'];
+        $rCAPeriodo = $_POST['periodo'];
+        $RFCProfesor = $_POST['docente'];
+        $UID = mysqli_fetch_array(UProfesor($RFCProfesor));
+        $AIID = mysqli_fetch_array(esAsesor($UID[0]));
+        if( empty($AIID)){ //REVISAMOS SI EXISTE EN LA TABLA DE ASESORES
+            insertAsesor($UID[0]); //SI NO EXISTE LO AGREGAMOS
+        }
+        insertComisionAsesor($UID[0], $rBPID, $rCAPeriodo, $rRazon); //GENERAMOS UNA COMISION DE ASESOR
+    }  
     //Código JavaScript para cerrar la ventana
     echo "<script>window.close();</script>";
 ?>
