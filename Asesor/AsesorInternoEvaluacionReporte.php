@@ -154,7 +154,7 @@
                     if(!($consultaAsesor = mysqli_fetch_array($queryAsesor))){echo 'error';}
                 ?>
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp">Nombre del Asesor Interno:</label>
-                <input class="txtSizeEvC3 lb-inp" type="text" name="AsesorInterno" value="<?php echo $consultaAsesor['RFCProfesor']; ?>">
+                <input class="txtSizeEvC3 lb-inp" type="text" name="AsesorInterno" value="<?php echo $consultaAsesor['NombreCompleto']; ?>">
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp">Firma electronica:</label>
                 <input class="txtSizeEvC3 lb-inp" type="file" name="archivo">
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp">Fecha de evaluación</label>
@@ -162,6 +162,7 @@
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp">Total Puntos:</label>
                 <input class="txtSizeEvC3 lb-inp" type="text" name="TotalPuntos" disabled>
                 <input type="hidden" name="idSoliRes" value="<?php echo $idSolicitudResidencia; ?>">
+                <input type="hidden" name="idUAsesor" value="<?php echo $idAsesor; ?>">
                 <input class="txtSizeEvC3 mrgEvC3 lb-inp" type="submit" value="Descargar Reporte" formaction="procesos/AsesorInternoDescargarArchivo.php">
             </div>
         </div>

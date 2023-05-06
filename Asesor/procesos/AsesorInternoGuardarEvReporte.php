@@ -30,10 +30,14 @@ $Conclusiones = $_POST['Conclusiones'];
 $FuentesInformacion = $_POST['FuentesInformacion'];
 $Observaciones = $_POST['Observaciones'];
 $idSolicitudResidencia = $_POST['idSoliRes'];
+$idAsesor = $_POST['idUAsesor'];
 
-echo $idSolicitudResidencia;/*
+$total = $Portada + $Agradecimientos + $Resumen + $Indice + $Introduccion + $Antecedentes + $Justificacion
++ $Objetivos + $Metodologia + $Resultados + $Discusiones + $Conclusiones + $FuentesInformacion;
+
+
 $conectionn = conn();
-$sql = "CALL InsertarEvaluacionReporteFinal($idSolicitudResidencia, $Portada, $Agradecimientos, $Resumen, $Indice, $Introduccion, $Antecedentes, $Justificacion, $Objetivos, $Metodologia, $Resultados, $Discusiones, $Conclusiones, $FuentesInformacion, '$Observaciones')";
+$sql = "CALL InsertarEvaluacionReporteFinal($idSolicitudResidencia, $Portada, $Agradecimientos, $Resumen, $Indice, $Introduccion, $Antecedentes, $Justificacion, $Objetivos, $Metodologia, $Resultados, $Discusiones, $Conclusiones, $FuentesInformacion, $total,'$Observaciones', $idAsesor)";
 $query = mysqli_query($conectionn, $sql);
 
 if (!$query) {
@@ -43,5 +47,5 @@ if (!$query) {
 }
 
 mysqli_close($conectionn);
-*/
+
 ?>
