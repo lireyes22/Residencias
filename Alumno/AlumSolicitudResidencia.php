@@ -1,11 +1,11 @@
 <?php 
 	include ('Alumfunciones.php');
     //Variables demostrativas
-    $NumeroControl = '20391005';
+    $UID = '35';
     $ERFC = 'ITCH2023';
     //Llamo a funciones
     $empresa = getEmpresa($ERFC);
-    $residente = getResidente($NumeroControl);
+    $residente = getResidente($UID);
 
     // $SPID=$_POST["enviar"];
     // echo $SPID;
@@ -224,7 +224,7 @@
                 </div>
                 <div class="form-row">
                     <label for="numControl">Numero de Control:</label>
-                    <input type="text" id="numControl" name="numControl" value="<?php echo "$NumeroControl" ?>" disabled='disabled' required>
+                    <input type="text" id="numControl" name="numControl" value="<?php echo $residente['numcontrol'] ?>" disabled='disabled' required>
                 </div>
                 <div class="form-row">
                     <label for="numSemestre">Semestre a cursar:</label>

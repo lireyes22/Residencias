@@ -23,9 +23,11 @@ function generarBancoProyecto($IDUsuario){
 
 }
 
-function getResidente($NumeroControl){
+function getResidente($UID){
     $conection = conn();
-    $sql = "SELECT * FROM Alumnos WHERE NumeroControl = $NumeroControl";
+    $sql = "SELECT * FROM Alumnos
+    INNER JOIN Alumno_Usuarios ON Alumnos.NumeroControl = Alumno_Usuarios.NumeroControl 
+    WHERE $UID = Alumno_Usuarios.UID";
     $query = mysqli_query($conection, $sql);
     
     // Obtener los valores de las columnas
