@@ -14,10 +14,53 @@ function conn(){
     return $conection;
 }
 
-function Ejemplo() {
+function getResidente($NumeroControl){
     $conection = conn();
-    $consulta = "select xd............";
-    $query = mysqli_query($conection, $consulta);
+    $sql = "SELECT NombreCompleto, NumeroControl, Domicilio, Email, CID, NumeroSeguroSocial, 
+            SemestreActual, Ciudad, Telefono FROM Alumnos WHERE NumeroControl = $NumeroControl";
+    $query = mysqli_query($conection, $sql);
+    
+    // Obtener los valores de las columnas
+    $result = mysqli_fetch_assoc($query);
+    $nombre = $result['NombreCompleto'];
+    $NumControl = $result['NumeroControl'];
+    $domicilio = $result['Domicilio'];
+    $email = $result['Email'];
+    $semestre = $result['SemestreActual'];
+    $seguro = $result['NumeroSeguroSocial'];
+    $ciudad = $result['Ciudad'];
+    $tel = $result['Telefono'];
+    $CID = $result['CID'];
+
+    $sql2 = "SELECT Nombre FROM Carreras WHERE $CID = CID";
+    $query2 = mysqli_query($conection, $sql2);
+    $result2 = mysqli_fetch_assoc($query2);
+
+    // Obtener los valores de las columnas
+    $nomCarrera = $result2['Nombre'];
+
+    // Retornar un arreglo asociativo con los valores
+    return array(
+        'nombre' => $nombre,
+        'numcontrol' => $NumControl,
+        'domicilio' => $domicilio,
+        'semestre' => $semestre,
+        'seguro_social' => $seguro,
+        'email' => $email,
+        'ciudad' => $ciudad,
+        'tel' => $tel,
+        'nomcarrera' => $nomCarrera
+    );
+}
+
+
+function getProyecto($UID){
+    //SELECT Profesor.`NombreCompleto` FROM `Profesor` INNER JOIN `Profesor_Usuarios` ON Profesor_Usuarios.`RFCProfesor` = Profesor.`RFCProfesor` WHERE Profesor_Usuarios.`UID` = 10;
+    $conection = conn();
+    $sql = "SELECT Profesor.`NombreCompleto` FROM `Profesor` INNER JOIN `Profesor_Usuarios` ON Profesor_Usuarios.`RFCProfesor` = Profesor.`RFCProfesor` WHERE Profesor_Usuarios.`UID` = $UID;";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
     return $query;
 }
 ?>

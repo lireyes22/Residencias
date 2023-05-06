@@ -1,22 +1,15 @@
 <?php 
 	include ('Alumfunciones.php');
-	$link = conn();
-    $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
-    $query = "SELECT * FROM Alumnos";
-    $result = mysqli_query($link, $query);
-    $SPID=$_POST["enviar"];
-    echo $SPID;
+    $NumeroControl = '20391005';
+    $residente = getResidente($NumeroControl);
 
-    while ($row = mysqli_fetch_assoc($result)) {
-        $nombre = $row['NombreCompleto'];
-        $numcontrol = $row["NumeroControl"];
-        $semestre = $row["SemestreActual"];
-        $domicilio = $row["Domicilio"];
-        $correo = $row["CorreoInstitucional"];
-        $seguro = $row["NumeroSeguroSocial"];
-        $ciudad = $row["Ciudad"];
-        $telefono = $row["Telefono"];
-    }
+    // $SPID=$_POST["enviar"];
+    // echo $SPID;
+
+    // if (isset($_POST['enviar'])) {
+    //     $spid = $_POST['enviar'];
+    //     // Aquí puedes hacer lo que necesites con el valor de $spid
+    //   }      
 ?>
 
 <!DOCTYPE html>
@@ -217,34 +210,34 @@
             <div class="columnaL">
                 <div class="form-row">
                     <label for="nombreResidente">Nombre:</label>
-                    <input type="text" id="nombreResidente" name="nombreResidente" value="<?php echo "$nombre" ?>" disabled='disabled' required>
+                    <input type="text" id="nombreResidente" name="nombreResidente" value="<?php echo $residente['nombre'] ?>" disabled='disabled' required>
                 </div>
                 <div class="form-row">
                     <label for="carrera">Carrera:</label>
-                    <input type="text" id="carrera" name="carrera" value="<?php echo "$carrera" ?>" disabled='disabled' required>
+                    <input type="text" id="carrera" name="carrera" value="<?php echo $residente['nomcarrera'] ?>" disabled='disabled' required>
                 </div>
                 <div class="form-row">
                     <label for="numControl">Numero de Control:</label>
-                    <input type="text" id="numControl" name="numControl" value="<?php echo "$numcontrol" ?>" disabled='disabled' required>
+                    <input type="text" id="numControl" name="numControl" value="<?php echo "$NumeroControl" ?>" disabled='disabled' required>
                 </div>
                 <div class="form-row">
                     <label for="numSemestre">Semestre a cursar:</label>
-                    <input type="text" id="numSemestre" name="numSemestre" value="<?php echo "$semestre" ?>" required>
+                    <input type="text" id="numSemestre" name="numSemestre" value="<?php echo $residente['semestre'] ?>" required>
                 </div>
                 <div class="form-row">
                     <label for="domicilio">Domicilio:</label>
-                    <input type="text" id="domicilio" name="domicilio" value="<?php echo "$domicilio" ?>" disabled='disabled' required>
+                    <input type="text" id="domicilio" name="domicilio" value="<?php echo $residente['domicilio'] ?>" disabled='disabled' required>
                 </div>
                 <div class="form-row">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" value="<?php echo "$correo" ?>" disabled='disabled' required>
+                    <input type="email" id="email" name="email" value="<?php echo $residente['email'] ?>" disabled='disabled' required>
                 </div>
             </div>
 
             <div class="columnaR">
                 <div class="form-row">
                     <label for="numeroSeguro">Para seguridad social acudir:</label>
-                    <input type="text" name="numeroSeguro" value="<?php echo "$seguro" ?>" required>
+                    <input type="text" name="numeroSeguro" value="<?php echo $residente['seguro_social'] ?>" required>
                 </div>
                 <div class="form-row">
                     <input type="radio" id="imss" name="tipoSeguro" value="IMSS" required>
@@ -256,11 +249,11 @@
                 </div>
                 <div class="form-row">
                     <label for="cuidad">Ciudad:</label>
-                    <input type="text" id="cuidad" name="cuidad" value="<?php echo "$ciudad" ?>" disabled ='disabled' required>
+                    <input type="text" id="cuidad" name="cuidad" value="<?php echo $residente['ciudad'] ?>" disabled ='disabled' required>
                 </div>
                 <div class="form-row">
                     <label for="telefono">Teléfono:</label>
-                    <input type="tel" name="telAlumno" id="telefono" value="<?php echo "$telefono" ?>" required>
+                    <input type="tel" name="telAlumno" id="telefono" value="<?php echo $residente['tel'] ?>" required>
                 </div>
 
             </div>                  
