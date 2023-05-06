@@ -17,15 +17,16 @@ function generarBancoProyecto($IDUsuario){
     $conection = conn();
 
     $IDDepUser = "SELECT Alumnos.DID FROM Alumnos
-INNER JOIN Alumno_Usuarios ON Alumnos.NumeroControl= Alumno_Usuarios.NumeroControl
-INNER JOIN Usuarios ON Alumno_Usuarios.UID= Usuarios.UID
-WHERE Usuarios.UID='$IDUsuario' ";
+    INNER JOIN Alumno_Usuarios ON Alumnos.NumeroControl= Alumno_Usuarios.NumeroControl
+    INNER JOIN Usuarios ON Alumno_Usuarios.UID= Usuarios.UID
+    WHERE Usuarios.UID='$IDUsuario'";
+
 }
 
 function getResidente($NumeroControl){
     $conection = conn();
     $sql = "SELECT NombreCompleto, NumeroControl, Domicilio, Email, CID, NumeroSeguroSocial, 
-            SemestreActual, Ciudad, Telefono FROM Alumnos WHERE NumeroControl = $NumeroControl";
+    SemestreActual, Ciudad, Telefono FROM Alumnos WHERE NumeroControl = $NumeroControl";
     $query = mysqli_query($conection, $sql);
     
     // Obtener los valores de las columnas
@@ -69,6 +70,6 @@ function getProyecto($UID){
     $query = mysqli_query($conection, $sql);
     // vaciar el buffer de resultados
     while (mysqli_next_result($conection)) { }
-    return $query;
+        return $query;
 }
 ?>
