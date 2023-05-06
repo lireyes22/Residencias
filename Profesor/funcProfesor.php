@@ -48,7 +48,7 @@
     }
     function updateComision($_SPID, $_CPPEstatus, $_CPPObservaciones){
         $conection = conn();
-        $sql = "UPDATE ComisionProyectoProfesor SET ComisionProyectoProfesor.CPPEstatus = '$_CPPEstatus', ComisionProyectoProfesor.CPPObservaciones = '$_CPPObservaciones' WHERE SolicitudProyecto.SPID = $_SPID;";
+        $sql = "UPDATE ComisionProyectoProfesor SET ComisionProyectoProfesor.CPPEstatus = '$_CPPEstatus', ComisionProyectoProfesor.CPPObservaciones = '$_CPPObservaciones' WHERE ComisionProyectoProfesor.SPID = $_SPID;";
         $query = mysqli_query($conection, $sql);
         // vaciar el buffer de resultados
         while (mysqli_next_result($conection)) { }
