@@ -126,9 +126,80 @@ function bancoSPID($SPID){
     while (mysqli_next_result($conection)) { }
     return $query;
 }
-function alumnosResidencia($BPID){
+function alumnosResidencia($BPID){ //DEBERIA DE SER UNA RELACION MUCHOS A MUCHOS 
     $conection = conn();
-    $sql = "SELECT Alumnos.`NombreCompleto`, Alumnos.`CID` FROM `Alumnos` INNER JOIN `Alumno_Usuarios` INNER JOIN `SolicitudResidencia` INNER JOIN Carreras ON Alumnos.`NumeroControl` = Alumno_Usuarios.`NumeroControl` AND SolicitudResidencia.`UAlumno` = Alumno_Usuarios.`UID` AND AND Alumnos.`CID` = Carreras.`CID` WHERE SolicitudResidencia.BPID = $BPID AND SolicitudResidencia.SREstatus = 'ACEPTADO';";
+    $sql = "SELECT Alumnos.`NombreCompleto`, Carreras.`Nombre` FROM `Alumnos` INNER JOIN `Alumno_Usuarios` INNER JOIN `SolicitudResidencia` INNER JOIN `Carreras` ON Alumnos.`NumeroControl` = Alumno_Usuarios.`NumeroControl` AND SolicitudResidencia.`UAlumno` = Alumno_Usuarios.`UID` AND Alumnos.`CID` = Carreras.`CID` WHERE SolicitudResidencia.BPID = $BPID AND SolicitudResidencia.SREstatus = 'ACEPTADO';";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $query;
+}
+function residenciaSol($BPID){
+    $conection = conn();
+    $sql = "SELECT * FROM SolicitudResidencia WHERE SolicitudResidencia.BPID = $BPID;";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $query;
+}
+function empresa($SPID){
+    $conection = conn();
+    $sql = "SELECT Empresas.ENombre FROM Empresas INNER JOIN SolicitudProyecto ON Empresas.ERFC = SolicitudProyecto.ERFC WHERE SolicitudProyecto.SPID = $SPID;";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $query;
+}
+function asesorInterno($BPID){
+    $conection = conn();
+    $sql = "SELECT Profesor.`RFCProfesor`, Profesor.NombreCompleto FROM `Profesor` INNER JOIN `BancoProyectos` INNER JOIN `AsesorInterno` INNER JOIN `Profesor_Usuarios` ON AsesorInterno.`AIID` = BancoProyectos.`AIID` AND Profesor.`RFCProfesor` = Profesor_Usuarios.`RFCProfesor` AND Profesor_Usuarios.`UID` = AsesorInterno.`UID` WHERE BancoProyectos.BPID = $BPID;";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $query;
+}
+function esAsesor($UID){
+    $conection = conn();
+    $sql = "SELECT AsesorInterno.AIID FROM AsesorInterno WHERE AsesorInterno.UID = $UID";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $query;
+}
+function insertAsesor($UID){
+    $conection = conn();
+    $sql = "INSERT INTO AsesorInterno(UID) VALUES ($UID);";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+}
+function insertComisionAsesor($UProfesor, $BPID, $CAPeriodo,$Razon){
+    $conection = conn();
+    $sql = "INSERT INTO ComisionesAsesores(UProfesor, BPID, CAPeriodo, Motivo) VALUES ($UProfesor, $BPID, '$CAPeriodo','$Razon');";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+}
+function nuevoAsesor($BPID, $UID){
+    $conection = conn();
+    $sql = "UPDATE BancoProyectos SET BancoProyectos.AIID = $UID WHERE BancoProyectos.BPID = $BPID";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+}
+function nombreDepartamento($DID){
+    $conection = conn();
+    $sql = "SELECT Departamentos.Dnombre FROM Departamentos WHERE Departamentos.DID = $DID";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $query;
+}
+
+//----------------------------------------------------------------------------------------------------------//
+function plantilla(){
+    $conection = conn();
+    $sql = "";
     $query = mysqli_query($conection, $sql);
     // vaciar el buffer de resultados
     while (mysqli_next_result($conection)) { }
