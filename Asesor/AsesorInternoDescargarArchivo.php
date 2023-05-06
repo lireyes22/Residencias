@@ -1,4 +1,5 @@
 <?php
+echo '<br>';
 $host = 'mapachitos.cisuktad1m53.us-east-2.rds.amazonaws.com';
 $user = 'admin';
 $password = 'mapachitos123';
@@ -17,18 +18,19 @@ echo $idSolicitudResidencia;
 
 // Consulta para obtener la información del archivo
 $sql = "SELECT * FROM ReporteFinal WHERE SRID = $idSolicitudResidencia";
+echo $sql;
+
 $resultado = mysqli_query($conection, $sql);
 // Obtener la información del archivo
 if ($fila = mysqli_fetch_assoc($resultado)) {
-    $nombre = $fila['nombre'];
-    $tipo = $fila['tipo'];
     $archivo = $fila['archivo'];
     // Establecer las cabeceras para la descarga
-    header("Content-Type: $tipo");
-    header("Content-Disposition: attachment; filename=\"$nombre\"");
+    header("Content-Type: application/pdf");
+    header("Content-Disposition: attachment; filename=documento.pdf");
     // Imprimir el archivo
     echo $archivo;
 }
 // Cerrar la conexión
 mysqli_close($conection);
+
 ?>

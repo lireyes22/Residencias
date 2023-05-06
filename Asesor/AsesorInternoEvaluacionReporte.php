@@ -155,8 +155,8 @@
                 <input class="txtSizeEvC3 lb-inp" type="date" name="FechaEvaluacion" disabled>
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp">Total Puntos:</label>
                 <input class="txtSizeEvC3 lb-inp" type="text" name="TotalPuntos" disabled>
-                <input type="hidden" name="idSoliRes" value="<?php echo $idSolicitudResidencia; ?>">
-                <input class="mrgEvC3 lb-inp" type="submit" value="Descargar Archivo" formaction="AsesorInternoDescargarArchivo.php">
+                <input type="hidden" name="idSoliRes" value="<?php echo 2;/*$idSolicitudResidencia;*/ ?>">
+                <input type="submit" value="Enviar" formaction="AsesorInternoDescargarArchivo.php">
             </div>
         </div>
         
