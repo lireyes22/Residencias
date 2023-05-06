@@ -67,7 +67,7 @@
                 <input type="text" class="lb-inp" name="ProgramaEducativo" value="<?php echo $consultaAlumnoCarrera['Nombre']; ?>"> <br>
                 <label for="" class="lb-inp">Periodo de Realizacion:</label> <br>
                 <input type="text" class="lb-inp" name="PeriodoRealizacion" value="<?php echo $consultaAlumnoProyecto['SRPeriodo']; ?>"> <br>
-                <input type="submit" value="Enviar" class="lb-inp btnEnviarEv" formaction="AsesorInternoGuardarEvReporte.php">
+                <input type="submit" value="Guardar Cambios" class="lb-inp btnEnviarEv" formaction="procesos/AsesorInternoGuardarEvReporte.php">
             </div>
             <!-- Columna central tabla  -->
             <div class="column-Ev2">
@@ -76,6 +76,11 @@
                         <th>Criterios a evaluar</th>
                         <th>Valor Máximo</th>
                         <th>Evaluación Asesor Interno</th>
+                    </tr>
+                    <tr>
+                        <td>Portada</td>
+                        <td>1</td>
+                        <td><input type="number" name="Portada" min="0" max="0" step="1"></td>
                     </tr>
                     <tr>
                         <td>Agradecimientos</td>
@@ -90,12 +95,12 @@
                     <tr>
                         <td>Índice</td>
                         <td>2</td>
-                        <td><input type="number" name="Índice" min="0" max="2" step="1"></td>
+                        <td><input type="number" name="Indice" min="0" max="2" step="1"></td>
                     </tr>
                     <tr>
                         <td>Introducción</td>
                         <td>5</td>
-                        <td><input type="number" name="Introducción" min="0" max="5" step="1"></td>
+                        <td><input type="number" name="Introduccion" min="0" max="5" step="1"></td>
                     </tr>
                     <tr>
                         <td>Antecedentes o marco Teórico</td>
@@ -105,7 +110,7 @@
                     <tr>
                         <td>Justificación</td>
                         <td>5</td>
-                        <td><input type="number" name="Justificación" min="0" max="5" step="1"></td>
+                        <td><input type="number" name="Justificacion" min="0" max="5" step="1"></td>
                     </tr>
                     <tr>
                         <td>Objetivos</td>
@@ -115,7 +120,7 @@
                     <tr>
                         <td>Metodología</td>
                         <td>10</td>
-                        <td><input type="number" name="Metodología" min="0" max="10" step="1"></td>
+                        <td><input type="number" name="Metodologia" min="0" max="10" step="1"></td>
                     </tr>
                     <tr>
                         <td>Resultados</td>
@@ -138,7 +143,8 @@
                         <td><input type="number" name="FuentesInformacion" min="0" max="5" step="1"></td>
                     </tr>
                 </table>
-                
+                <label class="txtSizeEvC3 mrgEvC3 lb-inp" style="color: white; font-size: 20px;" ><strong>Observaciones:</strong></label>
+                <textarea name="Observaciones" id="" rows="5" style="width: 80%; margin: 10px; resize: none;"></textarea>
             </div>
             <!-- Columna derecha  -->
             <div class="column-Ev3">
@@ -156,7 +162,7 @@
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp">Total Puntos:</label>
                 <input class="txtSizeEvC3 lb-inp" type="text" name="TotalPuntos" disabled>
                 <input type="hidden" name="idSoliRes" value="<?php echo $idSolicitudResidencia; ?>">
-                <input class="txtSizeEvC3 mrgEvC3 lb-inp" type="submit" value="Descargar Reporte" formaction="AsesorInternoDescargarArchivo.php">
+                <input class="txtSizeEvC3 mrgEvC3 lb-inp" type="submit" value="Descargar Reporte" formaction="procesos/AsesorInternoDescargarArchivo.php">
             </div>
         </div>
         
