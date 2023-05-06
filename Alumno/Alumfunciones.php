@@ -25,8 +25,7 @@ function generarBancoProyecto($IDUsuario){
 
 function getResidente($NumeroControl){
     $conection = conn();
-    $sql = "SELECT NombreCompleto, NumeroControl, Domicilio, Email, CID, NumeroSeguroSocial, 
-            SemestreActual, Ciudad, Telefono FROM Alumnos WHERE NumeroControl = $NumeroControl";
+    $sql = "SELECT * FROM Alumnos WHERE NumeroControl = $NumeroControl";
     $query = mysqli_query($conection, $sql);
     
     // Obtener los valores de las columnas
