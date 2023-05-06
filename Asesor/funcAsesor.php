@@ -10,6 +10,7 @@ function conn(){
         echo 'Error de conexion';
         return null;
     }
+    mysqli_set_charset($conection, "utf8");
     return $conection;
 }
 
@@ -24,6 +25,22 @@ function consultaAsesorAlumno($idAsesor) {
 function consultaUsuarioAlumno($idAlumno) {
     $conection = conn();
     $sql = "CALL UsuarioxAlumno($idAlumno)";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $query;
+}
+function consultaProyectoAlumno($idAlumno) {
+    $conection = conn();
+    $sql = "CALL AlumnoxProyecto($idAlumno)";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $query;
+}
+function consultaCarreraAlumno($NumAlumno) {
+    $conection = conn();
+    $sql = "CALL AlumnoxCarrera($NumAlumno)";
     $query = mysqli_query($conection, $sql);
     // vaciar el buffer de resultados
     while (mysqli_next_result($conection)) { }

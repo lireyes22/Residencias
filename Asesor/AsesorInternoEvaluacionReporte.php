@@ -1,3 +1,11 @@
+<?php  
+    include ('funcAsesor.php');
+    $idAsesor = $_POST['idAsesor'];
+    $idAlumno = $_POST['idAlumno'];
+    //echo $idAsesor;echo '<br>';echo $idAlumno;
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -34,20 +42,29 @@
         </div>
     </div>
     <form action="">
+        <?php 
+            $queryAlumno = consultaUsuarioAlumno($idAlumno);
+            $queryProyectoAlumno = consultaProyectoAlumno($idAlumno);
+            $consultaAlumno;$consultaAlumnoProyecto;$consultaAlumnoCarrera;
+            if(!($consultaAlumno = mysqli_fetch_array($queryAlumno))){echo 'error';}
+            $queryProyectoCarrera = consultaCarreraAlumno($consultaAlumno['NumeroControl']);
+            if(!($consultaAlumnoProyecto = mysqli_fetch_array($queryProyectoAlumno))){echo 'error';}
+            if(!($consultaAlumnoCarrera = mysqli_fetch_array($queryProyectoCarrera))){echo 'error';}
+        ?>
         <div class="containerEv">
             <!-- Columna izquierda  -->
             <div class="column-Ev1">
                 <label for="" class="lb-inp txtSizeEv">Información:</label>
                 <label for="" class="lb-inp">Numero de control:</label> <br>
-                <input type="text" name="numControl" id="" class="lb-inp"> <br>
+                <input type="text" name="numControl" class="lb-inp" value="<?php echo $consultaAlumno['NumeroControl']; ?>"> <br>
                 <label for="" class="lb-inp">Nombre del residente:</label> <br>
-                <input type="text" class="lb-inp" name="NombreResidente" id=""> <br>
+                <input type="text" class="lb-inp" name="NombreResidente" value="<?php echo $consultaAlumno['NombreCompleto']; ?>"> <br>
                 <label for="" class="lb-inp">Nombre del Proyecto:</label> <br>
-                <input type="text" class="lb-inp" name="NombreProyecto" id=""> <br>
+                <input type="text" class="lb-inp" name="NombreProyecto" value="<?php echo $consultaAlumnoProyecto['SPNombreProyecto']; ?>"> <br>
                 <label for="" class="lb-inp">Programa Educativo:</label> <br>
-                <input type="text" class="lb-inp" name="ProgramaEducativo" id=""> <br>
+                <input type="text" class="lb-inp" name="ProgramaEducativo" value="<?php echo $consultaAlumnoCarrera['Nombre']; ?>"> <br>
                 <label for="" class="lb-inp">Periodo de Realizacion:</label> <br>
-                <input type="text" class="lb-inp" name="PeriodoRealizacion" id=""> <br>
+                <input type="text" class="lb-inp" name="PeriodoRealizacion" value="<?php echo $consultaAlumnoProyecto['SRPeriodo']; ?>"> <br>
                 <input type="submit" value="Enviar" class="lb-inp btnEnviarEv">
             </div>
             <!-- Columna central tabla  -->
@@ -119,9 +136,15 @@
                         <td><input type="number" name="FuentesInformacion" min="0" max="5" step="1"></td>
                     </tr>
                 </table>
+                
             </div>
             <!-- Columna derecha  -->
             <div class="column-Ev3">
+                <?php 
+                    $queryAsesor = consultaProyectoAlumno($idAsesor);
+                    $consultaAsesor;
+                    if(!($consultaAsesor = mysqli_fetch_array($queryAsesor))){echo 'error';}
+                ?>
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp">Nombre del Asesor Interno:</label>
                 <input class="txtSizeEvC3 lb-inp" type="text" name="AsesorInterno">
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp">Firma electronica:</label>
@@ -133,6 +156,7 @@
                 <a style="text-decoration: none; color: white;" class="mrgEvC3 lb-inp" href="" download>Descargar reporte</a>
             </div>
         </div>
+        
     </form>
 </body>
 </html>
