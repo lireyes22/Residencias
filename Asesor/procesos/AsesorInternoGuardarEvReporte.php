@@ -35,23 +35,6 @@ $idAsesor = $_POST['idUAsesor'];
 $total = $Portada + $Agradecimientos + $Resumen + $Indice + $Introduccion + $Antecedentes + $Justificacion
 + $Objetivos + $Metodologia + $Resultados + $Discusiones + $Conclusiones + $FuentesInformacion;
 
-echo $idSolicitudResidencia.',';
-echo $Portada.',';
-echo $Agradecimientos.',';
-echo $Resumen.',';
-echo $Indice.',';
-echo $Introduccion.',';
-echo $Antecedentes.',';
-echo $Justificacion.',';
-echo $Objetivos.',';
-echo $Metodologia.',';
-echo $Resultados.',';
-echo $Discusiones.',';
-echo $Conclusiones.',';
-echo $FuentesInformacion.',';
-echo $total;
-echo $Observaciones.',';
-echo $idAsesor.',';
 
 $conectionn = conn();
 $sql = "CALL InsertarEvaluacionReporteFinal($idSolicitudResidencia, $Portada, $Agradecimientos, $Resumen, $Indice, $Introduccion, $Antecedentes, $Justificacion, $Objetivos, $Metodologia, $Resultados, $Discusiones, $Conclusiones, $FuentesInformacion, $total,'$Observaciones', $idAsesor)";
