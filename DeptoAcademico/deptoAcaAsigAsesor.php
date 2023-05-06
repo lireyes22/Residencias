@@ -5,10 +5,9 @@
 	$row = mysqli_fetch_array(basicInfoProy($SPID));
 	$DID = mysqli_fetch_array(DID($UID));
 	$BPID = mysqli_fetch_array(bancoSPID($SPID));
-	$Residentes = alumnosResidencia($BPID[0]);
-	$solicitudResidencia = mysqli_fetch_array(residenciaSol($BPID[0]));
+	$solicitudResidencia = mysqli_fetch_array(existeBanco($SPID));
 	$nombreEmpresa = mysqli_fetch_array(empresa($SPID));
-	$RFC = mysqli_fetch_array(asesorInterno($BPID[0]));
+	$RFC = mysqli_fetch_array(responsableResidencia($SPID));
 	$docentes = listaDocentes($DID[0], $RFC[0]);
 ?>
 <!DOCTYPE html>
@@ -55,19 +54,30 @@
 			 	echo $NombDepto[0]; 
 			 ?>" size='30'> <br> <br>
 			<?php 
-			while ($Residente = mysqli_fetch_array($Residentes)) {
+				$Residentes = alumnosResidencia($BPID[0]); 
+				if(!empty($residentes)){
+					while ($Residente = mysqli_fetch_array($Residentes)) {
 				?>
 					<label for="nombre">Nombre de Residente: </label>
 					<input type="text" name="nombre" disabled value="<?php echo $Residente[0]; ?>" size="30"> <br> <br>
 					<label for="carrera">Carrera: </label>
 					<input type="text" name="carrera" disabled value="<?php echo $Residente[1]; ?>" size="30"> <br> <br>
 				<?php
+					}
+				}else{
+					?>
+					<label for="nombre">Nombre de Residente: </label>
+					<input type="text" name="nombre" disabled value="SIN RESIDENTES" size="30"> <br> <br>
+					<label for="carrera">Carrera: </label>
+					<input type="text" name="carrera" disabled value="SIN RESIDENTES" size="30"> <br> <br>
+					<?php
 				}
+			
 			?>
 		</div>
 		<div class="panel-der">
 			<label for="period">Perido de Realizacion: </label>
-			<input type="text" name="period" disabled value="<?php echo $solicitudResidencia[4]; ?>"> <br> <br>
+			<input type="text" name="period" disabled value="<?php echo $solicitudResidencia[5]; ?>"> <br> <br>
 			<label for="docente">Docente: </label>
 			<select name="docente">
 			<?php //RFC
@@ -83,7 +93,7 @@
 			<input type="text" name="empresa" disabled value="<?php echo $nombreEmpresa[0]; ?>" size="30"> <br> <br>
 		</div>
 		<div class="tb-th-asp">
-			<input type="hidden" name="periodo" value="<?php echo $solicitudResidencia[4];; ?>"> <br> <br>
+			<input type="hidden" name="periodo" value="<?php echo $solicitudResidencia[5]; ?>"> <br> <br>
 			<input type="hidden" name="BPID" value="<?php echo $BPID[0]; ?>">
 			<input class="medium" type="submit" value="Asignar">
 		</div>
