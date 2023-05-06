@@ -1,38 +1,3 @@
-/*body Evaluacion*/
-.containerEv {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.column-Ev1 {
-    width: 20%;
-    height: 100px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-left: 10px;
-    background-color: red;
-}
-
-.column-Ev2 {
-    width: 40%;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: blue;
-}
-
-.column-Ev3 {
-    width: 40%;
-    height: 100px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 10px;
-    background-color: green;
-}
 /*-------------CSS PARA AsesorInternoSRP------------------*/
 .containerSRP {
     display: flex;
@@ -97,6 +62,7 @@ th {
     background-color: #eee;
     font-weight: bold;
 }
+
 /*xd*/
 /* Estilos para el botón del menú desplegable */
 .dropbtn {
@@ -140,4 +106,96 @@ th {
 /* Mostrar la lista desplegable cuando el botón es clickeado */
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+/*body Evaluacion*/
+.containerEv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: linear-gradient(120deg, #3F6374, #2b5569fd);
+}
+
+.column-Ev1 {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    height: 100%;
+    width: 15%;
+    background-color: #2A424D;
+    border: 1px solid white;
+    display: flex;
+
+    align-items: center;
+    flex-direction: column;
+}
+
+.column-Ev2 {
+    width: 60%;
+    font-size: 15px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.column-Ev3 {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    height: 100%;
+    width: 25%;
+    /*background-color: #2A424D;
+    border: 1px solid white;*/
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lb-inp {
+    width: 70%;
+}
+
+.txtSizeEv {
+    font-size: 25px;
+    margin: 25px 0;
+}
+
+.txtSizeEvC3 {
+    font-size: 15px;
+}
+.mrgEvC3{
+    margin-top: 20px;
+}
+.btnEnviarEv {
+    color: white;
+    background-color: green;
+    border: 2px solid white;
+    padding: 10px 0;
+}
+
+/*Tabla de evaluacion*/
+.tb-ev {
+    color: white;
+    margin-top: 5%;
+    width: 90%;
+}
+
+.tb-ev th {
+    color: black;
+}
+
+.tb-ev tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+    color: black;
+}
+
+.tb-ev tbody tr:nth-child(odd) {
+    background-color: #ddd;
+    color: black;
 }

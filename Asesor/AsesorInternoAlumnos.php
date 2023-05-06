@@ -16,7 +16,6 @@
 
 <body>
     <div class="container">
-        A
         <div class="row">
             <div class="left-column">
                 <a class="home-btn" href="a.html">
@@ -54,11 +53,15 @@
             </thead>
             <?php 
                 //$query = consultaAsesorAlumno($_SESSION['id']);
+                //$idAsesor = $_SESSION['id'];
+                $idAsesor = 14;
                 $query = consultaAsesorAlumno(14);
                 while($consulta = mysqli_fetch_array($query)){
                     $idAlumno = $consulta['UAlumno'];
                     $queryInfoAlumno = consultaUsuarioAlumno($idAlumno);
                     $consultaAlumno = mysqli_fetch_array($queryInfoAlumno);
+                    
+
             ?>
             <form method="POST">
             <tbody>
@@ -69,10 +72,11 @@
                 <td><input type="submit" formaction="AsesorInternoEvaluacionSeguimiento.php" value="Evaluacion de Seguimiento"></td>
                 <td><input type="submit" formaction="AsesorInternoEvaluacionReporte.php" value="Evaluacion de Reporte Final"></td>
             </tbody>
+                    <input type="hidden" name="idAlumno" value="<?php echo $idAlumno; ?>">
+                    <input type="hidden" name="idAsesor" value="<?php echo $idAsesor; ?>">
             </form>
             <?php }//fin del while ?>
         </table>
     </div>
 </body>
-
 </html>
