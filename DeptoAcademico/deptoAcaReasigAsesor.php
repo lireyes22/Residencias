@@ -1,9 +1,11 @@
 <?php 
 	include ('funcionesDepto.php');
-	$link = conn();
-    $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
-    $query = "SELECT * FROM SolicitudProyecto";
-    $result = mysqli_query($link, $query);
+	$SPID = 6;
+	$UID = 13;
+	//$row = basicInfoProy($SPID);
+	$DID = mysqli_fetch_array(DID($UID));
+	$BPID = mysqli_fetch_array(bancoSPID($SPID));
+	$Residentes = alumnosResidencia($BPID[0]);
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,11 +45,17 @@
 			<label for="noOficio">No. de Oficio: </label>
 			<input type="text" name="noOficio"> <br> <br>
 			<label for="depto">Departamento: </label>
-			<input type="text" name="depto" disabled> <br> <br>
-			<label for="nombre">Nombre de Residente: </label>
-			<input type="text" name="nombre" disabled> <br> <br>
-			<label for="periodo">Perido de Realizacion: </label>
-			<input type="text" name="periodo" disabled> <br> <br>
+			<input type="text" name="depto" disabled value="<?php echo $DID[0]; ?>"> <br> <br>
+			<?php 
+			while ($Residente = mysqli_fetch_array($Residentes)){
+				?>
+					<label for="nombre">Nombre de Residente: </label>
+					<input type="text" name="nombre" disabled value="<?php echo $Residente[0]; ?>"> <br> <br>
+					<label for="carrera">Carrera: </label>
+					<input type="text" name="carrera" disabled value="<?php echo $Residente[1]; ?>"> <br> <br>
+				<?
+			}
+			?>
 			<label for="razon">Razon de la reasignacion: </label> 
 			<input type="text" name="razon"> <br> <br>
 		</div>
@@ -55,14 +63,14 @@
 			<label for="fecha">Fecha: </label>
 			<input type="date" name="fecha"> <br> <br>
 			<label for="docente">Docente: </label>
+			<label for="periodo">Perido de Realizacion: </label>
+			<input type="text" name="periodo" disabled value="<?php?>"> <br> <br>
 			<select name="docente">
 				<option>Profesor 1</option>
 				<option>Profesor 2</option>
 				<option>Profesor 3</option>
 				<option>Profesor 4</option>
 			</select> <br> <br>
-			<label for="carrera">Carrera: </label>
-			<input type="text" name="carrera" disabled> <br> <br>
 			<label for="empresa">Empresa: </label>
 			<input type="text" name="empresa" disabled> <br> <br>
 		</div>

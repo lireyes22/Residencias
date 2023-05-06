@@ -118,4 +118,20 @@ function UProfesor($RFCProfesor){ //OBTIENE EL UID DEL PROFESOR CON SU RFC
     while (mysqli_next_result($conection)) { }
     return $query;
 }
+function bancoSPID($SPID){
+    $conection = conn();
+    $sql = "SELECT BancoProyectos.BPID FROM BancoProyectos INNER JOIN SolicitudProyecto ON BancoProyectos.SPID = SolicitudProyecto.SPID WHERE SolicitudProyecto.SPID = $SPID;";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $query;
+}
+function alumnosResidencia($BPID){
+    $conection = conn();
+    $sql = "SELECT Alumnos.`NombreCompleto`, Alumnos.`CID` FROM `Alumnos` INNER JOIN `Alumno_Usuarios` INNER JOIN `SolicitudResidencia` INNER JOIN Carreras ON Alumnos.`NumeroControl` = Alumno_Usuarios.`NumeroControl` AND SolicitudResidencia.`UAlumno` = Alumno_Usuarios.`UID` AND AND Alumnos.`CID` = Carreras.`CID` WHERE SolicitudResidencia.BPID = $BPID AND SolicitudResidencia.SREstatus = 'ACEPTADO';";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $query;
+}
 ?>
