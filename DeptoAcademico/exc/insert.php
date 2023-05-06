@@ -21,6 +21,7 @@
         $AIID = mysqli_fetch_array(esAsesor($UID[0]));
         if( empty($AIID)){ //REVISAMOS SI EXISTE EN LA TABLA DE ASESORES
             insertAsesor($UID[0]); //SI NO EXISTE LO AGREGAMOS
+            $AIID = mysqli_fetch_array(esAsesor($UID[0]));
         }
         insertComisionAsesor($UID[0], $rBPID, $rCAPeriodo, $rRazon); //GENERAMOS UNA COMISION DE ASESOR
         nuevoAsesor($rBPID, $AIID[0]); //ACTUALIZAMOS EL BANCO AL NUEVO ASESOR, YA QUE ESTA ES UNA FUNCION PARA REASIGNACION
@@ -33,6 +34,7 @@
         $AIID = mysqli_fetch_array(esAsesor($UID[0]));
         if( empty($AIID)){ //REVISAMOS SI EXISTE EN LA TABLA DE ASESORES
             insertAsesor($UID[0]); //SI NO EXISTE LO AGREGAMOS
+            $AIID = mysqli_fetch_array(esAsesor($UID[0]));//OBTENEMOS EL AIID CREADO
         }
         insertComisionAsesor($UID[0], $rBPID, $rCAPeriodo, $rRazon); //GENERAMOS UNA COMISION DE ASESOR
         nuevoAsesor($rBPID, $AIID[0]); //ACTUALIZAMOS EL BANCO AL ASESOR SELECCIONADO

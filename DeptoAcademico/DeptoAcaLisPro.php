@@ -50,12 +50,12 @@
 			<?php
 				$i = 0;
 				while ($SPID = mysqli_fetch_array($result)){
-					$row = mysqli_fetch_array(basicInfoProy($SPID[0]));
+					$row = mysqli_fetch_array(basicInfoProy($SPID[0])); 
 					?> 
 					<tr <?php if($i%2==0) echo "class='par'" ?> >
-						<th class="tb-th-asp"><p><?php echo $row[1]?></p></th>
-						<th class="tb-th-asp"><p><?php echo $row[2]?></p></th>
-						<th class="tb-th-asp"><p><?php echo $row[3]?></p></th>
+						<th class="tb-th-asp"><p><?php echo $row[1];?></p></th>
+						<th class="tb-th-asp"><p><?php echo $row[2];?></p></th>
+						<th class="tb-th-asp"><p><?php echo $row[3];?></p></th>
 						<th class="tb-th-asp"><?php echo $row[4]?> MESES</th>
 						<th class="tb-th-asp"><?php if (!empty($row[5])){  echo $row[5];}else{ echo "Sin Responsable";} ?></th>
 						<form action="deptoAcaAsigAsesor.php" method="POST" target ="blank">
