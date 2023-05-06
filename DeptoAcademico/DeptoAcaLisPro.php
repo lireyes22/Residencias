@@ -60,6 +60,7 @@
 						<th class="tb-th-asp"><?php if (!empty($row[5])){  echo $row[5];}else{ echo "Sin Responsable";} ?></th>
 						<form action="deptoAcaAsigAsesor.php" method="POST" target ="blank">
 							<th class="tb-th-asp">
+								<input type="hidden" name="SPID" value="<?php echo $row[0];?>">
 								<input type="submit" value="Asignar">
 							</th>
 						</form>

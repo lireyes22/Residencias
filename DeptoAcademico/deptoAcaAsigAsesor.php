@@ -1,8 +1,15 @@
 <?php 
 	include ('funcionesDepto.php');
+	$SPID = $_POST['SPID'];
 	$UID = 13;
+	$row = mysqli_fetch_array(basicInfoProy($SPID));
 	$DID = mysqli_fetch_array(DID($UID));
-    $result = listSolicProyAcep($DID[0]);
+	$BPID = mysqli_fetch_array(bancoSPID($SPID));
+	$Residentes = alumnosResidencia($BPID[0]);
+	$solicitudResidencia = mysqli_fetch_array(residenciaSol($BPID[0]));
+	$nombreEmpresa = mysqli_fetch_array(empresa($SPID));
+	$RFC = mysqli_fetch_array(asesorInterno($BPID[0]));
+	$docentes = listaDocentes($DID[0], $RFC[0]);
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,7 +30,7 @@
 				</a>
 			</div>
 			<div class="center-column">
-				<h1>Asignación de Asesor</h1>
+				<h1>Asignar Asesor</h1>
 			</div>
 			<div class="right-column">
 				<a href="a.html"><img src="../img/logout.png" width="40px"></a>
@@ -37,42 +44,50 @@
 		</div>
 	</div>
 	<div class="main-cont">
-		<form action="">
+	<form action="exc/insert.php" method="POST">
+	<input type="hidden" name="IDfuncion" value="reAsignacion">
 		<div class="panel-izq">
 			<label for="noOficio">No. de Oficio: </label>
 			<input type="text" name="noOficio"> <br> <br>
 			<label for="depto">Departamento: </label>
-			<input type="text" name="depto" disabled> <br> <br>
-			<label for="nombre">Nombre de Residente: </label>
-			<input type="text" name="nombre" disabled> <br> <br>
-			<label for="periodo">Periodo de Realizacion: </label>
-			<input type="text" name="periodo" disabled> <br> <br>
+			<input type="text" name="depto" disabled value="<?php
+				$NombDepto = mysqli_fetch_array(nombreDepartamento($DID[0]));
+			 	echo $NombDepto[0]; 
+			 ?>" size='30'> <br> <br>
+			<?php 
+			while ($Residente = mysqli_fetch_array($Residentes)) {
+				?>
+					<label for="nombre">Nombre de Residente: </label>
+					<input type="text" name="nombre" disabled value="<?php echo $Residente[0]; ?>" size="30"> <br> <br>
+					<label for="carrera">Carrera: </label>
+					<input type="text" name="carrera" disabled value="<?php echo $Residente[1]; ?>" size="30"> <br> <br>
+				<?php
+				}
+			?>
 		</div>
 		<div class="panel-der">
-			<label for="fecha">Fecha: </label>
-			<input type="date" name="fecha"> <br> <br>
+			<label for="period">Perido de Realizacion: </label>
+			<input type="text" name="period" disabled value="<?php echo $solicitudResidencia[4]; ?>"> <br> <br>
 			<label for="docente">Docente: </label>
 			<select name="docente">
-				<?php
-					$RFC = mysqli_fetch_array(RFCprofesor($row[0]));
-					$listaProfesores = listaDocentes($DID[0], $RFC[0]);
-						while ($profesor = mysqli_fetch_array($listaProfesores)){
-						?>
-							<option value="<?php echo $profesor[0]; ?>"> <?php echo $profesor[1] ?> </option>
-						<?php
-								$docente = mysqli_fetch_array(UProfesor($docente[0]));
-							}		
-						?>
-				</select> <br> <br>
-			<label for="carrera">Carrera: </label>
-			<input type="text" name="carrera" disabled> <br> <br>
+			<?php //RFC
+				while ($profesor = mysqli_fetch_array($docentes)){
+			?>
+				<option value="<?php echo $profesor[0]; ?>"> <?php echo $profesor[1] ?> </option>
+			<?php
+				$UProfesor = mysqli_fetch_array(UProfesor($profesor[0]));
+			}
+			?>
+			</select> <br> <br>
 			<label for="empresa">Empresa: </label>
-			<input type="text" name="empresa" disabled> <br> <br>
+			<input type="text" name="empresa" disabled value="<?php echo $nombreEmpresa[0]; ?>" size="30"> <br> <br>
 		</div>
 		<div class="tb-th-asp">
+			<input type="hidden" name="periodo" value="<?php echo $solicitudResidencia[4];; ?>"> <br> <br>
+			<input type="hidden" name="BPID" value="<?php echo $BPID[0]; ?>">
 			<input class="medium" type="submit" value="Asignar">
 		</div>
-		</form>
+	</form>
 	</div>
 </body>
 </html>

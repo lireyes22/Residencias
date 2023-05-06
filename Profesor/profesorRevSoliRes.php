@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html>
-    
+
 <head>
+    <title>Revision Solicitud de Residencia</title>
     <link rel="stylesheet" href="../style/StyleBase.css">
     <link rel="stylesheet" href="style/StyleProfesor.css">
-    <link rel="stylesheet" type="text/css" href="style/styleAlumno.css" title="styleSolicRes">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revisión solicitud para la residencia profesional</title>
+    <link rel="stylesheet" href="../style/styleAlumno.css">
+    <meta charset="utf-8">
 </head>
+
 <body style="margin: 0;">
     <div class="container">
-		<div class="row">
-			<div class="left-column">
-				<a class="home-btn" href="a.html">
-					<h2><span style="margin-right: 10px;">Profesor</span></h2>
-					<img src="../img/sombrero.png" width="50px">
-				</a>
-			</div>
-			<div class="center-column">
-				<h1>Solicitud de Residencia</h1>
-			</div>
-			<div class="right-column">
-				<a href="a.html"><img src="../img/logout.png" width="40px"></a>
-			</div>
-		</div>
-		<div class="button-row">
-			<a href="" class="button-link">Comisiones</a>
-			<a href="AlumSolicitudResidencia.php" class="button-link">Proyectos Registrados</a>
-			<a href="a.html" class="button-link">Registrar Proyecto</a>
-			<a href="AlumListadoProyecto.php" class="button-link">Solicitudes de Residencia</a>
-            <a href="AlumListadoProyecto.php" class="button-link">Solicitudes de Proyecto</a>
-		</div>
-	</div>
+        <div class="row">
+            <div class="left-column">
+                <div class="dropdown">
+                    <a class="dropbtn home-btn" href="index.html" style="text-decoration: none;"><span>Profesor</span><img src="img/profesor.png" width="50px"></a>
+                    <ul class="dropdown-content">
+                        <li><a href="../Asesor/IndexAsesorInterno.html"><span>Asesor</span><img src="img/asesor.png" width="50px"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="center-column">
+                <h1>Solicitud de Residencia</h1>
+            </div>
+            <div class="right-column">
+                <a href="a.html"><img src="../img/logout.png" width="40px"></a>
+            </div>
+        </div>
+        <div class="button-row">
+            <a href="a.html" class="button-link">Comisiones</a>
+            <a href="a.html" class="button-link">Proyectos Registrados</a>
+            <a href="a.html" class="button-link">Registrar Proyecto</a>
+            <a href="profesorSoliRes.php" class="button-link">Solicitudes de Residencia</a>
+            <a href="profesorRevProyRes.php" class="button-link">Solicitudes de Proyecto</a>
+        </div>
+    </div>
     <br>
-    <!----------------------------------------------------- Fieldset Proyecto ---------------------------------------------------------->
+  <!----------------------------------------------------- Fieldset Proyecto ---------------------------------------------------------->
     <form action="">
     <fieldset class="bg-fldst">
     <legend class="legend">Proyecto</legend>
@@ -199,34 +200,34 @@
             <div class="columnaL">
                 <div class="form-row">
                     <label for="nombreResidente">Nombre:</label>
-                    <input type="text" id="nombreResidente" name="nombreResidente" value="<?php echo "$nombre" ?>" disabled='disabled' required>
+                    <input type="text" id="nombreResidente" name="nombreResidente" value="<?php echo $residente['nombre'] ?>" disabled='disabled' required>
                 </div>
                 <div class="form-row">
                     <label for="carrera">Carrera:</label>
-                    <input type="text" id="carrera" name="carrera" value="<?php echo "$carrera" ?>" disabled='disabled' required>
+                    <input type="text" id="carrera" name="carrera" value="<?php echo $residente['nomcarrera'] ?>" disabled='disabled' required>
                 </div>
                 <div class="form-row">
                     <label for="numControl">Numero de Control:</label>
-                    <input type="text" id="numControl" name="numControl" value="<?php echo "$numcontrol" ?>" disabled='disabled' required>
+                    <input type="text" id="numControl" name="numControl" value="<?php echo "$NumeroControl" ?>" disabled='disabled' required>
                 </div>
                 <div class="form-row">
                     <label for="numSemestre">Semestre a cursar:</label>
-                    <input type="text" id="numSemestre" name="numSemestre" value="<?php echo "$semestre" ?>" required>
+                    <input type="text" id="numSemestre" name="numSemestre" value="<?php echo $residente['semestre'] ?>" required>
                 </div>
                 <div class="form-row">
                     <label for="domicilio">Domicilio:</label>
-                    <input type="text" id="domicilio" name="domicilio" value="<?php echo "$domicilio" ?>" disabled='disabled' required>
+                    <input type="text" id="domicilio" name="domicilio" value="<?php echo $residente['domicilio'] ?>" disabled='disabled' required>
                 </div>
                 <div class="form-row">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" value="<?php echo "$correo" ?>" disabled='disabled' required>
+                    <input type="email" id="email" name="email" value="<?php echo $residente['email'] ?>" disabled='disabled' required>
                 </div>
             </div>
 
             <div class="columnaR">
                 <div class="form-row">
                     <label for="numeroSeguro">Para seguridad social acudir:</label>
-                    <input type="text" name="numeroSeguro" value="<?php echo "$seguro" ?>" required>
+                    <input type="text" name="numeroSeguro" value="<?php echo $residente['seguro_social'] ?>" required>
                 </div>
                 <div class="form-row">
                     <input type="radio" id="imss" name="tipoSeguro" value="IMSS" required>
@@ -238,23 +239,24 @@
                 </div>
                 <div class="form-row">
                     <label for="cuidad">Ciudad:</label>
-                    <input type="text" id="cuidad" name="cuidad" value="<?php echo "$ciudad" ?>" disabled ='disabled' required>
+                    <input type="text" id="cuidad" name="cuidad" value="<?php echo $residente['ciudad'] ?>" disabled ='disabled' required>
                 </div>
                 <div class="form-row">
                     <label for="telefono">Teléfono:</label>
-                    <input type="tel" name="telAlumno" id="telefono" value="<?php echo "$telefono" ?>" required>
+                    <input type="tel" name="telAlumno" id="telefono" value="<?php echo $residente['tel'] ?>" required>
                 </div>
 
             </div>                  
         </div>
 
-            <div class="caja-tb-th-asp" align="center">
-                    <center>
-                        <input type="submit" value="Enviar Solicitud">
-                    </center>
-                </div>
-            </form>
-        </section>
+            <div class="caja-tb-th-asp">
+                       <input type="submit" value="Aceptar">
+            </div>
+
+            <div class="caja-tb-th-asb">
+                        <input type="submit" value="Rechazar">
+            </div>
+
         <div align="left">
                     <label for="SRAnteProyecto">Firma del estudiante: </label>
                         <div class="form-group" align="left">
