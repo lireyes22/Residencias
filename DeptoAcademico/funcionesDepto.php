@@ -74,7 +74,7 @@ function listSolicProyAcep($DID){ //LISTA DE SPID ACEPTADOS Y EN EL DEPARTAMENTO
 }
 function basicInfoProy($SPID){ //SPID, Nombre del proyecto, Objetivo, Numero Estudiantes, Tiempo Estimado, Nombre del Responsable
     $conection = conn();
-    $sql = "CALL basicInfo($SPID)";
+    $sql = "CALL basicInfo($SPID);";
     $query = mysqli_query($conection, $sql);
     // vaciar el buffer de resultados
     while (mysqli_next_result($conection)) { }
@@ -180,9 +180,9 @@ function insertComisionAsesor($UProfesor, $BPID, $CAPeriodo,$Razon){
     // vaciar el buffer de resultados
     while (mysqli_next_result($conection)) { }
 }
-function nuevoAsesor($BPID, $UID){
+function nuevoAsesor($BPID, $AIID){
     $conection = conn();
-    $sql = "UPDATE BancoProyectos SET BancoProyectos.AIID = $UID WHERE BancoProyectos.BPID = $BPID";
+    $sql = "UPDATE BancoProyectos SET BancoProyectos.AIID = $AIID WHERE BancoProyectos.BPID = $BPID";
     $query = mysqli_query($conection, $sql);
     // vaciar el buffer de resultados
     while (mysqli_next_result($conection)) { }
@@ -195,7 +195,22 @@ function nombreDepartamento($DID){
     while (mysqli_next_result($conection)) { }
     return $query;
 }
-
+function existeBanco($SPID){
+    $conection = conn();
+    $sql = "SELECT * FROM BancoProyectos WHERE SPID = $SPID";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $query;
+}
+function responsableResidencia($SPID){  
+    $conection = conn();
+    $sql = "SELECT Profesor.RFCProfesor FROM Profesor INNER JOIN Profesor_Usuarios INNER JOIN SolicitudProyecto ON Profesor.RFCProfesor = Profesor_Usuarios.RFCProfesor AND Profesor_Usuarios.UID = SolicitudProyecto.UIDResponsable WHERE SolicitudProyecto.SPID = $SPID;";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $query;
+}
 //----------------------------------------------------------------------------------------------------------//
 function plantilla(){
     $conection = conn();
