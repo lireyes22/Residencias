@@ -1,8 +1,5 @@
 <?php 
 	include ('Alumfunciones.php');
-	$link = conn();
-    $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
-    $query = "SELECT * FROM SolicitudProyecto";
     $result = mysqli_query($link, $query);
 ?>
 
@@ -10,6 +7,7 @@
 <html>
 
 <head>
+	<meta charset="utf-8">
 	<title>Listado De Proyectos</title>
 	<link rel="stylesheet" href="../style/styleAlumno.css">
 	<link rel="stylesheet" href="../style/style.css">

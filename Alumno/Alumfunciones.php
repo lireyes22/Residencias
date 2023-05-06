@@ -13,6 +13,14 @@ function conn(){
     mysqli_set_charset($conection, "utf8");
     return $conection;
 }
+function generarBancoProyecto($IDUsuario){
+    $conection = conn();
+
+    $IDDepUser = "SELECT Alumnos.DID FROM Alumnos
+INNER JOIN Alumno_Usuarios ON Alumnos.NumeroControl= Alumno_Usuarios.NumeroControl
+INNER JOIN Usuarios ON Alumno_Usuarios.UID= Usuarios.UID
+WHERE Usuarios.UID='$IDUsuario' ";
+}
 
 function getResidente($NumeroControl){
     $conection = conn();
