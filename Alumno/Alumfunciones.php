@@ -24,8 +24,7 @@ WHERE Usuarios.UID='$IDUsuario' ";
 
 function getResidente($NumeroControl){
     $conection = conn();
-    $sql = "SELECT NombreCompleto, NumeroControl, Domicilio, Email, CID, NumeroSeguroSocial, 
-            SemestreActual, Ciudad, Telefono FROM Alumnos WHERE NumeroControl = $NumeroControl";
+    $sql = "SELECT * FROM Alumnos WHERE NumeroControl = $NumeroControl";
     $query = mysqli_query($conection, $sql);
     
     // Obtener los valores de las columnas
@@ -57,10 +56,42 @@ function getResidente($NumeroControl){
         'email' => $email,
         'ciudad' => $ciudad,
         'tel' => $tel,
-        'nomcarrera' => $nomCarrera
+        'nomcarrera' => $nomCarrera,
+        'institucionseguro' => $result['InstitucionSeguro']
     );
 }
 
+function getEmpresa($ERFC){
+    $conection = conn();
+    $sql = "SELECT * FROM Empresas WHERE ERFC = '$ERFC'";
+    $query = mysqli_query($conection, $sql);
+
+    $result = mysqli_fetch_assoc($query);
+    $nombre = $result['ENombre'];
+    $ramo = $result['ERamo'];
+    $erfc = $result['ERFC'];
+    $esector = $result['ESector'];
+    $eactprincipal = $result['EActPrincipal'];
+
+    return array(
+        'nombre' => $nombre,
+        'ramo' => $ramo,
+        'erfc' => $erfc,
+        'esector' => $esector,
+        //Otra forma de hacerlo sin la necesidad de copiarlo en otra variable
+        'eactprincipal' => $result['EActPrincipal'],
+        'edomicilio' => $result['EDomicilio'],
+        'ecolonia' => $result['EColonia'],
+        'ecp' => $result['ECp'],
+        'efax' => $result['EFax'],
+        'eciudad' => $result['ECiudad'],
+        'etelefono' => $result['ETelefono'],
+        'enombretitular' => $result['ENombreTitular'],
+        'epuestotitular' => $result['EPuestoTitular']
+
+    );
+
+}
 
 function getProyecto($UID){
     //SELECT Profesor.`NombreCompleto` FROM `Profesor` INNER JOIN `Profesor_Usuarios` ON Profesor_Usuarios.`RFCProfesor` = Profesor.`RFCProfesor` WHERE Profesor_Usuarios.`UID` = 10;

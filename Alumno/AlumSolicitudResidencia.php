@@ -1,6 +1,10 @@
 <?php 
 	include ('Alumfunciones.php');
+    //Variables demostrativas
     $NumeroControl = '20391005';
+    $ERFC = 'ITCH2023';
+    //Llamo a funciones
+    $empresa = getEmpresa($ERFC);
     $residente = getResidente($NumeroControl);
 
     // $SPID=$_POST["enviar"];
@@ -118,57 +122,59 @@
                 <div class="columnaL">
                     <div class="form-row">
                     <label for="ENombre">Nombre:</label>
-                    <input type="text" id="ENombre" name="ENombre" value="<?php echo 'Bon Ice' ?>" disabled='disabled' required>
+                    <input type="text" id="ENombre" name="ENombre" value="<?php echo $empresa['nombre'] ?>" disabled='disabled' required>
                     </div>
                     <div class="form-row">
                         <label for="Eramo">Ramo:</label>
                         <select id="Eramo" name="Eramo">
-                            <option value="industrial">Industrial</option>
-                            <option value="servicios">Servicios</option>
-                            <option value="otro">Otro</option>
+                            <option value="Industrial" <?php if($empresa['ramo'] == 'Industrial') echo 'selected'; ?>>Industrial</option>
+                            <option value="Servicios" <?php if($empresa['ramo'] == 'Servicios') echo 'selected'; ?>>Servicios</option>
+                            <option value="Escolar" <?php if($empresa['ramo'] == 'Escolar') echo 'selected'; ?>>Escolar</option>
+                            <option value="Otro" <?php if(empty($empresa['ramo']) || $empresa['ramo'] == 'Otro' || ($empresa['ramo'] != 'Industrial' && $empresa['ramo'] != 'Servicios' && $empresa['ramo'] != 'Escolar')) echo 'selected'; ?>>Otro</option>
                         </select>
                     </div>
                     <div class="form-row">
                         <label for="ERFC">RFC:</label>
-                        <input type="text" id="ERFC" name="ERFC" value="<?php echo 'VECJ880326' ?>" disabled='disabled' required>
+                        <input type="text" id="ERFC" name="ERFC" value="<?php echo $empresa['erfc'] ?>" disabled='disabled' required>
                     </div>
                     <div class="form-row">
                         <label for="ESector">Sector:</label>
                         <select id="ESector" name="ESector">
-                            <option value="publico">Publico</option>
-                            <option value="Privado">Privado</option>
+                            <option value="Publico" <?php if($empresa['esector'] == 'Publico') echo 'selected'; ?>>Publico</option>
+                            <option value="Privado" <?php if($empresa['esector'] == 'Privado') echo 'selected'; ?>>Privado</option>
+                            <option value="Otro" <?php if(empty($empresa['esector']) || $empresa['esector'] == 'Otro' || ($empresa['esector'] != 'Publico' && $empresa['esector'] != 'Privado')) echo 'selected'; ?>>Otro</option>
                         </select>
                     </div>
                     <div class="form-row">
                         <label for="EActPrincipal">Actividad principal de la empresa:</label>
-                        <input type="text" id="EActPrincipal" name="EActPrincipal" value="<?php echo 'Venta de Saborines' ?>" disabled='disabled' required>
+                        <input type="text" id="EActPrincipal" name="EActPrincipal" value="<?php echo $empresa['eactprincipal'] ?>" disabled='disabled' required>
                     </div>
                     <div class="form-row">
                         <label for="EDomicilio">Domicilio:</label>
-                        <input type="text" id="EDomicilio" name="EDomicilio" value="<?php echo 'C.robles #354 ' ?>" disabled='disabled'>  required 
+                        <input type="text" id="EDomicilio" name="EDomicilio" value="<?php echo $empresa['edomicilio'] ?>" disabled='disabled'>
                     </div>
                 </div>
 
                 <div class="columnaC">
                     <div class="form-row">
                         <label for="EColonia">Colonia:</label>
-                        <input type="text" id="EColonia" name="EColonia" value="<?php echo 'Forjadores' ?>" disabled='disabled' required>
+                        <input type="text" id="EColonia" name="EColonia" value="<?php echo $empresa['ecolonia'] ?>" disabled='disabled' required>
                     </div>
                     <div class="form-row">
                         <label for="ECp">CP:</label>
-                        <input type="text" id="ECp" name="ECp" value="<?php echo '77000' ?>" disabled='disabled' required>
+                        <input type="text" id="ECp" name="ECp" value="<?php echo $empresa['ecp'] ?>" disabled='disabled' required>
                     </div>
                     <div class="form-row">
                         <label for="EFax">FAX:</label>
-                        <input type="text" id="EFax" name="EFax" value="<?php echo '484464848' ?>" disabled='disabled' required>
+                        <input type="text" id="EFax" name="EFax" value="<?php echo $empresa['efax'] ?>" disabled='disabled' required>
                     </div>
                     <div class="form-row">
                         <label for="ECiudad">Ciudad:</label>
-                        <input type="text" id="ECiudad" name="ECiudad" value="<?php echo 'Chetumal' ?>" disabled='disabled' required>
+                        <input type="text" id="ECiudad" name="ECiudad" value="<?php echo $empresa['eciudad'] ?>" disabled='disabled' required>
                     </div>
                     <div class="form-row">
                         <label for="ETelefono">Teléfono:</label>
-                        <input type="tel" id="ETelefono" name="ETelefono" value="<?php echo '983-445-6778' ?>" required>
+                        <input type="tel" id="ETelefono" name="ETelefono" value="<?php echo $empresa['etelefono'] ?>" required>
                     </div>
                     <div class="form-row">
                         <label for="ETelefonoDos">Segundo Telefono:</label>
@@ -179,15 +185,15 @@
                 <div class="columnaR">
                     <div class="form-row">
                         <label for="nombreTitular">Nombre del titular de la empresa:</label>
-                        <input type="text" id="nombreTitular" name="nombreTitular" required>
+                        <input type="text" id="nombreTitular" name="nombreTitular" value="<?php echo $empresa['enombretitular']?>" disabled='disabled' required>
                     </div>
                     <div class="form-row">
                         <label for="puestoTitular">Puesto:</label>
-                        <input type="text" name="puestoTitular" id="puestoTitular" required>
+                        <input type="text" name="puestoTitular" id="puestoTitular" value="<?php echo $empresa['epuestotitular']?>" disabled='disabled' required>
                     </div>
                     <div class="form-row">
                         <label for="nomAsesorExterno">Nombre del Asesor externo:</label>
-                        <input type="text" name="nomAsesorExterno" id="nomAsesorExterno" value="<?php echo 'Juan Perez'?>" disabled='disabled' required>
+                        <input type="text" name="nomAsesorExterno" id="nomAsesorExterno" value="<?php echo ''?>" disabled='disabled' required>
                     </div>
                     <div class="form-row">
                         <label for="puestoAsesor">Puesto:</label>
@@ -240,11 +246,11 @@
                     <input type="text" name="numeroSeguro" value="<?php echo $residente['seguro_social'] ?>" required>
                 </div>
                 <div class="form-row">
-                    <input type="radio" id="imss" name="tipoSeguro" value="IMSS" required>
+                    <input type="radio" id="imss" name="tipoSeguro" value="IMSS" <?php if($residente['institucionseguro'] == 'IMSS') echo 'checked'; ?> required>
                     <label for="imss">IMSS</label>
-                    <input type="radio" id="issste" name="tipoSeguro" value="ISSSTE" required>
+                    <input type="radio" id="issste" name="tipoSeguro" value="ISSSTE" <?php if($residente['institucionseguro'] == 'ISSSTE') echo 'checked'; ?> required>
                     <label for="issste">ISSSTE</label>
-                    <input type="radio" id="otro" name="tipoSeguro" value="OTROS" required>
+                    <input type="radio" id="otro" name="tipoSeguro" value="OTROS" <?php if(empty($residente['institucionseguro']) || $residente['institucionseguro'] == 'Otro' || ($residente['institucionseguro'] != 'IMSS' && $residente['institucionseguro'] != 'ISSSTE')) echo 'checked'; ?> required>
                     <label for="otro">OTROS</label>
                 </div>
                 <div class="form-row">
