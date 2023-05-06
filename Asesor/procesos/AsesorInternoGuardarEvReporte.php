@@ -43,7 +43,8 @@ $query = mysqli_query($conectionn, $sql);
 if (!$query) {
     echo "Error: " . $sql . "<br>" . mysqli_error($conectionn);
 } else {
-    echo "Registro insertado exitosamente.";
+    echo"<script>alert('Registro insertado exitosamente.')</script>";
+	echo"<script  language='javascript'>window.location='../AsesorInternoAlumnos.php'</script>";  
 }
 
 mysqli_close($conectionn);
