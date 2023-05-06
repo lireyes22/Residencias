@@ -58,13 +58,14 @@
 						<th class="tb-th-asp"><p><?php echo $row[3]?></p></th>
 						<th class="tb-th-asp"><?php echo $row[4]?> MESES</th>
 						<th class="tb-th-asp"><?php if (!empty($row[5])){  echo $row[5];}else{ echo "Sin Responsable";} ?></th>
-						<form action="deptoAcaAsigAsesor.php" method="_POST" target ="blank">
+						<form action="deptoAcaAsigAsesor.php" method="POST" target ="blank">
 							<th class="tb-th-asp">
 								<input type="submit" value="Asignar">
 							</th>
 						</form>
-						<form action="deptoAcaReasigAsesor.php" method="_POST" target ="blank">
+						<form action="deptoAcaReasigAsesor.php" method="POST" target="blank">
 							<th class="tb-th-asb">
+								<input type="hidden" name="SPID" value="<?php echo $row[0];?>">
 								<input type="submit" value="Reasignar">
 							</th>
 						</form>
