@@ -48,8 +48,8 @@
 				<input type="hidden" name="SPID" value="<?php echo $idProy; ?>">
 				<input class="obsrv" type="text" name="observaciones" PLACEHOLDER="Observaciones" required size="38" maxlength="255">
 				<input type="hidden" name="IDfuncion" value="desicionProyecto">
-				<input type="submit" name="desicion" value="Aceptar"> <br>
-				<input type="submit" name="desicion" value="Denegar" class="denegar">
+				<input type="submit" name="desicion" value="ACEPTADO"> <br>
+				<input type="submit" name="desicion" value="RECHAZADO" class="denegar">
 			</form>
 		</div>
 		<div class="datos-proy">

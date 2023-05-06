@@ -25,6 +25,7 @@
         insertComisionAsesor($UID[0], $rBPID, $rCAPeriodo, $rRazon); //GENERAMOS UNA COMISION DE ASESOR
         nuevoAsesor($rBPID, $AIID[0]); //ACTUALIZAMOS EL BANCO AL NUEVO ASESOR, YA QUE ESTA ES UNA FUNCION PARA REASIGNACION
     }else if($nFuncion == 'asignacion'){
+        $rRazon = '';
         $rBPID = $_POST['BPID'];
         $rCAPeriodo = $_POST['periodo'];
         $RFCProfesor = $_POST['docente'];
@@ -34,6 +35,7 @@
             insertAsesor($UID[0]); //SI NO EXISTE LO AGREGAMOS
         }
         insertComisionAsesor($UID[0], $rBPID, $rCAPeriodo, $rRazon); //GENERAMOS UNA COMISION DE ASESOR
+        nuevoAsesor($rBPID, $AIID[0]); //ACTUALIZAMOS EL BANCO AL ASESOR SELECCIONADO
     }  
     //Código JavaScript para cerrar la ventana
     echo "<script>window.close();</script>";
