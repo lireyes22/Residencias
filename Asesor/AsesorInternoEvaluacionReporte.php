@@ -41,7 +41,7 @@
             <a href="a.html" class="button-link">Residencias</a>
         </div>
     </div>
-    <form action="">
+    <form method="post">
         <?php 
             $queryAlumno = consultaUsuarioAlumno($idAlumno);
             $queryProyectoAlumno = consultaProyectoAlumno($idAlumno);
@@ -50,6 +50,8 @@
             $queryProyectoCarrera = consultaCarreraAlumno($consultaAlumno['NumeroControl']);
             if(!($consultaAlumnoProyecto = mysqli_fetch_array($queryProyectoAlumno))){echo 'error';}
             if(!($consultaAlumnoCarrera = mysqli_fetch_array($queryProyectoCarrera))){echo 'error';}
+
+            $idSolicitudResidencia = $consultaAlumnoProyecto['SRID'];
         ?>
         <div class="containerEv">
             <!-- Columna izquierda  -->
@@ -65,7 +67,7 @@
                 <input type="text" class="lb-inp" name="ProgramaEducativo" value="<?php echo $consultaAlumnoCarrera['Nombre']; ?>"> <br>
                 <label for="" class="lb-inp">Periodo de Realizacion:</label> <br>
                 <input type="text" class="lb-inp" name="PeriodoRealizacion" value="<?php echo $consultaAlumnoProyecto['SRPeriodo']; ?>"> <br>
-                <input type="submit" value="Enviar" class="lb-inp btnEnviarEv">
+                <input type="submit" value="Enviar" class="lb-inp btnEnviarEv" formaction="AsesorInternoGuardarEvReporte.php">
             </div>
             <!-- Columna central tabla  -->
             <div class="column-Ev2">
@@ -141,19 +143,20 @@
             <!-- Columna derecha  -->
             <div class="column-Ev3">
                 <?php 
-                    $queryAsesor = consultaProyectoAlumno($idAsesor);
+                    $queryAsesor = consultaProfesorAsesor($idAsesor);
                     $consultaAsesor;
                     if(!($consultaAsesor = mysqli_fetch_array($queryAsesor))){echo 'error';}
                 ?>
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp">Nombre del Asesor Interno:</label>
-                <input class="txtSizeEvC3 lb-inp" type="text" name="AsesorInterno">
+                <input class="txtSizeEvC3 lb-inp" type="text" name="AsesorInterno" value="<?php echo $consultaAsesor['RFCProfesor']; ?>">
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp">Firma electronica:</label>
                 <input class="txtSizeEvC3 lb-inp" type="file" name="archivo">
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp">Fecha de evaluación</label>
-                <input class="txtSizeEvC3 lb-inp" type="date" name="FechaEvaluacion">
+                <input class="txtSizeEvC3 lb-inp" type="date" name="FechaEvaluacion" disabled>
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp">Total Puntos:</label>
-                <input class="txtSizeEvC3 lb-inp" type="text" name="TotalPuntos">
-                <a style="text-decoration: none; color: white;" class="mrgEvC3 lb-inp" href="" download>Descargar reporte</a>
+                <input class="txtSizeEvC3 lb-inp" type="text" name="TotalPuntos" disabled>
+                <input type="hidden" name="idSoliRes" value="<?php echo $idSolicitudResidencia; ?>">
+                <input class="mrgEvC3 lb-inp" type="submit" value="Descargar Archivo" formaction="AsesorInternoDescargarArchivo.php">
             </div>
         </div>
         
