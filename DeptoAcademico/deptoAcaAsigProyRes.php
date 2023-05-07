@@ -46,6 +46,7 @@
 				<td class="sticky">Docente responsable</td>
 				<td class="sticky">Asignar a: </td>
 				<td class="sticky">Fecha Maxima</td>
+				<td class="sticky"></td>
 			</tr>
             <tr>
 			<?php
@@ -66,7 +67,7 @@
 									$listaProfesores = listaDocentes($DID[0], $RFC[0]);
 									while ($profesor = mysqli_fetch_array($listaProfesores)){
 										?>
-											<option value="<?php echo $profesor[0]; ?>"> <?php echo $profesor[1] ?> </option>
+											<option value="<?php echo $profesor[0]; ?>" size="20"> <?php echo $profesor[1] ?> </option>
 										<?php
 										$UProfesor = mysqli_fetch_array(UProfesor($profesor[0]));
 									}
@@ -78,6 +79,8 @@
 								<input type="hidden" name="SPID" value="<?php echo $row[0]; ?>">
 								<input type="number" name="mes" min="1" max="12" PLACEHOLDER="MES">
 								<input type="number" name="dia" min="1" max="30" PLACEHOLDER="DIA">
+							</th>
+							<th class="tb-th-asp">
 								<input type="hidden" name="IDfuncion" value="ComisionProyectoProfesor">
 								<input type="submit" value="Asignar">
 							</th>
