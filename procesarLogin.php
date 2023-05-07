@@ -32,7 +32,7 @@ if (file_exists('funciones.php')) {
 			
 
 			if (($row["CorreoInstitucional"]==$username) && ($row["ContrasenaCorreo"]==$password)) {
-
+				session_start();
 				$_SESSION['loggedin'] = true;
 				$_SESSION['username'] = $username;
 				$_SESSION['id'] = $row['UID'];
@@ -51,7 +51,7 @@ if (file_exists('funciones.php')) {
 						//header('Location: Profesor/indexProfesor.html');
 					}
 					if($row['URol']=="JefDeptAca"){
-						//header('Location: index.php');
+						header('Location: DeptoAcademico/index.php');
 					}
 
 
