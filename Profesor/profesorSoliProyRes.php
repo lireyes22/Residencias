@@ -92,7 +92,7 @@
 					<br><br>
 					<textarea class="ta-sp" name="refEsenciales" cols="150" rows="4"></textarea><br><br>
 					<input class= "boton" type="submit" name="enviar" value="Enviar">
-					xd
+
 			</form>
 		</div>
 	</div>
