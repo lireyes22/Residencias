@@ -13,6 +13,8 @@
         $_Estatus = 'REVISION';
         //alterSolicitudProyecto($_SPID, $_Estatus);
     }else if($nFuncion == 'reAsignacion'){
+        $message = "Realizado.";
+        try{
         $rBPID = $_POST['BPID'];
         $rCAPeriodo = $_POST['periodo'];
         $RFCProfesor = $_POST['docente'];
@@ -25,6 +27,11 @@
         }
         insertComisionAsesor($UID[0], $rBPID, $rCAPeriodo, $rRazon); //GENERAMOS UNA COMISION DE ASESOR
         nuevoAsesor($rBPID, $AIID[0]); //ACTUALIZAMOS EL BANCO AL NUEVO ASESOR, YA QUE ESTA ES UNA FUNCION PARA REASIGNACION
+        }catch(Exception $e){
+            $message = "Ocurrio un error - ".$e;
+        }?>
+        <script>alert('<?php echo $message; ?>')</script>
+        <?php
     }else if($nFuncion == 'asignacion'){
         $rRazon = '';
         $rBPID = $_POST['BPID'];
@@ -40,5 +47,5 @@
         nuevoAsesor($rBPID, $AIID[0]); //ACTUALIZAMOS EL BANCO AL ASESOR SELECCIONADO
     }  
     //Código JavaScript para cerrar la ventana
-    echo "<script>window.close();</script>";
+   // echo "<script>window.close();</script>";
 ?>
