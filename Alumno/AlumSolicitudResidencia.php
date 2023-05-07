@@ -1,12 +1,13 @@
 <?php 
 	include ('Alumfunciones.php');
     //Variables demostrativas
-    $UID = '35';
-    $SPID = '14';
+    $UID = '11';
+    $SPID = '10';
     //Llamo a funciones
     $empresa = getEmpresa($SPID);
     $residente = getResidente($UID);
-
+    $residencia = getResidencia($SPID);
+    $asesorI = getAsesor($SPID);
 
     // $SPID=$_POST["enviar"];
     // echo $SPID;
@@ -77,17 +78,17 @@
                 </div>
                 <div class="form-row">
                     <label for="NombreProyecto">Nombre del Proyecto:</label>
-                    <input type="text" id="NombreProyecto" name="NombreProyecto" value="<?php echo $row['SPNombreProyecto']; ?>" disabled='disabled' required>
+                    <input type="text" id="NombreProyecto" name="NombreProyecto" value="<?php echo $residencia['spnombreproyecto']; ?>" disabled='disabled' required>
                 </div>
             </div>
             <div class="columnaR">
                 <div class="form-row">
                     <label for="tipoProyecto">Tipo Proyecto:</label>
                     <select id="tipoProyecto" name="tipoProyecto">
-                        <option value="interno">Interno</option>
-                        <option value="externo">Externo</option>
-                        <option value="dual">Dual</option>
-                        <option value="CIIE">CIIE</option>
+                        <option value="interno" <?php if($residencia['sptipo'] == 'INTERNO') echo 'selected'; ?>>Interno</option>
+                        <option value="externo" <?php if($residencia['sptipo'] == 'EXTERNO') echo 'selected'; ?>>Externo</option>
+                        <option value="dual" <?php if($residencia['sptipo'] == 'DUAL') echo 'selected'; ?>>Dual</option>
+                        <option value="CIIE" <?php if($residencia['sptipo'] == 'CIIE') echo 'selected'; ?>>CIIE</option>
                     </select>
                 </div>
                 <div class="form-row">
@@ -99,16 +100,16 @@
                     </select>
                 </div>
                 <div class="form-row">
-                    <label for="peridoProyect">Periodo proyectado:</label>
-                    <input type="text" name="peridoProyect" id = "peridoProyect" required>
+                    <label for="periodoProyect">Periodo proyectado:</label>
+                    <input type="text" name="periodoProyect" id="periodoProyect" value="<?php echo $residencia['sdtiempoestimado'] . ' meses'; ?>" required />
                 </div>
                 <div class="form-row">
                     <label for="nomAsesorInterno">Nombre Asesor Interno:</label>
-                    <input type="text" name="nomAsesorInterno" id="nomAsesorInterno" value="<?php echo 'Hola' ?>" disabled='disabled' required>
+                    <input type="text" name="nomAsesorInterno" id="nomAsesorInterno" value="<?php echo $asesorI['nombreasesor'] ?>" disabled='disabled' required>
                 </div>
                 <div class="form-row">
                     <label for="SPVacantes">Numero Residentes:</label>
-                    <input type="number" name="SPVacantes" id="SPVacantes" min="1" max="4" placeholder="0" required>
+                    <input type="number" name="SPVacantes" id="SPVacantes" min="1" max="4" placeholder="0" value="<?php echo $residencia['spestudiantesrequeridos']; ?>" required>
                 </div>
             </div>
             </section>
@@ -194,11 +195,11 @@
                     </div>
                     <div class="form-row">
                         <label for="nomAsesorExterno">Nombre del Asesor externo:</label>
-                        <input type="text" name="nomAsesorExterno" id="nomAsesorExterno" value="<?php echo ''?>" disabled='disabled' required>
+                        <input type="text" name="nomAsesorExterno" id="nomAsesorExterno" value="<?php echo $empresa['enombreacuerdo']?>" disabled='disabled' required>
                     </div>
                     <div class="form-row">
                         <label for="puestoAsesor">Puesto:</label>
-                        <input type="text" name="puestoAsesor" id="puestoAsesor" required>
+                        <input type="text" name="puestoAsesor" id="puestoAsesor" value="<?php echo $empresa['epuestoacuerdo']?>" required>
                     </div>
                     <div class="form-row">
                         <label for="ENombreEncargado">Nombre de la persona que firmará el acuerdo de trabajo. Estudiante- Escuela-Empresa:</label>

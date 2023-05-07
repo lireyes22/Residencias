@@ -23,11 +23,14 @@ function generarBancoProyecto($IDUsuario){
 
 }
 
-function getAsesor($IDPU){
+function getAsesor($SPID){
     $conection = conn();
-    $sql = "SELECT * FROM Profesor
-    INNER JOIN Profesor_Usuarios ON Profesor_Usuarios.RFCProfesor = Profesor.RFCProfesor
-    WHERE $IDPU = Profesor_Usuarios.IDPU";
+    $sql = "SELECT Profesor.NombreCompleto FROM Profesor
+    INNER JOIN `Profesor_Usuarios` ON Profesor.`RFCProfesor` = Profesor_Usuarios.RFCProfesor
+    INNER JOIN `AsesorInterno`ON Profesor_Usuarios.`UID` = AsesorInterno.`UID`
+    INNER JOIN `BancoProyectos` ON AsesorInterno.`AIID` = BancoProyectos.`AIID`
+    INNER JOIN `SolicitudProyecto`ON BancoProyectos.`SPID` = SolicitudProyecto.`SPID`
+    WHERE SolicitudProyecto.`SPID`= $SPID";
     $query = mysqli_query($conection, $sql);
 
     //Obtengo datos del profesor
@@ -83,7 +86,7 @@ function getEmpresa($SPID){
     $conection = conn();
     $sql = "SELECT * FROM Empresas 
     INNER JOIN SolicitudProyecto ON SolicitudProyecto.ERFC = Empresas.ERFC 
-    WHERE '14' = SolicitudProyecto.SPID";
+    WHERE $SPID = SolicitudProyecto.SPID";
     $query = mysqli_query($conection, $sql);
 
     $result = mysqli_fetch_assoc($query);
@@ -107,10 +110,27 @@ function getEmpresa($SPID){
         'eciudad' => $result['ECiudad'],
         'etelefono' => $result['ETelefono'],
         'enombretitular' => $result['ENombreTitular'],
-        'epuestotitular' => $result['EPuestoTitular']
-
+        'epuestotitular' => $result['EPuestoTitular'],
+        'enombreacuerdo' => $result['ENombreAcuerdo'],
+        'epuestoacuerdo' => $result['EPuestoAcuerdo']
     );
+}
 
+function getResidencia($SPID){
+    $conection = conn();
+    $sql = "SELECT SolicitudProyecto.SPNombreProyecto, SolicitudProyecto.SPTipo, 
+            SolicitudProyecto.SPEstudiantesRequeridos, SolicitudProyecto.SDTiempoEstimado
+            FROM SolicitudProyecto
+            WHERE $SPID = SolicitudProyecto.SPID";
+    $query = mysqli_query($conection, $sql);
+
+    $result = mysqli_fetch_assoc($query);
+    return array (
+        'spnombreproyecto' => $result['SPNombreProyecto'],
+        'sptipo' => $result['SPTipo'],
+        'spestudiantesrequeridos' => $result['SPEstudiantesRequeridos'],
+        'sdtiempoestimado' => $result['SDTiempoEstimado']
+    );
 }
 
 function getProyecto($UID){
