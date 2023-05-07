@@ -21,6 +21,8 @@ if (file_exists('funciones.php')) {
 			$sql=GenerarLogJefDept($username);
 		}elseif ($rol == "DeptVin") {
 			$sql=GenerarLogADeptVin($username);
+		}elseif ($rol == "AsesorInterno") {
+			$sql=GenerarLogAsesorInt($username);
 		}		
 
 		$result = $conection->query($sql);
@@ -38,16 +40,20 @@ if (file_exists('funciones.php')) {
 				$_SESSION['expire'] = $_SESSION['start'] + (60 * 60);
 				$resultado = mysqli_query($conection, $sql);
 				while ($row = mysqli_fetch_assoc($resultado)) {
+					if($rol=="AsesorInterno"){
+						//header('Location: index.php');
+					}
 					if ($row['URol']=="Alumno") {
 						//echo "Eres una bestia";
 						//header('Location: index.php');
 					}
 					if($row['URol']=="Profesor"){
-						header('Location: Profesor/indexProfesor.html');
+						//header('Location: Profesor/indexProfesor.html');
 					}
 					if($row['URol']=="JefDeptAca"){
 						//header('Location: index.php');
 					}
+
 
 				}
 

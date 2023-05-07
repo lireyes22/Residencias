@@ -23,6 +23,7 @@
 							<option value="Alumno">Alumno</option>
 							<option value="Profesor">Profesor</option>
 							<option value="JefDept">Jefe de departamento Academico</option>
+							<option value="AsesorInterno">Asesor Interno</option>
 						</select>
 					</div>
 					<button type="submit" value="Enviar">Login</button>
