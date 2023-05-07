@@ -2,6 +2,7 @@
     include ('../funcionesDepto.php');
     $nFuncion = $_POST['IDfuncion'];
     if($nFuncion == 'ComisionProyectoProfesor'){
+        try{
         $_SPID = $_POST['SPID'];
         $prevUPROF = $_POST['UProfesor'];
         $_UProfesor = mysqli_fetch_array(UProfesor($prevUPROF));
@@ -11,7 +12,12 @@
         $_CPPFechaLimite = date('Y').'-0'.$_MES.'-0'.$_DIA;
         insertComisionProyectoProfesor($_SPID, $_UProfesor[0], $_CPPFecha, $_CPPFechaLimite);
         $_Estatus = 'REVISION';
-        //alterSolicitudProyecto($_SPID, $_Estatus);
+        alterSolicitudProyecto($_SPID, $_Estatus);
+        }catch(Exception $e){
+            $message = "Ocurrio un error - ".$e;
+        }?>
+        <script>alert('<?php echo $message; ?>')</script>
+        <?php
     }else if($nFuncion == 'reAsignacion'){
         $message = "Realizado.";
         try{

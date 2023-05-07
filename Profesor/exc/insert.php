@@ -2,6 +2,7 @@
     include ('../funcProfesor.php');
     $nFuncion = $_POST['IDfuncion'];
     if($nFuncion == 'desicionProyecto'){
+        try{
         $_SPID = $_POST['SPID'];
         $_CPPEstatus = $_POST['desicion'];
         $_CPPObservaciones = $_POST['observaciones'];        
@@ -11,6 +12,12 @@
         if($_CPPEstatus == 'ACEPTADO' AND empty($existe)){
             cargarBanco($_SPID); //SE SUBE AL BANCO SI FUE ACEPTADO
         }
+    }catch(Exception $e){
+        $message = "Ocurrio un error - ".$e;
+    }
+        ?>
+            <script>alert('<?php echo $message; ?>')</script>
+        <?php
     }else{
         echo 'n_';
     } 
