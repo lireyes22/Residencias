@@ -50,7 +50,7 @@ function GenerarLogADeptVin() {
 }*/
 function DID($UID){ //OBTIENE EL DEPARTAMENTO ID CON EL ID DEL USUARIO
     $conection = conn();
-    $sql = "SELECT DepartamentoAcademico.`DID` FROM `DepartamentoAcademico` INNER JOIN `DepartamentoAcademico_Usuarios` ON `DepartamentoAcademico`.RFCDepartamentoAcademico = `DepartamentoAcademico_Usuarios`.RFCDepartamentoAcademico WHERE `DepartamentoAcademico_Usuarios`.UID = $UID;";
+    $sql = "SELECT Departamentos.`DID` FROM `Departamentos` INNER JOIN `UsuariosDepartamentos` ON `Departamentos`.DID= `UsuariosDepartamentos`.DID WHERE `UsuariosDepartamentos`.UID = $UID;";
     $query = mysqli_query($conection, $sql);
     // vaciar el buffer de resultados
     while (mysqli_next_result($conection)) { }
