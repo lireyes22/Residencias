@@ -53,26 +53,25 @@
 				echo $NombDepto[0];
 			 ?>" size='30'> <br> <br>
 			<?php 
-				$Residentes = alumnosResidencia($BPID[0]); 
-				echo empty($Residentes);
-				if(empty($Residentes) == '0'){
+					$Residentes = alumnosResidencia($BPID[0]);
+					$n = 0;
 					while ($Residente = mysqli_fetch_array($Residentes)) {
-				?>
-					<label for="nombre">Nombre de Residente: </label>
-					<input type="text" name="nombre" disabled value="<?php echo $Residente[0]; ?>" size="30"> <br> <br>
-					<label for="carrera">Carrera: </label>
-					<input type="text" name="carrera" disabled value="<?php echo $Residente[1]; ?>" size="30"> <br> <br>
-				<?php
+						$n++;
+						?>
+						<label for="nombre">Nombre de Residente: </label>
+						<input type="text" name="nombre" disabled value="<?php echo $Residente[0]; ?>" size="30"> <br> <br>
+						<label for="carrera">Carrera: </label>
+						<input type="text" name="carrera" disabled value="<?php echo $Residente[1]; ?>" size="30"> <br> <br>
+						<?php
 					}
-				}else{
+					if($n==0){
 					?>
-					<label for="nombre">Nombre de Residente: </label>
-					<input type="text" name="nombre" disabled value="SIN RESIDENTES" size="30"> <br> <br>
-					<label for="carrera">Carrera: </label>
-					<input type="text" name="carrera" disabled value="SIN RESIDENTES" size="30"> <br> <br>
+						<label for="nombre">Nombre de Residente: </label>
+						<input type="text" name="nombre" disabled value="SIN RESIDENTES" size="30"> <br> <br>
+						<label for="carrera">Carrera: </label>
+						<input type="text" name="carrera" disabled value="SIN RESIDENTES" size="30"> <br> <br>
 					<?php
-				}
-			
+					}
 			?>
 			<label for="razon">Razon de la reasignacion: </label> 
 			<input type="text" name="razon"> <br> <br>
