@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row">
             <div class="left-column">
-                <a class="home-btn" href="a.html">
+                <a class="home-btn" href="IndexAsesorInterno.html">
                     <h2><span style="margin-right: 10px;">Asesor</span></h2>
                     <img src="img/asesor.png" width="50px">
                 </a>
@@ -27,12 +27,12 @@
                 <h1>Seguimientos</h1>
             </div>
             <div class="right-column">
-                <a href="a.html"><img src="../img/logout.png" width="40px"></a>
+                <a href=#><img src="../img/logout.png" width="40px"></a>
             </div>
         </div>
         <div class="button-row">
             <a href=# class="button-link">Asesorias</a>
-			<a href="IndexAsesorInterno.html" class="button-link">Inicio</a>
+			<a href="IndexAsesorInterno.html" class="button-link">Alumnos</a>
 			<a href=# class="button-link">Reporte Semestral</a>
 			<a href=# class="button-link">Residencias</a>
         </div>
