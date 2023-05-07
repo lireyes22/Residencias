@@ -50,11 +50,12 @@
 			<label for="depto">Departamento: </label>
 			<input type="text" name="depto" disabled value="<?php
 				$NombDepto = mysqli_fetch_array(nombreDepartamento($DID[0]));
-			 	echo $NombDepto[0]; 
+				echo $NombDepto[0];
 			 ?>" size='30'> <br> <br>
 			<?php 
 				$Residentes = alumnosResidencia($BPID[0]); 
-				if(!empty($residentes)){
+				echo empty($Residentes);
+				if(empty($Residentes) == '0'){
 					while ($Residente = mysqli_fetch_array($Residentes)) {
 				?>
 					<label for="nombre">Nombre de Residente: </label>
