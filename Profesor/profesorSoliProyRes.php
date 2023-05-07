@@ -66,9 +66,9 @@
 					</div>
 					<textarea class="ta-sp" name="impacto" cols="150" rows="4"></textarea> <br><br>
 					<label class="lb-sr" for="DocenteResp">Lugar donde se va a desarrollar: </label>
-					<input type="text" name="lugar" size="20"> <br><br>
+					<input class="inp-sr" type="text" name="lugar" size="20"> <br><br>
 					<label class="lb-sr" for="DocenteResp">Docente Responsable: </label>
-					<input type="text" name="DocenteResp" size="20" disabled>
+					<input class="inp-sr" type="text" name="DocenteResp" size="20" disabled>
                     <br><br>
                     <label class="lb-sr" for="estudiantes-req">Cantidad de estudiantes requeridos: </label>
                     <input class="inp-sr" type="text" name="estudiantesReq" size="2"><br><br>
