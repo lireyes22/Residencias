@@ -44,8 +44,7 @@ if (file_exists('funciones.php')) {
 						//header('Location: index.php');
 					}
 					if ($row['URol']=="Alumno") {
-						//echo "Eres una bestia";
-						//header('Location: index.php');
+						header('Location: Alumno/AlumListadoProyecto.php');
 					}
 					if($row['URol']=="Profesor"){
 						//header('Location: Profesor/indexProfesor.html');
