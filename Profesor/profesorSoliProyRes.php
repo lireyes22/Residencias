@@ -84,7 +84,7 @@
 
 							// Ciclo para mostrar los resultados en el combobox
 							while ($row = mysqli_fetch_array($result)) {
-								echo "<option value='".$row['EID']."'>".$row['ENombre']."</option>";
+								echo "<option value='".$row['ERFC']."'>".$row['ENombre']."</option>";
 							}
 							?>
 						</select>
