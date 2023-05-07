@@ -262,24 +262,10 @@ body {
   
 @font-face {
     font-family: comfortaa;
-    src: url("TipoLetra/Comfortaa-Bold");
+    src: url("/TipoLetra/Comfortaa-Regular.ttf");
 }
 
-.lb-sr{
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 10px;
-    display: block;
-}
 
-.inp-sr{
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-}
 /*--------------F--------------------------*/
 
 #fm-re{
@@ -321,3 +307,75 @@ body {
   /*opacity: 0%;*/
 }
 /*-------------F------------------*/
+
+
+
+
+/* Profesor Solicitud Proyecto*/
+
+.lb-sr{
+  font-size: 16px;
+  margin-top: 50px;
+}
+
+.inp-sr{
+  font-size: 14px;
+  padding: 4px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-bottom: 2px;
+  box-sizing: border-box;
+}
+
+.ta-sp{
+  resize: none;
+  font-size: 14px;
+  padding: 4px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-bottom: 2px;
+  box-sizing: border-box;
+}
+
+.fondoP{
+  background-color: #e8f8ff;
+}
+
+.datosSolicitudproy{
+  background-color: #a4bbc8;
+  margin-left: 22%;
+  margin-right: 22%;
+  padding-bottom: 140px;
+  font-family: comfortaa, sans-serif;
+  display: flex;
+  justify-content: CENTER;
+}
+
+.datosSolicitudproy h3{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.datosSolicitudproy form{
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.parrafo{
+width: 1100px;
+}
+
+.boton{
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Estilos para el botón de envío cuando se pasa el cursor por encima */
+.datosSolicitudproy input[type="submit"]:hover {
+  background-color: #0062cc;
+}
