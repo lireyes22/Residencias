@@ -58,7 +58,7 @@ function DID($UID){ //OBTIENE EL DEPARTAMENTO ID CON EL ID DEL USUARIO
 }
 function listSolicProy($DID){ //LISTA DE SPID PENDIENTES Y EN EL DEPARTAMENTO SOLICITADO
     $conection = conn();
-    $sql = "SELECT CarrerasSolicitudProyecto.`SPID` FROM `CarrerasSolicitudProyecto` INNER JOIN `Carreras` INNER JOIN `SolicitudProyecto` ON CarrerasSolicitudProyecto.`CID` = Carreras.`CID` AND CarrerasSolicitudProyecto.`SPID` = SolicitudProyecto.`SPID` WHERE Carreras.`DID` = $DID AND SolicitudProyecto.`SPEstatus`='PENDIENTE';";
+    $sql = "SELECT SolicitudProyecto.`SPID` FROM UsuariosDepartamentos INNER JOIN `SolicitudProyecto` ON UsuariosDepartamentos.`UID` = SolicitudProyecto.`UIDResponsable` WHERE UsuariosDepartamentos.`DID` = 5 AND SolicitudProyecto.`SPEstatus`='PENDIENTE';";
     $query = mysqli_query($conection, $sql);
     // vaciar el buffer de resultados
     while (mysqli_next_result($conection)) { }
