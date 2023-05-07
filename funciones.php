@@ -38,10 +38,11 @@ function GenerarLogAProf($correo) {
     return $sql;
 }
 function GenerarLogJefDept($correo) {
-    $sql="SELECT DepartamentoAcademico.CorreoInstitucional, DepartamentoAcademico.ContrasenaCorreo, Usuarios.URol, Usuarios.UID
-    FROM DepartamentoAcademico 
-    INNER JOIN DepartamentoAcademico_Usuarios ON DepartamentoAcademico.RFCDepartamentoAcademico = DepartamentoAcademico_Usuarios.RFCDepartamentoAcademico
-    INNER JOIN Usuarios ON DepartamentoAcademico_Usuarios.UID = Usuarios.UID WHERE DepartamentoAcademico.CorreoInstitucional='$correo'";
+    $sql="SELECT *
+    FROM Usuarios 
+    INNER JOIN Profesor_Usuarios ON Usuarios.UID = Profesor_Usuarios.UID
+    INNER JOIN Profesor ON Profesor.RFCProfesor = Profesor_Usuarios.RFCProfesor
+    WHERE Profesor.CorreoInstitucional ='$correo' AND Usuarios.URol='JefDeptAca'";
     return $sql;
 }
 function GenerarLogAsesorInt($correo) {
