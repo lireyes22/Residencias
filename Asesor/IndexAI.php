@@ -1,3 +1,6 @@
+<?php
+	include '../InicioSessionSeg.php';
+?>
 <!DOCTYPE html>
 <html>
 
