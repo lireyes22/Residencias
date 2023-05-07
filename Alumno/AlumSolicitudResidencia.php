@@ -63,7 +63,7 @@
                 </div>
                 <div class="form-row">
                     <label for="">AT'N C:</label>
-                    <input type="text" id="" name="" value="<?php echo '' ?>" required>
+                    <input type="text" id="" name="" value="<?php echo '' ?>" required disabled>
                 </div>
                 <div class="form-row">
                 <label for="fecha">Fecha:</label>
@@ -169,7 +169,7 @@
                     </div>
                     <div class="form-row">
                         <label for="ETelefono">Teléfono:</label>
-                        <input type="tel" id="ETelefono" name="ETelefono" value="<?php echo $empresa['etelefono'] ?>" required>
+                        <input type="tel" id="ETelefono" name="ETelefono" value="<?php echo $empresa['etelefono'] ?>" disabled required>
                     </div>
                     <!-- <div class="form-row">
                         <label for="ETelefonoDos">Segundo Telefono:</label>
@@ -196,7 +196,7 @@
                     </div>
                     <div class="form-row">
                         <label for="ENombreEncargado">Nombre de la persona que firmará el acuerdo de trabajo. Estudiante- Escuela-Empresa:</label>
-                        <input type="text" name="ENombreEncargado" id="ENombreEncargado" required>
+                        <input type="text" name="ENombreEncargado" id="ENombreEncargado" required disabled>
                     </div>                     
                 </div>
             </section>
