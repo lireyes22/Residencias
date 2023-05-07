@@ -1,4 +1,5 @@
 <?php  
+    include '../InicioSessionSeg.php';
     include ('funcAsesor.php');
     $idAsesor = $_POST['idAsesor'];
     $idAlumno = $_POST['idAlumno'];

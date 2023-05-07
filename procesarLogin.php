@@ -41,7 +41,7 @@ if (file_exists('funciones.php')) {
 				$resultado = mysqli_query($conection, $sql);
 				while ($row = mysqli_fetch_assoc($resultado)) {
 					if($rol=="AsesorInterno"){
-						header('Location: Asesor/IndexAsesorInterno.php');
+						header('Location: Asesor/IndexAI.php');
 					}
 					if ($row['URol']=="Alumno") {
 						header('Location: Alumno/AlumListadoProyecto.php');

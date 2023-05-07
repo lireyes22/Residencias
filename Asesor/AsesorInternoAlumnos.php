@@ -1,6 +1,6 @@
 <?php 
-	include ('funcAsesor.php');
-	
+	include '../InicioSessionSeg.php';
+    include ('funcAsesor.php');	
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +27,7 @@
                 <h1>Seguimientos</h1>
             </div>
             <div class="right-column">
-                <a href=#><img src="../img/logout.png" width="40px"></a>
+                <a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
             </div>
         </div>
         <div class="button-row">
