@@ -1,13 +1,18 @@
 <?php 
 	include ('Alumfunciones.php');
+	$link = conn();
+    $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
+    $query="SELECT * FROM SolicitudProyecto 
+    INNER JOIN BancoProyectos ON SolicitudProyecto.SPID = BancoProyectos.SPID 
+    INNER JOIN Usuarios ON SolicitudProyecto.UIDResponsable = Usuarios.UID 
+    INNER JOIN UsuariosDepartamentos ON Usuarios.UID=UsuariosDepartamentos.UID
+    WHERE UsuariosDepartamentos.DID='5' ";
     $result = mysqli_query($link, $query);
 ?>
-
 <!DOCTYPE html>
 <html>
 
 <head>
-	<meta charset="utf-8">
 	<title>Listado De Proyectos</title>
 	<link rel="stylesheet" href="../style/styleAlumno.css">
 	<link rel="stylesheet" href="../style/style.css">
