@@ -4,14 +4,17 @@
     $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
     $query= "SELECT * FROM Empresas";
     $result = mysqli_query($link, $query);
+
 ?>
 	<!DOCTYPE html>
 	<html>
 
-	<head>
-		<title>Profesor</title>
-		<link rel="stylesheet" href="../style/style.css">
-	</head>
+
+    <head>
+    	<title>Profesor</title>
+    	<link rel="stylesheet" href="../style/style.css">
+    </head>
+
 
 	<body style="margin: 0;">
 		<div class="container">
@@ -100,3 +103,5 @@
 		</div>
 	</body>
 </html>
+
+
