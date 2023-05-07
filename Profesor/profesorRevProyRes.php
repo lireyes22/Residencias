@@ -1,6 +1,6 @@
 <?php 
 	include ('funcProfesor.php'); 
-	$UID = 10;
+	$UID = 14;
 	$result = listProyPendientes($UID);
 ?>
 <!DOCTYPE html>
