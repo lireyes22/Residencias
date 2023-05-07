@@ -7,7 +7,9 @@
 <html>
 <head>
 	<title>Profesor</title>
-	<link rel="stylesheet" href="../style/style.css">
+	<link rel="stylesheet" href="../style/style.css"> 
+	<link rel="stylesheet" href="../style/StyleBase.css">
+	<link rel="stylesheet" href="style/StyleProfesor.css">
 </head>
 
 <body style="margin: 0;">
@@ -28,9 +30,10 @@
 		</div>
 		<div class="button-row">
 		<a href="a.html" class="button-link">Comisiones</a>
-			<a href="a.html" class="button-link">Proyectos Registrados</a>
-			<a href="a.html" class="button-link">Registrar Proyecto</a>
-			<a href="profesorSoliRes.php" class="button-link">Solicitudes de Residencia</a>
+			<a href="index.php" class="button-link">Comisiones</a>
+			<a href="index.php" class="button-link">Proyectos Registrados</a>
+			<a href="profesorSoliProyRes.php" class="button-link">Registrar Proyecto</a>
+			<a href="profesorListadoSoliRes.php" class="button-link">Solicitudes de Residencia</a>
 			<a href="profesorRevProyRes.php" class="button-link">Solicitudes de Proyecto</a>
 		</div>
 	</div>

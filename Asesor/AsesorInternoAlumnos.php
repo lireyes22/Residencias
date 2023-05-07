@@ -19,24 +19,22 @@
         <div class="row">
             <div class="left-column">
                 <a class="home-btn" href="a.html">
-                    <h2><span style="margin-right: 10px;">Alumno</span></h2>
-                    <img src="img/sombrero.png" width="50px">
+                    <h2><span style="margin-right: 10px;">Asesor</span></h2>
+                    <img src="img/asesor.png" width="50px">
                 </a>
             </div>
             <div class="center-column">
-                <h1>Titulo de pagina mamalona</h1>
+                <h1>Seguimientos</h1>
             </div>
             <div class="right-column">
                 <a href="a.html"><img src="../img/logout.png" width="40px"></a>
             </div>
         </div>
         <div class="button-row">
-            <a href="a.html" class="button-link">Botón 1</a>
-            <a href="a.html" class="button-link">Botón 2</a>
-            <a href="a.html" class="button-link">Boton 3</a>
-            <a href="a.html" class="button-link">Boton 4</a>
-            <a href="a.html" class="button-link">Boton 5</a>
-            <a href="a.html" class="button-link">Boton 6</a>
+            <a href=# class="button-link">Asesorias</a>
+			<a href="IndexAsesorInterno.html" class="button-link">Inicio</a>
+			<a href=# class="button-link">Reporte Semestral</a>
+			<a href=# class="button-link">Residencias</a>
         </div>
     </div>
     <div class="containerSRP">
