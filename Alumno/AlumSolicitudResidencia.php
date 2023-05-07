@@ -48,7 +48,7 @@
     <!----------------------------------------------------- Fieldset Proyecto ---------------------------------------------------------->
     <form method="POST" enctype="multipart/form-data">
         <input type="hidden" name="SPID" value="<?php echo $SPID?>">
-        <input type="hidden" name="residente" value="<?php echo $residente?>">
+        <input type="hidden" name="residente" value="<?php echo $_SESSION['id']?>">
         <fieldset class="bg-fldst">
         <legend class="legend">Proyecto</legend>
         <article>

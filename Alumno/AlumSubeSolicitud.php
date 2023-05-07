@@ -40,20 +40,24 @@ function conn(){
 	$BPID = $result2['BPID'];
 
 	/*echo $antearchivo.',';
-	echo $consarchivo.',';*/
-	/*echo $periodo.',';*/
+	echo $consarchivo.',';
+	echo $periodo.',';
 	echo $residente.',';
 	echo $BPID.',';
-	echo $opcion.',';
-	/*
-	$sql = "INSERT INTO SolicitudResidencia 
-	(SRAnteProyecto, SRConstanciaInicioRes, SREstatus, SRPeriodo, UAlumno, BPID, SROpcionElegida) 
-	VALUES ($antearchivo, $consarchivo, 'PENDIENTE', '$periodo', '$residente', '$BPID', '$opcion')";
-    $query = mysqli_query($conection, $sql);
-    
-    if(mysqli_affected_rows($conection) > 0) {
-        echo "La inserción fue exitosa.";
-    } else {
-        echo "Hubo un error al insertar los datos.";
-    }*/
+	echo $opcion.',';*/
+	
+	//Prepara la consulta SQL con parametros
+	$sql = "CALL InsertarSolicitudResidencia(?, ?, 'PENDIENTE', ?, ?, ?, ?)";
+	$stmt = mysqli_prepare($conection, $sql);
+
+	//Asigna los valores de los parametros
+	mysqli_stmt_bind_param($stmt, 'sssiis', $antearchivo, $consarchivo, $periodo, $residente, $BPID, $opcion);
+	
+
+	if(mysqli_stmt_execute($stmt)) {
+		echo "La inserción fue exitosa.";
+	} else {
+		echo "Hubo un error al insertar los datos.";
+	}
+
 ?>
