@@ -42,7 +42,7 @@
 		</div> 
 		<div class="fondoP">
 			<div class="datosSolicitudproy">
-				<form action="">
+				<form action="exc/insertSP.php" method="POST">
 					<div>
 						<h3>Nombre del Proyecto</h3> 
 						<input class="inp-sr" type="text" name="nombreProy" required size="45%"><br>
@@ -56,13 +56,19 @@
 							el desarrollo tecnológico, la innovación y la solución de problemas locales, nacionales o internacionales.</p>
 						</div>
 						<textarea class="ta-sp" name="impacto" cols="150" rows="4"></textarea> <br><br>
-						<label class="lb-sr" for="DocenteResp">Lugar donde se va a desarrollar: </label>
+						<label class="lb-sr" for="lugar">Lugar donde se va a desarrollar: </label>
 						<input class="inp-sr" type="text" name="lugar" size="20"> <br><br>
-						<label class="lb-sr" for="DocenteResp">Docente Responsable: </label>
-						<input class="inp-sr" type="text" name="DocenteResp" size="20" disabled>
+						<label class="lb-sr" for="docenteResp">Docente Responsable: </label>
+						<input class="inp-sr" type="text" name="docenteResp" size="20" disabled>
 						<br><br>
 						<label class="lb-sr" for="estudiantes-req">Cantidad de estudiantes requeridos: </label>
-						<input class="inp-sr" type="text" name="estudiantesReq" size="2"><br><br>
+						<select name="estudiantes-req">
+							<option value="opcion1">INTERNO</option>
+							<option value="opcion2">EXTERNO</option>
+							<option value="opcion3">DUAL</option>
+							<option value="opcion4">CIIE</option>
+						</select>
+						<br><br>
 						<label class="lb-sr" for="tiempoEst">Tiempo estimado de proyecto: </label>
 						<input class="inp-sr" type="text" name="tiempoEst" size="2"> 
 						<label class="lb-sr" for="tiempoEst">MES(ES)</label> <br><br>
