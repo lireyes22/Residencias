@@ -1,5 +1,5 @@
-<?php 
-	include ('Alumfunciones.php');
+<?php
+	include 'funcProfesor.php';
 	$link = conn();
     $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
     $query="SELECT * FROM SolicitudProyecto 
@@ -13,49 +13,36 @@
 <html>
 
 <head>
-	<title>Listado De Proyectos</title>
-	<link rel="stylesheet" href="../style/styleAlumno.css">
+	<title>Profesor</title>
 	<link rel="stylesheet" href="../style/style.css">
-
+	<link rel="stylesheet" href="Style/StyleProfesor.css">
 </head>
 
 <body style="margin: 0;">
 	<div class="container">
 		<div class="row">
 			<div class="left-column">
-				<a class="home-btn" href="a.html">
-					<h2><span style="margin-right: 10px;">Alumno</span></h2>
+				<a class="home-btn" href="index.php">
+					<h2><span style="margin-right: 10px;">Profesor</span></h2>
 					<img src="../img/sombrero.png" width="50px">
 				</a>
 			</div>
 			<div class="center-column">
-				<h2>LISTADO DE PROYECTOS</h2>
+				<h1>Solicitudes de Proyectos</h1>
 			</div>
 			<div class="right-column">
-				<a href="a.html"><img src="../img/logout.png" width="40px"></a>
+				<a href="index.php"><img src="../img/logout.png" width="40px"></a>
 			</div>
 		</div>
 		<div class="button-row">
-			<a href="AlumSolicitudResidencia.php" class="button-link">Solicitud de residencia</a>
-			<a href="a.html" class="button-link">Proyectos</a>
-			<a href="a.html" class="button-link">Reporte</a>
-			<a href="a.html" class="button-link">Asesorias</a>
-			<a href="a.html" class="button-link">Faq &nbsp;<img src="../img/pregunta.jpg" width="20px"></a>
+		<a href="index.php" class="button-link">Comisiones</a>
+			<a href="index.php" class="button-link">Proyectos Registrados</a>
+			<a href="index.php" class="button-link">Registrar Proyecto</a>
+			<a href="profesorSoliRes.php" class="button-link">Solicitudes de Residencia</a>
+			<a href="profesorRevProyRes.php" class="button-link">Solicitudes de Proyecto</a>
 		</div>
-	</div>
-	<br>
-	<img src="../img/lupa.png" height="20" widt="20">&nbsp;&nbsp;<input name='buscar' type='text' size="20" value="" align="right">
-
-	<select name="Selecion" id="Seleccion">
-		<option value="Seleccione uno...">Seleccione uno...</option>
-		<option value="Objetivo Proyecto">Objetivo Proyecto</option>
-		<option value="Participantes">Participantes</option>
-		<option value="Campos">Campos</option>
-		<option value="Descripción">Descripción</option>
-		<option value="Nombre del Proyecto">Nombre del Proyecto</option>
-	</select>
-
-	<div class="tabla-scroll">
+	</div> 
+		<div class="tabla-scroll">
 		<table class="tb-asp">
 			<tr>
 			<th class="sticky">Nombre del Proyecto</th>
@@ -74,17 +61,17 @@
 						<td><?php echo $row['SPObjetivo']; ?></td>
 						<td><?php echo $row['SPDescripcion']; ?></td>
 						<td><?php echo $row['SPEstudiantesRequeridos']; ?></td>
-						<form action="AlumSolicitudResidencia.php" method="Post">
+						<form action="profesorRevSoliRes.php" method="Post">
 							<th class="tb-th-asp"> 
 								<input type="hidden" name="enviar" value="<?php echo $row['SPID'];?>">
-								<input type="submit" value="Solicitar" data-proyecto-id="<?php echo $row['SPEstatus']; ?>">
+								<input type="submit" value="Revisar" data-proyecto-id="<?php echo $row['SPEstatus']; ?>">
 							</th>
 						</form>
 					</tr>
 				<?php
 					$i++;
 				}
-			?>
+			?>		
 		</tr>
 		</table>
 	</div>

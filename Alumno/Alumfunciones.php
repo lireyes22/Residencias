@@ -23,6 +23,21 @@ function generarBancoProyecto($IDUsuario){
 
 }
 
+function getAsesor($IDPU){
+    $conection = conn();
+    $sql = "SELECT * FROM Profesor
+    INNER JOIN Profesor_Usuarios ON Profesor_Usuarios.RFCProfesor = Profesor.RFCProfesor
+    WHERE $IDPU = Profesor_Usuarios.IDPU";
+    $query = mysqli_query($conection, $sql);
+
+    //Obtengo datos del profesor
+    $result = mysqli_fetch_assoc($query);
+
+    return array(
+        'nombreasesor' => $result['NombreCompleto']
+    );
+}
+
 function getResidente($UID){
     $conection = conn();
     $sql = "SELECT * FROM Alumnos
@@ -64,9 +79,11 @@ function getResidente($UID){
     );
 }
 
-function getEmpresa($ERFC){
+function getEmpresa($SPID){
     $conection = conn();
-    $sql = "SELECT * FROM Empresas WHERE ERFC = '$ERFC'";
+    $sql = "SELECT * FROM Empresas 
+    INNER JOIN SolicitudProyecto ON SolicitudProyecto.ERFC = Empresas.ERFC 
+    WHERE '14' = SolicitudProyecto.SPID";
     $query = mysqli_query($conection, $sql);
 
     $result = mysqli_fetch_assoc($query);

@@ -2,10 +2,11 @@
 	include ('Alumfunciones.php');
     //Variables demostrativas
     $UID = '35';
-    $ERFC = 'ITCH2023';
+    $SPID = '14';
     //Llamo a funciones
-    $empresa = getEmpresa($ERFC);
+    $empresa = getEmpresa($SPID);
     $residente = getResidente($UID);
+
 
     // $SPID=$_POST["enviar"];
     // echo $SPID;
@@ -71,8 +72,8 @@
                     <input type="text" id="" name="" value="<?php echo '' ?>" required>
                 </div>
                 <div class="form-row">
-                    <label for="fecha">Fecha:</label>
-                    <input type="date" id="fecha" name="fecha" required>
+                <label for="fecha">Fecha:</label>
+                    <input type="date" id="fecha" name="fecha" value="<?php echo date('Y-m-d'); ?>" required>
                 </div>
                 <div class="form-row">
                     <label for="NombreProyecto">Nombre del Proyecto:</label>
@@ -103,7 +104,7 @@
                 </div>
                 <div class="form-row">
                     <label for="nomAsesorInterno">Nombre Asesor Interno:</label>
-                    <input type="text" id="nomAsesorInterno" name="nomAsesorInterno" value="<?php echo 'Blandy' ?>" disabled='disabled' required>
+                    <input type="text" name="nomAsesorInterno" id="nomAsesorInterno" value="<?php echo 'Hola' ?>" disabled='disabled' required>
                 </div>
                 <div class="form-row">
                     <label for="SPVacantes">Numero Residentes:</label>
