@@ -33,6 +33,7 @@
         <script>alert('<?php echo $message; ?>')</script>
         <?php
     }else if($nFuncion == 'asignacion'){
+        try{
         $rRazon = '';
         $rBPID = $_POST['BPID'];
         $rCAPeriodo = $_POST['periodo'];
@@ -45,6 +46,9 @@
         }
         insertComisionAsesor($UID[0], $rBPID, $rCAPeriodo, $rRazon); //GENERAMOS UNA COMISION DE ASESOR
         nuevoAsesor($rBPID, $AIID[0]); //ACTUALIZAMOS EL BANCO AL ASESOR SELECCIONADO
+        }catch(Exception $e){
+            $message = "Ocurrio un error - ".$e;
+        }
         ?>
             <script>alert('<?php echo $message; ?>')</script>
         <?php
