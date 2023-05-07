@@ -2,12 +2,11 @@
 	include ('Alumfunciones.php');
     //Variables demostrativas
     $UID = '35';
-    $ERFC = 'ITCH2023';
-    $IDPU = '103';
+    $SPID = '14';
     //Llamo a funciones
-    $empresa = getEmpresa($ERFC);
+    $empresa = getEmpresa($SPID);
     $residente = getResidente($UID);
-    $asesor = getAsesor($IDPU);
+
 
     // $SPID=$_POST["enviar"];
     // echo $SPID;
@@ -105,7 +104,7 @@
                 </div>
                 <div class="form-row">
                     <label for="nomAsesorInterno">Nombre Asesor Interno:</label>
-                    <input type="text" name="nomAsesorInterno" id="nomAsesorInterno" value="<?php echo $asesor['nombreasesor'] ?>" disabled='disabled' required>
+                    <input type="text" name="nomAsesorInterno" id="nomAsesorInterno" value="<?php echo 'Hola' ?>" disabled='disabled' required>
                 </div>
                 <div class="form-row">
                     <label for="SPVacantes">Numero Residentes:</label>

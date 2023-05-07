@@ -79,9 +79,11 @@ function getResidente($UID){
     );
 }
 
-function getEmpresa($ERFC){
+function getEmpresa($SPID){
     $conection = conn();
-    $sql = "SELECT * FROM Empresas WHERE ERFC = '$ERFC'";
+    $sql = "SELECT * FROM Empresas 
+    INNER JOIN SolicitudProyecto ON SolicitudProyecto.ERFC = Empresas.ERFC 
+    WHERE '14' = SolicitudProyecto.SPID";
     $query = mysqli_query($conection, $sql);
 
     $result = mysqli_fetch_assoc($query);
