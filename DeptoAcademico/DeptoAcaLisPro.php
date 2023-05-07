@@ -29,9 +29,10 @@
 			</div>
 		</div>
 		<div class="button-row">
-			<a href="index.php" class="button-link">Profesores</a>
+			<a href="a.html" class="button-link">Profesores</a>
+			<!--<a href="deptoAcaAsigSoliRes.php" class="button-link">Solicitudes de Residencias</a>-->
 			<a href="deptoAcaAsigProyRes.php" class="button-link">Solicitudes de Proyectos</a>
-			<a href="deptoAcaLisPro.php" class="button-link">Lista proyectos</a>
+			<a href="deptoAcaLisPro.php" class="button-link">Control de Asesores</a>
 		</div>
 	</div>
 	<div class="tabla-scroll">
