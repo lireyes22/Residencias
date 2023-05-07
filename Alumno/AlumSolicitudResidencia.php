@@ -1,21 +1,14 @@
 <?php 
+    include '../InicioSessionSeg.php';
 	include ('Alumfunciones.php');
-    //Variables demostrativas
-    $UID = '11';
-    $SPID = '10';
+    //ID del proyecto
+    $SPID = $_POST['SPID'];
+    
     //Llamo a funciones
     $empresa = getEmpresa($SPID);
-    $residente = getResidente($UID);
+    $residente = getResidente($_SESSION['id']);
     $residencia = getResidencia($SPID);
-    $asesorI = getAsesor($SPID);
-
-    // $SPID=$_POST["enviar"];
-    // echo $SPID;
-
-    // if (isset($_POST['enviar'])) {
-    //     $spid = $_POST['enviar'];
-    //     // Aquí puedes hacer lo que necesites con el valor de $spid
-    //   }      
+    $asesorI = getAsesor($SPID);   
 ?>
 
 <!DOCTYPE html>
@@ -74,7 +67,7 @@
                 </div>
                 <div class="form-row">
                 <label for="fecha">Fecha:</label>
-                    <input type="date" id="fecha" name="fecha" value="<?php echo date('Y-m-d'); ?>" required>
+                    <input type="date" id="fecha" name="fecha" value="<?php echo date('Y-m-d'); ?>" required disabled>
                 </div>
                 <div class="form-row">
                     <label for="NombreProyecto">Nombre del Proyecto:</label>
@@ -84,7 +77,7 @@
             <div class="columnaR">
                 <div class="form-row">
                     <label for="tipoProyecto">Tipo Proyecto:</label>
-                    <select id="tipoProyecto" name="tipoProyecto">
+                    <select id="tipoProyecto" name="tipoProyecto" disabled>
                         <option value="interno" <?php if($residencia['sptipo'] == 'INTERNO') echo 'selected'; ?>>Interno</option>
                         <option value="externo" <?php if($residencia['sptipo'] == 'EXTERNO') echo 'selected'; ?>>Externo</option>
                         <option value="dual" <?php if($residencia['sptipo'] == 'DUAL') echo 'selected'; ?>>Dual</option>
@@ -93,7 +86,7 @@
                 </div>
                 <div class="form-row">
                     <label for="opcionElegida">Opcion Elegida:</label>
-                    <select id="opcionElegida" name="opcionElegida">
+                    <select id="opcionElegida" name="opcionElegida" disabled>
                         <option value="Propuesta Propia">Propuesta Propia</option>
                         <option value="Trabajador">Trabajador</option>
                         <option value="bancoProyectos">Banco de Proyectos</option>
@@ -101,7 +94,7 @@
                 </div>
                 <div class="form-row">
                     <label for="periodoProyect">Periodo proyectado:</label>
-                    <input type="text" name="periodoProyect" id="periodoProyect" value="<?php echo $residencia['sdtiempoestimado'] . ' meses'; ?>" required />
+                    <input type="text" name="periodoProyect" id="periodoProyect" value="<?php echo $residencia['sdtiempoestimado'] . ' meses'; ?>" required disabled/>
                 </div>
                 <div class="form-row">
                     <label for="nomAsesorInterno">Nombre Asesor Interno:</label>
@@ -109,7 +102,7 @@
                 </div>
                 <div class="form-row">
                     <label for="SPVacantes">Numero Residentes:</label>
-                    <input type="number" name="SPVacantes" id="SPVacantes" min="1" max="4" placeholder="0" value="<?php echo $residencia['spestudiantesrequeridos']; ?>" required>
+                    <input type="number" name="SPVacantes" id="SPVacantes" min="1" max="4" placeholder="0" value="<?php echo $residencia['spestudiantesrequeridos']; ?>" required disabled>
                 </div>
             </div>
             </section>
@@ -128,7 +121,7 @@
                     </div>
                     <div class="form-row">
                         <label for="Eramo">Ramo:</label>
-                        <select id="Eramo" name="Eramo">
+                        <select id="Eramo" name="Eramo" disabled>
                             <option value="Industrial" <?php if($empresa['ramo'] == 'Industrial') echo 'selected'; ?>>Industrial</option>
                             <option value="Servicios" <?php if($empresa['ramo'] == 'Servicios') echo 'selected'; ?>>Servicios</option>
                             <option value="Escolar" <?php if($empresa['ramo'] == 'Escolar') echo 'selected'; ?>>Escolar</option>
@@ -141,7 +134,7 @@
                     </div>
                     <div class="form-row">
                         <label for="ESector">Sector:</label>
-                        <select id="ESector" name="ESector">
+                        <select id="ESector" name="ESector" disabled>
                             <option value="Publico" <?php if($empresa['esector'] == 'Publico') echo 'selected'; ?>>Publico</option>
                             <option value="Privado" <?php if($empresa['esector'] == 'Privado') echo 'selected'; ?>>Privado</option>
                             <option value="Otro" <?php if(empty($empresa['esector']) || $empresa['esector'] == 'Otro' || ($empresa['esector'] != 'Publico' && $empresa['esector'] != 'Privado')) echo 'selected'; ?>>Otro</option>
@@ -178,10 +171,10 @@
                         <label for="ETelefono">Teléfono:</label>
                         <input type="tel" id="ETelefono" name="ETelefono" value="<?php echo $empresa['etelefono'] ?>" required>
                     </div>
-                    <div class="form-row">
+                    <!-- <div class="form-row">
                         <label for="ETelefonoDos">Segundo Telefono:</label>
                         <input type="tel" id="ETelefonoDos" name="ETelefonoDos" placeholder="983-445-6778" required>
-                    </div>
+                    </div> -->
                 </div>
                 
                 <div class="columnaR">
@@ -199,7 +192,7 @@
                     </div>
                     <div class="form-row">
                         <label for="puestoAsesor">Puesto:</label>
-                        <input type="text" name="puestoAsesor" id="puestoAsesor" value="<?php echo $empresa['epuestoacuerdo']?>" required>
+                        <input type="text" name="puestoAsesor" id="puestoAsesor" value="<?php echo $empresa['epuestoacuerdo']?>" required disabled>
                     </div>
                     <div class="form-row">
                         <label for="ENombreEncargado">Nombre de la persona que firmará el acuerdo de trabajo. Estudiante- Escuela-Empresa:</label>
@@ -230,7 +223,7 @@
                 </div>
                 <div class="form-row">
                     <label for="numSemestre">Semestre a cursar:</label>
-                    <input type="text" id="numSemestre" name="numSemestre" value="<?php echo $residente['semestre'] ?>" required>
+                    <input type="text" id="numSemestre" name="numSemestre" value="<?php echo $residente['semestre'] ?>" required disabled>
                 </div>
                 <div class="form-row">
                     <label for="domicilio">Domicilio:</label>
@@ -245,14 +238,14 @@
             <div class="columnaR">
                 <div class="form-row">
                     <label for="numeroSeguro">Para seguridad social acudir:</label>
-                    <input type="text" name="numeroSeguro" value="<?php echo $residente['seguro_social'] ?>" required>
+                    <input type="text" name="numeroSeguro" value="<?php echo $residente['seguro_social'] ?>" required disabled>
                 </div>
                 <div class="form-row">
-                    <input type="radio" id="imss" name="tipoSeguro" value="IMSS" <?php if($residente['institucionseguro'] == 'IMSS') echo 'checked'; ?> required>
+                    <input type="radio" id="imss" name="tipoSeguro" value="IMSS" <?php if($residente['institucionseguro'] == 'IMSS') echo 'checked'; ?> required disabled>
                     <label for="imss">IMSS</label>
-                    <input type="radio" id="issste" name="tipoSeguro" value="ISSSTE" <?php if($residente['institucionseguro'] == 'ISSSTE') echo 'checked'; ?> required>
+                    <input type="radio" id="issste" name="tipoSeguro" value="ISSSTE" <?php if($residente['institucionseguro'] == 'ISSSTE') echo 'checked'; ?> required disabled>
                     <label for="issste">ISSSTE</label>
-                    <input type="radio" id="otro" name="tipoSeguro" value="OTROS" <?php if(empty($residente['institucionseguro']) || $residente['institucionseguro'] == 'Otro' || ($residente['institucionseguro'] != 'IMSS' && $residente['institucionseguro'] != 'ISSSTE')) echo 'checked'; ?> required>
+                    <input type="radio" id="otro" name="tipoSeguro" value="OTROS" <?php if(empty($residente['institucionseguro']) || $residente['institucionseguro'] == 'Otro' || ($residente['institucionseguro'] != 'IMSS' && $residente['institucionseguro'] != 'ISSSTE')) echo 'checked'; ?> required disabled>
                     <label for="otro">OTROS</label>
                 </div>
                 <div class="form-row">
@@ -261,7 +254,7 @@
                 </div>
                 <div class="form-row">
                     <label for="telefono">Teléfono:</label>
-                    <input type="tel" name="telAlumno" id="telefono" value="<?php echo $residente['tel'] ?>" required>
+                    <input type="tel" name="telAlumno" id="telefono" value="<?php echo $residente['tel'] ?>" required disabled>
                 </div>
 
             </div>                  
