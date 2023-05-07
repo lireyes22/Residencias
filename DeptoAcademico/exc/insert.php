@@ -45,7 +45,10 @@
         }
         insertComisionAsesor($UID[0], $rBPID, $rCAPeriodo, $rRazon); //GENERAMOS UNA COMISION DE ASESOR
         nuevoAsesor($rBPID, $AIID[0]); //ACTUALIZAMOS EL BANCO AL ASESOR SELECCIONADO
+        ?>
+            <script>alert('<?php echo $message; ?>')</script>
+        <?php
     }  
     //Código JavaScript para cerrar la ventana
-   // echo "<script>window.close();</script>";
+   echo "<script>window.close();</script>";
 ?>
