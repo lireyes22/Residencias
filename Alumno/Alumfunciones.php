@@ -13,6 +13,11 @@ function conn(){
     mysqli_set_charset($conection, "utf8");
     return $conection;
 }
+
+if(isset($_POST['EnviarSolicitud'])){
+    setProyecto();
+}
+
 function generarBancoProyecto($IDUsuario){
     $conection = conn();
 
@@ -123,8 +128,17 @@ function getResidencia($SPID){
             FROM SolicitudProyecto
             WHERE $SPID = SolicitudProyecto.SPID";
     $query = mysqli_query($conection, $sql);
-
     $result = mysqli_fetch_assoc($query);
+
+    $sql2 = "SELECT SolicitudResidencia.SROpcionElegida FROM SolicitudResidencia
+    INNER JOIN BancoProyectos ON BancoProyectos.BPID = SolicitudResidencia.BPID
+    INNER JOIN SolicitudProyecto ON SolicitudProyecto.SPID = BancoProyectos.SPID
+    WHERE $SPID = SolicitudProyecto.SPID";
+    $query2 = mysqli_query($conection, $sql2);
+    $result2 = mysqli_fetch_assoc($query2);
+
+    // SolicitudResidencia.SROpcionElegida
+
     return array (
         'spnombreproyecto' => $result['SPNombreProyecto'],
         'sptipo' => $result['SPTipo'],
