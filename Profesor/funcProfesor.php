@@ -13,6 +13,9 @@
         mysqli_set_charset($conection, "utf8");
         return $conection;
     }
+    function nombreUsuario(){
+       return $sql; 
+    }
     function basicInfoProy($SPID){ //Nombre del proyecto, Objetivo, Numero Estudiantes, Tiempo Estimado, Nombre del Responsable
         $conection = conn();
         $sql = "CALL basicInfo($SPID);";
