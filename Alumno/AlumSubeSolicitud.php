@@ -43,7 +43,7 @@ function conn(){
 	$sql2 = "SELECT BancoProyectos.BPID FROM BancoProyectos
 	INNER JOIN SolicitudProyecto ON SolicitudProyecto.SPID = BancoProyectos.SPID
 	WHERE $SPID = SolicitudProyecto.SPID";
-	$query2 =mysqli_query($conection, $sql);
+	$query2 =mysqli_query($conection, $sql2);
 	$result2 = mysqli_fetch_assoc($query2);
 	$BPID = $result2['BPID'];
 

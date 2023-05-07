@@ -267,7 +267,7 @@
             </div>
             </section>
             <div align="left">
-                        <label for="SRAnteProyecto">Firma del estudiante: </label>
+                        <label for="SRAnteProyecto">Constancia: </label>
                             <div class="form-group" align="left">
                                 <label for="file-input">
                                 <img src="../img/archivo.jpg" width="70px"/>
