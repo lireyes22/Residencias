@@ -91,6 +91,10 @@
 					<input class="inp-sr" type="text" name="lineaInv" size="60%">
 					<br><br>
 					<textarea class="ta-sp" name="refEsenciales" cols="150" rows="4"></textarea><br><br>
+					<label class="lb-sr" for="EmpresaName">Nombre de la Empresa:</label>
+					<select name="EmpresaName">
+                        <option value="opcion1">Empresa</option>
+                    </select><br><br><br>
 					<input class= "boton" type="submit" name="enviar" value="Enviar">
 
 			</form>
