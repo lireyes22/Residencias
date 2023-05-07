@@ -32,7 +32,7 @@
         </div>
         <div class="button-row">
             <a href=# class="button-link">Asesorias</a>
-			<a href="AsesorInternoAlumnos.php" class="button-link">Inicio</a>
+			<a href="IndexAsesorInterno.html" class="button-link">Inicio</a>
 			<a href=# class="button-link">Reporte Semestral</a>
 			<a href=# class="button-link">Residencias</a>
         </div>
