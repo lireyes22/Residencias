@@ -46,7 +46,7 @@
 	</div>
     <br>
     <!----------------------------------------------------- Fieldset Proyecto ---------------------------------------------------------->
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         <input type="hidden" name="SPID" value="<?php echo $SPID?>">
         <input type="hidden" name="residente" value="<?php echo $residente?>">
         <fieldset class="bg-fldst">

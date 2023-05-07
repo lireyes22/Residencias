@@ -1,6 +1,4 @@
 <?php 
-
-// -------------------------------------------------------------------------------
 $SPID = $_POST['SPID'];
 $residente = $_POST['residente'];
 $opcion = $_POST['opcionElegida'];
@@ -9,8 +7,6 @@ $consarchivo = file_get_contents($cons);
 $anteproyecto = $_FILES['anteproyecto']['tmp_name'];
 $antearchivo = file_get_contents($anteproyecto);
 $periodo = '';
-
-// -------------------------------------------------------------------------------
 function conn(){
     $host = 'mapachitos.cisuktad1m53.us-east-2.rds.amazonaws.com';
     $user = 'admin';
@@ -25,8 +21,6 @@ function conn(){
     mysqli_set_charset($conection, "utf8");
     return $conection;
 }
-
-// ---------------------------------------------------------------------------------
 	$fechaActual = date('Y-m-d');
 	$mesActual = date('m');
 	$anioActual = date('Y');
@@ -37,24 +31,28 @@ function conn(){
 		// Si estamos en el segundo semestre
 		$periodo = 'AGO-NOV ' . $anioActual;
 	}
-
-// ------------------------------------------------------------------------------------
     $conection = conn();
 	$sql2 = "SELECT BancoProyectos.BPID FROM BancoProyectos
 	INNER JOIN SolicitudProyecto ON SolicitudProyecto.SPID = BancoProyectos.SPID
-	WHERE $SPID = SolicitudProyecto.SPID";
-	$query2 =mysqli_query($conection, $sql2);
+	WHERE SolicitudProyecto.SPID = ?";
+	$stmt2 = mysqli_prepare($conection, $sql2);
+	mysqli_stmt_bind_param($stmt2, 'i', $SPID);
+	mysqli_stmt_execute($stmt2);
+	$query2 = mysqli_stmt_get_result($stmt2);
 	$result2 = mysqli_fetch_assoc($query2);
 	$BPID = $result2['BPID'];
 
 	$sql = "INSERT INTO SolicitudResidencia 
 	(SRAnteProyecto, SRConstanciaInicioRes, SREstatus, SRPeriodo, UAlumno, BPID, SROpcionElegida) 
-	VALUES ($antearchivo, $consarchivo, 'PENDIENTE', '$periodo', '$residente', '$BPID', '$opcion')";
-    $query = mysqli_query($conection, $sql);
-    
-    if(mysqli_affected_rows($conection) > 0) {
-        echo "La inserción fue exitosa.";
-    } else {
-        echo "Hubo un error al insertar los datos.";
-    }
+	VALUES (?, ?, 'PENDIENTE', ?, ?, ?, ?)";
+	$stmt = mysqli_prepare($conection, $sql);
+	mysqli_stmt_bind_param($stmt, 'bbsii', $antearchivo, $consarchivo, $periodo, $residente, $BPID, $opcion);
+	mysqli_stmt_execute($stmt);
+
+	if(mysqli_affected_rows($conection) > 0) {
+		echo "La inserción fue exitosa.";
+	} else {
+		echo "Hubo un error al insertar los datos.";
+	}
+
 ?>
