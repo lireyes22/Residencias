@@ -1,20 +1,21 @@
 <?php 
+	include '../InicioSessionSeg.php';
 	include ('funcProfesor.php');
 	$link = conn();
     $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
     $query= "SELECT * FROM Empresas";
     $result = mysqli_query($link, $query);
+    $IDUser=$_SESSION['id'];
+    $query2="SELECT Profesor.NombreCompleto FROM Profesor INNER JOIN Profesor_Usuarios ON Profesor.RFCProfesor=Profesor_Usuarios.RFCProfesor INNER JOIN Usuarios ON Profesor_Usuarios.UID=Usuarios.UID WHERE Usuarios.UID='$IDUser'";
+	$result2 = mysqli_query($link, $query2);
 
 ?>
 	<!DOCTYPE html>
 	<html>
-
-
     <head>
     	<title>Profesor</title>
     	<link rel="stylesheet" href="../style/style.css">
     </head>
-
 
 	<body style="margin: 0;">
 		<div class="container">
@@ -45,7 +46,7 @@
 				<form action="exc/insertSP.php" method="POST">
 					<div>
 						<h3>Nombre del Proyecto</h3> 
-						<input class="inp-sr" type="text" name="nombreProy" required size="45%"><br>
+						<input class="inp-sr" type="text" name="nombreProy" required size="100%"><br>
 						<h3>Objetivo Proyecto</h3>
 						<textarea class="ta-sp" name="objetivo" cols="150" rows="4"> </textarea><br>
 						<h3>Descripción del Proyecto</h3> 
@@ -56,35 +57,36 @@
 							el desarrollo tecnológico, la innovación y la solución de problemas locales, nacionales o internacionales.</p>
 						</div>
 						<textarea class="ta-sp" name="impacto" cols="150" rows="4"></textarea> <br><br>
-						<label class="lb-sr" for="lugar">Lugar donde se va a desarrollar: </label>
-						<input class="inp-sr" type="text" name="lugar" size="20"> <br><br>
-						<label class="lb-sr" for="docenteResp">Docente Responsable: </label>
-						<input class="inp-sr" type="text" name="docenteResp" size="20" disabled>
+						<h3>Lugar donde se va a desarrollar:</h3>
+						<input class="inp-sr" type="text" name="lugar" size="20"> <br><br>						
+						<h3>Cantidad de estudiantes requeridos: </h3>
+						<input class="inp-sr" type="number" name="numEstudiantes" min="0" max="20" step="1">
 						<br><br>
-						<label class="lb-sr" for="estudiantes-req">Cantidad de estudiantes requeridos: </label>
-						<select name="estudiantes-req">
-							<option value="opcion1">INTERNO</option>
-							<option value="opcion2">EXTERNO</option>
-							<option value="opcion3">DUAL</option>
-							<option value="opcion4">CIIE</option>
-						</select>
-						<br><br>
-						<label class="lb-sr" for="tiempoEst">Tiempo estimado de proyecto: </label>
-						<input class="inp-sr" type="text" name="tiempoEst" size="2"> 
-						<label class="lb-sr" for="tiempoEst">MES(ES)</label> <br><br>
-						<label class="lb-sr" for="carreraReq">Carrera Requerida por los estudiantes: </label><br>
-						<input type="checkbox" name="carreraReq" value="6">Ing. en Sistemas Computacionales<br>
-						<input type="checkbox" name="carreraReq" value="1">Ing. en Tecnologías de la información
-						<br><br>
-						<label class="lb-sr" for="tipoProp">Tipo de propuesta:</label>
+						<h3>Tiempo estimado de proyecto: </h3>
+						<input class="inp-sr" type="number" name="tiempoProy" min="1" max="6" step="1"> 
+						<label class="lb-sr" for="tiempoEst">MES(ES)</label> <br><br>						
+						<h3>Tipo de propuesta:</h3>
 						<select name="tipoProp">
-							<option value="opcion1">INTERNO</option>
-							<option value="opcion2">EXTERNO</option>
-							<option value="opcion3">DUAL</option>
-							<option value="opcion4">CIIE</option>
+							<option value="INTERNO">INTERNO</option>
+							<option value="EXTERNO">EXTERNO</option>
+							<option value="DUAL">DUAL</option>
+							<option value="CIIE">CIIE</option>
 						</select>
+						<br><br>						
+						<h3>Linea de investigación que beneficia: </h3>
+						<input class="inp-sr" type="text" name="lineaInv" size="60%">
 						<br><br>
-						<label class="lb-sr" for="EmpresaName">Nombre de la Empresa:</label>
+						<h3>Incluya las referencias esenciales para enmarcar el contenido de su propuesta: </h3>
+						<textarea class="ta-sp" name="refEsenciales" cols="150" rows="4"></textarea><br><br>
+
+						<h3>Docente Responsable: </h3>
+						<?php 
+						$row2 = mysqli_fetch_array($result2);
+						 ?>
+						<input class="inp-sr" type="text" name="docenteResp" size="20" disabled value="<?php echo $row2['NombreCompleto']; ?>">
+
+						<br><br>
+						<h3>Nombre de la Empresa:</h3>
 						<select name="Empresas">
 							<?php
 
@@ -95,11 +97,10 @@
 							?>
 						</select>
 						<br><br>
-						<label class="lb-sr" for="lineaInv">Linea de investigación que beneficia: </label>
-						<input class="inp-sr" type="text" name="lineaInv" size="60%">
+						<h3>Carrera Requerida por los estudiantes: </h3>
+						<input type="checkbox" name="carreraReq" value="6">Ing. en Sistemas Computacionales<br>
+						<input type="checkbox" name="carreraReq" value="1">Ing. en Tecnologías de la información
 						<br><br>
-						<h3>Incluya las referencias esenciales para enmarcar el contenido de su propuesta: </h3>
-						<textarea class="ta-sp" name="refEsenciales" cols="150" rows="4"></textarea><br><br>
 					</div><br><br>
 
 						<input class="boton"type="submit" name="enviar" value="Enviar">
