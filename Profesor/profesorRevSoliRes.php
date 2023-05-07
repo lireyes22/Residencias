@@ -2,39 +2,35 @@
 <html>
 
 <head>
-    <title>Revision Solicitud de Residencia</title>
-    <link rel="stylesheet" href="../style/StyleBase.css">
-    <link rel="stylesheet" href="style/StyleProfesor.css">
-    <link rel="stylesheet" href="../style/styleAlumno.css">
-    <meta charset="utf-8">
+    <title>Profesor</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="Style/StyleProfesor.css">
 </head>
 
 <body style="margin: 0;">
     <div class="container">
         <div class="row">
             <div class="left-column">
-                <div class="dropdown">
-                    <a class="dropbtn home-btn" href="index.html" style="text-decoration: none;"><span>Profesor</span><img src="img/profesor.png" width="50px"></a>
-                    <ul class="dropdown-content">
-                        <li><a href="../Asesor/IndexAsesorInterno.html"><span>Asesor</span><img src="img/asesor.png" width="50px"></a></li>
-                    </ul>
-                </div>
+                <a class="home-btn" href="index.php">
+                    <h2><span style="margin-right: 10px;">Profesor</span></h2>
+                    <img src="../img/sombrero.png" width="50px">
+                </a>
             </div>
             <div class="center-column">
-                <h1>Solicitud de Residencia</h1>
+                <h1>Solicitudes de Proyectos</h1>
             </div>
             <div class="right-column">
-                <a href="a.html"><img src="../img/logout.png" width="40px"></a>
+                <a href="index.php"><img src="../img/logout.png" width="40px"></a>
             </div>
         </div>
         <div class="button-row">
-            <a href="a.html" class="button-link">Comisiones</a>
-            <a href="a.html" class="button-link">Proyectos Registrados</a>
-            <a href="a.html" class="button-link">Registrar Proyecto</a>
+        <a href="index.php" class="button-link">Comisiones</a>
+            <a href="index.php" class="button-link">Proyectos Registrados</a>
+            <a href="index.php" class="button-link">Registrar Proyecto</a>
             <a href="profesorSoliRes.php" class="button-link">Solicitudes de Residencia</a>
             <a href="profesorRevProyRes.php" class="button-link">Solicitudes de Proyecto</a>
         </div>
-    </div>
+    </div> 
     <br>
   <!----------------------------------------------------- Fieldset Proyecto ---------------------------------------------------------->
     <form action="">
