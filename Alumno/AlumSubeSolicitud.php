@@ -34,25 +34,26 @@ function conn(){
     $conection = conn();
 	$sql2 = "SELECT BancoProyectos.BPID FROM BancoProyectos
 	INNER JOIN SolicitudProyecto ON SolicitudProyecto.SPID = BancoProyectos.SPID
-	WHERE SolicitudProyecto.SPID = ?";
-	$stmt2 = mysqli_prepare($conection, $sql2);
-	mysqli_stmt_bind_param($stmt2, 'i', $SPID);
-	mysqli_stmt_execute($stmt2);
-	$query2 = mysqli_stmt_get_result($stmt2);
+	WHERE $SPID = SolicitudProyecto.SPID";
+	$query2 =mysqli_query($conection, $sql2);
 	$result2 = mysqli_fetch_assoc($query2);
 	$BPID = $result2['BPID'];
 
+	/*echo $antearchivo.',';
+	echo $consarchivo.',';*/
+	/*echo $periodo.',';*/
+	echo $residente.',';
+	echo $BPID.',';
+	echo $opcion.',';
+	/*
 	$sql = "INSERT INTO SolicitudResidencia 
 	(SRAnteProyecto, SRConstanciaInicioRes, SREstatus, SRPeriodo, UAlumno, BPID, SROpcionElegida) 
-	VALUES (?, ?, 'PENDIENTE', ?, ?, ?, ?)";
-	$stmt = mysqli_prepare($conection, $sql);
-	mysqli_stmt_bind_param($stmt, 'bbsii', $antearchivo, $consarchivo, $periodo, $residente, $BPID, $opcion);
-	mysqli_stmt_execute($stmt);
-
-	if(mysqli_affected_rows($conection) > 0) {
-		echo "La inserción fue exitosa.";
-	} else {
-		echo "Hubo un error al insertar los datos.";
-	}
-
+	VALUES ($antearchivo, $consarchivo, 'PENDIENTE', '$periodo', '$residente', '$BPID', '$opcion')";
+    $query = mysqli_query($conection, $sql);
+    
+    if(mysqli_affected_rows($conection) > 0) {
+        echo "La inserción fue exitosa.";
+    } else {
+        echo "Hubo un error al insertar los datos.";
+    }*/
 ?>
