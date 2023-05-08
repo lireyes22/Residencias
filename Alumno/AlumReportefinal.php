@@ -1,4 +1,5 @@
 <?php 
+	include '../InicioSessionSeg.php';
 	//$idAlumno =	$_SESSION['id']; Desactivar este cuando este validado el login
 	$idAlumno = 30;
 ?>
@@ -16,7 +17,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="left-column">
-				<a class="home-btn" href="a.html">
+				<a class="home-btn" href="AlumTraking.php">
 					<h2><span style="margin-right: 10px;">Alumno</span></h2>
 					<img src="../img/sombrero.png" width="50px">
 				</a>
@@ -25,16 +26,12 @@
 				<h2>REPORTE FINAL DE RESIDENCIA</h2>
 			</div>
 			<div class="right-column">
-				<a href="a.html"><img src="../img/logout.png" width="40px"></a>
+				<a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
 			</div>
 		</div>
-		<div class="button-row">
-			<a href="a.html" class="button-link">Solicitud de residencia</a>
-			<a href="a.html" class="button-link">Proyectos</a>
-			<a href="a.html" class="button-link">Reporte</a>
-			<a href="a.html" class="button-link">Asesorias</a>
-			<a href="a.html" class="button-link">Faq &nbsp;<img src="../img/pregunta.jpg" width="20px"></a>
-		</div>
+		<?php
+        include 'MenuAlumno.html';
+        ?>
 	</div>
 	<form action="" method="post" enctype="multipart/form-data" action="AlumnoInsertarReporte.php">
 		

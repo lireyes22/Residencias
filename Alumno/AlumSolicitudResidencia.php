@@ -26,7 +26,7 @@
     <div class="container">
 		<div class="row">
 			<div class="left-column">
-				<a class="home-btn" href="a.html">
+				<a class="home-btn" href="AlumTraking.php">
 					<h2><span style="margin-right: 10px;">Alumno</span></h2>
 					<img src="../img/sombrero.png" width="50px">
 				</a>
@@ -35,7 +35,7 @@
 				<h1>Solicitud de Residencia</h1>
 			</div>
 			<div class="right-column">
-				<a href="a.html"><img src="../img/logout.png" width="40px"></a>
+				<a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
 			</div>
 		</div>
 		<?php
