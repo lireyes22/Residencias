@@ -64,7 +64,7 @@
                     </div>
                     <div class="form-row">
                         <label for="">AT'N C:</label>
-                        <input type="text" id="" name="" value="<?php echo '' ?>" required disabled>
+                        <input type="text" id="" name="" value="<?php echo $residente['nomcarrera'] ?>" required disabled>
                     </div>
                     <div class="form-row">
                     <label for="fecha">Fecha:</label>
@@ -197,7 +197,7 @@
                         </div>
                         <div class="form-row">
                             <label for="ENombreEncargado">Nombre de la persona que firmará el acuerdo de trabajo. Estudiante- Escuela-Empresa:</label>
-                            <input type="text" name="ENombreEncargado" id="ENombreEncargado" required disabled>
+                            <input type="text" name="ENombreEncargado" id="ENombreEncargado" value="<?php echo $empresa['enombreacuerdo']?>" required disabled>
                         </div>                     
                     </div>
                 </section>
