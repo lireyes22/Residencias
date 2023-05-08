@@ -42,14 +42,11 @@ if (file_exists('funciones.php')) {
 				while ($row = mysqli_fetch_assoc($resultado)) {
 					if($rol=="AsesorInterno"){
 						header('Location: Asesor/IndexAI.php');
-					}
-					if ($row['URol']=="Alumno") {
+					}elseif ($row['URol']=="Alumno") {
 						header('Location: Alumno/AlumTraking.php');
-					}
-					if($row['URol']=="Profesor"){
+					}elseif($row['URol']=="Profesor"){
 						header('Location: Profesor/index.php');
-					}
-					if($row['URol']=="JefDeptAca"){
+					}elseif($row['URol']=="JefDeptAca"){
 						header('Location: DeptoAcademico/index.php');
 					}
 
