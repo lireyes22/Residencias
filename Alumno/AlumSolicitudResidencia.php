@@ -272,7 +272,7 @@
                                 <label for="file-input">
                                 <img src="../img/archivo.jpg" width="70px"/>
                                 </label>
-                                <input id="file-input" type="file" name ="constancia" />
+                                <input id="file-input" type="file" name ="constancia" required/>
                             </div>
                         </div>
         </article>
@@ -282,7 +282,7 @@
                     <label for="file-input">
                         <img src="../img/archivo.jpg" width="70px"/>
                     </label>
-                    <input id="file-input" type="file" name="anteproyecto"/>
+                    <input id="file-input" type="file" name="anteproyecto" required/>
                 </div>
         </div>
         </fieldset>
