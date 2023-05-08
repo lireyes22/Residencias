@@ -1,4 +1,5 @@
 <?php 
+	include '../InicioSessionSeg.php';
 	include ('funcionesDepto.php');
 	$SPID = $_POST['SPID'];
 	$UID = 13;
@@ -32,7 +33,7 @@
 				<h1>Reasignar Asesor</h1>
 			</div>
 			<div class="right-column">
-				<a href="a.html"><img src="../img/logout.png" width="40px"></a>
+				<a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
 			</div>
 		</div>
 		<?php

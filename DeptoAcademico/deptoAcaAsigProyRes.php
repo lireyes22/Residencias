@@ -25,7 +25,7 @@
 				<h1>Asignación de Solicitud de proyecto</h1>
 			</div>
 			<div class="right-column">
-				<a href="a.html"><img src="../img/logout.png" width="40px"></a>
+				<a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
 			</div>
 		</div>
 		<?php
