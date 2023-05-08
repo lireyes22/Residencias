@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row">
             <div class="left-column">
-                <a class="home-btn" href="IndexAsesorInterno.html">
+                <a class="home-btn" href="IndexAI.php">
                     <h2><span style="margin-right: 10px;">Asesor</span></h2>
                     <img src="img/asesor.png" width="50px">
                 </a>
@@ -47,10 +47,12 @@
                 </tr>
             </thead>
             <?php 
-                //$query = consultaAsesorAlumno($_SESSION['id']);
-                //$idAsesor = $_SESSION['id'];
-                $idAsesor = 14;
-                $query = consultaAsesorAlumno(14);
+                $query = consultaAsesorAlumno($_SESSION['id']);
+                $idAsesor = $_SESSION['id'];
+                //echo $idAsesor.'<br>';
+                //echo $_SESSION['id'];
+                //$idAsesor = 14;
+                //$query = consultaAsesorAlumno(14);
                 while($consulta = mysqli_fetch_array($query)){
                     $idAlumno = $consulta['UAlumno'];
                     $queryInfoAlumno = consultaUsuarioAlumno($idAlumno);

@@ -1,6 +1,5 @@
-<?php     
-    include '../InicioSessionSeg.php';
-	include ('funcProfesor.php');
+<?php 
+    include ('funcProfesor.php');
     //ID del proyecto
     $SRID = $_POST['SRID'];
     
@@ -24,20 +23,20 @@
 </head>
 <body style="margin: 0;">
     <div class="container">
-		<div class="row">
-			<div class="left-column">
-				<a class="home-btn" href="AlumTraking.php">
-					<h2><span style="margin-right: 10px;">Alumno</span></h2>
-					<img src="../img/sombrero.png" width="50px">
-				</a>
-			</div>
-			<div class="center-column">
-				<h1>Solicitud de Residencia</h1>
-			</div>
-			<div class="right-column">
-				<a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
-			</div>
-		</div>
+        <div class="row">
+            <div class="left-column">
+                <a class="home-btn" href="index.php">
+                    <h2><span style="margin-right: 10px;">Profesor</span></h2>
+                    <img src="../img/sombrero.png" width="50px">
+                </a>
+            </div>
+            <div class="center-column">
+                <h1>Solicitudes de Proyectos</h1>
+            </div>
+            <div class="right-column">
+                <a href="index.php"><img src="../img/logout.png" width="40px"></a>
+            </div>
+        </div>
 		<?php
         include 'MenuProfesor.html';
         ?>

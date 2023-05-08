@@ -22,7 +22,7 @@
         <div class="row">
             <div class="left-column">
                 <div class="dropdown">
-                    <a class="dropbtn home-btn" href="IndexAsesorInterno.html" style="text-decoration: none;"><span>Asesor</span><img src="img/asesor.png" width="50px"></a>
+                    <a class="dropbtn home-btn" href="IndexAI.php" style="text-decoration: none;"><span>Asesor</span><img src="img/asesor.png" width="50px"></a>
                     <ul class="dropdown-content">
                         <li><a href="../Profesor/indexProfesor.php"><span>Profesor</span><img src="img/profesor.png" width="50px"></a></li>
                     </ul>
@@ -78,7 +78,7 @@
                     <tr>
                         <td>Portada</td>
                         <td>1</td>
-                        <td><input type="number" name="Portada" min="0" max="0" step="1"></td>
+                        <td><input type="number" name="Portada" min="0" max="1" step="1"></td>
                     </tr>
                     <tr>
                         <td>Agradecimientos</td>

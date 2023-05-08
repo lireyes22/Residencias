@@ -1,5 +1,6 @@
 <?php
-	include '../InicioSessionSeg.php';
+	include ('../InicioSessionSeg.php');
+	$UID = $_SESSION['id'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,7 +29,7 @@
 		<?php
         include 'MenuDeptoAcademico.html';
         ?>
-	</div>
+	</div> 
 	<div>
 		<h1></h1>
 	</div>

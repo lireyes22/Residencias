@@ -1,4 +1,5 @@
 <?php 
+include '../InicioSessionSeg.php';
 	$idProy = $_POST['idProy'];
 	include ('funcProfesor.php');
 	$link = conn();
@@ -29,7 +30,7 @@
 				<h1>Solicitudes de Proyectos</h1>
 			</div>
 			<div class="right-column">
-				<a href="index.php"><img src="../img/logout.png" width="40px"></a>
+				<a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
 			</div>
 		</div>
 		<?php
@@ -73,7 +74,7 @@
 								?>
 								<input type="checkbox" name="<?php echo $carreras[1]; ?>" value="<?php echo $carreras[1]; ?>" checked disabled><?php echo $carreras[0]; ?> <br><br>
 								<?php
-							} ?>
+							} ?> 
 						</div>
 						<div class="propuesta-int">
 						

@@ -1,6 +1,7 @@
 <?php 
 	include ('funcProfesor.php'); 
-	$UID = 14;
+	include ('../InicioSessionSeg.php');
+	$UID = $_SESSION['id'];
 	$result = listProyPendientes($UID);
 ?>
 <!DOCTYPE html>
@@ -25,12 +26,14 @@
 				<h1>Solicitudes de Proyectos</h1>
 			</div>
 			<div class="right-column">
-				<a href="a.html"><img src="../img/logout.png" width="40px"></a>
+				<a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
 			</div>
 		</div>
+	</div>
 		<?php
 		include 'MenuProfesor.html';
 		?>
+	</div>
 	<div class="tabla-scroll"> 
 	<table class = "tb-asp">
 			<tr> 

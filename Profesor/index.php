@@ -1,5 +1,6 @@
 <?php
-	include 'funcProfesor.php';
+include '../InicioSessionSeg.php';
+include 'funcProfesor.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,17 +17,17 @@
 		<div class="row">
 			<div class="left-column">
 				<div class="dropdown">
-					<a class="dropbtn home-btn" href="index.html" style="text-decoration: none;"><span>Profesor</span><img src="img/profesor.png" width="50px"></a>
+					<a class="dropbtn home-btn" href="index.php" style="text-decoration: none;"><span>Profesor</span><img src="img/profesor.png" width="50px"></a>
 					<ul class="dropdown-content">
 						<li><a href="../Asesor/IndexAsesorInterno.html"><span>Asesor</span><img src="img/asesor.png" width="50px"></a></li>
 					</ul>
 				</div>
 			</div>
 			<div class="center-column">
-				<h1>Titulo de pagina mamalona</h1>
+				<h1>Comisiones Asignadas</h1>
 			</div>
 			<div class="right-column">
-				<a href="a.html"><img src="../img/logout.png" width="40px"></a>
+				<a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
 			</div>
 		</div>
 		<?php
@@ -34,7 +35,7 @@
 		?>
 	</div>
 	<div>
-		Hola mundo
+		
 	</div>
 </body>
 </html>
