@@ -78,7 +78,7 @@
                     <tr>
                         <td>Portada</td>
                         <td>1</td>
-                        <td><input type="number" name="Portada" min="0" max="0" step="1"></td>
+                        <td><input type="number" name="Portada" min="0" max="1" step="1"></td>
                     </tr>
                     <tr>
                         <td>Agradecimientos</td>

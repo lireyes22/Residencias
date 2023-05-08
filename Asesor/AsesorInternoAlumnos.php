@@ -47,10 +47,12 @@
                 </tr>
             </thead>
             <?php 
-                //$query = consultaAsesorAlumno($_SESSION['id']);
-                //$idAsesor = $_SESSION['id'];
-                $idAsesor = 14;
-                $query = consultaAsesorAlumno(14);
+                $query = consultaAsesorAlumno($_SESSION['id']);
+                $idAsesor = $_SESSION['id'];
+                //echo $idAsesor.'<br>';
+                //echo $_SESSION['id'];
+                //$idAsesor = 14;
+                //$query = consultaAsesorAlumno(14);
                 while($consulta = mysqli_fetch_array($query)){
                     $idAlumno = $consulta['UAlumno'];
                     $queryInfoAlumno = consultaUsuarioAlumno($idAlumno);

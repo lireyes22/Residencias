@@ -74,7 +74,7 @@ include '../InicioSessionSeg.php';
 								?>
 								<input type="checkbox" name="<?php echo $carreras[1]; ?>" value="<?php echo $carreras[1]; ?>" checked disabled><?php echo $carreras[0]; ?> <br><br>
 								<?php
-							} ?>
+							} ?> 
 						</div>
 						<div class="propuesta-int">
 						
