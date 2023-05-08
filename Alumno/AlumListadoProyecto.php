@@ -35,13 +35,10 @@
 				<a href="a.html"><img src="../img/logout.png" width="40px"></a>
 			</div>
 		</div>
-		<div class="button-row">
-			<a href="AlumSolicitudResidencia.php" class="button-link">Solicitud de residencia</a>
-			<a href="a.html" class="button-link">Proyectos</a>
-			<a href="a.html" class="button-link">Reporte</a>
-			<a href="a.html" class="button-link">Asesorias</a>
-			<a href="a.html" class="button-link">Faq &nbsp;<img src="../img/pregunta.jpg" width="20px"></a>
-		</div>
+		<?php
+        include 'MenuAlumno.html';
+        ?>
+		
 	</div>
 	<br>
 	<img src="../img/lupa.png" height="20" widt="20">&nbsp;&nbsp;<input name='buscar' type='text' size="20" value="" align="right">

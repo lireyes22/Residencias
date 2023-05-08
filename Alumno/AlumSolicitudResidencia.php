@@ -1,15 +1,4 @@
-<?php 
-$idAlum=$_SESSION['id'];
-SELECT * FROM `Usuarios` 
-INNER JOIN `UsuariosDepartamentos` ON Usuarios.`UID`=UsuariosDepartamentos.`UID`
-WHERE Usuarios.`UID`=$idAlum;
-
-SELECT * FROM `Usuarios` 
-INNER JOIN `UsuariosDepartamentos` ON Usuarios.`UID`=UsuariosDepartamentos.`UID` 
-INNER JOIN `Profesor_Usuarios` on Profesor_Usuarios.`UID`=Usuarios.`UID`
-INNER JOIN `Profesor` ON Profesor_Usuarios.`RFCProfesor`=Profesor.`RFCProfesor` 
-WHERE Usuarios.`URol`='Coordinador' AND UsuariosDepartamentos.DID='$depAlum';
-
+<?php     
     include '../InicioSessionSeg.php';
 	include ('Alumfunciones.php');
     //ID del proyecto
@@ -27,6 +16,7 @@ WHERE Usuarios.`URol`='Coordinador' AND UsuariosDepartamentos.DID='$depAlum';
     
 <head>
     <link rel="stylesheet" type="text/css" href="style/styleAlumno.css" title="styleSolicRes">
+    <link rel="stylesheet" href="../style/style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,12 +38,9 @@ WHERE Usuarios.`URol`='Coordinador' AND UsuariosDepartamentos.DID='$depAlum';
 				<a href="a.html"><img src="../img/logout.png" width="40px"></a>
 			</div>
 		</div>
-		<div class="button-row">
-			<a href="" class="button-link">Profesores</a>
-			<a href="AlumSolicitudResidencia.php" class="button-link">Solicitudes de Residencia</a>
-			<a href="a.html" class="button-link">Solicitudes de Proyectos</a>
-			<a href="AlumListadoProyecto.php" class="button-link">Lista Proyectos</a>
-		</div>
+		<?php
+        include 'MenuAlumno.html';
+        ?>
 	</div>
     <br>
     <!----------------------------------------------------- Fieldset Proyecto ---------------------------------------------------------->
