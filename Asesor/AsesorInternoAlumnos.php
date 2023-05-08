@@ -30,12 +30,9 @@
                 <a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
             </div>
         </div>
-        <div class="button-row">
-            <a href=# class="button-link">Asesorias</a>
-			<a href=# class="button-link">Alumnos</a>
-			<a href=# class="button-link">Reporte Semestral</a>
-			<a href=# class="button-link">Residencias</a>
-        </div>
+        <?php
+        include 'MenuAsesorInterno.html';
+        ?>
     </div>
     <div class="containerSRP">
         <table>
