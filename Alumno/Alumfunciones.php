@@ -46,6 +46,25 @@ function getAsesor($SPID){
     );
 }
 
+function getCoordinador($UID){
+    $conection = conn();
+    $sql = "SELECT * FROM `Usuarios` 
+    INNER JOIN `UsuariosDepartamentos` ON Usuarios.`UID`=UsuariosDepartamentos.`UID`
+    WHERE Usuarios.`UID`=$UID";
+    $query = mysqli_query($conection, $sql);
+    $result = mysqli_fetch_assoc($query);
+
+    $depto = $result['Urol'];
+
+    $sql2 = "SELECT * FROM `Usuarios` 
+    INNER JOIN `UsuariosDepartamentos` ON Usuarios.`UID`=UsuariosDepartamentos.`UID` 
+    INNER JOIN `Profesor_Usuarios` on Profesor_Usuarios.`UID`=Usuarios.`UID`
+    INNER JOIN `Profesor` ON Profesor_Usuarios.`RFCProfesor`=Profesor.`RFCProfesor` 
+    WHERE Usuarios.`URol`='Coordinador' AND UsuariosDepartamentos.DID='$depto'";
+    $query2 = mysqli_query($conection, $sql2);
+    $result2 = mysqli_fetch_assoc($query2);
+}
+
 function getResidente($UID){
     $conection = conn();
     $sql = "SELECT * FROM Alumnos
