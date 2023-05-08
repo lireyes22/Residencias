@@ -2,7 +2,7 @@
 	include ('funcionesDepto.php');
 	$UID = 13;
 	$DID = mysqli_fetch_array(DID($UID));
-    $result = listSolicProyAcep($DID[0]);
+    $result = listSolicProyAcep($DID[0]); 
 ?>
 <!DOCTYPE html>
 <html>

@@ -66,7 +66,7 @@ function listSolicProy($DID){ //LISTA DE SPID PENDIENTES Y EN EL DEPARTAMENTO SO
 }
 function listSolicProyAcep($DID){ //LISTA DE SPID ACEPTADOS Y EN EL DEPARTAMENTO SOLICITADO
     $conection = conn();
-    $sql = "SELECT CarrerasSolicitudProyecto.`SPID` FROM `CarrerasSolicitudProyecto` INNER JOIN `Carreras` INNER JOIN `SolicitudProyecto` ON CarrerasSolicitudProyecto.`CID` = Carreras.`CID` AND CarrerasSolicitudProyecto.`SPID` = SolicitudProyecto.`SPID` WHERE Carreras.`DID` = $DID AND SolicitudProyecto.`SPEstatus`='ACEPTADO';";
+    $sql = "SELECT SolicitudProyecto.`SPID` FROM `SolicitudProyecto` INNER JOIN `UsuariosDepartamentos` ON SolicitudProyecto.`UIDResponsable` = UsuariosDepartamentos.`UID` WHERE UsuariosDepartamentos.`DID` = $DID AND SolicitudProyecto.`SPEstatus`='ACEPTADO';";
     $query = mysqli_query($conection, $sql);
     // vaciar el buffer de resultados
     while (mysqli_next_result($conection)) { }
