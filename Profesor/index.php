@@ -1,6 +1,6 @@
 <?php
 include '../InicioSessionSeg.php';
-	include 'funcProfesor.php';
+include 'funcProfesor.php';
 ?>
 <!DOCTYPE html>
 <html>

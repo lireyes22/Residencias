@@ -1,7 +1,7 @@
 <?php 
-include '../InicioSessionSeg.php';
 	include ('funcionesDepto.php');
-	$UID = 13;
+	include ('../InicioSessionSeg.php');
+	$UID = $_SESSION['id'];
 	$DID = mysqli_fetch_array(DID($UID));
     $result = listSolicProyAcep($DID[0]); 
 ?>

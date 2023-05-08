@@ -1,8 +1,8 @@
-<?php 
-	include '../InicioSessionSeg.php';
+<?php
 	include ('funcionesDepto.php');
 	$SPID = $_POST['SPID'];
-	$UID = 13;
+	include ('../InicioSessionSeg.php');
+	$UID = $_SESSION['id'];
 	$row = mysqli_fetch_array(basicInfoProy($SPID));
 	$DID = mysqli_fetch_array(DID($UID));
 	$BPID = mysqli_fetch_array(bancoSPID($SPID));

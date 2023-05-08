@@ -1,7 +1,7 @@
 <?php 
-include '../InicioSessionSeg.php';
 	include ('funcProfesor.php'); 
-	$UID = 14;
+	include ('../InicioSessionSeg.php');
+	$UID = $_SESSION['id'];
 	$result = listProyPendientes($UID);
 ?>
 <!DOCTYPE html>
