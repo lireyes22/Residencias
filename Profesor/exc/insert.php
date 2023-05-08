@@ -16,11 +16,11 @@
         $message = "Ocurrio un error - ".$e;
     }
     ?>
-            <script>alert('<?php echo $message; ?>')</script>
+        <script>alert('<?php echo $message; ?>')</script>
     <?php
     }else{
         echo 'n_';
     } 
      //Código JavaScript para cerrar la ventana
-     //echo "<script>window.close();</script>";
+     echo "<script>window.close();</script>";
 ?>
