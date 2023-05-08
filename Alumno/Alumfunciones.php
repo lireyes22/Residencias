@@ -140,19 +140,17 @@ function getEmpresa($SPID){
     );
 }
 
-function getResidencia($SPID){
+function getResidencia($SRID){
     $conection = conn();
     $sql = "SELECT SolicitudProyecto.SPNombreProyecto, SolicitudProyecto.SPTipo, 
             SolicitudProyecto.SPEstudiantesRequeridos, SolicitudProyecto.SDTiempoEstimado
             FROM SolicitudProyecto
-            WHERE $SPID = SolicitudProyecto.SPID";
+            WHERE $SRID = SolicitudResidencia.SRID";
     $query = mysqli_query($conection, $sql);
     $result = mysqli_fetch_assoc($query);
 
     $sql2 = "SELECT SolicitudResidencia.SROpcionElegida FROM SolicitudResidencia
-    INNER JOIN BancoProyectos ON BancoProyectos.BPID = SolicitudResidencia.BPID
-    INNER JOIN SolicitudProyecto ON SolicitudProyecto.SPID = BancoProyectos.SPID
-    WHERE $SPID = SolicitudProyecto.SPID";
+    WHERE $SRID = SolicitudResidencia.SRID";
     $query2 = mysqli_query($conection, $sql2);
     $result2 = mysqli_fetch_assoc($query2);
 
