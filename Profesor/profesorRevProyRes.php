@@ -31,6 +31,7 @@
 		<?php
 		include 'MenuProfesor.html';
 		?>
+	</div>
 	<div class="tabla-scroll"> 
 	<table class = "tb-asp">
 			<tr> 
