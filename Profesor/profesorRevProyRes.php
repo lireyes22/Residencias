@@ -28,6 +28,7 @@
 				<a href="a.html"><img src="../img/logout.png" width="40px"></a>
 			</div>
 		</div>
+	</div>
 		<?php
 		include 'MenuProfesor.html';
 		?>
