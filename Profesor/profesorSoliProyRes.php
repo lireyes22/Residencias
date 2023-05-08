@@ -30,7 +30,7 @@
 					<h1>Solicitar Proyecto</h1>
 				</div>
 				<div class="right-column">
-					<a href="index.php"><img src="../img/logout.png" width="40px"></a>
+					<a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
 				</div>
 			</div>
 			<div class="button-row">
@@ -98,8 +98,8 @@
 						</select>
 						<br><br>
 						<h3>Carrera Requerida por los estudiantes: </h3>
-						<input type="checkbox" name="carreraReq" value="6">Ing. en Sistemas Computacionales<br>
-						<input type="checkbox" name="carreraReq" value="1">Ing. en Tecnologías de la información
+						<input type="checkbox" name="carreraReq[]" value="6">Ing. en Sistemas Computacionales<br>
+						<input type="checkbox" name="carreraReq[]" value="1">Ing. en Tecnologías de la información
 						<br><br>
 					</div><br><br>
 
