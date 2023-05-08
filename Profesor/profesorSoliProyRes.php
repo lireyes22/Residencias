@@ -33,13 +33,9 @@
 					<a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
 				</div>
 			</div>
-			<div class="button-row">
-				<a href="index.php" class="button-link">Comisiones</a>
-				<a href="index.php" class="button-link">Proyectos Registrados</a>
-				<a href="index.php" class="button-link">Registrar Proyecto</a>
-				<a href="profesorSoliRes.php" class="button-link">Solicitudes de Residencia</a>
-				<a href="profesorRevProyRes.php" class="button-link">Solicitudes de Proyecto</a>
-			</div>
+			<?php
+			include 'MenuProfesor.html';
+			?>
 		</div> 
 		<div class="fondoP">
 			<div class="datosSolicitudproy">
