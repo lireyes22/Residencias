@@ -47,7 +47,7 @@ if (file_exists('funciones.php')) {
 						header('Location: Alumno/AlumTraking.php');
 					}
 					if($row['URol']=="Profesor"){
-						header('Location: Profesor/profesorSoliProyRes.php');
+						header('Location: Profesor/index.php');
 					}
 					if($row['URol']=="JefDeptAca"){
 						header('Location: DeptoAcademico/index.php');
