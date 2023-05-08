@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row">
             <div class="left-column">
-                <a class="home-btn" href="IndexAsesorInterno.html">
+                <a class="home-btn" href="IndexAI.php">
                     <h2><span style="margin-right: 10px;">Asesor</span></h2>
                     <img src="img/asesor.png" width="50px">
                 </a>
