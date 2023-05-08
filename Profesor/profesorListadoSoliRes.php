@@ -4,9 +4,13 @@
     $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
     $query="SELECT * FROM SolicitudProyecto 
     INNER JOIN BancoProyectos ON SolicitudProyecto.SPID = BancoProyectos.SPID 
+    INNER JOIN SolicitudResidencia ON BancoProyectos.BPID = SolicitudResidencia.BPID
     INNER JOIN Usuarios ON SolicitudProyecto.UIDResponsable = Usuarios.UID 
     INNER JOIN UsuariosDepartamentos ON Usuarios.UID=UsuariosDepartamentos.UID
-    WHERE UsuariosDepartamentos.DID='5' ";
+    INNER JOIN Alumno_Usuarios ON SolicitudResidencia.UAlumno=Alumno_Usuarios.UID
+    INNER JOIN Alumnos ON Alumno_Usuarios.NumeroControl=Alumnos.NumeroControl
+    INNER JOIN Empresas ON SolicitudProyecto.ERFC=Empresas.ERFC
+    WHERE UsuariosDepartamentos.DID='5' AND SolicitudResidencia.SREstatus='PENDIENTE' ";
     $result = mysqli_query($link, $query);
 ?>
 <!DOCTYPE html>
@@ -28,7 +32,7 @@
 				</a>
 			</div>
 			<div class="center-column">
-				<h1>Solicitudes de Proyectos</h1>
+				<h1>Solicitudes de Residencia</h1>
 			</div>
 			<div class="right-column">
 				<a href="index.php"><img src="../img/logout.png" width="40px"></a>
@@ -45,10 +49,10 @@
 		<div class="tabla-scroll">
 		<table class="tb-asp">
 			<tr>
-			<th class="sticky">Nombre del Proyecto</th>
-				<td class="sticky">Objetivo Proyecto</td>
-				<td class="sticky">Descripción</td>
-				<td class="sticky">Partcipantes</td>
+			    <td class="sticky">Nombre del Proyecto</td>
+				<td class="sticky">Nombre Residente</td>
+				<td class="sticky">Nombre Empresa</td>
+				<td class="sticky">Estudiantes Requeridos</td>
 				<td class="sticky">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 			</tr>
 			<tr>
@@ -58,13 +62,13 @@
 				?>
 					<tr <?php if ($i % 2 == 0) echo "class='par'" ?>>
 						<td><?php echo $row['SPNombreProyecto']; ?></td>
-						<td><?php echo $row['SPObjetivo']; ?></td>
-						<td><?php echo $row['SPDescripcion']; ?></td>
+						<td><?php echo $row['NombreCompleto']; ?></td>
+						<td><?php echo $row['ENombre']; ?></td>
 						<td><?php echo $row['SPEstudiantesRequeridos']; ?></td>
 						<form action="profesorRevSoliRes.php" method="Post">
 							<th class="tb-th-asp"> 
-								<input type="hidden" name="enviar" value="<?php echo $row['SPID'];?>">
-								<input type="submit" value="Revisar" data-proyecto-id="<?php echo $row['SPEstatus']; ?>">
+								<input type="hidden" name="SRID" value="<?php echo $row['SRID'];?>">
+								<input type="submit" value="Revisar">
 							</th>
 						</form>
 					</tr>
