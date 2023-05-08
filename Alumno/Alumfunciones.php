@@ -140,19 +140,19 @@ function getEmpresa($SPID){
     );
 }
 
-function getResidencia($SRID){
+function getResidencia($SPID){
     $conection = conn();
     $sql = "SELECT SolicitudProyecto.SPNombreProyecto, SolicitudProyecto.SPTipo, 
             SolicitudProyecto.SPEstudiantesRequeridos, SolicitudProyecto.SDTiempoEstimado
             FROM SolicitudProyecto
-            WHERE $SRID = SolicitudResidencia.SRID";
+            WHERE $SPID = SolicitudProyecto.SPID";
     $query = mysqli_query($conection, $sql);
     $result = mysqli_fetch_assoc($query);
 
-    $sql2 = "SELECT SolicitudResidencia.SROpcionElegida FROM SolicitudResidencia
-    WHERE $SRID = SolicitudResidencia.SRID";
-    $query2 = mysqli_query($conection, $sql2);
-    $result2 = mysqli_fetch_assoc($query2);
+    // $sql2 = "SELECT SolicitudResidencia.SROpcionElegida FROM SolicitudResidencia
+    // WHERE $SPID = SolicitudResidencia.SPID";
+    // $query2 = mysqli_query($conection, $sql2);
+    // $result2 = mysqli_fetch_assoc($query2);
 
     // SolicitudResidencia.SROpcionElegida
 
