@@ -38,26 +38,17 @@ function conn(){
 	$query2 =mysqli_query($conection, $sql2);
 	$result2 = mysqli_fetch_assoc($query2);
 	$BPID = $result2['BPID'];
-
-	/*echo $antearchivo.',';
-	echo $consarchivo.',';
-	echo $periodo.',';
-	echo $residente.',';
-	echo $BPID.',';
-	echo $opcion.',';*/
 	
 	//Prepara la consulta SQL con parametros
 	$sql = "CALL InsertarSolicitudResidencia(?, ?, 'PENDIENTE', ?, ?, ?, ?)";
 	$stmt = mysqli_prepare($conection, $sql);
-
 	//Asigna los valores de los parametros
 	mysqli_stmt_bind_param($stmt, 'sssiis', $antearchivo, $consarchivo, $periodo, $residente, $BPID, $opcion);
 	
-
 	if(mysqli_stmt_execute($stmt)) {
-		echo "La inserción fue exitosa.";
+		echo"<script>alert('Registro insertado exitosamente.')</script>";
+		echo"<script  language='javascript'>window.location='AlumListadoProyecto.php'</script>";  
 	} else {
 		echo "Hubo un error al insertar los datos.";
 	}
-
 ?>
