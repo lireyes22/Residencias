@@ -35,12 +35,9 @@
                 <a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
             </div>
         </div>
-        <div class="button-row">
-            <a href="a.html" class="button-link">Asesorias</a>
-            <a href="a.html" class="button-link">Alumnos</a>
-            <a href="a.html" class="button-link">Reporte Semestral</a>
-            <a href="a.html" class="button-link">Residencias</a>
-        </div>
+        <?php
+        include 'MenuAsesorInterno.html';
+        ?>
     </div>
     <form method="post">
         <?php 
