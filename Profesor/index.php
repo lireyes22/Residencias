@@ -24,7 +24,7 @@ include '../InicioSessionSeg.php';
 				</div>
 			</div>
 			<div class="center-column">
-				<h1>Titulo de pagina mamalona</h1>
+				<h1>Comisiones Asignadas</h1>
 			</div>
 			<div class="right-column">
 				<a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
