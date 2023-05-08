@@ -1,4 +1,15 @@
 <?php 
+$idAlum=$_SESSION['id'];
+SELECT * FROM `Usuarios` 
+INNER JOIN `UsuariosDepartamentos` ON Usuarios.`UID`=UsuariosDepartamentos.`UID`
+WHERE Usuarios.`UID`=$idAlum;
+
+SELECT * FROM `Usuarios` 
+INNER JOIN `UsuariosDepartamentos` ON Usuarios.`UID`=UsuariosDepartamentos.`UID` 
+INNER JOIN `Profesor_Usuarios` on Profesor_Usuarios.`UID`=Usuarios.`UID`
+INNER JOIN `Profesor` ON Profesor_Usuarios.`RFCProfesor`=Profesor.`RFCProfesor` 
+WHERE Usuarios.`URol`='Coordinador' AND UsuariosDepartamentos.DID='$depAlum';
+
     include '../InicioSessionSeg.php';
 	include ('Alumfunciones.php');
     //ID del proyecto
