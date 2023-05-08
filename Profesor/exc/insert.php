@@ -1,4 +1,5 @@
 <?php 
+    include '../InicioSessionSegNvl2.php';
     include ('../funcProfesor.php');
     $nFuncion = $_POST['IDfuncion'];
     if($nFuncion == 'desicionProyecto'){

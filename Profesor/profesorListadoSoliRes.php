@@ -1,4 +1,5 @@
 <?php
+include '../InicioSessionSeg.php';
 	include 'funcProfesor.php';
 	$link = conn();
     $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
@@ -35,7 +36,7 @@
 				<h1>Solicitudes de Residencia</h1>
 			</div>
 			<div class="right-column">
-				<a href="index.php"><img src="../img/logout.png" width="40px"></a>
+				<a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
 			</div>
 		</div>
 		<?php

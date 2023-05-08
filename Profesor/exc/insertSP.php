@@ -1,5 +1,5 @@
 <?php
-include '../../InicioSessionSeg.php';
+include '../../InicioSessionSegNvl2.php';
 include ('../funcProfesor.php');
 $link = conn();
 $nameProy = $_POST['nombreProy'];

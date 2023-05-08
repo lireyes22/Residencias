@@ -1,4 +1,5 @@
 <?php 
+include '../InicioSessionSeg.php';
     include ('funcProfesor.php');
     //ID del proyecto
     $SRID = $_POST['SRID'];
@@ -28,7 +29,7 @@
                 <h1>Solicitudes de Proyectos</h1>
             </div>
             <div class="right-column">
-                <a href="index.php"><img src="../img/logout.png" width="40px"></a>
+                <a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
             </div>
         </div>
 		<?php
