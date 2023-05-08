@@ -13,9 +13,10 @@
         mysqli_set_charset($conection, "utf8");
         return $conection;
     }
+    /*
     function nombreUsuario(){
        return $sql; 
-    }
+    }*/
     function basicInfoProy($SPID){ //Nombre del proyecto, Objetivo, Numero Estudiantes, Tiempo Estimado, Nombre del Responsable
         $conection = conn();
         $sql = "CALL basicInfo($SPID);";
@@ -65,7 +66,7 @@
     }
     function cargarBanco($SPID){
         $conection = conn();
-        $sql = "INSERT INTO BancoProyectos(SPID) VALUES($SPID);";
+        $sql = "INSERT INTO BancoProyectos(SPID, BPPeriodo) VALUES($SPID,'ENE-JUN 2023');";
         $query = mysqli_query($conection, $sql);
         // vaciar el buffer de resultados
         while (mysqli_next_result($conection)) { }
