@@ -4,6 +4,7 @@
     if($nFuncion == 'ComisionProyectoProfesor'){
         try{
         $_SPID = $_POST['SPID'];
+        if(comisionProyecto($SPID)){
         $prevUPROF = $_POST['UProfesor'];
         $_UProfesor = mysqli_fetch_array(UProfesor($prevUPROF));
         $_CPPFecha = date("Y-m-d");
@@ -13,9 +14,13 @@
         insertComisionProyectoProfesor($_SPID, $_UProfesor[0], $_CPPFecha, $_CPPFechaLimite);
         $_Estatus = 'REVISION';
         alterSolicitudProyecto($_SPID, $_Estatus);
+        }else{
+            $message = "Este proyecto ya ha sido asignado a revision... Recargue la pagina. :)";    
+        }
         }catch(Exception $e){
             $message = "Ocurrio un error - ".$e;
-        }?>
+        }
+        ?>
         <script>alert('<?php echo $message; ?>')</script>
         <?php
     }else if($nFuncion == 'reAsignacion'){
@@ -42,6 +47,7 @@
         try{
         $rRazon = '';
         $rBPID = $_POST['BPID'];
+        if(asesorBPID($rBPID) == 0){
         $rCAPeriodo = $_POST['periodo'];
         $RFCProfesor = $_POST['docente'];
         $UID = mysqli_fetch_array(UProfesor($RFCProfesor));
@@ -52,6 +58,9 @@
         }
         insertComisionAsesor($UID[0], $rBPID, $rCAPeriodo, $rRazon); //GENERAMOS UNA COMISION DE ASESOR
         nuevoAsesor($rBPID, $AIID[0]); //ACTUALIZAMOS EL BANCO AL ASESOR SELECCIONADO
+        }else{
+            $message = "Este proyecto ya tiene un asesor... Recargue la pagina e intente reasignar. :)";
+        }
         }catch(Exception $e){
             $message = "Ocurrio un error - ".$e;
         }

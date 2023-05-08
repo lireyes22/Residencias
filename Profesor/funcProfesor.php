@@ -195,4 +195,12 @@
             'nombreasesor' => $result['NombreCompleto']
         );
     }
+    function revision($SPID){
+        $conection = conn();
+        $sql = "SELECT SolicitudProyecto.SPEstatus FROM SolicitudProyecto WHERE SPID = $SPID";
+        $query = mysqli_fetch_array(mysqli_query($conection, $sql));
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        return $query[0];
+    }
 ?>

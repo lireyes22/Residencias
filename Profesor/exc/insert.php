@@ -4,6 +4,7 @@
     if($nFuncion == 'desicionProyecto'){
         try{
         $_SPID = $_POST['SPID'];
+        if(revision($SPID) == 'REVISION'){
         $_CPPEstatus = $_POST['desicion'];
         $_CPPObservaciones = $_POST['observaciones'];        
         updateComision($_SPID, $_CPPEstatus, $_CPPObservaciones); //SE ACTUALIZA A LA DESICION
@@ -11,7 +12,11 @@
         $existe = existeBanco($_SPID);
         if($_CPPEstatus == 'ACEPTADO'){
             cargarBanco($_SPID); //SE SUBE AL BANCO SI FUE ACEPTADO
-        }        
+        
+        }else{
+            $message = "Este proyecto ya ha sido revisado... Recargue la pagina. :)";    
+        }
+    }        
     }catch(Exception $e){
         $message = "Ocurrio un error - ".$e;
     }
