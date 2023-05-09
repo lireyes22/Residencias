@@ -64,7 +64,7 @@
 				<label for="file-input">
 					<img src="../img/archivo.jpg">
 				</label>
-				<input id="file-input" type="file" name="ReporteFinal">
+				<input id="file-input" accept=".pdf" type="file" name="ReporteFinal">
 			</div>
 		</div>
 	</form>

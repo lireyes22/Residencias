@@ -75,7 +75,7 @@
 						<form action="AlumSolicitudResidencia.php" method="Post">
 							<th class="tb-th-asp"> 
 								<input type="hidden" name="SPID" value="<?php echo $row['SPID'];?>">
-								<input type="submit" value="Solicitar" data-proyecto-id="<?php echo $row['SPEstatus']; ?>">
+								<input type="submit"  value="Solicitar" data-proyecto-id="<?php echo $row['SPEstatus']; ?>">
 							</th>
 						</form>
 					</tr>
