@@ -1,10 +1,12 @@
 <?php //INSERCION DE DATOS 
     include ('../funcionesDepto.php');
     $nFuncion = $_POST['IDfuncion'];
+    $message = "Realizado correctamente.";
     if($nFuncion == 'ComisionProyectoProfesor'){
         try{
         $_SPID = $_POST['SPID'];
-        if(comisionProyecto($SPID)){
+        $x = comisionProyecto($_SPID);
+        if( $x == '0'){ 
         $prevUPROF = $_POST['UProfesor'];
         $_UProfesor = mysqli_fetch_array(UProfesor($prevUPROF));
         $_CPPFecha = date("Y-m-d");
@@ -24,7 +26,6 @@
         <script>alert('<?php echo $message; ?>')</script>
         <?php
     }else if($nFuncion == 'reAsignacion'){
-        $message = "Realizado.";
         try{
         $rBPID = $_POST['BPID'];
         $rCAPeriodo = $_POST['periodo'];
@@ -47,7 +48,7 @@
         try{
         $rRazon = '';
         $rBPID = $_POST['BPID'];
-        if(asesorBPID($rBPID) == 0){
+        if(asesorBPID($rBPID) == '0'){
         $rCAPeriodo = $_POST['periodo'];
         $RFCProfesor = $_POST['docente'];
         $UID = mysqli_fetch_array(UProfesor($RFCProfesor));

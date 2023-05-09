@@ -214,14 +214,14 @@ function responsableResidencia($SPID){
 function comisionProyecto($SPID){
     $conection = conn();
     $sql = "SELECT count(*) FROM ComisionProyectoProfesor WHERE ComisionProyectoProfesor.SPID = '$SPID'; ";
-    $query = mysqli_query($conection, $sql);
+    $query = mysqli_fetch_array(mysqli_query($conection, $sql));
     // vaciar el buffer de resultados
     while (mysqli_next_result($conection)) { }
-    return $query;
+    return $query[0];
 }
 function asesorBPID($rBPID){
     $conection = conn();
-    $sql = "SELECT count(*) FROM BancoProyectos WHERE BancoProyectos.BPID = '$rBPID' AND BancoProyectos.AIID IS NULL; ";
+    $sql = "SELECT count(*) FROM BancoProyectos WHERE BancoProyectos.BPID = '$rBPID' AND BancoProyectos.AIID IS NOT NULL; ";
     $query = mysqli_fetch_array(mysqli_query($conection, $sql));
     // vaciar el buffer de resultados
     while (mysqli_next_result($conection)) { }
