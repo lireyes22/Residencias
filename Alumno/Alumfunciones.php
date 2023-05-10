@@ -230,5 +230,16 @@ function validarProyEnBancoProy($ID){
     
     return $res;
 }
+function getListSoliProyect($ID){
+    $conection = conn();
+    //crear la conculta que traera el array con el nombre de los proyectos
+    $sql = "SELECT SolicitudProyecto.SPNombreProyecto 
+    FROM SolicitudResidencia INNER JOIN BancoProyectos ON SolicitudResidencia.BPID = BancoProyectos.BPID 
+    INNER JOIN SolicitudProyecto ON BancoProyectos.SPID = SolicitudProyecto.SPID 
+    WHERE SolicitudResidencia.UAlumno = $ID";
+    $query= mysqli_query($conection, $sql);
+    return $query;
+}
+
 
 ?>

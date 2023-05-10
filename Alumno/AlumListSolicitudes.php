@@ -3,12 +3,9 @@
 	include ('Alumfunciones.php');
 	$link = conn();
     $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
-    $query="SELECT * FROM SolicitudProyecto 
-    INNER JOIN BancoProyectos ON SolicitudProyecto.SPID = BancoProyectos.SPID 
-    INNER JOIN Usuarios ON SolicitudProyecto.UIDResponsable = Usuarios.UID 
-    INNER JOIN UsuariosDepartamentos ON Usuarios.UID=UsuariosDepartamentos.UID
-    WHERE UsuariosDepartamentos.DID='5' ";
-    $result = mysqli_query($link, $query);
+    //llamar a la funcion que trae un array los nombres de las solicitudes del estudiante
+    $ID = $_SESSION['id'];
+    $result=getListSoliProyect($ID);
 ?>
 <!DOCTYPE html>
 <html>
@@ -55,7 +52,7 @@
                     <td><?php echo $row['SPNombreProyecto']; ?></td>
                     <form action="AlumSolicitudResidencia.php" method="Post">
                         <th class="tb-th-asp"> 
-                            <input type="hidden" name="SPID" value="<?php echo $row['SPID'];?>">
+                            <input type="hidden" name="SPID" value="">
                             <input type="submit"  value="Editar Solicitud">
                         </th>
                     </form>
