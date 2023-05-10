@@ -183,7 +183,7 @@ function validarRes($ID){
     $query = mysqli_query($conection, $sql);
 
     // Verificar si hay al menos una fila en el resultado
-    if (mysqli_num_rows($query) > 0) {
+    if (mysqli_num_rows($query)  >0) {
         // Loop a través de cada fila en el resultado
         while ($fila = mysqli_fetch_assoc($query)) {
             // Validar el contenido de cada fila
@@ -216,6 +216,19 @@ function validarRes($ID){
         'activo' => $activo,
         'candidato' => $candidato
     );
+}
+
+//validar que el alumno tenga almenos solicitud de proyecto
+function validarProyEnBancoProy($ID){
+    $res = false;
+    $conection = conn();
+    //crear la conculta que traera el array
+    $sql = "SELECT SolicitudResidencia.UAlumno FROM SolicitudResidencia WHERE SolicitudResidencia.UAlumno = $ID"; 
+    $query = mysqli_query($conection, $sql);
+    if (mysqli_num_rows($query) > 0)
+        $res=true;
+    
+    return $res;
 }
 
 ?>

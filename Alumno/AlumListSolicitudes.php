@@ -14,7 +14,7 @@
 <html>
 
 <head>
-	<title>Listado De Proyectos</title>
+	<title>Listado De Solicitudes de Residencia</title>
 	<link rel="stylesheet" href="../style/styleAlumno.css">
 	<link rel="stylesheet" href="../style/style.css">
 
@@ -39,19 +39,32 @@
 		<?php
         include 'MenuAlumno.html';
         ?>
-		
 	</div>
-	<div class= 'soliAlum'>
-		<?php
-		$ID = $_SESSION['id'];
-		$query = validarProyEnBancoProy($ID);
-		//validar que tenga un proyecto en el banco de proyectos
-		if ($query==true) {
-			echo '<button name="editarSoliRes" class = "btn-editRes"><a href="AlumListSolicitudes.php">EDITAR MI SOLICITUD DE RESINDENCIA</a></button>';
-		} else {
-			echo "<button name='editarSoliRes' class = 'btn-editRes'>EDITAR MI SOLICITUD DE RESINDENCIA</button>";
-		}
-		?>
-	</div>
+    <div class="tabla-scroll">
+    <table class="tb-asp">
+        <tr>
+        <th class="sticky">Nombre del Proyecto</th>
+            <td class="sticky"></td>
+        </tr>
+        <tr>
+        <?php
+            $i = 0;
+            while ($row = mysqli_fetch_array($result)) {
+            ?>
+                <tr <?php if ($i % 2 == 0) echo "class='par'" ?>>
+                    <td><?php echo $row['SPNombreProyecto']; ?></td>
+                    <form action="AlumSolicitudResidencia.php" method="Post">
+                        <th class="tb-th-asp"> 
+                            <input type="hidden" name="SPID" value="<?php echo $row['SPID'];?>">
+                            <input type="submit"  value="Editar Solicitud">
+                        </th>
+                    </form>
+                </tr>
+            <?php
+                $i++;
+            }
+        ?>
+    </tr>
+    </table>
 </body>
 </html>
