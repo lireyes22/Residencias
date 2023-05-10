@@ -218,7 +218,7 @@ function validarRes($ID){
     );
 }
 
-//validar que el alumno tenga almenos solicitud de proyecto
+//validar que el alumno tenga almenos una solicitud de proyecto
 function validarProyEnBancoProy($ID){
     $res = false;
     $conection = conn();
