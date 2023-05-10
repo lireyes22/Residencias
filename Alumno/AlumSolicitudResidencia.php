@@ -9,6 +9,7 @@
     $residente = getResidente($_SESSION['id']);
     $residencia = getResidencia($SPID);
     $asesorI = getAsesor($SPID);   
+    $validar = validarRes($_SESSION['id']);
 ?>
 
 <!DOCTYPE html>
@@ -260,7 +261,13 @@
             </div>
             <div class="caja-tb-th-asp" align="center">
                 <center>
-                    <input type="submit" name="EnviarSolicitud" value="Enviar Solicitud" formaction = "AlumSubeSolicitud.php">
+                <?php
+                    if ($validar['activo'] == false && $validar['candidato'] == true) {
+                        echo '<input type="submit" name="EnviarSolicitud" value="Enviar Solicitud" formaction="AlumSubeSolicitud.php">';
+                    } else {
+                        echo '<input type="submit" name="EnviarSolicitud" value="Enviar Solicitud" formaction="AlumSubeSolicitud.php" disabled>';
+                    }
+                ?>
                 </center>
             </div>
             </section>

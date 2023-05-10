@@ -173,4 +173,49 @@ function getProyecto($UID){
     while (mysqli_next_result($conection)) { }
         return $query;
 }
+
+function validarRes($ID){
+    $activo = false;
+    $candidato = false;
+    $conection = conn();
+    $sql = "SELECT SolicitudResidencia.SREstatus FROM `SolicitudResidencia`
+    WHERE SolicitudResidencia.UAlumno = $ID";
+    $query = mysqli_query($conection, $sql);
+
+    // Verificar si hay al menos una fila en el resultado
+    if (mysqli_num_rows($query) > 0) {
+        // Loop a través de cada fila en el resultado
+        while ($fila = mysqli_fetch_assoc($query)) {
+            // Validar el contenido de cada fila
+            if ($fila['SREstatus'] == 'ESPERA' || $fila['SREstatus'] == 'ASIGNADO' || $fila['SREstatus'] == 'APROBADO'
+            || $fila['SREstatus'] == 'PENDIENTE') {
+                $activo = true;
+            }
+        }
+    } else {
+        $activo = false;
+    }
+
+
+    $sql2 = "SELECT Alumnos.CreditosComplementariosCumplidos, Alumnos.NoTenerCursosEspeciales,
+    Alumnos.OchentaPorcientoCargaAcademica, Alumnos.AcreditacionServicioSocial
+    FROM Alumnos
+    INNER JOIN Alumno_Usuarios ON Alumnos.NumeroControl = Alumno_Usuarios.NumeroControl 
+    WHERE Alumno_Usuarios.UID = $ID";
+    $query2 = mysqli_query($conection, $sql2);
+    $result2 = mysqli_fetch_assoc($query2);
+
+    if ($result2['CreditosComplementariosCumplidos'] == 5 && $result2['NoTenerCursosEspeciales'] == 0
+        && $result2['OchentaPorcientoCargaAcademica'] == 1 && $result2['AcreditacionServicioSocial'] == 1) {
+        $candidato = true;
+    } else {
+        $candidato = false;
+    }
+
+    return array(
+        'activo' => $activo,
+        'candidato' => $candidato
+    );
+}
+
 ?>
