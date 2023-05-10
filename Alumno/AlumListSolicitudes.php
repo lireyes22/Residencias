@@ -50,10 +50,10 @@
             ?>
                 <tr <?php if ($i % 2 == 0) echo "class='par'" ?>>
                     <td><?php echo $row['SPNombreProyecto']; ?></td>
-                    <form action="AlumSolicitudResidencia.php" method="Post">
+                    <form action="" method="Post">
                         <th class="tb-th-asp"> 
-                            <input type="hidden" name="SPID" value="">
-                            <input type="submit"  value="Editar Solicitud">
+                            <input type="hidden" name="SPID" value="<?php echo $row['SPID'];?>">
+                            <input type="submit"  value="Editar Solicitud" >
                         </th>
                     </form>
                 </tr>
