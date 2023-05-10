@@ -44,9 +44,8 @@
 	<div class= 'soliAlum'>
 		<?php
 		$ID = $_SESSION['id'];
-		$query = validarProyEnBancoProy($ID);
-		//validar que tenga un proyecto en el banco de proyectos
-		if ($query==true) {
+		//validar que tenga un almenos un proyecto en el banco de proyectos
+		if (validarProyEnBancoProy($ID)==true) {
 			echo '<button name="editarSoliRes" class = "btn-editRes"><a href="AlumListSolicitudes.php">EDITAR MI SOLICITUD DE RESINDENCIA</a></button>';
 		} else {
 			echo "<button name='editarSoliRes' class = 'btn-editRes'>EDITAR MI SOLICITUD DE RESINDENCIA</button>";
