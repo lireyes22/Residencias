@@ -43,7 +43,7 @@ include '../InicioSessionSeg.php';
 			<p class="izq-nomb-proy"><?php echo $row[1]; ?></p>
 			<form action="exc/insert.php" method="post">
 				<input type="hidden" name="SPID" value="<?php echo $idProy; ?>">
-				<input class="obsrv" type="text" name="observaciones" PLACEHOLDER="Observaciones" required size="38" maxlength="255">
+				<input class="obsrv" type="text" name="observaciones" PLACEHOLDER="Observaciones" required size="25" maxlength="255">
 				<input type="hidden" name="IDfuncion" value="desicionProyecto">
 				<input type="submit" name="desicion" value="ACEPTADO"> <br>
 				<input type="submit" name="desicion" value="RECHAZADO" class="denegar">
