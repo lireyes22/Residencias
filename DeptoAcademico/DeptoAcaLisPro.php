@@ -1,4 +1,4 @@
-<?php 
+	<?php 
 	include ('funcionesDepto.php');
 	include ('../InicioSessionSeg.php');
 	$UID = $_SESSION['id'];
@@ -12,9 +12,9 @@
 	<title>Departamento Academico</title>
 	<link rel="stylesheet" href="../style/style.css">
 	<link rel="stylesheet" href="Style/styleDepto.css">
-</head>
+	</head>
 
-<body style="margin: 0;" id="bgcolor">
+	<body style="margin: 0;" id="bgcolor">
 	<div class="container">
 		<div class="row">
 			<div class="left-column">
@@ -31,8 +31,8 @@
 			</div>
 		</div>
 		<?php
-        include 'MenuDeptoAcademico.html';
-        ?>
+	    include 'MenuDeptoAcademico.html';
+	    ?>
 	</div>
 	<div class="tabla-scroll">
 	<table class = "tb-asp">
@@ -42,13 +42,14 @@
 				<td class="sticky">Número Estudiantes</td>
 				<td class="sticky">Tiempo Estimado</td>
 				<td class="sticky">Docente Responsable</td>
+				<td class="sticky">Asesor Interno Asignado</td>
 				<td class="sticky">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td class="sticky">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 			</tr>
-            <tr>
+	        <tr>
 			<?php
 				$i = 0;
-				while ($SPID = mysqli_fetch_array($result)){
+				while ($SPID = mysqli_fetch_array($result)){ 
 					$row = mysqli_fetch_array(basicInfoProy($SPID[0])); 
 					?> 
 					<tr <?php if($i%2==0) echo "class='par'" ?> >
@@ -57,6 +58,11 @@
 						<th class="tb-th-asp"><p><?php echo $row[3];?></p></th>
 						<th class="tb-th-asp"><?php echo $row[4]?> MESES</th>
 						<th class="tb-th-asp"><?php if (!empty($row[5])){  echo $row[5];}else{ echo "Sin Responsable";} ?></th>
+						<?php 
+									$BPID = mysqli_fetch_array(existeBanco($row[0]));
+									$asesor = mysqli_fetch_array(asesorInterno($BPID[0]));
+						  ?>
+					    <th class="tb-th-asp"><?php if (!empty($asesor[1])){  echo $asesor[1];}else{ echo "Asesor Interno No Asignado";} ?></th> 
 						<form action="deptoAcaAsigAsesor.php" method="POST" target ="blank">
 							<th class="tb-th-asp">
 								<input type="hidden" name="SPID" value="<?php echo $row[0];?>">
@@ -85,8 +91,8 @@
 					$i++;
 				}
 				?>
-            </tr>
-        </table>
+	        </tr>
+	    </table>
 	</div>
-</body>
-</html>
+	</body>
+	</html>
