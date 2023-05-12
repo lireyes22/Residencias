@@ -232,4 +232,29 @@
         while (mysqli_next_result($conection)) { }
         return $query;
     }
+    function listProySolicitados($SPID){ //DEVUELVE EL NOMBRE Y SU ESTATUS (PENDIENTE, REVISION, ACEPTADO, RECHAZADO) ASI COMO SUS COMENTARIOS
+        $conection = conn();
+        $sql = "SELECT SolicitudProyecto.`SPNombreProyecto`, SolicitudProyecto.SPEstatus FROM `SolicitudProyecto` WHERE `SolicitudProyecto`.SPID = $SPID;";
+        $query = mysqli_query($conection, $sql);
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        return $query;
+    }
+    function observaciones($SPID){ //OBSERVACIONES
+        $conection = conn();
+        $sql = "SELECT ComisionProyectoProfesor.CPPObservaciones FROM `ComisionProyectoProfesor` WHERE `ComisionProyectoProfesor`.SPID = $SPID;";
+        $query = mysqli_fetch_array(mysqli_query($conection, $sql));
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        return $query[0];
+    }
+
+    function listSPIDsolicitudes($UID){ //DEVUELVE EL SPID
+        $conection = conn();
+        $sql = "SELECT SolicitudProyecto.`SPID` FROM `SolicitudProyecto` WHERE `SolicitudProyecto`.UIDResponsable = $UID;";
+        $query = mysqli_query($conection, $sql);
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        return $query;
+    }
 ?>

@@ -73,3 +73,22 @@ button#cancelar:hover {
 #banco-p{
     background-color:#2A424D;
 }
+th#_azul{
+ background-color:aquamarine;
+ border: 1px solid;
+}
+th#_amarillo{
+    background-color:gold;
+    border: 1px solid;
+}
+th#_verde{
+    background-color: chartreuse;
+    border: 1px solid;
+}
+th#_rojo{
+    background-color: #e60000;
+    border: 1px solid;
+}
+th#nombProy{
+    border: 1px solid;
+}
