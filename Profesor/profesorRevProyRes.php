@@ -67,7 +67,7 @@
 				}
 				?>
             </tr>
-        </table>
+    </table>
 	</div>
 </body>
 </html>
