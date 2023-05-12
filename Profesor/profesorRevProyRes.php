@@ -8,8 +8,7 @@
 <html>
 <head>
 	<title>Profesor</title>
-	<link rel="stylesheet" href="../style/style.css"> 
-	<link rel="stylesheet" href="../style/StyleBase.css">
+	<link rel="stylesheet" href="../style/style.css">
 	<link rel="stylesheet" href="style/StyleProfesor.css">
 </head>
 
@@ -28,12 +27,12 @@
 			<div class="right-column">
 				<a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
 			</div>
-		</div>
-	</div>
+			</div>
 		<?php
 		include 'MenuProfesor.html';
 		?>
 	</div>
+		</div>
 	<div class="tabla-scroll"> 
 	<table class = "tb-asp">
 			<tr> 
