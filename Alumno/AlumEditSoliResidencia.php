@@ -255,7 +255,7 @@
                 </div>                  
             </div>
             <div class="caja-tb-th-asp" align="center">
-                <input type="submit" name="EnviarSolicitud" value="Actualizar Mi Solicitud" formaction="AlumSubeSolicitud.php">
+                <input type="submit" name="EnviarSolicitud" value="Actualizar Mi Solicitud">
             </div>
             </section>
         </article>
