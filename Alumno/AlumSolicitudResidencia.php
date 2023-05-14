@@ -9,7 +9,7 @@
     $residente = getResidente($_SESSION['id']);
     $residencia = getResidencia($SPID);
     $asesorI = getAsesor($SPID);   
-    $validar = validarRes($_SESSION['id']);
+    $validar = validarRes($_SESSION['id'], $SPID);
 ?>
 
 <!DOCTYPE html>
@@ -86,7 +86,8 @@
                     </div>
                     <div class="form-row">
                         <label for="opcionElegida">Opción elegida:</label>
-                            <select id="opcionElegida" name="opcionElegida">
+                            <select id="opcionElegida" name="opcionElegida" required>
+                                <option value="">Seleccione una opción</option>
                                 <option value="Op1">Propuesta Propia</option>
                                 <option value="Op2">Trabajador</option>
                                 <option value="Op3">Banco de Proyectos</option>

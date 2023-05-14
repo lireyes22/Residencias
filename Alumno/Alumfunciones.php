@@ -174,22 +174,29 @@ function getProyecto($UID){
         return $query;
 }
 
-function validarRes($ID){
+function validarRes($ID, $SPID){
     $activo = false;
     $candidato = false;
     $conection = conn();
-    $sql = "SELECT SolicitudResidencia.SREstatus FROM `SolicitudResidencia`
+    $sql = "SELECT SolicitudResidencia.SREstatus, SolicitudProyecto.SPID FROM `SolicitudResidencia`
+    INNER JOIN BancoProyectos ON BancoProyectos.BPID = SolicitudResidencia.BPID
+    INNER JOIN SolicitudProyecto ON SolicitudProyecto.SPID = BancoProyectos.SPID
     WHERE SolicitudResidencia.UAlumno = $ID";
     $query = mysqli_query($conection, $sql);
 
-    // Verificar si hay al menos una fila en el resultado
+    // Verifica que el  alumno no mande 2 veces la misma solicitud a menos que sea rechazada
     if (mysqli_num_rows($query)  >0) {
         // Loop a través de cada fila en el resultado
         while ($fila = mysqli_fetch_assoc($query)) {
             // Validar el contenido de cada fila
-            if ($fila['SREstatus'] == 'ESPERA' || $fila['SREstatus'] == 'ASIGNADO' || $fila['SREstatus'] == 'APROBADO'
-            || $fila['SREstatus'] == 'PENDIENTE') {
+            if ($fila['SREstatus'] != 'RECHAZADO' && $fila['SPID'] == $SPID) {
                 $activo = true;
+            }
+            if ($fila['SREstatus'] == 'APROBADO') {
+                return array(
+                    'activo' => true,
+                    'candidato' => false
+                );
             }
         }
     } else {
@@ -205,6 +212,7 @@ function validarRes($ID){
     $query2 = mysqli_query($conection, $sql2);
     $result2 = mysqli_fetch_assoc($query2);
 
+    //Verfificar si el alumno cumple los criterios
     if ($result2['CreditosComplementariosCumplidos'] == 5 && $result2['NoTenerCursosEspeciales'] == 0
         && $result2['OchentaPorcientoCargaAcademica'] == 1 && $result2['AcreditacionServicioSocial'] == 1) {
         $candidato = true;

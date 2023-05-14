@@ -1,10 +1,11 @@
 <?php
     include ('../funcProfesor.php');
     $nFuncion = $_POST['IDfuncion'];
+    $message = 'REALIZADO';
     if($nFuncion == 'desicionProyecto'){
         try{
         $_SPID = $_POST['SPID'];
-        if(revision($SPID) == 'REVISION'){
+        if(revision($_SPID) == 'REVISION'){
         $_CPPEstatus = $_POST['desicion'];
         $_CPPObservaciones = $_POST['observaciones'];        
         updateComision($_SPID, $_CPPEstatus, $_CPPObservaciones); //SE ACTUALIZA A LA DESICION
@@ -27,5 +28,5 @@
         echo 'n_';
     } 
      //Código JavaScript para cerrar la ventana
-     echo "<script>window.close();</script>";
+    echo "<script>window.close();</script>";
 ?>
