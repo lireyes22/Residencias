@@ -8,8 +8,7 @@
     $empresa = getEmpresa($SPID);
     $residente = getResidente($_SESSION['id']);
     $residencia = getResidencia($SPID);
-    $asesorI = getAsesor($SPID);   
-    $validar = validarRes($_SESSION['id']);
+    $asesorI = getAsesor($SPID);  
 ?>
 
 <!DOCTYPE html>
@@ -223,44 +222,43 @@
                     </div>
                     <div class="form-row">
                         <label for="domicilio">Domicilio:</label>
-                        <input type="text" id="domicilio" name="domicilio" value="<?php echo $residente['domicilio'] ?>" disabled='disabled' required>
+                        <input type="text" id="domicilio" name="domicilio" value="<?php echo $residente['domicilio'] ?>" required>
                     </div>
                     <div class="form-row">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" value="<?php echo $residente['email'] ?>" disabled='disabled' required>
+                        <input type="email" id="email" name="email" value="<?php echo $residente['email'] ?>" required>
                     </div>
                 </div>
 
                 <div class="columnaR">
                     <div class="form-row">
                         <label for="numeroSeguro">Para seguridad social acudir:</label>
-                        <input type="text" name="numeroSeguro" value="<?php echo $residente['seguro_social'] ?>" required disabled>
+                        <input type="text" name="numeroSeguro" value="<?php echo $residente['seguro_social'] ?>" required>
                     </div>
                     <div class="form-row">
-                        <input type="radio" id="imss" name="tipoSeguro" value="IMSS" <?php if($residente['institucionseguro'] == 'IMSS') echo 'checked'; ?> required disabled>
+                        <input type="radio" id="imss" name="tipoSeguro" value="IMSS" <?php if($residente['institucionseguro'] == 'IMSS') echo 'checked'; ?> required>
                         <label for="imss">IMSS</label>
-                        <input type="radio" id="issste" name="tipoSeguro" value="ISSSTE" <?php if($residente['institucionseguro'] == 'ISSSTE') echo 'checked'; ?> required disabled>
+                        <input type="radio" id="issste" name="tipoSeguro" value="ISSSTE" <?php if($residente['institucionseguro'] == 'ISSSTE') echo 'checked'; ?> required>
                         <label for="issste">ISSSTE</label>
-                        <input type="radio" id="otro" name="tipoSeguro" value="OTROS" <?php if(empty($residente['institucionseguro']) || $residente['institucionseguro'] == 'Otro' || ($residente['institucionseguro'] != 'IMSS' && $residente['institucionseguro'] != 'ISSSTE')) echo 'checked'; ?> required disabled>
+                        <input type="radio" id="otro" name="tipoSeguro" value="OTROS" <?php if(empty($residente['institucionseguro']) || $residente['institucionseguro'] == 'Otro' || ($residente['institucionseguro'] != 'IMSS' && $residente['institucionseguro'] != 'ISSSTE')) echo 'checked'; ?> required>
                         <label for="otro">OTROS</label>
                     </div>
                     <div class="form-row">
                         <label for="cuidad">Ciudad:</label>
-                        <input type="text" id="cuidad" name="cuidad" value="<?php echo $residente['ciudad'] ?>" disabled ='disabled' required>
+                        <input type="text" id="cuidad" name="cuidad" value="<?php echo $residente['ciudad'] ?>" required>
                     </div>
                     <div class="form-row">
                         <label for="telefono">Teléfono:</label>
-                        <input type="tel" name="telAlumno" id="telefono" value="<?php echo $residente['tel'] ?>" required disabled>
+                        <input type="tel" name="telAlumno" id="telefono" value="<?php echo $residente['tel'] ?>" required>
                     </div>
 
                 </div>                  
             </div>
             <div class="caja-tb-th-asp" align="center">
-                <input type="submit" name="EnviarSolicitud" value="Enviar Solicitud" formaction="AlumSubeSolicitud.php">
+                <input type="submit" name="EnviarSolicitud" value="Actualizar Mi Solicitud" formaction="AlumSubeSolicitud.php">
             </div>
             </section>
         </article>
-        </fieldset>
     </form>
 </body>
 </html> 
