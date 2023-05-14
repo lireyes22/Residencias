@@ -162,7 +162,7 @@
         $query = mysqli_query($conection, $sql);
         $result = mysqli_fetch_assoc($query);
     
-        $sql2 = "SELECT SolicitudResidencia.SROpcionElegida FROM SolicitudResidencia
+        $sql2 = "SELECT SolicitudResidencia.SROpcionElegida, SolicitudResidencia.SRAnteProyecto FROM SolicitudResidencia
         WHERE $SRID = SolicitudResidencia.SRID";
         $query2 = mysqli_query($conection, $sql2);
         $result2 = mysqli_fetch_assoc($query2);
@@ -171,6 +171,7 @@
     
         return array (
             'sropcionelegida' => $result2['SROpcionElegida'],
+            'anteproyecto' => $result2['SRAnteProyecto'],
             'spnombreproyecto' => $result['SPNombreProyecto'],
             'sptipo' => $result['SPTipo'],
             'spestudiantesrequeridos' => $result['SPEstudiantesRequeridos'],

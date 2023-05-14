@@ -7,7 +7,7 @@
     $residente = getResidente($SRID); //Accedo al residente (alumno)
     $empresa = getEmpresa($SRID);
     $residencia = getResidencia($SRID);
-    $asesorI = getAsesor($SRID);   
+    $asesorI = getAsesor($SRID);
 ?>
 
 <!DOCTYPE html>
@@ -253,7 +253,6 @@
                         <label for="telefono">Teléfono:</label>
                         <input type="tel" name="telAlumno" id="telefono" value="<?php echo $residente['tel'] ?>" required disabled>
                     </div>
-
                 </div>                  
             </div>
             <div class="caja-tb-th-asp" align="center">
