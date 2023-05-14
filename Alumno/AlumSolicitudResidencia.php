@@ -257,40 +257,31 @@
                         <label for="telefono">Teléfono:</label>
                         <input type="tel" name="telAlumno" id="telefono" value="<?php echo $residente['tel'] ?>" required disabled>
                     </div>
-
+                    <div align="right">
+                        <label for="SRAnteProyecto">Anteproyecto: </label>
+                            <div class="form-group" align="right">
+                                <label for="file-input">
+                                    <img src="../img/archivo.jpg" width="40px"/>
+                                </label>
+                                <input id="file-input" accept=".pdf" type="file" name="anteproyecto" required/>
+                            </div>
+                    </div>
                 </div>                  
             </div>
             <div class="caja-tb-th-asp" align="center">
                 <center>
                 <?php
                     if ($validar['activo'] == false && $validar['candidato'] == true) {
-                        echo '<input type="submit" name="EnviarSolicitud" value="Enviar Solicitud" formaction="AlumSubeSolicitud.php">';
+                        echo '<input type="submit" name="EnviarSolicitud" value="Enviar Solicitud" formaction="AlumSubeSolicitud.php" onclick="return confirm(\'¿Estás seguro de que deseas enviar la solicitud?\')">';
                     } else {
-                        echo '<input type="submit" name="EnviarSolicitud" value="Enviar Solicitud" formaction="AlumSubeSolicitud.php" disabled>';
+                        echo '<input type="submit" name="EnviarSolicitud" value="Enviar Solicitud" formaction="AlumListadoProyecto.php" onclick="alert(\'Esta opción no está disponible por lo siguiente: '.$validar['mensaje'].'\');" return false;">';
                     }
                 ?>
                 </center>
             </div>
             </section>
-            <div align="left">
-                        <label for="SRAnteProyecto">Constancia: </label>
-                            <div class="form-group" align="left">
-                                <label for="file-input">
-                                <img src="../img/archivo.jpg" width="70px"/>
-                                </label>
-                                <input id="file-input" accept=".pdf" type="file" name ="constancia" required/>
-                            </div>
-                        </div>
         </article>
-        <div align="right">
-            <label for="SRAnteProyecto">Anteproyecto: </label>
-                <div class="form-group" align="right">
-                    <label for="file-input">
-                        <img src="../img/archivo.jpg" width="70px"/>
-                    </label>
-                    <input id="file-input" accept=".pdf" type="file" name="anteproyecto" required/>
-                </div>
-        </div>
+
         </fieldset>
     </form>
     <footer></footer>

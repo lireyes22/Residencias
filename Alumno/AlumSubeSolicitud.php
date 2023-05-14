@@ -2,8 +2,8 @@
 $SPID = $_POST['SPID'];
 $residente = $_POST['residente'];
 $opcion = $_POST['opcionElegida'];
-$cons = $_FILES['constancia']['tmp_name'];
-$consarchivo = file_get_contents($cons);
+// $cons = $_FILES['constancia']['tmp_name'];
+// $consarchivo = file_get_contents($cons);
 $anteproyecto = $_FILES['anteproyecto']['tmp_name'];
 $antearchivo = file_get_contents($anteproyecto);
 $periodo = '';
@@ -40,10 +40,10 @@ function conn(){
 	$BPID = $result2['BPID'];
 	
 	//Prepara la consulta SQL con parametros
-	$sql = "CALL InsertarSolicitudResidencia(?, ?, 'PENDIENTE', ?, ?, ?, ?)";
+	$sql = "CALL InsertarSolicitudResidencia(?, 'PENDIENTE', ?, ?, ?, ?)";
 	$stmt = mysqli_prepare($conection, $sql);
 	//Asigna los valores de los parametros
-	mysqli_stmt_bind_param($stmt, 'sssiis', $antearchivo, $consarchivo, $periodo, $residente, $BPID, $opcion);
+	mysqli_stmt_bind_param($stmt, 'ssiis', $antearchivo, $periodo, $residente, $BPID, $opcion);
 	
 	if(mysqli_stmt_execute($stmt)) {
 		echo"<script>alert('Registro insertado exitosamente.')</script>";

@@ -14,9 +14,9 @@ function conn(){
     return $conection;
 }
 
-if(isset($_POST['EnviarSolicitud'])){
-    setProyecto();
-}
+// if(isset($_POST['EnviarSolicitud'])){
+//     setProyecto();
+// }
 
 function generarBancoProyecto($IDUsuario){
     $conection = conn();
@@ -188,14 +188,21 @@ function validarRes($ID, $SPID){
     if (mysqli_num_rows($query)  >0) {
         // Loop a través de cada fila en el resultado
         while ($fila = mysqli_fetch_assoc($query)) {
-            // Validar el contenido de cada fila
-            if ($fila['SREstatus'] != 'RECHAZADO' && $fila['SPID'] == $SPID) {
-                $activo = true;
-            }
+            // Verifica que el residente no tenga proyecto aprobado
             if ($fila['SREstatus'] == 'APROBADO') {
                 return array(
                     'activo' => true,
-                    'candidato' => false
+                    'candidato' => false,
+                    'mensaje' => 'Ya tienes un proyecto aprobado.'
+                );
+            }
+            // Validar el contenido de cada fila
+            if ($fila['SREstatus'] != 'RECHAZADO' && $fila['SPID'] == $SPID) {
+                $activo = true;
+                return array(
+                    'activo' => true,
+                    'candidato' => false,
+                    'mensaje' => 'Ya solicitaste este proyecto. Espera el veredicto del profesor designado'
                 );
             }
         }
@@ -217,7 +224,11 @@ function validarRes($ID, $SPID){
         && $result2['OchentaPorcientoCargaAcademica'] == 1 && $result2['AcreditacionServicioSocial'] == 1) {
         $candidato = true;
     } else {
-        $candidato = false;
+        return array(
+            'activo' => true,
+            'candidato' => false,
+            'mensaje' => 'Tu perfíl no cumple los críterios establecidos'
+        );
     }
 
     return array(

@@ -45,7 +45,6 @@
     <!----------------------------------------------------- Fieldset Proyecto ---------------------------------------------------------->
     <form method="POST" action="profesorDecideSolicitud.php">
         <input type="hidden" name="SRID" value="<?php echo $SRID?>">
-        <input type="hidden" name="residente" value="<?php echo $_SESSION['id']?>">
         <fieldset class="bg-fldst">
         <legend class="legend">Proyecto</legend>
         <article>
@@ -259,8 +258,8 @@
             </div>
             <div class="caja-tb-th-asp" align="center">
                     <input type="hidden" name="accion" id="accion" value="">
-                    <input type="submit" name="aceptar" value="Aprobar" onclick="document.getElementById('accion').value = 'APROBADO'">
-                    <input type="submit" name="rechazar" value="Rechazar" onclick="document.getElementById('accion').value = 'RECHAZADO'">
+                    <input type="submit" name="aceptar" value="Aprobar" onclick="if(confirm('¿Está seguro que desea aprobar esta solicitud?')) { document.getElementById('accion').value = 'APROBADO'; } else { return false; }">
+                    <input type="submit" name="rechazar" value="Rechazar" onclick="if(confirm('¿Está seguro que desea rechazar esta solicitud?')) { document.getElementById('accion').value = 'RECHAZADO'; } else { return false; }">
             </div>
             </section>
             <!-- <div align="left">
