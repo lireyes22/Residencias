@@ -6,9 +6,8 @@
     $query= "SELECT * FROM Empresas";
     $result = mysqli_query($link, $query);
     $IDUser=$_SESSION['id'];
-    $query2="SELECT Profesor.NombreCompleto FROM Profesor INNER JOIN Profesor_Usuarios ON Profesor.RFCProfesor=Profesor_Usuarios.RFCProfesor INNER JOIN Usuarios ON Profesor_Usuarios.UID=Usuarios.UID WHERE Usuarios.UID='$IDUser'";
+    $query2="SELECT Alumnos.NombreCompleto FROM Alumnos INNER JOIN Alumno_Usuarios ON Alumnos.NumeroControl=Alumno_Usuarios.NumeroControl INNER JOIN Usuarios ON Alumno_Usuarios.UID=Usuarios.UID WHERE Usuarios.UID='$IDUser'";
 	$result2 = mysqli_query($link, $query2);
-
 ?>
 	<!DOCTYPE html>
 	<html>
@@ -75,11 +74,11 @@
 						<h3>Incluya las referencias esenciales para enmarcar el contenido de su propuesta: </h3>
 						<textarea class="ta-sp" name="refEsenciales" cols="150" rows="4"></textarea><br><br>
 
-						<h3>Docente Responsable: </h3>
+						<h3>Alumno Responsable: </h3>
 						<?php 
 						$row2 = mysqli_fetch_array($result2);
 						 ?>
-						<input class="inp-sr" type="text" name="docenteResp" size="20" disabled value="<?php echo $row2['NombreCompleto']; ?>">
+						<input class="inp-sr" type="text" name="alumnoResp" size="20" disabled value="<?php echo $row2['NombreCompleto']; ?>">
 
 						<br><br>
 						<h3>Nombre de la Empresa:</h3>

@@ -50,7 +50,7 @@
             ?>
                 <tr <?php if ($i % 2 == 0) echo "class='par'" ?>>
                     <td><?php echo $row['SPNombreProyecto']; ?></td>
-                    <form action="" method="Post">
+                    <form action="AlumEditSoliResidencia.php" method="Post">
                         <th class="tb-th-asp"> 
                             <input type="hidden" name="SPID" value="<?php echo $row['SPID'];?>">
                             <input type="submit"  value="Editar Solicitud" >
