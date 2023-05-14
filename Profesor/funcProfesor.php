@@ -110,7 +110,7 @@
             'ciudad' => $result['Ciudad'],
             'tel' => $result['Telefono'],
             'nomcarrera' => $result2['Nombre'],
-            'institucionseguro' => $result['InstitucionSeguro']
+            'institucionseguro' => $result['InstitucionSeguro'],
         );
     }
 
