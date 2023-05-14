@@ -1,6 +1,6 @@
 <?php
 include '../../InicioSessionSegNvl2.php';
-include ('../funcProfesor.php');
+include ('../Alumfunciones.php');
 $link = conn();
 $nameProy = $_POST['nombreProy'];
 $objetivoProy = $_POST['objetivo'];
@@ -13,7 +13,7 @@ $tipoPropProy = $_POST['tipoProp'];
 $lineaInvsProy = $_POST['lineaInv'];
 $referebciasEProy = $_POST['refEsenciales'];
 $IDUser=$_SESSION['id'];
-$docenteResProy = $IDUser;
+$alumnoResProy = $IDUser;
 $estatus="PENDIENTE";
 $RFCEmpresa=$_POST['Empresas'];
 $carreraReqProy = $_POST['carreraReq'];
@@ -27,12 +27,12 @@ echo $estudiantesReqProy;
 echo $tipoPropProy;
 echo $lineaInvsProy;
 echo $referebciasEProy;
-echo $docenteResProy;
+echo $alumnoResProy;
 echo $RFCEmpresa;
 
 
 $query = "INSERT INTO SolicitudProyecto (SPID,SPNombreProyecto, SPObjetivo, SPDescripcion, SPImpacto, SPLugar, SPEstudiantesRequeridos, SDTiempoEstimado, SPTipo, SPLineaInvestigacion , SPReferencias, UIDResponsable,SPEstatus,ERFC) 
-VALUES(null,'$nameProy','$objetivoProy','$descripcionProy','$impactoProy','$lugarProy','$estudiantesReqProy','$tiempoEst','$tipoPropProy','$lineaInvsProy','$referebciasEProy','$docenteResProy','$estatus','$RFCEmpresa')";
+VALUES(null,'$nameProy','$objetivoProy','$descripcionProy','$impactoProy','$lugarProy','$estudiantesReqProy','$tiempoEst','$tipoPropProy','$lineaInvsProy','$referebciasEProy','$alumnoResProy','$estatus','$RFCEmpresa')";
 $result = mysqli_query($link, $query);
 
 $id_generado = mysqli_insert_id($link);
