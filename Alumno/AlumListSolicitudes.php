@@ -53,7 +53,7 @@
                     <form action="AlumEditSoliResidencia.php" method="Post">
                         <th class="tb-th-asp"> 
                             <input type="hidden" name="SPID" value="<?php echo $row['SPID'];?>">
-                            <input type="submit"  value="Editar Solicitud" >
+                            <input type="submit"  value="Editar Solicitud">
                         </th>
                     </form>
                 </tr>
