@@ -66,24 +66,23 @@ $idAlumno = $_POST['idAlumno'];
             <form method="post">
                 <label for="" class="lb-inp txtSizeEv">Información:</label>
                 <label for="" class="lb-inp">Numero de control:</label> <br>
-                <input type="text" name="numControl" class="lb-inp" value="<?php echo $consultaAlumno['NumeroControl']; ?>"> <br>
+                <input type="text" name="numControl" class="lb-inp" value="<?php echo $consultaAlumno['NumeroControl']; ?>" disabled> <br>
                 <label for="" class="lb-inp">Nombre del residente:</label> <br>
-                <input type="text" class="lb-inp" name="NombreResidente" value="<?php echo $consultaAlumno['NombreCompleto']; ?>"> <br>
+                <input type="text" class="lb-inp" name="NombreResidente" value="<?php echo $consultaAlumno['NombreCompleto']; ?>" disabled> <br>
                 <label for="" class="lb-inp">Nombre del Proyecto:</label> <br>
-                <input type="text" class="lb-inp" name="NombreProyecto" value="<?php echo $consultaAlumnoProyecto['SPNombreProyecto']; ?>"> <br>
+                <input type="text" class="lb-inp" name="NombreProyecto" value="<?php echo $consultaAlumnoProyecto['SPNombreProyecto']; ?>" disabled> <br>
                 <label for="" class="lb-inp">Programa Educativo:</label> <br>
-                <input type="text" class="lb-inp" name="ProgramaEducativo" value="<?php echo $consultaAlumnoCarrera['Nombre']; ?>"> <br>
+                <input type="text" class="lb-inp" name="ProgramaEducativo" value="<?php echo $consultaAlumnoCarrera['Nombre']; ?>" disabled> <br>
                 <label for="" class="lb-inp">Periodo de Realizacion:</label> <br>
-                <input type="text" class="lb-inp" name="PeriodoRealizacion" value="<?php echo $consultaAlumnoProyecto['SRPeriodo']; ?>"> <br>
+                <input type="text" class="lb-inp" name="PeriodoRealizacion" value="<?php echo $consultaAlumnoProyecto['SRPeriodo']; ?>" disabled> <br>
             </form>
         </div>
         <!-- Columna central tabla  -->
         <div class="column-Ev2">
-        
             <div id="parcial1">
                 <!-- PARCIAL 1  -->
                 <form method="post">
-                    <fieldset>
+                    <fieldset style="background-color: rgb(139, 0, 79)">
                         <legend style="color: white;"><button type="button" onclick="intercambiarDivs()">Primer Parcial</button></legend>
                         <table class="tb-ev">
                             <tr>
@@ -138,7 +137,7 @@ $idAlumno = $_POST['idAlumno'];
             <div id="parcial2">
                 <!-- PARCIAL 2  -->
                 <form method="post">
-                    <fieldset>
+                    <fieldset style="background-color: darkcyan">
                     <legend style="color: white;"><button type="button" onclick="intercambiarDivs()">Segundo Parcial</button></legend>
                         <table class="tb-ev">
                             <tr>
