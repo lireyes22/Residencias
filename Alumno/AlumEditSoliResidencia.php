@@ -1,14 +1,50 @@
 <?php     
     include '../InicioSessionSeg.php';
 	include ('Alumfunciones.php');
-    //ID del proyecto
-    $SPID = $_POST['SPID'];
-    
-    //Llamo a funciones
-    $empresa = getEmpresa($SPID);
-    $residente = getResidente($_SESSION['id']);
-    $residencia = getResidencia($SPID);
-    $asesorI = getAsesor($SPID);  
+    if($_POST){
+         //ID del proyecto
+        $SPID = $_POST['SPID'];
+        //Llamo a funciones
+        $empresa = getEmpresa($SPID);
+        $residente = getResidente($_SESSION['id']);
+        $residencia = getResidencia($SPID);
+        $asesorI = getAsesor($SPID);  
+
+    }
+   
+
+    //guardar los valores de formulario
+    if($_GET){
+        $SPID=$_GET['SPID'];
+        $ID=$_GET['residente'];
+        $opcionEleg=$_GET['opcionElegida'];
+        $domicilio=$_GET['domicilio'];
+        $email=$_GET['email'];
+        $numeroSeguro=$_GET['numeroSeguro'];
+        $tipoSeguro=$_GET['tipoSeguro'];
+        $ciudad=$_GET['cuidad'];
+        $telAlumno=$_GET['telAlumno'];
+        $conection = conn();
+        //traer el regitro de la solicitud de residencia del alumno
+        $SRID="SELECT SolicitudResidencia.SRID FROM SolicitudResidencia INNER JOIN BancoProyectos ON SolicitudResidencia.`BPID` = BancoProyectos.`BPID` WHERE UAlumno=$ID";
+        $query = mysqli_query($conection, $SRID);
+        $query1=mysqli_fetch_assoc($query);
+        $query2=$query1['SRID'];
+        //hacer un update en el en campo opcion elegida
+        $sql="UPDATE SolicitudResidencia SET SROpcionElegida = '$opcionEleg' WHERE SolicitudResidencia.SRID = $query2";
+        mysqli_query($conection, $sql);
+
+        //traer el numero de control del alumno al cual se le van a actualizar los datos
+        $sql = "SELECT NumeroControl FROM `Alumno_Usuarios` WHERE Alumno_Usuarios.UID = $ID";
+        $query = mysqli_query($conection, $sql);
+        $num=mysqli_fetch_assoc($query);
+        $num=$num['NumeroControl'];
+
+        $sql="UPDATE Alumnos SET NumeroSeguroSocial='$numeroSeguro', Domicilio='$domicilio', Email='$email',
+        Ciudad='$ciudad', Telefono='$telAlumno', InstitucionSeguro='$tipoSeguro' WHERE NumeroControl = $num";
+        $query = mysqli_query($conection, $sql);
+        header('location:AlumListSolicitudes.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +80,7 @@
 	</div>
     <br>
     <!----------------------------------------------------- Fieldset Proyecto ---------------------------------------------------------->
-    <form method="POST" enctype="multipart/form-data">
+    <form method="GET" action='AlumEditSoliResidencia.php'>
         <input type="hidden" name="SPID" value="<?php echo $SPID?>">
         <input type="hidden" name="residente" value="<?php echo $_SESSION['id']?>">
         <fieldset class="bg-fldst">

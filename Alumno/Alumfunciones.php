@@ -248,9 +248,5 @@ function getListSoliProyect($ID){
     $query= mysqli_query($conection, $sql);
     return $query;
 }
-//funcion que hace un update de la solicitud del proyecto
-function editSolicitud($ID, $IDSOLI){
-    
-}
 
 ?>
