@@ -9,7 +9,7 @@
     $residente = getResidente($_SESSION['id']);
     $residencia = getResidencia($SPID);
     $asesorI = getAsesor($SPID);   
-    $validar = validarRes($_SESSION['id'], $SPID);
+    $validar = validarRes($SPID, $_SESSION['id']);
 ?>
 
 <!DOCTYPE html>
@@ -271,7 +271,7 @@
             <div class="caja-tb-th-asp" align="center">
                 <center>
                 <?php
-                    if ($validar['activo'] == false && $validar['candidato'] == true) {
+                    if ($validar['activo'] == false) {
                         echo '<input type="submit" name="EnviarSolicitud" value="Enviar Solicitud" formaction="AlumSubeSolicitud.php" onclick="return confirm(\'¿Estás seguro de que deseas enviar la solicitud?\')">';
                     } else {
                         echo '<input type="submit" name="EnviarSolicitud" value="Enviar Solicitud" formaction="AlumListadoProyecto.php" onclick="alert(\'Esta opción no está disponible por lo siguiente: '.$validar['mensaje'].'\');" return false;">';
