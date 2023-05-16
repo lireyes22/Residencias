@@ -14,9 +14,9 @@ function conn(){
     return $conection;
 }
 
-if(isset($_POST['EnviarSolicitud'])){
-    setProyecto();
-}
+// if(isset($_POST['EnviarSolicitud'])){
+//     setProyecto();
+// }
 
 function generarBancoProyecto($IDUsuario){
     $conection = conn();
