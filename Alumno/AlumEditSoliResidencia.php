@@ -35,7 +35,7 @@
         mysqli_query($conection, $sql);
 
         //traer el numero de control del alumno al cual se le van a actualizar los datos
-        $sql = "SELECT NumeroControl FROM `Alumno_Usuarios` WHERE Alumno_Usuarios.UID = $ID";
+        /*$sql = "SELECT NumeroControl FROM `Alumno_Usuarios` WHERE Alumno_Usuarios.UID = $ID";
         $query = mysqli_query($conection, $sql);
         $num=mysqli_fetch_assoc($query);
         $num=$num['NumeroControl'];
@@ -43,7 +43,7 @@
         $sql="UPDATE Alumnos SET NumeroSeguroSocial='$numeroSeguro', Domicilio='$domicilio', Email='$email',
         Ciudad='$ciudad', Telefono='$telAlumno', InstitucionSeguro='$tipoSeguro' WHERE NumeroControl = $num";
         $query = mysqli_query($conection, $sql);
-        header('location:AlumListSolicitudes.php');
+        header('location:AlumListSolicitudes.php');*/
     }
 ?>
 
@@ -258,34 +258,34 @@
                     </div>
                     <div class="form-row">
                         <label for="domicilio">Domicilio:</label>
-                        <input type="text" id="domicilio" name="domicilio" value="<?php echo $residente['domicilio'] ?>" required>
+                        <input type="text" id="domicilio" name="domicilio" value="<?php echo $residente['domicilio'] ?>" required disabled>
                     </div>
                     <div class="form-row">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" value="<?php echo $residente['email'] ?>" required>
+                        <input type="email" id="email" name="email" value="<?php echo $residente['email'] ?>" required disabled>
                     </div>
                 </div>
 
                 <div class="columnaR">
                     <div class="form-row">
                         <label for="numeroSeguro">Para seguridad social acudir:</label>
-                        <input type="text" name="numeroSeguro" value="<?php echo $residente['seguro_social'] ?>" required>
+                        <input type="text" name="numeroSeguro" value="<?php echo $residente['seguro_social'] ?>" required disabled>
                     </div>
                     <div class="form-row">
-                        <input type="radio" id="imss" name="tipoSeguro" value="IMSS" <?php if($residente['institucionseguro'] == 'IMSS') echo 'checked'; ?> required>
+                        <input type="radio" id="imss" name="tipoSeguro" value="IMSS" <?php if($residente['institucionseguro'] == 'IMSS') echo 'checked'; ?> required disabled>
                         <label for="imss">IMSS</label>
-                        <input type="radio" id="issste" name="tipoSeguro" value="ISSSTE" <?php if($residente['institucionseguro'] == 'ISSSTE') echo 'checked'; ?> required>
+                        <input type="radio" id="issste" name="tipoSeguro" value="ISSSTE" <?php if($residente['institucionseguro'] == 'ISSSTE') echo 'checked'; ?> required disabled>
                         <label for="issste">ISSSTE</label>
-                        <input type="radio" id="otro" name="tipoSeguro" value="OTROS" <?php if(empty($residente['institucionseguro']) || $residente['institucionseguro'] == 'Otro' || ($residente['institucionseguro'] != 'IMSS' && $residente['institucionseguro'] != 'ISSSTE')) echo 'checked'; ?> required>
+                        <input type="radio" id="otro" name="tipoSeguro" value="OTROS" <?php if(empty($residente['institucionseguro']) || $residente['institucionseguro'] == 'Otro' || ($residente['institucionseguro'] != 'IMSS' && $residente['institucionseguro'] != 'ISSSTE')) echo 'checked'; ?> required disabled>
                         <label for="otro">OTROS</label>
                     </div>
                     <div class="form-row">
                         <label for="cuidad">Ciudad:</label>
-                        <input type="text" id="cuidad" name="cuidad" value="<?php echo $residente['ciudad'] ?>" required>
+                        <input type="text" id="cuidad" name="cuidad" value="<?php echo $residente['ciudad'] ?>" required disabled>
                     </div>
                     <div class="form-row">
                         <label for="telefono">Teléfono:</label>
-                        <input type="tel" name="telAlumno" id="telefono" value="<?php echo $residente['tel'] ?>" required>
+                        <input type="tel" name="telAlumno" id="telefono" value="<?php echo $residente['tel'] ?>" required disabled>
                     </div>
 
                 </div>                  
