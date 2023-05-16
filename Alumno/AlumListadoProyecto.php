@@ -9,6 +9,7 @@
     INNER JOIN UsuariosDepartamentos ON Usuarios.UID=UsuariosDepartamentos.UID
     WHERE UsuariosDepartamentos.DID='5' ";
     $result = mysqli_query($link, $query);
+	$candidato = candidato($_SESSION['id']);
 ?>
 <!DOCTYPE html>
 <html>
@@ -72,12 +73,18 @@
 						<td><?php echo $row['SPObjetivo']; ?></td>
 						<td><?php echo $row['SPDescripcion']; ?></td>
 						<td><?php echo $row['SPEstudiantesRequeridos']; ?></td>
-						<form action="AlumSolicitudResidencia.php" method="Post">
-							<th class="tb-th-asp"> 
-								<input type="hidden" name="SPID" value="<?php echo $row['SPID'];?>">
-								<input type="submit"  value="Solicitar" data-proyecto-id="<?php echo $row['SPEstatus']; ?>">
-							</th>
-						</form>
+							<?php if ($candidato['candidato']) { ?>
+								<form action="AlumSolicitudResidencia.php" method="Post">
+									<th class="tb-th-asp">
+										<input type="hidden" name="SPID" value="<?php echo $row['SPID']; ?>">
+										<input type="submit" value="Solicitar" data-proyecto-id="<?php echo $row['SPEstatus']; ?>">
+									</th>
+								</form>
+							<?php } else { ?>
+								<th class="tb-th-asp">
+									<input type="submit" value="Solicitar" onclick="window.alert('Tu perfil no cumple los requisitos para solicitar una residencia')">
+								</th>
+							<?php } ?>
 					</tr>
 				<?php
 					$i++;

@@ -14,9 +14,9 @@ function conn(){
     return $conection;
 }
 
-if(isset($_POST['EnviarSolicitud'])){
-    setProyecto();
-}
+// if(isset($_POST['EnviarSolicitud'])){
+//     setProyecto();
+// }
 
 function generarBancoProyecto($IDUsuario){
     $conection = conn();
@@ -174,9 +174,8 @@ function getProyecto($UID){
         return $query;
 }
 
-function validarRes($ID, $SPID){
+function validarRes($SPID, $ID){
     $activo = false;
-    $candidato = false;
     $conection = conn();
     $sql = "SELECT SolicitudResidencia.SREstatus, SolicitudProyecto.SPID FROM `SolicitudResidencia`
     INNER JOIN BancoProyectos ON BancoProyectos.BPID = SolicitudResidencia.BPID
@@ -190,12 +189,15 @@ function validarRes($ID, $SPID){
         while ($fila = mysqli_fetch_assoc($query)) {
             // Validar el contenido de cada fila
             if ($fila['SREstatus'] != 'RECHAZADO' && $fila['SPID'] == $SPID) {
-                $activo = true;
+                return array(
+                    'activo' => true,
+                    'mensaje' => 'Ya tienes una solicitud de esta residencia previamente'
+                );
             }
             if ($fila['SREstatus'] == 'APROBADO') {
                 return array(
                     'activo' => true,
-                    'candidato' => false
+                    'mensaje' => 'Ya tienes aprobada una residencia'
                 );
             }
         }
@@ -203,7 +205,14 @@ function validarRes($ID, $SPID){
         $activo = false;
     }
 
+    return array(
+        'activo' => $activo,
+    );
+}
 
+function candidato($ID){
+    $candidato = false;
+    $conection = conn();
     $sql2 = "SELECT Alumnos.CreditosComplementariosCumplidos, Alumnos.NoTenerCursosEspeciales,
     Alumnos.OchentaPorcientoCargaAcademica, Alumnos.AcreditacionServicioSocial
     FROM Alumnos
@@ -221,7 +230,6 @@ function validarRes($ID, $SPID){
     }
 
     return array(
-        'activo' => $activo,
         'candidato' => $candidato
     );
 }
