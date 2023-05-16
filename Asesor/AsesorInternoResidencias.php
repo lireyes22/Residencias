@@ -1,9 +1,5 @@
 <?php
 	include '../InicioSessionSeg.php';
-	include 'funcAsesor.php';
-	$uid = $_SESSION['id'];
-	$idAseint = getIDAsesorInterno($uid);
-	$_SESSION['AIID'] = $idAseint;
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,7 +32,27 @@
         include 'MenuAsesorInterno.html';
         ?>
 	</div>
-	<div>
-	</div>
+	<div class="containerSRP">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre del Proyecto</th>
+                    <th>Objetivo</th>
+                    <th>Descripcion</th>
+                    <th>Numero de Residentes</th>
+                    <th>Actualizar</th>
+                </tr>
+            </thead>
+            <form method="POST">
+                <tbody>
+                    <td>xd1</td>
+                    <td>xd2</td>
+                    <td>xd3</td>
+                    <td><?php echo $_SESSION['id']; ?></td>
+                    <td><?php echo $_SESSION['AIID']; ?></td>
+                </tbody>
+            </form>
+        </table>
+    </div>
 </body>
 </html>

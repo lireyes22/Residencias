@@ -54,3 +54,13 @@ function consultaProfesorAsesor($idAsesor) {
     while (mysqli_next_result($conection)) { }
     return $query;
 }
+function getIDAsesorInterno($uid) {
+    $conection = conn();
+    $sql = "CALL ObtenerIDAsesorInterno($uid)";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    $consulta = mysqli_fetch_array($query);
+    $idAsInt = $consulta['AIID'];
+    return $idAsInt;
+}
