@@ -1,50 +1,88 @@
-<?php 
-    include ('funcProfesor.php');
-    //ID del proyecto
-    $SRID = $_POST['SRID'];
-    
-    //Llamo a funciones
-    $residente = getResidente($SRID); //Accedo al residente (alumno)
-    $empresa = getEmpresa($SRID);
-    $residencia = getResidencia($SRID);
-    $asesorI = getAsesor($SRID);
+<?php     
+    include '../InicioSessionSeg.php';
+	include ('Alumfunciones.php');
+    if($_POST){
+         //ID del proyecto
+        $SPID = $_POST['SPID'];
+        //Llamo a funciones
+        $empresa = getEmpresa($SPID);
+        $residente = getResidente($_SESSION['id']);
+        $residencia = getResidencia($SPID);
+        $asesorI = getAsesor($SPID);  
+
+    }
+   
+
+    //guardar los valores de formulario
+    if($_GET){
+        $SPID=$_GET['SPID'];
+        $ID=$_GET['residente'];
+        $opcionEleg=$_GET['opcionElegida'];
+        $domicilio=$_GET['domicilio'];
+        $email=$_GET['email'];
+        $numeroSeguro=$_GET['numeroSeguro'];
+        $tipoSeguro=$_GET['tipoSeguro'];
+        $ciudad=$_GET['cuidad'];
+        $telAlumno=$_GET['telAlumno'];
+        $conection = conn();
+        //traer el regitro de la solicitud de residencia del alumno
+        $SRID="SELECT SolicitudResidencia.SRID FROM SolicitudResidencia INNER JOIN BancoProyectos ON SolicitudResidencia.`BPID` = BancoProyectos.`BPID` WHERE UAlumno=$ID";
+        $query = mysqli_query($conection, $SRID);
+        $query1=mysqli_fetch_assoc($query);
+        $query2=$query1['SRID'];
+        //hacer un update en el en campo opcion elegida
+        $sql="UPDATE SolicitudResidencia SET SROpcionElegida = '$opcionEleg' WHERE SolicitudResidencia.SRID = $query2";
+        mysqli_query($conection, $sql);
+
+        //traer el numero de control del alumno al cual se le van a actualizar los datos
+        $sql = "SELECT NumeroControl FROM `Alumno_Usuarios` WHERE Alumno_Usuarios.UID = $ID";
+        $query = mysqli_query($conection, $sql);
+        $num=mysqli_fetch_assoc($query);
+        $num=$num['NumeroControl'];
+
+        $sql="UPDATE Alumnos SET NumeroSeguroSocial='$numeroSeguro', Domicilio='$domicilio', Email='$email',
+        Ciudad='$ciudad', Telefono='$telAlumno', InstitucionSeguro='$tipoSeguro' WHERE NumeroControl = $num";
+        $query = mysqli_query($conection, $sql);
+        header('location:AlumListSolicitudes.php');
+    }
 ?>
 
 <!DOCTYPE html>
 <html>
     
 <head>
-    <link rel="stylesheet" type="text/css" href="../Alumno/style/styleAlumno.css" title="styleSolicRes">
+    <link rel="stylesheet" type="text/css" href="style/styleAlumno.css" title="styleSolicRes">
     <link rel="stylesheet" href="../style/style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solicitud para la residencia profesional</title>
+    <title>Editar solicitud para la residencia profesional</title>
 </head>
 <body style="margin: 0;">
     <div class="container">
-        <div class="row">
-            <div class="left-column">
-                <a class="home-btn" href="index.php">
-                    <h2><span style="margin-right: 10px;">Profesor</span></h2>
-                    <img src="../img/sombrero.png" width="50px">
-                </a>
-            </div>
-            <div class="center-column">
-                <h1>Solicitudes de Proyectos</h1>
-            </div>
-            <div class="right-column">
-                <a href="index.php"><img src="../img/logout.png" width="40px"></a>
-            </div>
-        </div>
+		<div class="row">
+			<div class="left-column">
+				<a class="home-btn" href="AlumTraking.php">
+					<h2><span style="margin-right: 10px;">Alumno</span></h2>
+					<img src="../img/sombrero.png" width="50px">
+				</a>
+			</div>
+			<div class="center-column">
+				<h1> Editar Solicitud de Residencia</h1>
+			</div>
+			<div class="right-column">
+				<a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
+			</div>
+		</div>
 		<?php
-        include 'MenuProfesor.html';
+        include 'MenuAlumno.html';
         ?>
 	</div>
     <br>
     <!----------------------------------------------------- Fieldset Proyecto ---------------------------------------------------------->
-    <form method="POST" action="profesorDecideSolicitud.php">
-        <input type="hidden" name="SRID" value="<?php echo $SRID?>">
+    <form method="GET" action='AlumEditSoliResidencia.php'>
+        <input type="hidden" name="SPID" value="<?php echo $SPID?>">
+        <input type="hidden" name="residente" value="<?php echo $_SESSION['id']?>">
         <fieldset class="bg-fldst">
         <legend class="legend">Proyecto</legend>
         <article>
@@ -83,11 +121,11 @@
                     </div>
                     <div class="form-row">
                         <label for="opcionElegida">Opción elegida:</label>
-                        <select id="opcionElegida" name="opcionElegida" disabled>
-                            <option value="Op1" <?php if ($residencia['sropcionelegida'] == 'Op1') echo 'selected'; ?>>Propuesta Propia</option>
-                            <option value="Op2" <?php if ($residencia['sropcionelegida'] == 'Op2') echo 'selected'; ?>>Trabajador</option>
-                            <option value="Op3" <?php if ($residencia['sropcionelegida'] == 'Op3') echo 'selected'; ?>>Banco de Proyectos</option>
-                        </select>
+                            <select id="opcionElegida" name="opcionElegida">
+                                <option value="Op1">Propuesta Propia</option>
+                                <option value="Op2">Trabajador</option>
+                                <option value="Op3">Banco de Proyectos</option>
+                            </select>
                     </div>
                     <div class="form-row">
                         <label for="periodoProyect">Periodo proyectado:</label>
@@ -168,10 +206,6 @@
                             <label for="ETelefono">Teléfono:</label>
                             <input type="tel" id="ETelefono" name="ETelefono" value="<?php echo $empresa['etelefono'] ?>" disabled required>
                         </div>
-                        <!-- <div class="form-row">
-                            <label for="ETelefonoDos">Segundo Telefono:</label>
-                            <input type="tel" id="ETelefonoDos" name="ETelefonoDos" placeholder="983-445-6778" required>
-                        </div> -->
                     </div>
                     
                     <div class="columnaR">
@@ -224,64 +258,43 @@
                     </div>
                     <div class="form-row">
                         <label for="domicilio">Domicilio:</label>
-                        <input type="text" id="domicilio" name="domicilio" value="<?php echo $residente['domicilio'] ?>" disabled='disabled' required>
+                        <input type="text" id="domicilio" name="domicilio" value="<?php echo $residente['domicilio'] ?>" required>
                     </div>
                     <div class="form-row">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" value="<?php echo $residente['email'] ?>" disabled='disabled' required>
+                        <input type="email" id="email" name="email" value="<?php echo $residente['email'] ?>" required>
                     </div>
                 </div>
 
                 <div class="columnaR">
                     <div class="form-row">
                         <label for="numeroSeguro">Para seguridad social acudir:</label>
-                        <input type="text" name="numeroSeguro" value="<?php echo $residente['seguro_social'] ?>" required disabled>
+                        <input type="text" name="numeroSeguro" value="<?php echo $residente['seguro_social'] ?>" required>
                     </div>
                     <div class="form-row">
-                        <input type="radio" id="imss" name="tipoSeguro" value="IMSS" <?php if($residente['institucionseguro'] == 'IMSS') echo 'checked'; ?> required disabled>
+                        <input type="radio" id="imss" name="tipoSeguro" value="IMSS" <?php if($residente['institucionseguro'] == 'IMSS') echo 'checked'; ?> required>
                         <label for="imss">IMSS</label>
-                        <input type="radio" id="issste" name="tipoSeguro" value="ISSSTE" <?php if($residente['institucionseguro'] == 'ISSSTE') echo 'checked'; ?> required disabled>
+                        <input type="radio" id="issste" name="tipoSeguro" value="ISSSTE" <?php if($residente['institucionseguro'] == 'ISSSTE') echo 'checked'; ?> required>
                         <label for="issste">ISSSTE</label>
-                        <input type="radio" id="otro" name="tipoSeguro" value="OTROS" <?php if(empty($residente['institucionseguro']) || $residente['institucionseguro'] == 'Otro' || ($residente['institucionseguro'] != 'IMSS' && $residente['institucionseguro'] != 'ISSSTE')) echo 'checked'; ?> required disabled>
+                        <input type="radio" id="otro" name="tipoSeguro" value="OTROS" <?php if(empty($residente['institucionseguro']) || $residente['institucionseguro'] == 'Otro' || ($residente['institucionseguro'] != 'IMSS' && $residente['institucionseguro'] != 'ISSSTE')) echo 'checked'; ?> required>
                         <label for="otro">OTROS</label>
                     </div>
                     <div class="form-row">
                         <label for="cuidad">Ciudad:</label>
-                        <input type="text" id="cuidad" name="cuidad" value="<?php echo $residente['ciudad'] ?>" disabled ='disabled' required>
+                        <input type="text" id="cuidad" name="cuidad" value="<?php echo $residente['ciudad'] ?>" required>
                     </div>
                     <div class="form-row">
                         <label for="telefono">Teléfono:</label>
-                        <input type="tel" name="telAlumno" id="telefono" value="<?php echo $residente['tel'] ?>" required disabled>
+                        <input type="tel" name="telAlumno" id="telefono" value="<?php echo $residente['tel'] ?>" required>
                     </div>
+
                 </div>                  
             </div>
             <div class="caja-tb-th-asp" align="center">
-                    <input type="hidden" name="accion" id="accion" value="">
-                    <input type="submit" name="aceptar" value="Aprobar" onclick="if(confirm('¿Está seguro que desea aprobar esta solicitud?')) { document.getElementById('accion').value = 'APROBADO'; } else { return false; }">
-                    <input type="submit" name="rechazar" value="Rechazar" onclick="if(confirm('¿Está seguro que desea rechazar esta solicitud?')) { document.getElementById('accion').value = 'RECHAZADO'; } else { return false; }">
+                <input type="submit" name="EnviarSolicitud" value="Actualizar Mi Solicitud">
             </div>
             </section>
-            <!-- <div align="left">
-                <label for="SRAnteProyecto">Constancia: </label>
-                    <div class="form-group" align="left">
-                            <label for="file-input">
-                                <img src="../img/archivo.jpg" width="70px"/>
-                            </label>
-                        <input id="file-input" type="file" name ="constancia" required/>
-                    </div>
-            </div> -->
         </article>
-        <!-- <div align="right">
-            <label for="SRAnteProyecto">Anteproyecto: </label>
-                <div class="form-group" align="right">
-                    <label for="file-input">
-                        <img src="../img/archivo.jpg" width="70px"/>
-                    </label>
-                    <input id="file-input" type="file" name="anteproyecto" required/>
-                </div>
-        </div> -->
-        </fieldset>
     </form>
-    <footer></footer>
 </body>
-</html>
+</html> 

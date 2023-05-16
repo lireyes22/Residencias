@@ -41,13 +41,13 @@ include '../InicioSessionSeg.php';
 		<div class="izq-decision">
 			<p>Nombre del Proyecto</p> 
 			<p class="izq-nomb-proy"><?php echo $row[1]; ?></p>
-			<form action="exc/insert.php" method="post">
-				<input type="hidden" name="SPID" value="<?php echo $idProy; ?>">
-				<input class="obsrv" type="text" name="observaciones" PLACEHOLDER="Observaciones" required size="25" maxlength="255">
-				<input type="hidden" name="IDfuncion" value="desicionProyecto">
-				<input type="submit" name="desicion" value="ACEPTADO"> <br>
-				<input type="submit" name="desicion" value="RECHAZADO" class="denegar">
-			</form>
+			<button id="cancelar" onclick="cerrarPagina()">Cerrar</button>
+			</div>
+			<script>
+				function cerrarPagina(){
+					window.close();
+				}
+			</script>
 		</div>
 		<div class="datos-proy">
 			<form action="">
@@ -62,8 +62,11 @@ include '../InicioSessionSeg.php';
 					<?php $profesor_nombre = mysqli_fetch_array(NombreProfesor($row[11])); ?>
 					<input type="text" name="docente" size="155" disabled value="<?php echo $profesor_nombre[0] ?>"> <br> <br> 
 					<div class="doble-fila">
+							<?php 
+								$numeroActual = estudiantesActuales($row[0]);
+							?>
 						<label class="lbl" for="estudiantes-req">Cantidad de estudiantes requeridos: </label>
-						<input class="res" type="text" name="estudiantes-req" size="2" disabled value=<?php echo $row[6]; ?>>
+						<input class="res" type="text" name="estudiantes-req" size="2" disabled value=<?php echo $numeroActual; ?>>
 						<label class="lbl" for="tiempo-est">Tiempo estimado de proyecto: </label>
 						<input class="res" type="text" name="tiempo-est" size="10" disabled value="<?php echo $row[7] ?> MESES"> <br><br>
 						<div class="carrera-req">

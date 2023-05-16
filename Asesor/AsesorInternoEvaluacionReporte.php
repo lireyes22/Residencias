@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="center-column">
-                <h1>Evaluacion de Reporte</h1>
+                <h1>Evaluacion de Reporte final</h1>
             </div>
             <div class="right-column">
                 <a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
@@ -56,15 +56,15 @@
             <div class="column-Ev1">
                 <label for="" class="lb-inp txtSizeEv">Información:</label>
                 <label for="" class="lb-inp">Numero de control:</label> <br>
-                <input type="text" name="numControl" class="lb-inp" value="<?php echo $consultaAlumno['NumeroControl']; ?>"> <br>
+                <input type="text" name="numControl" class="lb-inp" value="<?php echo $consultaAlumno['NumeroControl']; ?>" disabled> <br>
                 <label for="" class="lb-inp">Nombre del residente:</label> <br>
-                <input type="text" class="lb-inp" name="NombreResidente" value="<?php echo $consultaAlumno['NombreCompleto']; ?>"> <br>
+                <input type="text" class="lb-inp" name="NombreResidente" value="<?php echo $consultaAlumno['NombreCompleto']; ?>" disabled> <br>
                 <label for="" class="lb-inp">Nombre del Proyecto:</label> <br>
-                <input type="text" class="lb-inp" name="NombreProyecto" value="<?php echo $consultaAlumnoProyecto['SPNombreProyecto']; ?>"> <br>
+                <input type="text" class="lb-inp" name="NombreProyecto" value="<?php echo $consultaAlumnoProyecto['SPNombreProyecto']; ?>" disabled> <br>
                 <label for="" class="lb-inp">Programa Educativo:</label> <br>
-                <input type="text" class="lb-inp" name="ProgramaEducativo" value="<?php echo $consultaAlumnoCarrera['Nombre']; ?>"> <br>
+                <input type="text" class="lb-inp" name="ProgramaEducativo" value="<?php echo $consultaAlumnoCarrera['Nombre']; ?>" disabled> <br>
                 <label for="" class="lb-inp">Periodo de Realizacion:</label> <br>
-                <input type="text" class="lb-inp" name="PeriodoRealizacion" value="<?php echo $consultaAlumnoProyecto['SRPeriodo']; ?>"> <br>
+                <input type="text" class="lb-inp" name="PeriodoRealizacion" value="<?php echo $consultaAlumnoProyecto['SRPeriodo']; ?>" disabled> <br>
                 <input type="submit" value="Guardar Cambios" class="lb-inp btnEnviarEv" formaction="procesos/AsesorInternoGuardarEvReporte.php">
             </div>
             <!-- Columna central tabla  -->
@@ -78,71 +78,71 @@
                     <tr>
                         <td>Portada</td>
                         <td>1</td>
-                        <td><input type="number" name="Portada" min="0" max="1" step="1"></td>
+                        <td><input type="number" name="Portada" min="0" max="1" step="1" required></td>
                     </tr>
                     <tr>
                         <td>Agradecimientos</td>
                         <td>0</td>
-                        <td><input type="number" name="Agradecimientos" min="0" max="0" step="1"></td>
+                        <td><input type="number" name="Agradecimientos" min="0" max="0" step="1" required></td>
                     </tr>
                     <tr>
                         <td>Resumen</td>
                         <td>2</td>
-                        <td><input type="number" name="Resumen" min="0" max="2" step="1"></td>
+                        <td><input type="number" name="Resumen" min="0" max="2" step="1" required></td>
                     </tr>
                     <tr>
                         <td>Índice</td>
                         <td>2</td>
-                        <td><input type="number" name="Indice" min="0" max="2" step="1"></td>
+                        <td><input type="number" name="Indice" min="0" max="2" step="1" required></td>
                     </tr>
                     <tr>
                         <td>Introducción</td>
                         <td>5</td>
-                        <td><input type="number" name="Introduccion" min="0" max="5" step="1"></td>
+                        <td><input type="number" name="Introduccion" min="0" max="5" step="1" required></td>
                     </tr>
                     <tr>
                         <td>Antecedentes o marco Teórico</td>
                         <td>5</td>
-                        <td><input type="number" name="Antecedentes" min="0" max="5" step="1"></td>
+                        <td><input type="number" name="Antecedentes" min="0" max="5" step="1" required></td>
                     </tr>
                     <tr>
                         <td>Justificación</td>
                         <td>5</td>
-                        <td><input type="number" name="Justificacion" min="0" max="5" step="1"></td>
+                        <td><input type="number" name="Justificacion" min="0" max="5" step="1" required></td>
                     </tr>
                     <tr>
                         <td>Objetivos</td>
                         <td>10</td>
-                        <td><input type="number" name="Objetivos" min="0" max="10" step="1"></td>
+                        <td><input type="number" name="Objetivos" min="0" max="10" step="1" required></td>
                     </tr>
                     <tr>
                         <td>Metodología</td>
                         <td>10</td>
-                        <td><input type="number" name="Metodologia" min="0" max="10" step="1"></td>
+                        <td><input type="number" name="Metodologia" min="0" max="10" step="1" required></td>
                     </tr>
                     <tr>
                         <td>Resultados</td>
                         <td>15</td>
-                        <td><input type="number" name="Resultados" min="0" max="15" step="1"></td>
+                        <td><input type="number" name="Resultados" min="0" max="15" step="1" required></td>
                     </tr>
                     <tr>
                         <td>Discusiones</td>
                         <td>25</td>
-                        <td><input type="number" name="Discusiones" min="0" max="25" step="1"></td>
+                        <td><input type="number" name="Discusiones" min="0" max="25" step="1" required></td>
                     </tr>
                     <tr>
                         <td>Conclusiones</td>
                         <td>15</td>
-                        <td><input type="number" name="Conclusiones" min="0" max="15" step="1"></td>
+                        <td><input type="number" name="Conclusiones" min="0" max="15" step="1" required></td>
                     </tr>
                     <tr>
                         <td>Fuentes de Información</td>
                         <td>5</td>
-                        <td><input type="number" name="FuentesInformacion" min="0" max="5" step="1"></td>
+                        <td><input type="number" name="FuentesInformacion" min="0" max="5" step="1" required></td>
                     </tr>
                 </table>
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp" style="color: white; font-size: 20px;" ><strong>Observaciones:</strong></label>
-                <textarea name="Observaciones" id="" rows="5" style="width: 80%; margin: 10px; resize: none;"></textarea>
+                <textarea name="Observaciones" id="" rows="5" style="width: 80%; margin: 10px; resize: none;" required></textarea>
             </div>
             <!-- Columna derecha  -->
             <div class="column-Ev3">
@@ -152,7 +152,7 @@
                     if(!($consultaAsesor = mysqli_fetch_array($queryAsesor))){echo 'error';}
                 ?>
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp">Nombre del Asesor Interno:</label>
-                <input class="txtSizeEvC3 lb-inp" type="text" name="AsesorInterno" value="<?php echo $consultaAsesor['NombreCompleto']; ?>">
+                <input class="txtSizeEvC3 lb-inp" type="text" name="AsesorInterno" value="<?php echo $consultaAsesor['NombreCompleto']; ?>" disabled>
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp">Firma electronica:</label>
                 <input class="txtSizeEvC3 lb-inp" type="file" name="archivo">
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp">Fecha de evaluación</label>

@@ -23,3 +23,28 @@
   .tb-th-asp .medium {
     margin-left: 65em;
   }
+  button#cancelar {
+    background-color: #ff4d4d;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  button#cancelar:hover {
+    background-color: #e60000;
+  }
+  #cancelar{
+    margin-left: 48em;
+    margin-top: 5px;
+  }
+  #bgcolor{
+    background-color: #3f6275;
+  }
+  #bgcolor label {
+    color: white;
+  }

@@ -41,5 +41,16 @@
         ?>
 		
 	</div>
+	<div class= 'soliAlum'>
+		<?php
+		$ID = $_SESSION['id'];
+		//validar que tenga un almenos un proyecto en el banco de proyectos
+		if (validarProyEnBancoProy($ID)==true) {
+			echo '<button name="editarSoliRes" class = "btn-editRes"><a href="AlumListSolicitudes.php">EDITAR MIS SOLICITUDES DE RESIDENCIA</a></button>';
+		} else {
+			echo "<button name='editarSoliRes' class = 'btn-editRes'>EDITAR MIS SOLICITUDES DE RESIDENCIA</button>";
+		}
+		?>
+	</div>
 </body>
 </html>

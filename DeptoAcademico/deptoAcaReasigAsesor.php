@@ -8,8 +8,9 @@
 	$BPID = mysqli_fetch_array(bancoSPID($SPID));
 	$solicitudResidencia = mysqli_fetch_array(existeBanco($SPID));
 	$nombreEmpresa = mysqli_fetch_array(empresa($SPID));
-	$RFC = mysqli_fetch_array(responsableResidencia($SPID));
-	$docentes = listaDocentes($DID[0], $RFC[0]);
+	$anterior = mysqli_fetch_array(asesorInterno($BPID[0]));
+	//$RFC = mysqli_fetch_array(responsableResidencia($SPID));
+	$docentes = listaDocentes($DID[0], $anterior[0]);
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,7 +21,7 @@
 	<link rel="stylesheet" href="style/styleDepto.css">
 </head>
 
-<body style="margin: 0;">
+<body style="margin: 0;"  id="bgcolor">
 	<div class="container">
 		<div class="row">
 			<div class="left-column">
@@ -73,15 +74,14 @@
 					}
 			?>
 			<label for="razon">Razon de la reasignacion: </label> 
-			<input type="text" name="razon"> <br> <br>
+			<input type="text" name="razon" required> <br> <br>
 		</div>
 		<div class="panel-der">
 			<label for="period">Perido de Realizacion: </label>
 			<input type="text" name="period" disabled value="<?php echo $solicitudResidencia[5]; ?>"> <br> <br>
 			<label for="anterior">Asesor anterior: </label>
 			<input type="text" name="anterior" disabled value="<?php
-				$anterior = mysqli_fetch_array(asesorInterno($BPID[0]));
-			 	echo $anterior[1]; 
+				echo $anterior[1];
 			 ?>" size="30"> <br> <br>
 			<label for="docente">Nuevo asesor: </label>
 			<select name="docente">
@@ -96,11 +96,21 @@
 			</select> <br> <br>
 			<label for="empresa">Empresa: </label>
 			<input type="text" name="empresa" disabled value="<?php echo $nombreEmpresa[0]; ?>" size="30"> <br> <br>
+			<label for="proyecto">Nombre del proyecto: </label>
+			<input type="text" name="proyecto" value="<?php echo $row[1]; ?>"disabled>
 		</div>
 		<div class="tb-th-asp">
 			<input type="hidden" name="periodo" value="<?php echo $solicitudResidencia[5];; ?>"> <br> <br>
 			<input type="hidden" name="BPID" value="<?php echo $BPID[0]; ?>">
-			<input class="medium" type="submit" value="Asignar">
+			<div class="botones-buttom">
+				<input class="medium" type="submit" value="Asignar">
+				<button id="cancelar" class="medium" onclick="cerrarPagina()">Cancelar</button>
+			</div>
+			<script>
+				function cerrarPagina(){
+					window.close();
+				}
+			</script>
 		</div>
 	</form>
 	</div>

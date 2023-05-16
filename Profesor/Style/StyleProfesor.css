@@ -51,3 +51,44 @@ input.obsrv{
     margin-left: 10%;
     height: 40px;
 }
+button#cancelar {
+    background-color: #ff4d4d;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+button#cancelar:hover {
+    background-color: #e60000;
+  }
+#cancelar{
+    margin-left: 30%;
+    margin-top: 5px;
+}
+#banco-p{
+    background-color:#2A424D;
+}
+th#_azul{
+ background-color:aquamarine;
+ border: 1px solid;
+}
+th#_amarillo{
+    background-color:gold;
+    border: 1px solid;
+}
+th#_verde{
+    background-color: chartreuse;
+    border: 1px solid;
+}
+th#_rojo{
+    background-color: #e60000;
+    border: 1px solid;
+}
+th#nombProy{
+    border: 1px solid;
+}

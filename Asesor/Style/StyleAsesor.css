@@ -199,3 +199,11 @@ th {
     background-color: #ddd;
     color: black;
 }
+#parcial2 {
+    display: none;
+}
+
+.fl-pr{
+    background-color: transparent;
+    width: 30px;
+}

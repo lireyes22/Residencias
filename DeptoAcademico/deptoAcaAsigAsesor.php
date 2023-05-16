@@ -20,7 +20,7 @@
 	<link rel="stylesheet" href="style/styleDepto.css">
 </head>
 
-<body style="margin: 0;">
+<body style="margin: 0;" id="bgcolor">
 	<div class="container">
 		<div class="row">
 			<div class="left-column">

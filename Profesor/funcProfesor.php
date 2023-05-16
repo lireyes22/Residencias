@@ -110,7 +110,7 @@
             'ciudad' => $result['Ciudad'],
             'tel' => $result['Telefono'],
             'nomcarrera' => $result2['Nombre'],
-            'institucionseguro' => $result['InstitucionSeguro']
+            'institucionseguro' => $result['InstitucionSeguro'],
         );
     }
 
@@ -162,7 +162,7 @@
         $query = mysqli_query($conection, $sql);
         $result = mysqli_fetch_assoc($query);
     
-        $sql2 = "SELECT SolicitudResidencia.SROpcionElegida FROM SolicitudResidencia
+        $sql2 = "SELECT SolicitudResidencia.SROpcionElegida, SolicitudResidencia.SRAnteProyecto FROM SolicitudResidencia
         WHERE $SRID = SolicitudResidencia.SRID";
         $query2 = mysqli_query($conection, $sql2);
         $result2 = mysqli_fetch_assoc($query2);
@@ -171,6 +171,7 @@
     
         return array (
             'sropcionelegida' => $result2['SROpcionElegida'],
+            'anteproyecto' => $result2['SRAnteProyecto'],
             'spnombreproyecto' => $result['SPNombreProyecto'],
             'sptipo' => $result['SPTipo'],
             'spestudiantesrequeridos' => $result['SPEstudiantesRequeridos'],
@@ -202,5 +203,59 @@
         // vaciar el buffer de resultados
         while (mysqli_next_result($conection)) { }
         return $query[0];
+    }
+    function estudiantesActuales($SPID){ //DEVUELVE EL NUMERO DE ESPACIOS LIBRES QUE QUEDAN EN UN PROYECTO
+        $conection = conn();
+        $sql = "SELECT Count(*) FROM SolicitudResidencia INNER JOIN BancoProyectos ON SolicitudResidencia.BPID = BancoProyectos.BPID WHERE BancoProyectos.SPID = $SPID AND SolicitudResidencia.SREstatus = 'APROBADO';";
+        $query = mysqli_fetch_array(mysqli_query($conection, $sql));
+        $numeroDeResidentes = intval($query[0]);
+        $sql = "SELECT SPEstudiantesRequeridos FROM SolicitudProyecto WHERE SolicitudProyecto.SPID = $SPID;";
+        $query = mysqli_fetch_array(mysqli_query($conection, $sql));
+        $estudiantesRequeridos = intval($query[0]);
+        $n = $estudiantesRequeridos - $numeroDeResidentes;
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        return $n;
+    }
+    function listSolicProyAcep($DID){ //LISTA DE SPID ACEPTADOS Y EN EL DEPARTAMENTO SOLICITADO
+        $conection = conn();
+        $sql = "SELECT SolicitudProyecto.`SPID` FROM `SolicitudProyecto` INNER JOIN `UsuariosDepartamentos` ON SolicitudProyecto.`UIDResponsable` = UsuariosDepartamentos.`UID` WHERE UsuariosDepartamentos.`DID` = $DID AND SolicitudProyecto.`SPEstatus`='ACEPTADO';";
+        $query = mysqli_query($conection, $sql);
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        return $query;
+    }
+    function DID($UID){ //OBTIENE EL DEPARTAMENTO ID CON EL ID DEL USUARIO
+        $conection = conn();
+        $sql = "SELECT UsuariosDepartamentos.`DID` FROM `UsuariosDepartamentos` WHERE `UsuariosDepartamentos`.UID = $UID;";
+        $query = mysqli_query($conection, $sql);
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        return $query;
+    }
+    function listProySolicitados($SPID){ //DEVUELVE EL NOMBRE Y SU ESTATUS (PENDIENTE, REVISION, ACEPTADO, RECHAZADO) ASI COMO SUS COMENTARIOS
+        $conection = conn();
+        $sql = "SELECT SolicitudProyecto.`SPNombreProyecto`, SolicitudProyecto.SPEstatus FROM `SolicitudProyecto` WHERE `SolicitudProyecto`.SPID = $SPID;";
+        $query = mysqli_query($conection, $sql);
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        return $query;
+    }
+    function observaciones($SPID){ //OBSERVACIONES
+        $conection = conn();
+        $sql = "SELECT ComisionProyectoProfesor.CPPObservaciones FROM `ComisionProyectoProfesor` WHERE `ComisionProyectoProfesor`.SPID = $SPID;";
+        $query = mysqli_fetch_array(mysqli_query($conection, $sql));
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        return $query[0];
+    }
+
+    function listSPIDsolicitudes($UID){ //DEVUELVE EL SPID
+        $conection = conn();
+        $sql = "SELECT SolicitudProyecto.`SPID` FROM `SolicitudProyecto` WHERE `SolicitudProyecto`.UIDResponsable = $UID;";
+        $query = mysqli_query($conection, $sql);
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        return $query;
     }
 ?>
