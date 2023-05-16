@@ -64,3 +64,14 @@ function getIDAsesorInterno($uid) {
     $idAsInt = $consulta['AIID'];
     return $idAsInt;
 }
+
+function consultaAsesorResidencias($AIID) {
+    $conection = conn();
+    $sql = "CALL ObtenerResidenciaAIID($AIID)";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $query;
+}
+
+?>

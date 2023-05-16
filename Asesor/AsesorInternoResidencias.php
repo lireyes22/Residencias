@@ -1,5 +1,6 @@
 <?php
 	include '../InicioSessionSeg.php';
+    include 'funcAsesor.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,15 +44,23 @@
                     <th>Actualizar</th>
                 </tr>
             </thead>
+            <?php
+                $aiid = $_SESSION['AIID'];
+                $queryAR = consultaAsesorResidencias($aiid);
+                while($consultaAR = mysqli_fetch_array($queryAR)){
+
+            ?>
             <form method="POST">
                 <tbody>
-                    <td>xd1</td>
-                    <td>xd2</td>
-                    <td>xd3</td>
-                    <td><?php echo $_SESSION['id']; ?></td>
-                    <td><?php echo $_SESSION['AIID']; ?></td>
+                    <input type="hidden" name="SPID" value="<?php echo $consultaAR['SPID']; ?>">
+                    <td><?php echo $consultaAR['SPNombreProyecto']; ?></td>
+                    <td><?php echo $consultaAR['SPObjetivo']; ?></td>
+                    <td><?php echo $consultaAR['SPDescripcion']; ?></td>
+                    <td > <input type="number" min="0" max="5" class="inp-tb" name="nResidentes" value="<?php echo $consultaAR['SPEstudiantesRequeridos']; ?>" required></td>
+                    <td><input type="submit" value="Actualizar" class="btn btn-actualizar" formaction="procesos/AsesorInternoActualizarResidencia.php"></td>
                 </tbody>
             </form>
+            <?php } ?>
         </table>
     </div>
 </body>

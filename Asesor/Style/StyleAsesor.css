@@ -207,3 +207,36 @@ th {
     background-color: transparent;
     width: 30px;
 }
+.inp-tb{
+    border: none;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    outline: none;
+    text-align: center;
+}
+/*botones para tabla */
+.btn {
+    background-color: #fff;
+    border: 2px solid #000;
+    color: #000;
+    border-radius: 5px; 
+    padding: 8px 16px;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.btn-actualizar{
+    background-color: white;
+    border: 2px solid green;
+}
+.btn-actualizar:hover{
+    background-color: green;
+    color: #fff;
+}
