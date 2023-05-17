@@ -41,7 +41,8 @@
                     <th>Objetivo</th>
                     <th>Descripcion</th>
                     <th>Numero de Residentes</th>
-                    <th>Actualizar</th>
+                    <th>Actualizar Numero de Residentes</th>
+                    <th>Detalles del Proyecto</th>
                 </tr>
             </thead>
             <?php
@@ -58,6 +59,7 @@
                     <td><?php echo $consultaAR['SPDescripcion']; ?></td>
                     <td > <input type="number" min="0" max="5" class="inp-tb" name="nResidentes" value="<?php echo $consultaAR['SPEstudiantesRequeridos']; ?>" required></td>
                     <td><input type="submit" value="Actualizar" class="btn btn-actualizar" formaction="procesos/AsesorInternoActualizarResidencia.php"></td>
+                    <td><input type="submit" class="btn btn-actualizar" formaction="" value="Detalles"></td>
                 </tbody>
             </form>
             <?php } ?>
