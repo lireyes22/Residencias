@@ -33,7 +33,9 @@ if (file_exists('funciones.php')) {
 			$row = $result->fetch_array(MYSQLI_ASSOC);
 			$validador=false;
 			if($rol == "AsesorExterno"){
-
+				if(($row["AECorreo"]==$username) && ($row["AEContrasena"]==$password)){
+					$validador=true;
+				}
 			}else{
 				if(($row["CorreoInstitucional"]==$username) && ($row["ContrasenaCorreo"]==$password)){
 					$validador=true;
@@ -48,6 +50,9 @@ if (file_exists('funciones.php')) {
 				$_SESSION['expire'] = $_SESSION['start'] + (60 * 60);
 				$resultado = mysqli_query($conection, $sql);
 				while ($row = mysqli_fetch_assoc($resultado)) {
+					if($rol=="AsesorExterno"){
+						header('Location: AsesorExterno/IndexAE.php');
+					}
 					if($rol=="AsesorInterno"){
 						header('Location: Asesor/IndexAI.php');
 					}elseif ($row['URol']=="Alumno") {
@@ -56,9 +61,8 @@ if (file_exists('funciones.php')) {
 						header('Location: Profesor/index.php');
 					}elseif($row['URol']=="JefDeptAca"){
 						header('Location: DeptoAcademico/index.php');
-					}elseif($row['URol']=="AsesorExterno"){
-						header('Location: Asesor/IndexAI.php');
 					}
+
 
 
 				}

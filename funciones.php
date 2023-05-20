@@ -55,12 +55,8 @@ function GenerarLogAsesorInt($correo) {
     return $sql;
 }
 function GenerarLogAsesorExt($correo) {
-    $sql="SELECT Profesor.CorreoInstitucional, Profesor.ContrasenaCorreo, Usuarios.URol, Usuarios.UID
-    FROM Profesor 
-    INNER JOIN Profesor_Usuarios ON Profesor.RFCProfesor = Profesor_Usuarios.RFCProfesor
-    INNER JOIN Usuarios ON Profesor_Usuarios.UID = Usuarios.UID 
-    INNER JOIN AsesorInterno ON AsesorInterno.UID = Usuarios.UID
-    WHERE Profesor.CorreoInstitucional='$correo'";
+    $sql="SELECT * FROM AsesorExterno
+    WHERE AsesorExterno.AECorreo='$correo'";
     return $sql;
 }
 ?>
