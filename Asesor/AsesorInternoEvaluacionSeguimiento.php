@@ -78,6 +78,10 @@ $idAlumno = $_POST['idAlumno'];
             </form>
         </div>
         <!-- Columna central tabla  -->
+        <?php
+            $ParcialUno = consultaEvaluacionSeguimiento($idAsesor, $idAlumno, 1, 0);
+            $ParcialDos = consultaEvaluacionSeguimiento($idAsesor, $idAlumno, 2, 0);
+        ?>
         <div class="column-Ev2">
             <div id="parcial1">
                 <!-- PARCIAL 1  -->
@@ -93,32 +97,37 @@ $idAlumno = $_POST['idAlumno'];
                             <tr>
                                 <td>Asistio puntualmente a las reuniones de asesoria</td>
                                 <td>10</td>
-                                <td><input type="number" name="PuntualidadP1" min="0" max="10" step="1" required></td>
+                                <td><input type="number" name="PuntualidadP1" min="0" max="10" step="1" value="<?php  echo $ParcialUno['ERPuntualidad'] ?>" required></td>
                             </tr>
                             <tr>
                                 <td>Demuestra conocimento en el area de su especialidad</td>
                                 <td>20</td>
-                                <td><input type="number" name="ConocimientoP1" min="0" max="20" step="1" required></td>
+                                <td><input type="number" name="ConocimientoP1" min="0" max="20" step="1" value="<?php  echo $ParcialUno['ERConocimiento'] ?>" required></td>
                             </tr>
                             <tr>
                                 <td>Trabaja en equipo y se comunica en forma efectiva (oral y escrita)</td>
                                 <td>15</td>
-                                <td><input type="number" name="TrabajoEquipoP1" min="0" max="15" step="1" required></td>
+                                <td><input type="number" name="TrabajoEquipoP1" min="0" max="15" step="1" value="<?php  echo $ParcialUno['ERTrabajoEquipo'] ?>" required></td>
                             </tr>
                             <tr>
                                 <td>Es dedicado y proactivo en las actividades encomendadas</td>
                                 <td>20</td>
-                                <td><input type="number" name="DedicacionP1" min="0" max="20" step="1" required></td>
+                                <td><input type="number" name="DedicacionP1" min="0" max="20" step="1" value="<?php  echo $ParcialUno['ERDedicacion'] ?>" required></td>
                             </tr>
                             <tr>
                                 <td>Es ordenado y cumple satisfactoriamente con las actividades encomendadas en los tiempos establecidos</td>
                                 <td>20</td>
-                                <td><input type="number" name="OrdenadoP1" min="0" max="20" step="1" required></td>
+                                <td><input type="number" name="OrdenadoP1" min="0" max="20" step="1" value="<?php  echo $ParcialUno['EROrdenado'] ?>" required></td>
                             </tr>
                             <tr>
                                 <td>Propone mejoras al proyecto</td>
                                 <td>15</td>
-                                <td><input type="number" name="DaMejorasP1" min="0" max="15" step="1" required></td>
+                                <td><input type="number" name="DaMejorasP1" min="0" max="15" step="1" value="<?php  echo $ParcialUno['ERDaMejoras'] ?>" required></td>
+                            </tr>
+                            <tr style="background-color: cadetblue;">
+                                <td><strong>TOTAL DE PUNTOS DEL PARCIAL 1</strong></td>
+                                <td>100</td>
+                                <td><input type="number" name="DaMejorasP2" min="0" max="15" step="1" value="<?php  echo $ParcialUno['ERCalificacion'] ?>"></td>
                             </tr>
                             <tr style="background-color: cadetblue;">
                                 <td><strong>NOTA: Al hacer clic en guardar se actualizaran los datos</strong></td>
@@ -127,7 +136,7 @@ $idAlumno = $_POST['idAlumno'];
                             </tr>
                         </table>
                         <label class="txtSizeEvC3 mrgEvC3 lb-inp" style="color: white; font-size: 20px;"><strong>Observaciones:</strong></label> <br>
-                        <textarea name="Observaciones" id="" rows="5" style="width: 80%; margin: 10px; resize: none;" required></textarea>
+                        <textarea name="Observaciones" id="" rows="5" style="width: 80%; margin: 10px; resize: none;" required><?php  echo $ParcialUno['ERObservaciones'] ?></textarea>
                     </fieldset>
                     <input type="hidden" name="idSoliRes" value="<?php echo $idSolicitudResidencia; ?>">
                     <input type="hidden" name="idUAsesor" value="<?php echo $idAsesor; ?>">
@@ -148,32 +157,37 @@ $idAlumno = $_POST['idAlumno'];
                             <tr>
                                 <td>Asistio puntualmente a las reuniones de asesoria</td>
                                 <td>10</td>
-                                <td><input type="number" name="PuntualidadP2" min="0" max="10" step="1" required></td>
+                                <td><input type="number" name="PuntualidadP2" min="0" max="10" step="1" value="<?php  echo $ParcialDos['ERPuntualidad'] ?>" required></td>
                             </tr>
                             <tr>
                                 <td>Demuestra conocimento en el area de su especialidad</td>
                                 <td>20</td>
-                                <td><input type="number" name="ConocimientoP2" min="0" max="20" step="1" required></td>
+                                <td><input type="number" name="ConocimientoP2" min="0" max="20" step="1" value="<?php  echo $ParcialDos['ERConocimiento'] ?>" required></td>
                             </tr>
                             <tr>
                                 <td>Trabaja en equipo y se comunica en forma efectiva (oral y escrita)</td>
                                 <td>15</td>
-                                <td><input type="number" name="TrabajoEquipoP2" min="0" max="15" step="1" required></td>
+                                <td><input type="number" name="TrabajoEquipoP2" min="0" max="15" step="1" value="<?php  echo $ParcialDos['ERTrabajoEquipo'] ?>" required></td>
                             </tr>
                             <tr>
                                 <td>Es dedicado y proactivo en las actividades encomendadas</td>
                                 <td>20</td>
-                                <td><input type="number" name="DedicacionP2" min="0" max="20" step="1" required></td>
+                                <td><input type="number" name="DedicacionP2" min="0" max="20" step="1" value="<?php  echo $ParcialDos['ERDedicacion'] ?>" required></td>
                             </tr>
                             <tr>
                                 <td>Es ordenado y cumple satisfactoriamente con las actividades encomendadas en los tiempos establecidos</td>
                                 <td>20</td>
-                                <td><input type="number" name="OrdenadoP2" min="0" max="20" step="1" required></td>
+                                <td><input type="number" name="OrdenadoP2" min="0" max="20" step="1" value="<?php  echo $ParcialDos['EROrdenado'] ?>" required></td>
                             </tr>
                             <tr>
                                 <td>Propone mejoras al proyecto</td>
                                 <td>15</td>
-                                <td><input type="number" name="DaMejorasP2" min="0" max="15" step="1" required></td>
+                                <td><input type="number" name="DaMejorasP2" min="0" max="15" step="1" value="<?php  echo $ParcialDos['ERDaMejoras'] ?>" required></td>
+                            </tr>
+                            <tr style="background-color: cadetblue;">
+                                <td><strong>TOTAL DE PUNTOS DEL PARCIAL 2</strong></td>
+                                <td>100</td>
+                                <td><input type="number" name="DaMejorasP2" min="0" max="15" step="1" value="<?php  echo $ParcialDos['ERCalificacion'] ?>"></td>
                             </tr>
                             <tr style="background-color: cadetblue;">
                                 <td><strong>NOTA: Al hacer clic en guardar se actualizaran los datos</strong></td>
@@ -182,7 +196,7 @@ $idAlumno = $_POST['idAlumno'];
                             </tr>
                         </table>
                         <label class="txtSizeEvC3 mrgEvC3 lb-inp" style="color: white; font-size: 20px;"><strong>Observaciones:</strong></label> <br>
-                        <textarea name="Observaciones" id="" rows="5" style="width: 80%; margin: 10px; resize: none;" required></textarea>
+                        <textarea name="Observaciones" id="" rows="5" style="width: 80%; margin: 10px; resize: none;" required><?php  echo $ParcialDos['ERObservaciones'] ?></textarea>
                     </fieldset>
                     <input type="hidden" name="idSoliRes" value="<?php echo $idSolicitudResidencia; ?>">
                     <input type="hidden" name="idUAsesor" value="<?php echo $idAsesor; ?>">
@@ -206,7 +220,7 @@ $idAlumno = $_POST['idAlumno'];
             <label class="txtSizeEvC3 mrgEvC3 lb-inp">Fecha de evaluación</label>
             <input class="txtSizeEvC3 lb-inp" type="date" value="<?php echo date('Y-m-d'); ?>" disabled>
             <label class="txtSizeEvC3 mrgEvC3 lb-inp">Total Puntos:</label>
-            <input class="txtSizeEvC3 lb-inp" type="text" name="TotalPuntos" disabled>
+            <input class="txtSizeEvC3 lb-inp" type="text" name="TotalPuntos" value="<?php  echo $ParcialUno['ERCalificacion'] + $ParcialDos['ERCalificacion']?>" disabled>
         </div>
     </div>
 </body>

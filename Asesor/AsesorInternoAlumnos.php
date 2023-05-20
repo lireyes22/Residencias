@@ -66,8 +66,8 @@
                 <td><?php echo $consultaAlumno['NombreCompleto']?></td>
                 <td><?php echo $consultaAlumno['SemestreActual']?></td>
                 <td><?php echo $consultaAlumno['CorreoInstitucional']?></td>
-                <td><input type="submit" formaction="AsesorInternoEvaluacionSeguimiento.php" value="Evaluacion de Seguimiento"></td>
-                <td><input type="submit" formaction="AsesorInternoEvaluacionReporte.php" value="Evaluacion de Reporte Final"></td>
+                <td><input type="submit" formaction="AsesorInternoEvaluacionSeguimiento.php" value="Evaluacion de Seguimiento" class="btn btn-actualizar"></td>
+                <td><input type="submit" formaction="AsesorInternoEvaluacionReporte.php" value="Evaluacion de Reporte Final" class="btn btn-actualizar"></td>
             </tbody>
                     <input type="hidden" name="idAlumno" value="<?php echo $idAlumno; ?>">
                     <input type="hidden" name="idAsesor" value="<?php echo $idAsesor; ?>">
