@@ -1,6 +1,8 @@
 <?php 
-	include '../InicioSessionSeg.php';
-    include ('funcAsesor.php');	
+	#include '../InicioSessionSeg.php';
+    include ('funcAsesorE.php');
+    #$IDUAsesor = $_SESSION['id'];
+    $IDUAsesor = 37;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,9 +32,6 @@
                 <a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
             </div>
         </div>
-        <?php
-        include 'MenuAsesorInterno.html';
-        ?>
     </div>
     <div class="containerSRP">
         <table>
@@ -48,19 +47,13 @@
                 </tr>
             </thead>
             <?php 
-                $query = consultaAsesorAlumno($_SESSION['id']);
-                $idAsesor = $_SESSION['id'];
-                //echo $idAsesor.'<br>';
-                //echo $_SESSION['id'];
-                //$idAsesor = 14;
-                //$query = consultaAsesorAlumno(14);
+                $query = consultaAsesorAlumno($IDUAsesor);
                 while($consulta = mysqli_fetch_array($query)){
                     $idAlumno = $consulta['UAlumno'];
-                    $ProyectoS = ObtenerSolicitudProyecto($consulta['SPID']);
                     $queryInfoAlumno = consultaUsuarioAlumno($idAlumno);
                     $consultaAlumno = mysqli_fetch_array($queryInfoAlumno);
+                    $ProyectoS = ObtenerSolicitudProyecto($consulta['SPID']);
                     
-
             ?>
             <form method="POST">
             <tbody>
@@ -75,7 +68,7 @@
                     <input type="hidden" name="idAlumno" value="<?php echo $idAlumno; ?>">
                     <input type="hidden" name="idAsesor" value="<?php echo $idAsesor; ?>">
             </form>
-            <?php }//fin del while ?>
+                <?php }//fin del while ?>
         </table>
     </div>
 </body>
