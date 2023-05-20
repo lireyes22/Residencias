@@ -249,12 +249,18 @@ function validarProyEnBancoProy($ID){
 function getListSoliProyect($ID){
     $conection = conn();
     //crear la conculta que traera el array con el nombre de los proyectos
-    $sql = "SELECT SolicitudProyecto.SPNombreProyecto, SolicitudProyecto.SPID 
+    $sql = "SELECT SolicitudProyecto.SPNombreProyecto, SolicitudProyecto.SPID, SolicitudResidencia.SRID 
     FROM SolicitudResidencia INNER JOIN BancoProyectos ON SolicitudResidencia.BPID = BancoProyectos.BPID 
     INNER JOIN SolicitudProyecto ON BancoProyectos.SPID = SolicitudProyecto.SPID 
     WHERE SolicitudResidencia.UAlumno = $ID";
     $query= mysqli_query($conection, $sql);
     return $query;
 }
-
+function rechazado($SRID){
+    $conection = conn();
+    //crear la conculta que traera el array con el nombre de los proyectos
+    $sql = "SELECT SREstatus FROM SolicitudResidencia WHERE SolicitudResidencia.SRID = $SRID;";
+    $query= mysqli_fetch_array(mysqli_query($conection, $sql));
+    return $query[0];
+}
 ?>

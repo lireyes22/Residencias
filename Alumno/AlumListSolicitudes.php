@@ -41,7 +41,7 @@
     <table class="tb-asp">
         <tr>
         <th class="sticky">Nombre del Proyecto</th>
-            <td class="sticky"></td>
+        <td class="sticky" colspan="2"></td>
         </tr>
         <tr>
         <?php
@@ -50,10 +50,35 @@
             ?>
                 <tr <?php if ($i % 2 == 0) echo "class='par'" ?>>
                     <td><?php echo $row['SPNombreProyecto']; ?></td>
+                    <?php 
+                        $rechazado = rechazado($row['SRID']);
+                        $vReenviar = 'hidden';
+                        $vEditar = 'submit';
+                        if($rechazado == 'RECHAZADO'){
+                           $vReenviar = 'submit';
+                           $vEditar = 'hidden';
+                        }else if($rechazado == 'ACEPTADO'){
+                            $vReenviar = 'hidden';
+                           $vEditar = 'hidden';
+                        }
+                    ?>
                     <form action="AlumEditSoliResidencia.php" method="Post">
                         <th class="tb-th-asp"> 
                             <input type="hidden" name="SPID" value="<?php echo $row['SPID'];?>">
-                            <input type="submit"  value="Editar Solicitud">
+                            <input type="<?php echo $vEditar; ?>"  value="Editar Solicitud">
+                        </th>
+                    </form>
+                    <form action="AlumReenviaSoliResidencia.php" method="Post">
+                        <th class="tb-th-asp"> 
+                            <?php 
+                                $rechazado = rechazado($row['SRID']);
+                                $vReenviar = 'hidden';
+                                if($rechazado == 'RECHAZADO'){
+                                    $vReenviar = 'submit';
+                                }
+                            ?>
+                            <input type="hidden" name="SPID" value="<?php echo $row['SPID'];?>">
+                            <input type="<?php echo $vReenviar; ?>"  value="Reenviar Solicitud">
                         </th>
                     </form>
                 </tr>
