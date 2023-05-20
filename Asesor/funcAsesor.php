@@ -87,7 +87,7 @@ function consultaEvaluacionSeguimiento($UAsesor, $UAlumno, $NParcial, $Tipo) {
             $consultaAlumnoProyecto['ERDedicacion'] = 0;
             $consultaAlumnoProyecto['EROrdenado'] = 0;
             $consultaAlumnoProyecto['ERDaMejoras'] = 0;
-            $consultaAlumnoProyecto['ERObservaciones'] = 0;
+            $consultaAlumnoProyecto['ERObservaciones'] = '';
             $consultaAlumnoProyecto['ERCalificacion'] = 0;
     }
     return $consultaAlumnoProyecto;
@@ -114,7 +114,7 @@ function ObtenerEvaluacionFinal($UAsesor, $UAlumno) {
             $consultaAlumnoProyecto['ERFConclusiones'] = 0;
             $consultaAlumnoProyecto['ERFFuentes'] = 0;
             $consultaAlumnoProyecto['ERFTotal'] = 0;
-            $consultaAlumnoProyecto['ERFObservaciones'] = 0;
+            $consultaAlumnoProyecto['ERFObservaciones'] = '';
             #se puede hacer un foreach, pero se me olvido que existe en php xd.
     }
     return $consultaAlumnoProyecto;
