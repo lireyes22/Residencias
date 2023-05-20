@@ -1,5 +1,4 @@
 <?php
-    include '../../InicioSessionSegNvl2.php';
     function conn(){
         $host = 'mapachitos.cisuktad1m53.us-east-2.rds.amazonaws.com';
         $user = 'admin';

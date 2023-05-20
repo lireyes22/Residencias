@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../style/StyleBase.css">
         <link rel="stylesheet" href="Style/StyleAsesor.css">
+        <script src="procesos/intercDivs.js"></script>
         <title>Document</title>
     </head>
 
