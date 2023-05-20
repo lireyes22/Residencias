@@ -127,7 +127,7 @@ $idAlumno = $_POST['idAlumno'];
                             <tr style="background-color: cadetblue;">
                                 <td><strong>TOTAL DE PUNTOS DEL PARCIAL 1</strong></td>
                                 <td>100</td>
-                                <td><input type="number" name="DaMejorasP2" min="0" max="15" step="1" value="<?php  echo $ParcialUno['ERCalificacion'] ?>"></td>
+                                <td><input type="number" name="DaMejorasP2" min="0" max="15" step="1" value="<?php  echo $ParcialUno['ERCalificacion'] ?>" disabled></td>
                             </tr>
                             <tr style="background-color: cadetblue;">
                                 <td><strong>NOTA: Al hacer clic en guardar se actualizaran los datos</strong></td>
@@ -187,7 +187,7 @@ $idAlumno = $_POST['idAlumno'];
                             <tr style="background-color: cadetblue;">
                                 <td><strong>TOTAL DE PUNTOS DEL PARCIAL 2</strong></td>
                                 <td>100</td>
-                                <td><input type="number" name="DaMejorasP2" min="0" max="15" step="1" value="<?php  echo $ParcialDos['ERCalificacion'] ?>"></td>
+                                <td><input type="number" name="DaMejorasP2" min="0" max="15" step="1" value="<?php  echo $ParcialDos['ERCalificacion'] ?>" disabled></td>
                             </tr>
                             <tr style="background-color: cadetblue;">
                                 <td><strong>NOTA: Al hacer clic en guardar se actualizaran los datos</strong></td>
