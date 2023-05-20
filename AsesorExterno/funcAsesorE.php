@@ -57,25 +57,7 @@ function consultaAsesorResidencias($AIID) {
     while (mysqli_next_result($conection)) { }
     return $query;
 }
-function consultaEvaluacionSeguimiento($UAsesor, $UAlumno, $NParcial, $Tipo) {
-    $conection = conn();
-    $sql = "CALL ObtenerEvaluacionSeguimiento($UAsesor, $UAlumno, $NParcial, $Tipo)";
-    $query = mysqli_query($conection, $sql);
-    // vaciar el buffer de resultados
-    while (mysqli_next_result($conection)) { }
-    
-    if (!($consultaAlumnoProyecto = mysqli_fetch_array($query))) {
-            $consultaAlumnoProyecto['ERPuntualidad'] = 0;
-            $consultaAlumnoProyecto['ERConocimiento'] = 0;
-            $consultaAlumnoProyecto['ERTrabajoEquipo'] = 0;
-            $consultaAlumnoProyecto['ERDedicacion'] = 0;
-            $consultaAlumnoProyecto['EROrdenado'] = 0;
-            $consultaAlumnoProyecto['ERDaMejoras'] = 0;
-            $consultaAlumnoProyecto['ERObservaciones'] = '';
-            $consultaAlumnoProyecto['ERCalificacion'] = 0;
-    }
-    return $consultaAlumnoProyecto;
-}
+
 function ObtenerEvaluacionFinal($UAsesor, $UAlumno) {
     $conection = conn();
     $sql = "CALL ObtenerEvaluacionFinal($UAsesor, $UAlumno, 1)";
@@ -132,5 +114,24 @@ function ObtenerSolicitudProyecto($idBancoProyecto) {
             #se puede hacer un foreach, pero se me olvido que existe en php xd.
     }
     return $consultaSolicProy;
+}
+function consultaEvaluacionSeguimiento($UAsesor, $UAlumno, $NParcial, $Tipo) {
+    $conection = conn();
+    $sql = "CALL ObtenerEvaluacionSeguimiento($UAsesor, $UAlumno, $NParcial, $Tipo)";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    
+    if (!($consultaAlumnoProyecto = mysqli_fetch_array($query))) {
+            $consultaAlumnoProyecto['ERPuntualidad'] = 0;
+            $consultaAlumnoProyecto['ERConocimiento'] = 0;
+            $consultaAlumnoProyecto['ERTrabajoEquipo'] = 0;
+            $consultaAlumnoProyecto['ERDedicacion'] = 0;
+            $consultaAlumnoProyecto['EROrdenado'] = 0;
+            $consultaAlumnoProyecto['ERDaMejoras'] = 0;
+            $consultaAlumnoProyecto['ERObservaciones'] = '';
+            $consultaAlumnoProyecto['ERCalificacion'] = 0;
+    }
+    return $consultaAlumnoProyecto;
 }
 ?>

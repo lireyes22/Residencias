@@ -1,38 +1,14 @@
 <?php 
 	#include '../InicioSessionSeg.php';
     include ('funcAsesorE.php');
-    #$IDUAsesor = $_SESSION['id'];
-    $IDUAsesor = 37;
+    #$idAsesor = $_SESSION['id'];
+    $idAsesor = 37;
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="../style/StyleBase.css">
-	<link rel="stylesheet" href="Style/StyleAsesor.css">
-    <title>Document</title>
-</head>
+    <?php include ('encabezado.php'); encabezadox('Inicio') #encabezado xd?>
 
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="left-column">
-                <a class="home-btn" href="IndexAI.php">
-                    <h2><span style="margin-right: 10px;">Asesor</span></h2>
-                    <img src="img/asesor.png" width="50px">
-                </a>
-            </div>
-            <div class="center-column">
-                <h1>Seguimientos</h1>
-            </div>
-            <div class="right-column">
-                <a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
-            </div>
-        </div>
-    </div>
     <div class="containerSRP">
         <table>
             <thead>
@@ -47,7 +23,7 @@
                 </tr>
             </thead>
             <?php 
-                $query = consultaAsesorAlumno($IDUAsesor);
+                $query = consultaAsesorAlumno($idAsesor);
                 while($consulta = mysqli_fetch_array($query)){
                     $idAlumno = $consulta['UAlumno'];
                     $queryInfoAlumno = consultaUsuarioAlumno($idAlumno);
@@ -56,17 +32,17 @@
                     
             ?>
             <form method="POST">
+                <input type="hidden" name="idAlumno" value="<?php echo $idAlumno; ?>">
+                <input type="hidden" name="idAsesor" value="<?php echo $idAsesor; ?>">
             <tbody>
                 <td><?php echo $ProyectoS['SPNombreProyecto']?></td>
                 <td><?php echo $consultaAlumno['NumeroControl']?></td>
                 <td><?php echo $consultaAlumno['NombreCompleto']?></td>
                 <td><?php echo $consultaAlumno['SemestreActual']?></td>
                 <td><?php echo $consultaAlumno['CorreoInstitucional']?></td>
-                <td><input type="submit" formaction="AsesorInternoEvaluacionSeguimiento.php" value="Evaluacion de Seguimiento" class="btn btn-actualizar"></td>
-                <td><input type="submit" formaction="AsesorInternoEvaluacionReporte.php" value="Evaluacion de Reporte Final" class="btn btn-actualizar"></td>
+                <td><input name="EvSeg" type="submit" formaction="AsesorExternoEvaluacionSeguimiento.php" value="Evaluacion de Seguimiento" class="btn btn-actualizar"></td>
+                <td><input name="EvRep" type="submit" formaction="AsesorExternoEvaluacionReporte.php" value="Evaluacion de Reporte Final" class="btn btn-actualizar"></td>
             </tbody>
-                    <input type="hidden" name="idAlumno" value="<?php echo $idAlumno; ?>">
-                    <input type="hidden" name="idAsesor" value="<?php echo $idAsesor; ?>">
             </form>
                 <?php }//fin del while ?>
         </table>

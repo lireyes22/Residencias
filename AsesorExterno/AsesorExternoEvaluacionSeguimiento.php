@@ -1,9 +1,8 @@
 <?php
-include '../InicioSessionSeg.php';
-include('funcAsesor.php');
-$idAsesor = $_POST['idAsesor'];
-$idAlumno = $_POST['idAlumno'];
-//echo $idAsesor;echo '<br>';echo $idAlumno;
+    include('funcAsesorE.php');
+    $idAsesor = $_POST['idAsesor'];
+    $idAlumno = $_POST['idAlumno'];
+    #echo $idAsesor;echo '<br>';echo $idAlumno;
 
 ?>
 
@@ -50,8 +49,9 @@ $idAlumno = $_POST['idAlumno'];
         </div>
         <!-- Columna central tabla  -->
         <?php
-            $ParcialUno = consultaEvaluacionSeguimiento($idAsesor, $idAlumno, 1, 0);
-            $ParcialDos = consultaEvaluacionSeguimiento($idAsesor, $idAlumno, 2, 0);
+            $ParcialUno = consultaEvaluacionSeguimiento($idAsesor, $idAlumno, 1, 1);
+            $ParcialDos = consultaEvaluacionSeguimiento($idAsesor, $idAlumno, 2, 1);
+            
         ?>
         <div class="column-Ev2">
             <div id="parcial1">
@@ -103,7 +103,7 @@ $idAlumno = $_POST['idAlumno'];
                             <tr style="background-color: cadetblue;">
                                 <td><strong>NOTA: Al hacer clic en guardar se actualizaran los datos</strong></td>
                                 <td></td>
-                                <td><input type="submit" value="Guardar" name="Par1" formaction="procesos/AsesorInternoGuardarEvSeguimiento.php"></td>
+                                <td><input type="submit" value="Guardar" name="Par1" formaction="procesos/AsesorExternoGuardarEvSeguimiento.php"></td>
                             </tr>
                         </table>
                         <label class="txtSizeEvC3 mrgEvC3 lb-inp" style="color: white; font-size: 20px;"><strong>Observaciones:</strong></label> <br>
@@ -163,7 +163,7 @@ $idAlumno = $_POST['idAlumno'];
                             <tr style="background-color: cadetblue;">
                                 <td><strong>NOTA: Al hacer clic en guardar se actualizaran los datos</strong></td>
                                 <td></td>
-                                <td><input type="submit" value="Guardar" name="Par2" formaction="procesos/AsesorInternoGuardarEvSeguimiento.php"></td>
+                                <td><input type="submit" value="Guardar" name="Par2" formaction="procesos/AsesorExternoGuardarEvSeguimiento.php"></td>
                             </tr>
                         </table>
                         <label class="txtSizeEvC3 mrgEvC3 lb-inp" style="color: white; font-size: 20px;"><strong>Observaciones:</strong></label> <br>
@@ -175,21 +175,18 @@ $idAlumno = $_POST['idAlumno'];
                 </form>
             </div>
         </div>
+        
         <!-- Columna derecha  -->
         <div class="column-Ev3">
             <?php
-            $queryAsesor = consultaProfesorAsesor($idAsesor);
-            $consultaAsesor;
-            if (!($consultaAsesor = mysqli_fetch_array($queryAsesor))) {
-                echo 'error';
-            }
+                #de donde saco la info del asesorexterno xd
             ?>
             <label class="txtSizeEvC3 mrgEvC3 lb-inp">Nombre del Asesor Interno:</label>
-            <input class="txtSizeEvC3 lb-inp" type="text" name="AsesorInterno" value="<?php echo $consultaAsesor['NombreCompleto']; ?>" disabled>
+            <input class="txtSizeEvC3 lb-inp" type="text" name="AsesorExterno" value="" disabled>
             <label class="txtSizeEvC3 mrgEvC3 lb-inp">Firma electronica:</label>
             <input class="txtSizeEvC3 lb-inp" type="file" name="archivo">
             <label class="txtSizeEvC3 mrgEvC3 lb-inp">Fecha de evaluación</label>
-            <input class="txtSizeEvC3 lb-inp" type="date" value="<?php echo date('Y-m-d'); ?>" disabled>
+            <input class="txtSizeEvC3 lb-inp" type="date" value="" disabled>
             <label class="txtSizeEvC3 mrgEvC3 lb-inp">Total Puntos:</label>
             <input class="txtSizeEvC3 lb-inp" type="text" name="TotalPuntos" value="<?php  echo $ParcialUno['ERCalificacion'] + $ParcialDos['ERCalificacion']?>" disabled>
         </div>

@@ -1,6 +1,5 @@
-<?php  
-    include '../InicioSessionSeg.php';
-    include ('funcAsesor.php');
+<?php 
+    include ('funcAsesorE.php');
     $idAsesor = $_POST['idAsesor'];
     $idAlumno = $_POST['idAlumno'];
     //echo $idAsesor;echo '<br>';echo $idAlumno;
@@ -11,8 +10,8 @@
 <!DOCTYPE html>
 <html>
 
-    <?php include ('encabezado.php'); encabezadox('Evaluacion de Reporte Final') #encabezado xd?>
-    
+    <?php include ('encabezado.php'); encabezadox('Evaluacion Reporte Final') #encabezado xd?>
+
     <form method="post">
         <?php 
             $queryAlumno = consultaUsuarioAlumno($idAlumno);
@@ -22,7 +21,6 @@
             $queryProyectoCarrera = consultaCarreraAlumno($consultaAlumno['NumeroControl']);
             if(!($consultaAlumnoProyecto = mysqli_fetch_array($queryProyectoAlumno))){echo 'error';}
             if(!($consultaAlumnoCarrera = mysqli_fetch_array($queryProyectoCarrera))){echo 'error';}
-
             $idSolicitudResidencia = $consultaAlumnoProyecto['SRID'];
         ?>
         <div class="containerEv">
@@ -39,7 +37,7 @@
                 <input type="text" class="lb-inp" name="ProgramaEducativo" value="<?php echo $consultaAlumnoCarrera['Nombre']; ?>" disabled> <br>
                 <label for="" class="lb-inp">Periodo de Realizacion:</label> <br>
                 <input type="text" class="lb-inp" name="PeriodoRealizacion" value="<?php echo $consultaAlumnoProyecto['SRPeriodo']; ?>" disabled> <br>
-                <input type="submit" value="Guardar Cambios" class="lb-inp btnEnviarEv" formaction="procesos/AsesorInternoGuardarEvReporte.php">
+                <input type="submit" value="Guardar Cambios" class="lb-inp btnEnviarEv" formaction="procesos/AsesorExternoGuardarEvReporte.php">
             </div>
             <!-- Columna central tabla  -->
             <div class="column-Ev2">
