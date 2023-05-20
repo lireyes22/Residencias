@@ -263,4 +263,17 @@ function rechazado($SRID){
     $query= mysqli_fetch_array(mysqli_query($conection, $sql));
     return $query[0];
 }
+function estudiantesActuales($SPID){ //DEVUELVE EL NUMERO DE ESPACIOS LIBRES QUE QUEDAN EN UN PROYECTO
+    $conection = conn();
+    $sql = "SELECT Count(*) FROM SolicitudResidencia INNER JOIN BancoProyectos ON SolicitudResidencia.BPID = BancoProyectos.BPID WHERE BancoProyectos.SPID = $SPID AND SolicitudResidencia.SREstatus = 'APROBADO';";
+    $query = mysqli_fetch_array(mysqli_query($conection, $sql));
+    $numeroDeResidentes = intval($query[0]);
+    $sql = "SELECT SPEstudiantesRequeridos FROM SolicitudProyecto WHERE SolicitudProyecto.SPID = $SPID;";
+    $query = mysqli_fetch_array(mysqli_query($conection, $sql));
+    $estudiantesRequeridos = intval($query[0]);
+    $n = $estudiantesRequeridos - $numeroDeResidentes;
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $n;
+}
 ?>

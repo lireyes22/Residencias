@@ -78,6 +78,7 @@
                                 }
                             ?>
                             <input type="hidden" name="SPID" value="<?php echo $row['SPID'];?>">
+                            <input type="hidden" name="SRID" value="<?php echo $row['SRID'];?>">
                             <input type="<?php echo $vReenviar; ?>"  value="Reenviar Solicitud">
                         </th>
                     </form>
