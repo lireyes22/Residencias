@@ -23,15 +23,23 @@ if (file_exists('funciones.php')) {
 			$sql=GenerarLogADeptVin($username);
 		}elseif ($rol == "AsesorInterno") {
 			$sql=GenerarLogAsesorInt($username);
-		}		
+		}elseif ($rol == "AsesorExterno") {
+			$sql=GenerarLogAsesorExt($username);
+		}			
 
 		$result = $conection->query($sql);
 
 		if ($result->num_rows > 0) {
 			$row = $result->fetch_array(MYSQLI_ASSOC);
-			
+			$validador=false;
+			if($rol == "AsesorExterno"){
 
-			if (($row["CorreoInstitucional"]==$username) && ($row["ContrasenaCorreo"]==$password)) {
+			}else{
+				if(($row["CorreoInstitucional"]==$username) && ($row["ContrasenaCorreo"]==$password)){
+
+				}
+			}
+			if ($validador) {
 				session_start();
 				$_SESSION['loggedin'] = true;
 				$_SESSION['username'] = $username;
@@ -48,6 +56,8 @@ if (file_exists('funciones.php')) {
 						header('Location: Profesor/index.php');
 					}elseif($row['URol']=="JefDeptAca"){
 						header('Location: DeptoAcademico/index.php');
+					}elseif($row['URol']=="AsesorExterno"){
+						header('Location: Asesor/IndexAI.php');
 					}
 
 
