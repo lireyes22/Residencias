@@ -36,7 +36,7 @@ if (file_exists('funciones.php')) {
 
 			}else{
 				if(($row["CorreoInstitucional"]==$username) && ($row["ContrasenaCorreo"]==$password)){
-
+					$validador=true;
 				}
 			}
 			if ($validador) {
