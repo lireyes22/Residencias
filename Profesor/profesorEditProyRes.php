@@ -5,6 +5,7 @@
     $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
     $query= "SELECT * FROM Empresas";
     $result = mysqli_query($link, $query);
+	$rowE = mysqli_fetch_array($result);
     $IDUser=$_SESSION['id'];
 	#$IDSP_ACTUAL=$_POST['SPID'];
 	$IDSP_ACTUAL= 999914;
@@ -13,12 +14,12 @@
 	$result2 = mysqli_query($link, $query2);
 
     $query3 = "SELECT * FROM SolicitudProyecto WHERE SPID = '$IDSP_ACTUAL'";
-    $result3 = mysqli_query($link, $query);
+    $result3 = mysqli_query($link, $query3);
 	$row = mysqli_fetch_array($result3);
 
 	//Obtener la carrera que se escogió previamente
 	$query4 = "SELECT CarrerasSolicitudProyecto.CID FROM CarrerasSolicitudProyecto INNER JOIN SolicitudProyecto ON CarrerasSolicitudProyecto.SPID=SolicitudProyecto.SPID WHERE SolicitudProyecto.SPID='$IDSP_ACTUAL'";
-    $result4 = mysqli_query($link, $query);
+    $result4 = mysqli_query($link, $query4);
 	$row2 = mysqli_fetch_array($result4);
 
 ?>
@@ -95,17 +96,20 @@
 
 						<br><br>
 						<h3>Nombre de la Empresa:</h3>
-						<select name="Empresas" >
+						<select name="Empresas">
 							<?php
 							// Ciclo para mostrar los resultados en el combobox
-							while ($row = mysqli_fetch_array($result)) {
-								echo "<option value='".$row['ERFC']."'>".$row['ENombre']."</option>";
+							while ($rowE = mysqli_fetch_array($result)) {
+								echo "<option value='".$row['ERFC'];
+                                if($rowE[0]==$row[13]) echo "selected";
+                                echo "'>";
+                                echo $rowE['ENombre']."</option>";
 							}
 							?>
 						</select>
 						<br><br>
 						<h3>Carrera Requerida por los estudiantes: </h3>
-						<input type="checkbox" name="carreraReq[]" value="6" <?php if($ro2[1]=='6') echo "checked" ?>>Ing. en Sistemas Computacionales<br>
+						<input type="checkbox" name="carreraReq[]" value="6" <?php if($row2[1]=='6') echo "checked" ?>>Ing. en Sistemas Computacionales<br>
 						<input type="checkbox" name="carreraReq[]" value="1" <?php if($row2[1]=='1') echo "checked" ?>>Ing. en Tecnologías de la información
 						<br><br>
 					</div><br><br>

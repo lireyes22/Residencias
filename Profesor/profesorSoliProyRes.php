@@ -83,7 +83,7 @@
 
 						<br><br>
 						<h3>Nombre de la Empresa:</h3>
-						<select name="Empresas">
+						<select name="Empresas" >
 							<?php
 
 							// Ciclo para mostrar los resultados en el combobox
