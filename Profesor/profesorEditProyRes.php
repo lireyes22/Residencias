@@ -7,7 +7,7 @@
     $result = mysqli_query($link, $query);
     $IDUser=$_SESSION['id'];
 	#$IDSP_ACTUAL=$_POST['SPID'];
-	$IDSP_ACTUAL= 999914;
+	$IDSP_ACTUAL= 999925;
 
     $query2="SELECT Profesor.NombreCompleto FROM Profesor INNER JOIN Profesor_Usuarios ON Profesor.RFCProfesor=Profesor_Usuarios.RFCProfesor INNER JOIN Usuarios ON Profesor_Usuarios.UID=Usuarios.UID WHERE Usuarios.UID='$IDUser'";
 	$result2 = mysqli_query($link, $query2);
@@ -15,11 +15,8 @@
     $query3 = "SELECT * FROM SolicitudProyecto WHERE SPID = '$IDSP_ACTUAL'";
     $result3 = mysqli_query($link, $query3);
 	$row = mysqli_fetch_array($result3);
-
-	//Obtener la carrera que se escogió previamente
-	$query4 = "SELECT CarrerasSolicitudProyecto.* FROM CarrerasSolicitudProyecto INNER JOIN SolicitudProyecto ON CarrerasSolicitudProyecto.SPID=SolicitudProyecto.SPID WHERE SolicitudProyecto.SPID='$IDSP_ACTUAL'";
-    $result4 = mysqli_query($link, $query4);
-	$row2 = mysqli_fetch_array($result4);
+	
+	
 
 ?>
 	<!DOCTYPE html>
@@ -91,7 +88,7 @@
 						<h3>Docente Responsable: </h3>
 						<?php 
 						$rowDRS = mysqli_fetch_array($result2);
-						 ?>
+						?>
 						<input class="inp-sr" type="text" name="docenteResp" size="20" disabled value="<?php echo $rowDRS['NombreCompleto']; ?>">
 
 						<br><br>
@@ -108,14 +105,35 @@
 							?>
 						</select>
 						<br><br>
+
 						<h3>Carrera Requerida por los estudiantes: </h3>
-						<input type="checkbox" name="carreraReq[]" value="6" <?php if($row2[1]=='6') echo "checked" ?>>Ing. en Sistemas Computacionales<br>
-						<input type="checkbox" name="carreraReq[]" value="1" <?php if($row2[1]=='1') echo "checked" ?>>Ing. en Tecnologías de la información
-						<br><br>
-					</div><br><br>
+						<?php
+							#$row2 = mysqli_fetch_array($result4)
+							$query = getCarreras();
+							
 
-						<input class="boton"type="submit" name="enviar" value="Enviar">
+                			while($consulta = mysqli_fetch_array($query)){
+								$idCarrera = $consulta['CID'];
+								$nombreCarrera = $consulta['Nombre'];
+								$queryCS = getCarrerasXSolicitud($IDSP_ACTUAL);
+						?>
 
+
+							<input type="checkbox" name="carreraReq[]" value="<?php echo $idCarrera; ?>" 
+							<?php
+								while($consultaCS = mysqli_fetch_array($queryCS)){
+									$idCarreraCS = $consultaCS['CID'];
+									if($idCarreraCS == $idCarrera){
+										echo 'checked';
+									}
+								}	
+							?>
+							><?php echo $nombreCarrera; ?><br>
+							
+							
+						<?php } #end while?>
+					</div>
+						<br><br><br><br><input class="boton"type="submit" name="enviar" value="Enviar">
 				</form>
 			</div>
 		</div>

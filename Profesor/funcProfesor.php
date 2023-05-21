@@ -258,4 +258,20 @@
         while (mysqli_next_result($conection)) { }
         return $query;
     }
+    function getCarreras(){
+        $conection = conn();
+        $sql = "SELECT * FROM Carreras";
+        $query = mysqli_query($conection, $sql);
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        return $query;
+    }
+    function getCarrerasXSolicitud($IDSP_ACTUAL){
+        $conection = conn();
+        $sql = "SELECT CarrerasSolicitudProyecto.* FROM CarrerasSolicitudProyecto INNER JOIN SolicitudProyecto ON CarrerasSolicitudProyecto.SPID=SolicitudProyecto.SPID WHERE SolicitudProyecto.SPID='$IDSP_ACTUAL'";
+        $query = mysqli_query($conection, $sql);
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        return $query;
+    }
 ?>
