@@ -3,7 +3,7 @@
     $idAsesor = $_POST['idAsesor'];
     $idAlumno = $_POST['idAlumno'];
     #echo $idAsesor;echo '<br>';echo $idAlumno;
-
+    $consultaAsesor = ObtenerAsesorExterno($idAsesor);
 ?>
 
 <!DOCTYPE html>
@@ -182,7 +182,7 @@
                 #de donde saco la info del asesorexterno xd
             ?>
             <label class="txtSizeEvC3 mrgEvC3 lb-inp">Nombre del Asesor Interno:</label>
-            <input class="txtSizeEvC3 lb-inp" type="text" name="AsesorExterno" value="" disabled>
+            <input class="txtSizeEvC3 lb-inp" type="text" name="AsesorExterno" value="<?php echo $consultaAsesor['AENombre']; ?>" disabled>
             <label class="txtSizeEvC3 mrgEvC3 lb-inp">Firma electronica:</label>
             <input class="txtSizeEvC3 lb-inp" type="file" name="archivo">
             <label class="txtSizeEvC3 mrgEvC3 lb-inp">Fecha de evaluación</label>
