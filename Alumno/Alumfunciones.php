@@ -174,6 +174,15 @@ function getProyecto($UID){
         return $query;
 }
 
+function getCarreras(){
+    $conection = conn();
+    $sql = "SELECT * FROM Carreras";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $query;
+}
+
 function validarRes($SPID, $ID){
     $activo = false;
     $conection = conn();
@@ -426,5 +435,6 @@ function verificarSolicitudReporteFinal($respuesta,$alumno){
 }
 
 }
+
 
 ?>
