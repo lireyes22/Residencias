@@ -32,12 +32,8 @@ $link = conn();
 			<div class="center-column">
 				<h2>TRAKING</h2>
 			</div>
-			<!-- Boton de configuraciones-->
-            <div class = btn-conf>
-                <a href="config.php"><img src="../img/conf.png" width="40px"></a>
-            </div>
-            <!-- Fin del boton de configuraciones -->
 			<div class="right-column">
+				<a href="config.php"><img src="../img/configuraciones.png" width="50px"></a> &nbsp; &nbsp;
 				<a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
 			</div>
 		</div>
