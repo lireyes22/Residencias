@@ -51,7 +51,8 @@
 		</div> 
 		<div class="fondoP">
 			<div class="datosSolicitudproy">
-				<form action="exc/insertSP.php" method="POST">
+				<form action="exc/UpdateSP.php" method="POST">
+					<input type="hidden" name="vSPID" value="<?php echo $IDSP_ACTUAL;?>">
 					<div>
 						<h3>Nombre del Proyecto</h3> 
 						<input class="inp-sr" type="text" name="nombreProy" required size="100%" value="<?php echo $row[1] ?>"><br>
