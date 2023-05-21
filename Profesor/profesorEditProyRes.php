@@ -90,9 +90,9 @@
 
 						<h3>Docente Responsable: </h3>
 						<?php 
-						$row2 = mysqli_fetch_array($result2);
+						$rowDRS = mysqli_fetch_array($result2);
 						 ?>
-						<input class="inp-sr" type="text" name="docenteResp" size="20" disabled value="<?php echo $row2['NombreCompleto']; ?>">
+						<input class="inp-sr" type="text" name="docenteResp" size="20" disabled value="<?php echo $rowDRS['NombreCompleto']; ?>">
 
 						<br><br>
 						<h3>Nombre de la Empresa:</h3>
@@ -100,7 +100,7 @@
 							<?php
 							// Ciclo para mostrar los resultados en el combobox
 							while ($rowE = mysqli_fetch_array($result)) {
-								echo "<option value='".$row['ERFC'];
+								echo "<option value='".$rowE['ERFC'];
                                 #if($rowE[0]==$row[13]) echo "selected";
                                 echo "'>";
                                 echo $rowE['ENombre']."</option>";
