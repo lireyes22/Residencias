@@ -21,7 +21,7 @@
 			<div class="row">
 				<div class="left-column">
 					<a class="home-btn" href="index.php">
-						<h2><span style="margin-right: 10px;">Profesor</span></h2>
+						<h2><span style="margin-right: 10px;">Alumno</span></h2>
 						<img src="../img/sombrero.png" width="50px">
 					</a>
 				</div>
@@ -92,11 +92,26 @@
 							?>
 						</select>
 						<br><br>
+
 						<h3>Carrera Requerida por los estudiantes: </h3>
-						<input type="checkbox" name="carreraReq[]" value="6">Ing. en Sistemas Computacionales<br>
-						<input type="checkbox" name="carreraReq[]" value="1">Ing. en Tecnologías de la información
-						<br><br>
-					</div><br><br>
+						<?php
+							#$row2 = mysqli_fetch_array($result4)
+							$query = getCarreras();
+							
+
+                			while($consulta = mysqli_fetch_array($query)){
+								$idCarrera = $consulta['CID'];
+								$nombreCarrera = $consulta['Nombre'];
+						?>
+
+
+							<input type="checkbox" name="carreraReq[]" value="<?php echo $idCarrera; ?>" 
+							><?php echo $nombreCarrera; ?><br>
+							
+							
+						<?php } #end while?>
+
+					</div><br><br><br><br>
 
 						<input class="boton"type="submit" name="enviar" value="Enviar">
 

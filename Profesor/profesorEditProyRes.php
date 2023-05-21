@@ -15,8 +15,6 @@
     $query3 = "SELECT * FROM SolicitudProyecto WHERE SPID = '$IDSP_ACTUAL'";
     $result3 = mysqli_query($link, $query3);
 	$row = mysqli_fetch_array($result3);
-	
-	
 
 ?>
 	<!DOCTYPE html>
