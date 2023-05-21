@@ -48,6 +48,7 @@ if($_POST){
         include 'MenuAlumno.html';
         include '../configUsuarios.php';
         ?>
+
 	</div>
 </body>
 </html>

@@ -68,10 +68,4 @@ function validarFirma($ID){
     $sql=mysqli_fetch_assoc($query);
     return $sql;
 }
-
-function setFirma($ID,$firma){
-    $conection = conn();
-    $query = "UPDATE Usuarios SET Ufirma='$firma' WHERE UID=$ID";
-    mysqli_query($conection, $query);
-}
 ?>
