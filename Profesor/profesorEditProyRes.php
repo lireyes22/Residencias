@@ -6,16 +6,16 @@
     $query= "SELECT * FROM Empresas";
     $result = mysqli_query($link, $query);
     $IDUser=$_SESSION['id'];
+	$IDSP_ACTUAL=$_POST['SPID'];
 
     $query2="SELECT Profesor.NombreCompleto FROM Profesor INNER JOIN Profesor_Usuarios ON Profesor.RFCProfesor=Profesor_Usuarios.RFCProfesor INNER JOIN Usuarios ON Profesor_Usuarios.UID=Usuarios.UID WHERE Usuarios.UID='$IDUser'";
 	$result2 = mysqli_query($link, $query2);
 
-    $query3 = "SELECT * FROM SolicitudProyecto WHERE SPID = '$idProy'";
+    $query3 = "SELECT * FROM SolicitudProyecto WHERE SPID = '$IDSP_ACTUAL'";
     $result3 = mysqli_query($link, $query);
 	$row = mysqli_fetch_array($result3);
 
 	//Obtener la carrera que se escogió previamente
-	$IDSP_ACTUAL=$_POST['SPID'];
 	$query4 = "SELECT CarrerasSolicitudProyecto.CID FROM CarrerasSolicitudProyecto INNER JOIN SolicitudProyecto ON CarrerasSolicitudProyecto.SPID=SolicitudProyecto.SPID WHERE SolicitudProyecto.SPID='$IDSP_ACTUAL'";
     $result4 = mysqli_query($link, $query);
 	$row2 = mysqli_fetch_array($result4);
@@ -70,21 +70,21 @@
 						<input class="inp-sr" type="number" name="numEstudiantes" min="0" max="20" step="1" value="<?php echo $row[6] ?>">
 						<br><br>
 						<h3>Tiempo estimado de proyecto: </h3>
-						<input class="inp-sr" type="number" name="tiempoProy" min="1" max="6" step="1" value="<?php echo $row[7] ?>> 
+						<input class="inp-sr" type="number" name="tiempoProy" min="1" max="6" step="1" value="<?php echo $row[7] ?>"> 
 						<label class="lb-sr" for="tiempoEst">MES(ES)</label> <br><br>						
 						<h3>Tipo de propuesta:</h3>
 						<select name="tipoProp">
-							<option value="INTERNO">INTERNO</option>
-							<option value="EXTERNO">EXTERNO</option>
-							<option value="DUAL">DUAL</option>
-							<option value="CIIE">CIIE</option>
+							<option value="INTERNO" <?php if($row[8]=='INTERNO') echo "checked" ?>>INTERNO</option>
+							<option value="EXTERNO" <?php if($row[8]=='EXTERNO') echo "checked" ?>>EXTERNO</option>
+							<option value="DUAL" <?php if($row[8]=='DUAL') echo "checked" ?>>DUAL</option>
+							<option value="CIIE" <?php if($row[8]=='CIIE') echo "checked" ?>>CIIE</option>
 						</select>
 						<br><br>						
 						<h3>Linea de investigación que beneficia: </h3>
-						<input class="inp-sr" type="text" name="lineaInv" size="60%">
+						<input class="inp-sr" type="text" name="lineaInv" size="60%" value="<?php echo $row[9] ?>">
 						<br><br>
 						<h3>Incluya las referencias esenciales para enmarcar el contenido de su propuesta: </h3>
-						<textarea class="ta-sp" name="refEsenciales" cols="150" rows="4"></textarea><br><br>
+						<textarea class="ta-sp" name="refEsenciales" cols="150" rows="4"><?php echo $row[10] ?></textarea><br><br>
 
 						<h3>Docente Responsable: </h3>
 						<?php 
@@ -94,7 +94,7 @@
 
 						<br><br>
 						<h3>Nombre de la Empresa:</h3>
-						<select name="Empresas">
+						<select name="Empresas" >
 							<?php
 							// Ciclo para mostrar los resultados en el combobox
 							while ($row = mysqli_fetch_array($result)) {
