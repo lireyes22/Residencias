@@ -38,7 +38,7 @@
 		</div> 
 		<div class="fondoP">
 			<div class="datosSolicitudproy">
-				<form action="exc/insertSP.php" method="POST">
+				<form action="inserts/insertAlumRegisProy.php" method="POST">
 					<div>
 						<h3>Nombre del Proyecto</h3> 
 						<input class="inp-sr" type="text" name="nombreProy" required size="100%"><br>

@@ -101,9 +101,7 @@ $idAlumno = $_POST['idAlumno'];
                                 <td><input type="number" name="DaMejorasP2" min="0" max="15" step="1" value="<?php  echo $ParcialUno['ERCalificacion'] ?>" disabled></td>
                             </tr>
                             <tr style="background-color: cadetblue;">
-                                <td><strong>NOTA: Al hacer clic en guardar se actualizaran los datos</strong></td>
-                                <td></td>
-                                <td><input type="submit" value="Guardar" name="Par1" formaction="procesos/AsesorInternoGuardarEvSeguimiento.php"></td>
+                                <?php getBoton('Par1'); ?>
                             </tr>
                         </table>
                         <label class="txtSizeEvC3 mrgEvC3 lb-inp" style="color: white; font-size: 20px;"><strong>Observaciones:</strong></label> <br>
@@ -161,9 +159,7 @@ $idAlumno = $_POST['idAlumno'];
                                 <td><input type="number" name="DaMejorasP2" min="0" max="15" step="1" value="<?php  echo $ParcialDos['ERCalificacion'] ?>" disabled></td>
                             </tr>
                             <tr style="background-color: cadetblue;">
-                                <td><strong>NOTA: Al hacer clic en guardar se actualizaran los datos</strong></td>
-                                <td></td>
-                                <td><input type="submit" value="Guardar" name="Par2" formaction="procesos/AsesorInternoGuardarEvSeguimiento.php"></td>
+                                <?php getBoton('Par2'); ?>
                             </tr>
                         </table>
                         <label class="txtSizeEvC3 mrgEvC3 lb-inp" style="color: white; font-size: 20px;"><strong>Observaciones:</strong></label> <br>
@@ -188,7 +184,7 @@ $idAlumno = $_POST['idAlumno'];
             <input class="txtSizeEvC3 lb-inp" type="text" name="AsesorInterno" value="<?php echo $consultaAsesor['NombreCompleto']; ?>" disabled>
             <label class="txtSizeEvC3 mrgEvC3 lb-inp">Firma electronica:</label>
             <input class="txtSizeEvC3 lb-inp" type="file" name="archivo">
-            <label class="txtSizeEvC3 mrgEvC3 lb-inp">Fecha de evaluación</label>
+            <label class="txtSizeEvC3 mrgEvC3 lb-inp">Fecha:</label>
             <input class="txtSizeEvC3 lb-inp" type="date" value="<?php echo date('Y-m-d'); ?>" disabled>
             <label class="txtSizeEvC3 mrgEvC3 lb-inp">Total Puntos:</label>
             <input class="txtSizeEvC3 lb-inp" type="text" name="TotalPuntos" value="<?php  echo $ParcialUno['ERCalificacion'] + $ParcialDos['ERCalificacion']?>" disabled>
