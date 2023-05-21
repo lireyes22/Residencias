@@ -94,6 +94,18 @@ function consultaAsesorAlumno($idAsesor) {
     while (mysqli_next_result($conection)) { }
     return $query;
 }
+function ObtenerAsesorExterno($idAsesor) {
+    $conection = conn();
+    $sql = "CALL ObtenerAsesorExterno($idAsesor)";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    if (!($consultaAsesor = mysqli_fetch_array($query))) {
+        $consultaAsesor['UID'] = -1;
+        #se puede hacer un foreach, pero se me olvido que existe en php xd.
+    }
+    return $consultaAsesor;
+}
 function consultaUsuarioAlumno($idAlumno) {
     $conection = conn();
     $sql = "CALL UsuarioxAlumno($idAlumno)";
