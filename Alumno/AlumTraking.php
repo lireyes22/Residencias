@@ -40,21 +40,74 @@ $link = conn();
     		include 'MenuAlumno.html';
     		?>
 
-    	</div>
-    	
-    		
+    	</div>    	
 
-    		<div class="center-container">
-    			<div class="progress-container">
-    				<div class="progress-bar"><span class="progress-bar-fill"></span></div>
-    			</div>
-    			<div class="progress-container">
-    				<div class="progress-bar"><span class="progress-bar-fill"></span></div>
-    			</div>
-    			<div class="progress-container">
-    				<div class="progress-bar"><span class="progress-bar-fill"></span></div>
-    			</div>
-    		</div>
-    	
-    </body>
-    </html>
+    	<div class="center-container">
+    		<div class="TituloTraking"><b>Proyectos Propuestos</b></div>
+    		<?php 
+    		$conn = conn();
+    		$id=$_SESSION['id'];
+    		$sql = "SELECT * FROM SolicitudProyecto WHERE UIDResponsable='$id'";
+    		$resultado = $conn->query($sql);
+
+    		if ($resultado->num_rows > 0) {
+				// Imprimir los resultados línea por línea
+    			while ($fila = $resultado->fetch_assoc()) {
+    				?>
+    				<div class="TituloTraking"><?php echo $fila['SPNombreProyecto']." (".$fila['SPEstatus'].")"; ?></div>
+					<div class="progress-container">
+						<div class="progress-bar"><span class="<?php echo verificarSolicitudProyecto($fila['SPEstatus']); ?>"></span></div>
+						<button>Botón</button>    		
+					</div>
+    				<?php
+				}
+			} else {
+				echo "No se han propuesto proyectos.";
+			}
+			?>
+
+
+			<div class="TituloTraking"><b>Solicitud Residencia</b></div>
+    		<?php 
+    		$conn = conn();
+    		$id=$_SESSION['id'];
+    		$sql = "SELECT SolicitudResidencia.UAlumno,SolicitudResidencia.SREstatus, SolicitudProyecto.SPNombreProyecto FROM SolicitudResidencia 
+			INNER JOIN BancoProyectos ON BancoProyectos.BPID = SolicitudResidencia.BPID 
+			INNER JOIN SolicitudProyecto ON BancoProyectos.SPID = SolicitudProyecto.SPID 
+			WHERE SolicitudResidencia.UAlumno='$id'";
+    		$resultado = $conn->query($sql);
+
+    		if ($resultado->num_rows > 0) {
+				// Imprimir los resultados línea por línea
+    			while ($fila = $resultado->fetch_assoc()) {
+    				?>
+    				<div class="TituloTraking"><?php echo $fila['SPNombreProyecto']." (".$fila['SREstatus'].")"; ?></div>
+					<div class="progress-container">
+						<div class="progress-bar"><span class="<?php echo verificarSolicitudResidencia($fila['SREstatus']); ?>"></span></div>
+						
+						<button>Botón</button>    		
+					</div>
+    				<?php
+				}
+			} else {
+				echo "No se han propuesto proyectos.";
+			}
+			?>
+		<div class="TituloTraking">Reporte parcial 1 (<?php echo verificarSolicitudReporteParcial1(true,$_SESSION['id']);?>)</div>
+		<div class="progress-container">
+			<div class="progress-bar"><span class="<?php echo verificarSolicitudReporteParcial1(false,$_SESSION['id']);?>"></span></div>
+			<button>Generar</button>
+		</div>
+		<div class="TituloTraking">Reporte parcial 2 (<?php echo verificarSolicitudReporteParcial2(true,$_SESSION['id']);?>)</div>
+		<div class="progress-container">
+			<div class="progress-bar"><span class="<?php echo verificarSolicitudReporteParcial2(false,$_SESSION['id']);?>"></span></div>
+			<button>Generar</button>
+		</div>
+		<div class="TituloTraking">Reporte Final (<?php echo verificarSolicitudReporteFinal(true,$_SESSION['id']);?>)</div>
+		<div class="progress-container">
+			<div class="progress-bar"><span class="<?php echo verificarSolicitudReporteFinal(false,$_SESSION['id']);?>"></span></div>
+			<button>Generar</button>
+		</div>
+	</div>
+</body>
+</html>
