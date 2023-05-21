@@ -4,7 +4,7 @@
     $idAlumno = $_POST['idAlumno'];
     //echo $idAsesor;echo '<br>';echo $idAlumno;
     $evaluacionReporte = ObtenerEvaluacionFinal($idAsesor, $idAlumno);
-
+    $consultaAsesor = ObtenerAsesorExterno($idAsesor);
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +37,7 @@
                 <input type="text" class="lb-inp" name="ProgramaEducativo" value="<?php echo $consultaAlumnoCarrera['Nombre']; ?>" disabled> <br>
                 <label for="" class="lb-inp">Periodo de Realizacion:</label> <br>
                 <input type="text" class="lb-inp" name="PeriodoRealizacion" value="<?php echo $consultaAlumnoProyecto['SRPeriodo']; ?>" disabled> <br>
-                <input type="submit" value="Guardar Cambios" class="lb-inp btnEnviarEv" formaction="procesos/AsesorExternoGuardarEvReporte.php">
+                <?php getBotonRF(); ?>
             </div>
             <!-- Columna central tabla  -->
             <div class="column-Ev2">
@@ -118,13 +118,8 @@
             </div>
             <!-- Columna derecha  -->
             <div class="column-Ev3">
-                <?php 
-                    $queryAsesor = consultaProfesorAsesor($idAsesor);
-                    $consultaAsesor;
-                    if(!($consultaAsesor = mysqli_fetch_array($queryAsesor))){echo 'error';}
-                ?>
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp">Nombre del Asesor Interno:</label>
-                <input class="txtSizeEvC3 lb-inp" type="text" name="AsesorInterno" value="<?php echo $consultaAsesor['NombreCompleto']; ?>" disabled>
+                <input class="txtSizeEvC3 lb-inp" type="text" name="AsesorInterno" value="<?php echo $consultaAsesor['AENombre']; ?>" disabled>
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp">Firma electronica:</label>
                 <input class="txtSizeEvC3 lb-inp" type="file" name="archivo">
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp">Fecha de evaluación</label>

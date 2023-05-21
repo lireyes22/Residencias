@@ -1,7 +1,7 @@
 <?php 
-	include '../InicioSessionSeg.php';
-	include ('Alumfunciones.php');
-	$link = conn();
+include '../InicioSessionSeg.php';
+include ('Alumfunciones.php');
+$link = conn();
     $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
     $query="SELECT * FROM SolicitudProyecto 
     INNER JOIN BancoProyectos ON SolicitudProyecto.SPID = BancoProyectos.SPID 
@@ -9,16 +9,16 @@
     INNER JOIN UsuariosDepartamentos ON Usuarios.UID=UsuariosDepartamentos.UID
     WHERE UsuariosDepartamentos.DID='5' ";
     $result = mysqli_query($link, $query);
-?>
-<!DOCTYPE html>
-<html>
+    ?>
+    <!DOCTYPE html>
+    <html>
 
-<head>
-	<title>Listado De Proyectos</title>
-	<link rel="stylesheet" href="../style/styleAlumno.css">
-	<link rel="stylesheet" href="../style/style.css">
+    <head>
+    	<title>Listado De Proyectos</title>
+    	<link rel="stylesheet" href="../style/style.css">
+    	<link rel="stylesheet" href="style/Traking.css">
 
-</head>
+    </head>
 
 <body style="margin: 0;">
 	<div class="container">

@@ -132,4 +132,49 @@ function ObtenerSolicitudProyecto($idBancoProyecto) {
     }
     return $consultaSolicProy;
 }
+function consultaFecha($tramite) {
+    $conection = conn();
+    $sql = "SELECT * FROM FechasVencimiento WHERE FVTramite = '$tramite'";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    if(!($consultaFechaVencimiento = mysqli_fetch_array($query))){
+        $consultaFechaVencimiento['FVFechaLimite'] = date('Y-m-d');
+    }
+    return $consultaFechaVencimiento;
+}
+function getBoton($botonName){
+    #Obtener resultado de la consulta
+    $consultaFec = consultaFecha('AsesoresEvaluacionSeguimiento');
+    #convertir a formato fecha
+    $fechaComparar = DateTime::createFromFormat('Y-m-d', $consultaFec['FVFechaLimite']);
+    #obtener fecha actual
+    $fechaActual = new DateTime();
+
+    #compararlas
+    if ($fechaActual > $fechaComparar) {
+        echo '<td  colspan="3" style="color: rgb(180, 0, 0);"><strong>NOTA: Fuera de periodo de evaluacion</strong></td>';
+        #echo '<td></td>';
+        #echo '<td></td>';
+    } elseif ($fechaActual <= $fechaComparar) {
+        echo '<td><strong>NOTA: Al hacer clic en guardar se actualizaran los datos</strong></td>';
+        #echo '<td></td>';
+        echo '<td  colspan="2" ><input type="submit" class="btn btn-actualizar" value="Guardar" name="'.$botonName.'" formaction="procesos/AsesorInternoGuardarEvSeguimiento.php"></td>';
+    }
+}
+function getBotonRF(){
+    #Obtener resultado de la consulta
+    $consultaFec = consultaFecha('AsesoresEvaluacionReporteFinal');
+    #convertir a formato fecha
+    $fechaComparar = DateTime::createFromFormat('Y-m-d', $consultaFec['FVFechaLimite']);
+    #obtener fecha actual
+    $fechaActual = new DateTime();
+
+    #compararlas
+    if ($fechaActual > $fechaComparar) {
+        echo '<input style="color: rgb(255, 255, 255); background-color: transparent;" class="lb-inp" type="text" value="Fuera de periodo de evaluacion" disabled>';
+    } elseif ($fechaActual <= $fechaComparar) {
+        echo '<input type="submit" value="Guardar Cambios" class="btn btn-actualizar" formaction="procesos/AsesorInternoGuardarEvReporte.php">';
+    }
+}
 ?>

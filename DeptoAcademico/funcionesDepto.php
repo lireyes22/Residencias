@@ -236,4 +236,14 @@ function plantilla(){
     while (mysqli_next_result($conection)) { }
     return $query;
 }
+
+function getFechas(){
+    $conection = conn();
+    $sql = "SELECT * FROM FechasVencimiento";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $query;
+}
+
 ?>
