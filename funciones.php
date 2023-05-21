@@ -54,4 +54,9 @@ function GenerarLogAsesorInt($correo) {
     WHERE Profesor.CorreoInstitucional='$correo'";
     return $sql;
 }
+function GenerarLogAsesorExt($correo) {
+    $sql="SELECT * FROM AsesorExterno
+    WHERE AsesorExterno.AECorreo='$correo'";
+    return $sql;
+}
 ?>
