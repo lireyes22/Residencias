@@ -1,45 +1,111 @@
 .center-container {
-      display: flex;
-      flex-direction: column; /* Modificado */
-      justify-content: center;
-      align-items: center;
-      height: 20vh;
-      background-color: #f2f2f2;
-      position: relative; /* Agregado */
-    }
-    
-    .progress-container {
-      width: 800px;
-      padding: 10px;
-      background-color: #D5E5D6;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      position: relative; /* Modificado */
-      margin-bottom: 10px; /* Agregado */
-    }
-    
-    .progress-bar {
-      margin-bottom: 10px;
-      background-color: #AED3AF;
-      height: 20px;
-      border-radius: 5px;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .progress-bar-fill {
-      display: block;
-      height: 100%;
-      background-color: #4CAF50;
-      animation: progress-bar-animation 5s ease-in-out;
-    }
-    
-    @keyframes progress-bar-animation {
-      0% {
-        width: 0%;
-        left: 0;
-      }
-      100% {
-        width: 100%;
-        left: 0;
-      }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  position: relative;
+}
+.TituloTraking{
+  width: 800px;
+  padding: 10px;
+  position: relative;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.progress-container {
+  width: 800px;
+  padding: 10px;
+  background-color: #D5E5D6;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-bar {
+  margin-bottom: 10px;
+  background-color: #AED3AF;
+  height: 20px;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.progress-bar-fill-100 {
+  display: block;
+  height: 100%;
+  background-color: #4CAF50;
+  animation: progress-bar-animation 1s ease-in-out;
+  width: 100%;
+}
+.progress-bar-fill-50 {
+  display: block;
+  height: 100%;
+  background-color: #4AB49C;
+  animation: progress-bar-animation-50 1s ease-in-out;
+  width: 50%;
+}
+.progress-bar-fill-25 {
+  display: block;
+  height: 100%;
+  background-color: #50CEE1;
+  animation: progress-bar-animation-25 1s ease-in-out;
+  width: 25%;
+}
+
+.progress-bar-fill-0 {
+  display: block;
+  height: 100%;
+  background-color: white;
+  animation: progress-bar-animation 1s ease-in-out;
+  width: 100%;
+}
+.progress-bar-fill-R {
+  display: block;
+  height: 100%;
+  background-color: #859699;
+  animation: progress-bar-animation 1s ease-in-out;
+  width: 100%;
+}
+.progress-bar button {
+  margin-left: 10px;
+}
+
+@keyframes progress-bar-animation {
+  0% {
+    width: 0%;
+    left: 0;
+  }
+  100% {
+    width: 100%;
+    left: 0;
+  }
+}
+@keyframes progress-bar-animation-50 {
+  0% {
+    width: 0%;
+    left: 0;
+  }
+  50% {
+    width: 50%;
+    left: 0;
+  }
+}
+@keyframes progress-bar-animation-25 {
+  0% {
+    width: 0%;
+    left: 0;
+  }
+  25% {
+    width: 25%;
+    left: 0;
+  }
+}

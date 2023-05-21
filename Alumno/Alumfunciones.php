@@ -143,9 +143,9 @@ function getEmpresa($SPID){
 function getResidencia($SPID){
     $conection = conn();
     $sql = "SELECT SolicitudProyecto.SPNombreProyecto, SolicitudProyecto.SPTipo, 
-            SolicitudProyecto.SPEstudiantesRequeridos, SolicitudProyecto.SDTiempoEstimado
-            FROM SolicitudProyecto
-            WHERE $SPID = SolicitudProyecto.SPID";
+    SolicitudProyecto.SPEstudiantesRequeridos, SolicitudProyecto.SDTiempoEstimado
+    FROM SolicitudProyecto
+    WHERE $SPID = SolicitudProyecto.SPID";
     $query = mysqli_query($conection, $sql);
     $result = mysqli_fetch_assoc($query);
 
@@ -225,13 +225,13 @@ function candidato($ID){
     if ($result2['CreditosComplementariosCumplidos'] == 5 && $result2['NoTenerCursosEspeciales'] == 0
         && $result2['OchentaPorcientoCargaAcademica'] == 1 && $result2['AcreditacionServicioSocial'] == 1) {
         $candidato = true;
-    } else {
-        $candidato = false;
-    }
+} else {
+    $candidato = false;
+}
 
-    return array(
-        'candidato' => $candidato
-    );
+return array(
+    'candidato' => $candidato
+);
 }
 
 //validar que el alumno tenga almenos una solicitud de proyecto
@@ -274,6 +274,157 @@ function estudiantesActuales($SPID){ //DEVUELVE EL NUMERO DE ESPACIOS LIBRES QUE
     $n = $estudiantesRequeridos - $numeroDeResidentes;
     // vaciar el buffer de resultados
     while (mysqli_next_result($conection)) { }
-    return $n;
+        return $n;
 }
+
+function verificarSolicitudProyecto($estatus){
+    switch ($estatus) {
+      case 'ACEPTADO':
+      $clase = 'progress-bar-fill-100';
+      break;
+      case 'REVISION':
+      $clase = 'progress-bar-fill-50';
+      break;
+      case 'PENDIENTE':
+      $clase = 'progress-bar-fill-0';
+      break;
+      case 'RECHAZADO':
+      $clase = 'progress-bar-fill-R';
+      break;
+      default:
+      $clase = 'progress-bar-fill-0';
+      break;
+  }
+  return $clase;
+
+}
+function verificarSolicitudResidencia($estatus){
+    switch ($estatus) {
+      case 'APROBADO':
+      $clase = 'progress-bar-fill-100';
+      break;
+      case 'ASIGNADO':
+      $clase = 'progress-bar-fill-50';
+      break;
+      case 'ESPERA':
+      $clase = 'progress-bar-fill-0';
+      break;
+      case 'RECHAZADO':
+      $clase = 'progress-bar-fill-R';
+      break;
+      default:
+      $clase = 'progress-bar-fill-0';
+      break;
+  }
+  return $clase;
+
+}
+
+function verificarSolicitudReporteParcial1($respuesta,$alumno){
+    $conection = conn();
+    $sql ="SELECT COUNT(*) AS TotalRegistros FROM EvaReportes 
+    INNER JOIN SolicitudResidencia ON EvaReportes.SRID = SolicitudResidencia.SRID 
+    WHERE EvaReportes.ERNoParcial='1' AND SolicitudResidencia.UAlumno='$alumno'";
+    $result = $conection->query($sql);
+    $row = $result->fetch_assoc();
+    $totalRegistros = $row["TotalRegistros"];
+    $clase = '';
+    $mensaje= '';
+    switch ($totalRegistros) {
+      case 0:
+      $mensaje= 'Sin registros';
+      $clase = 'progress-bar-fill-0';
+      break;
+      case 1:
+      $mensaje= 'Calificación de 1 asesor';
+      $clase = 'progress-bar-fill-50';
+      break;
+      case 2:
+      $mensaje= 'Ambos asesores han calificado';
+      $clase = 'progress-bar-fill-100';
+      break;
+      default:
+      $mensaje= 'Sin registros';
+      $clase = 'progress-bar-fill-0';
+      break;
+  }
+  if($respuesta){
+    return $mensaje;
+}else{
+    return $clase;
+}
+
+}
+function verificarSolicitudReporteParcial2($respuesta,$alumno){
+    $conection = conn();
+    $sql ="SELECT COUNT(*) AS TotalRegistros FROM EvaReportes 
+    INNER JOIN SolicitudResidencia ON EvaReportes.SRID = SolicitudResidencia.SRID 
+    WHERE EvaReportes.ERNoParcial='2' AND SolicitudResidencia.UAlumno='$alumno'";
+    $result = $conection->query($sql);
+    $row = $result->fetch_assoc();
+    $totalRegistros = $row["TotalRegistros"];
+    $clase = '';
+    $mensaje= '';
+    switch ($totalRegistros) {
+      case 0:
+      $mensaje= 'Sin registros';
+      $clase = 'progress-bar-fill-0';
+      break;
+      case 1:
+      $mensaje= 'Calificación de 1 asesor';
+      $clase = 'progress-bar-fill-50';
+      break;
+      case 2:
+      $mensaje= 'Ambos asesores han calificado';
+      $clase = 'progress-bar-fill-100';
+      break;
+      default:
+      $mensaje= 'Sin registros';
+      $clase = 'progress-bar-fill-0';
+      break;
+  }
+  if($respuesta){
+    return $mensaje;
+}else{
+    return $clase;
+}
+
+}
+function verificarSolicitudReporteFinal($respuesta,$alumno){
+    $conection = conn();
+    $sql ="SELECT COUNT(*) AS NReportes FROM SolicitudResidencia 
+    INNER JOIN ReporteFinal ON ReporteFinal.SRID = SolicitudResidencia.SRID 
+    INNER JOIN EvaReporteFinal ON ReporteFinal.RFID = EvaReporteFinal.RFID 
+    WHERE SolicitudResidencia.UAlumno='$alumno'";
+    $result = $conection->query($sql);
+    $row = $result->fetch_assoc();
+    $totalRegistros = $row["NReportes"];
+    $clase = '';
+    $mensaje= '';
+    switch ($totalRegistros) {
+      case 0:
+      $mensaje= 'Sin registros';
+      $clase = 'progress-bar-fill-0';
+      break;
+      case 1:
+      $mensaje= 'Calificación de 1 asesor';
+      $clase = 'progress-bar-fill-50';
+      break;
+      case 2:
+      $mensaje= 'Ambos asesores han calificado';
+      $clase = 'progress-bar-fill-100';
+      break;
+      default:
+      $mensaje= 'Sin registros';
+      $clase = 'progress-bar-fill-0';
+      break;
+  }
+  if($respuesta){
+    return $mensaje;
+}else{
+    return $clase;
+}
+
+}
+
 ?>
