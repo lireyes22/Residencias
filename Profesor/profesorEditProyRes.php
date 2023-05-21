@@ -5,7 +5,6 @@
     $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
     $query= "SELECT * FROM Empresas";
     $result = mysqli_query($link, $query);
-	$rowE = mysqli_fetch_array($result);
     $IDUser=$_SESSION['id'];
 	#$IDSP_ACTUAL=$_POST['SPID'];
 	$IDSP_ACTUAL= 999914;
@@ -100,8 +99,8 @@
 							<?php
 							// Ciclo para mostrar los resultados en el combobox
 							while ($rowE = mysqli_fetch_array($result)) {
-								echo "<option value='".$row['ERFC'];
-                                #if($rowE[0]==$row[13]) echo "selected";
+								echo "<option value='".$rowE['ERFC'];
+                                if($rowE[0]==$row[13]) echo "selected";
                                 echo "'>";
                                 echo $rowE['ENombre']."</option>";
 							}
