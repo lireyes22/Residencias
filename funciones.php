@@ -59,4 +59,19 @@ function GenerarLogAsesorExt($correo) {
     WHERE AsesorExterno.AECorreo='$correo'";
     return $sql;
 }
+
+//funcion que busca la firma de usuario
+function validarFirma($ID){
+    $conection = conn();
+    $sql="SELECT Ufirma FROM Usuarios WHERE UID=$ID";
+    $query = mysqli_query($conection, $sql);
+    $sql=mysqli_fetch_assoc($query);
+    return $sql;
+}
+
+function setFirma($ID,$firma){
+    $conection = conn();
+    $query = "UPDATE Usuarios SET Ufirma='$firma' WHERE UID=$ID";
+    mysqli_query($conection, $query);
+}
 ?>

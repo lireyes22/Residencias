@@ -25,6 +25,11 @@
 			<div class="center-column">
 				<h2>REPORTE FINAL DE RESIDENCIA</h2>
 			</div>
+			<!-- Boton de configuraciones-->
+            <div class = btn-conf>
+                <a href="config.php"><img src="../img/conf.png" width="40px"></a>
+            </div>
+            <!-- Fin del boton de configuraciones -->
 			<div class="right-column">
 				<a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
 			</div>
