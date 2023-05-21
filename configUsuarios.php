@@ -10,8 +10,9 @@
 <html>
 
 <head>
+    
 </head>
-<body style="margin: 0;" onload="inicio()">
+<body style="margin: 0;" class="bd-confU">
     <?php
     if($firma['Ufirma']==null | $firma['Ufirma']==''){
         echo '<div clas="btn-firma">
@@ -24,7 +25,9 @@
     }
     else{
         echo '<div clas="btn-firma">
-            <p>Firma Actual: <br><br>'.$firma['Ufirma'].'</p><br>
+            <div class = "ufirma">
+                <p>Firma Actual: <br><br>'.$firma['Ufirma'].'</p><br>
+            </div>
             <form method="POST" enctype="multipart/form-data">
                 <br><br><input type="file" name="firma" id="firma" accept=".png" required><br><br>
                 <input type="submit" value="Agregar una nueva firma" formaction="../agregarFirma.php">

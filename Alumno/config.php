@@ -16,6 +16,7 @@ if($_POST){
     <title>Configuraciones</title>
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/styleAlumno.css">
+    <link rel="stylesheet" href="../style/styleConf.css">
 </head>
 <body>
     <div class="container">
@@ -35,14 +36,8 @@ if($_POST){
                 <a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
             </div>
         </div>
-    </div>
-
-    <div>
-        <?php
-        include 'MenuAlumno.html';
-        include '../configUsuarios.php';
-        ?>
-
-	</div>
+    </div>    
 </body>
 </html>
+
+<?php include '../configUsuarios.php';?>
