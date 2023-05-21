@@ -47,7 +47,11 @@ $link = conn();
     		<div class="center-container">
     			<div class="progress-container">
     				<div class="progress-bar"><span class="progress-bar-fill"></span></div>
+    			</div>
+    			<div class="progress-container">
     				<div class="progress-bar"><span class="progress-bar-fill"></span></div>
+    			</div>
+    			<div class="progress-container">
     				<div class="progress-bar"><span class="progress-bar-fill"></span></div>
     			</div>
     		</div>

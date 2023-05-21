@@ -1,5 +1,6 @@
- .center-container {
+.center-container {
       display: flex;
+      flex-direction: column; /* Modificado */
       justify-content: center;
       align-items: center;
       height: 20vh;
@@ -10,16 +11,16 @@
     .progress-container {
       width: 800px;
       padding: 10px;
-      background-color: grey;
+      background-color: #D5E5D6;
       border-radius: 5px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      position: absolute; /* Agregado */
-      z-index: 1; /* Agregado */
+      position: relative; /* Modificado */
+      margin-bottom: 10px; /* Agregado */
     }
     
     .progress-bar {
       margin-bottom: 10px;
-      background-color: #f0f0f0;
+      background-color: #AED3AF;
       height: 20px;
       border-radius: 5px;
       position: relative;
@@ -30,7 +31,7 @@
       display: block;
       height: 100%;
       background-color: #4CAF50;
-      animation: progress-bar-animation 3s ease-in-out;
+      animation: progress-bar-animation 5s ease-in-out;
     }
     
     @keyframes progress-bar-animation {
