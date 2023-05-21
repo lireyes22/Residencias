@@ -99,9 +99,9 @@
 							<?php
 							// Ciclo para mostrar los resultados en el combobox
 							while ($rowE = mysqli_fetch_array($result)) {
-								echo "<option value='".$rowE['ERFC'];
-                                #if($rowE[0]==$row[13]) echo "selected";
-                                echo "'>";
+								echo '<option value="'.$rowE['ERFC'].'"';
+                                if($rowE[0]==$row[13]) echo "selected";
+								echo '>';
                                 echo $rowE['ENombre']."</option>";
 							}
 							?>
