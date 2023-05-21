@@ -54,6 +54,8 @@
 		<option value="Nombre del Proyecto">Nombre del Proyecto</option>
 	</select>
 
+	<a href="AlumRegisProy.php"><button class="boton2">Proponer Proyecto</button></a>
+
 	<div class="tabla-scroll">
 		<table class="tb-asp">
 			<tr>
