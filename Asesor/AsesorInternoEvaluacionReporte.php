@@ -39,7 +39,7 @@
                 <input type="text" class="lb-inp" name="ProgramaEducativo" value="<?php echo $consultaAlumnoCarrera['Nombre']; ?>" disabled> <br>
                 <label for="" class="lb-inp">Periodo de Realizacion:</label> <br>
                 <input type="text" class="lb-inp" name="PeriodoRealizacion" value="<?php echo $consultaAlumnoProyecto['SRPeriodo']; ?>" disabled> <br>
-                <input type="submit" value="Guardar Cambios" class="lb-inp btnEnviarEv" formaction="procesos/AsesorInternoGuardarEvReporte.php">
+                <?php getBotonRF(); ?>
             </div>
             <!-- Columna central tabla  -->
             <div class="column-Ev2">
