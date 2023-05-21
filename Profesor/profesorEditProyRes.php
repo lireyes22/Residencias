@@ -6,11 +6,19 @@
     $query= "SELECT * FROM Empresas";
     $result = mysqli_query($link, $query);
     $IDUser=$_SESSION['id'];
+
     $query2="SELECT Profesor.NombreCompleto FROM Profesor INNER JOIN Profesor_Usuarios ON Profesor.RFCProfesor=Profesor_Usuarios.RFCProfesor INNER JOIN Usuarios ON Profesor_Usuarios.UID=Usuarios.UID WHERE Usuarios.UID='$IDUser'";
 	$result2 = mysqli_query($link, $query2);
+
     $query3 = "SELECT * FROM SolicitudProyecto WHERE SPID = '$idProy'";
     $result3 = mysqli_query($link, $query);
-	$row = mysqli_fetch_array($result);
+	$row = mysqli_fetch_array($result3);
+
+	//Obtener la carrera que se escogió previamente
+	$IDSP_ACTUAL=$_POST['SPID'];
+	$query4 = "SELECT CarrerasSolicitudProyecto.CID FROM CarrerasSolicitudProyecto INNER JOIN SolicitudProyecto ON CarrerasSolicitudProyecto.SPID=SolicitudProyecto.SPID WHERE SolicitudProyecto.SPID='$IDSP_ACTUAL'";
+    $result4 = mysqli_query($link, $query);
+	$row2 = mysqli_fetch_array($result4);
 
 ?>
 	<!DOCTYPE html>
@@ -59,10 +67,10 @@
 						<h3>Lugar donde se va a desarrollar:</h3>
 						<input class="inp-sr" type="text" name="lugar" size="20" value="<?php echo $row[5] ?>"><br><br>						
 						<h3>Cantidad de estudiantes requeridos: </h3>
-						<input class="inp-sr" type="number" name="numEstudiantes" min="0" max="20" step="1">
+						<input class="inp-sr" type="number" name="numEstudiantes" min="0" max="20" step="1" value="<?php echo $row[6] ?>">
 						<br><br>
 						<h3>Tiempo estimado de proyecto: </h3>
-						<input class="inp-sr" type="number" name="tiempoProy" min="1" max="6" step="1"> 
+						<input class="inp-sr" type="number" name="tiempoProy" min="1" max="6" step="1" value="<?php echo $row[7] ?>> 
 						<label class="lb-sr" for="tiempoEst">MES(ES)</label> <br><br>						
 						<h3>Tipo de propuesta:</h3>
 						<select name="tipoProp">
@@ -96,8 +104,8 @@
 						</select>
 						<br><br>
 						<h3>Carrera Requerida por los estudiantes: </h3>
-						<input type="checkbox" name="carreraReq[]" value="6">Ing. en Sistemas Computacionales<br>
-						<input type="checkbox" name="carreraReq[]" value="1">Ing. en Tecnologías de la información
+						<input type="checkbox" name="carreraReq[]" value="6" <?php if($ro2[1]=='6') echo "checked" ?>>Ing. en Sistemas Computacionales<br>
+						<input type="checkbox" name="carreraReq[]" value="1" <?php if($row2[1]=='1') echo "checked" ?>>Ing. en Tecnologías de la información
 						<br><br>
 					</div><br><br>
 
