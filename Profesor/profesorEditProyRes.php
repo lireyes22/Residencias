@@ -15,17 +15,7 @@
     $query3 = "SELECT * FROM SolicitudProyecto WHERE SPID = '$IDSP_ACTUAL'";
     $result3 = mysqli_query($link, $query3);
 	$row = mysqli_fetch_array($result3);
-<<<<<<< Updated upstream
-	
-	
 
-=======
-
-	//Obtener la carrera que se escogió previamente
-	$query4 = "SELECT CarrerasSolicitudProyecto.* FROM CarrerasSolicitudProyecto INNER JOIN SolicitudProyecto ON CarrerasSolicitudProyecto.SPID=SolicitudProyecto.SPID WHERE SolicitudProyecto.SPID='$IDSP_ACTUAL'";
-    $result4 = mysqli_query($link, $query4);
-	$row2 = mysqli_fetch_array($result4);
->>>>>>> Stashed changes
 ?>
 	<!DOCTYPE html>
 	<html>
