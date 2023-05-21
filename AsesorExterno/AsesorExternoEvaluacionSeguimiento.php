@@ -101,9 +101,7 @@
                                 <td><input type="number" name="DaMejorasP2" min="0" max="15" step="1" value="<?php  echo $ParcialUno['ERCalificacion'] ?>" disabled></td>
                             </tr>
                             <tr style="background-color: cadetblue;">
-                                <td><strong>NOTA: Al hacer clic en guardar se actualizaran los datos</strong></td>
-                                <td></td>
-                                <td><input type="submit" value="Guardar" name="Par1" formaction="procesos/AsesorExternoGuardarEvSeguimiento.php"></td>
+                                <?php getBoton('Par1'); ?>
                             </tr>
                         </table>
                         <label class="txtSizeEvC3 mrgEvC3 lb-inp" style="color: white; font-size: 20px;"><strong>Observaciones:</strong></label> <br>
@@ -161,9 +159,7 @@
                                 <td><input type="number" name="DaMejorasP2" min="0" max="15" step="1" value="<?php  echo $ParcialDos['ERCalificacion'] ?>" disabled></td>
                             </tr>
                             <tr style="background-color: cadetblue;">
-                                <td><strong>NOTA: Al hacer clic en guardar se actualizaran los datos</strong></td>
-                                <td></td>
-                                <td><input type="submit" value="Guardar" name="Par2" formaction="procesos/AsesorExternoGuardarEvSeguimiento.php"></td>
+                                <?php getBoton('Par2'); ?>
                             </tr>
                         </table>
                         <label class="txtSizeEvC3 mrgEvC3 lb-inp" style="color: white; font-size: 20px;"><strong>Observaciones:</strong></label> <br>
