@@ -62,7 +62,7 @@ if (file_exists('funciones.php')) {
 					}elseif($row['URol']=="JefDeptAca"){
 						header('Location: DeptoAcademico/index.php');
 					}
-
+ 
 
 
 				}

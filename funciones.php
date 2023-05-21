@@ -59,4 +59,4 @@ function GenerarLogAsesorExt($correo) {
     WHERE AsesorExterno.AECorreo='$correo'";
     return $sql;
 }
-?>
+?> 
