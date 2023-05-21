@@ -57,7 +57,11 @@ $link = conn();
     				<div class="TituloTraking"><?php echo $fila['SPNombreProyecto']." (".$fila['SPEstatus'].")"; ?></div>
 					<div class="progress-container">
 						<div class="progress-bar"><span class="<?php echo verificarSolicitudProyecto($fila['SPEstatus']); ?>"></span></div>
-						<button>Botón</button>    		
+						<?php
+						if($fila['SPEstatus']=="PENDIENTE"){
+							?><button>Modificar</button>   <?php
+						}
+						?>		
 					</div>
     				<?php
 				}
@@ -84,8 +88,11 @@ $link = conn();
     				<div class="TituloTraking"><?php echo $fila['SPNombreProyecto']." (".$fila['SREstatus'].")"; ?></div>
 					<div class="progress-container">
 						<div class="progress-bar"><span class="<?php echo verificarSolicitudResidencia($fila['SREstatus']); ?>"></span></div>
-						
-						<button>Botón</button>    		
+					<?php
+						if($fila['SREstatus']=="ESPERA"){
+							?><button>Modificar</button>   <?php
+						}
+						?>			
 					</div>
     				<?php
 				}
