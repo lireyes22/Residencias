@@ -16,6 +16,8 @@ $rol =  mysqli_fetch_assoc($rol);
 switch ($rol['URol']){
     case 'Alumno':
         header('location:Alumno/config.php');
+    case 'Profesor':
+        header('location:Profesor/config.php');
 }
 
 ?>
