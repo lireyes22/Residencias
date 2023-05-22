@@ -72,7 +72,7 @@ $link = conn();
     		<?php 
     		$conn = conn();
     		$id=$_SESSION['id'];
-    		$sql = "SELECT SolicitudResidencia.UAlumno,SolicitudResidencia.SREstatus, SolicitudProyecto.SPNombreProyecto FROM SolicitudResidencia 
+    		$sql = "SELECT SolicitudResidencia.UAlumno,SolicitudResidencia.SREstatus, SolicitudProyecto.SPNombreProyecto, SolicitudProyecto.SPID, SolicitudResidencia.SRID FROM SolicitudResidencia 
 			INNER JOIN BancoProyectos ON BancoProyectos.BPID = SolicitudResidencia.BPID 
 			INNER JOIN SolicitudProyecto ON BancoProyectos.SPID = SolicitudProyecto.SPID 
 			WHERE SolicitudResidencia.UAlumno='$id'";
@@ -84,9 +84,13 @@ $link = conn();
     				?>
     				<div class="TituloTraking"><?php echo $fila['SPNombreProyecto']." (".$fila['SREstatus'].")"; ?></div>
 					<div class="progress-container">
-						<div class="progress-bar"><span class="<?php echo verificarSolicitudResidencia($fila['SREstatus']); ?>"></span></div>
-						
-						<button class="btn btn-actualizar">Botón</button>    		
+						<div class="progress-bar"><span class="<?php echo verificarSolicitudResidencia($fila['SREstatus']); ?>"></span></div> 
+						<button class="btn btn-actualizar">Botón</button>  
+						<form action="AlumReenviaSoliResidencia.php" method="POST">
+							<input type="hidden" name="SPID" value="<?php echo $fila['SPID']?>">
+							<input type="hidden" name="SRID" value="<?php echo $fila['SRID']?>">
+							<input type="submit" value="Reenviar">
+						</form>
 					</div>
     				<?php
 				}

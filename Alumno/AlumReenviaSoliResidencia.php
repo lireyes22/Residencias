@@ -13,11 +13,11 @@
     }
     if(rechazado($SRID) == "ACEPTADO"){
         echo"<script>alert('Esta solicitud ya fue previamente aceptada')</script>";
-        echo"<script  language='javascript'>window.location='alumListSolicitudes.php'</script>";
+        echo"<script  language='javascript'>window.location='alumTraking.php'</script>";
     }else{
         if(estudiantesActuales($SPID) == 0){
             echo"<script>alert('Este proyecto ya se encuentra lleno')</script>";
-            echo"<script  language='javascript'>window.location='alumListSolicitudes.php'</script>";
+            echo"<script  language='javascript'>window.location='alumTraking.php'</script>";
         }  
     }
 ?>
