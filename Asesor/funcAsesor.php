@@ -177,4 +177,53 @@ function getBotonRF(){
         echo '<input type="submit" value="Guardar Cambios" class="btn btn-actualizar" formaction="procesos/AsesorInternoGuardarEvReporte.php">';
     }
 }
+   function getEmpresa($SPID){
+        $conection = conn();
+        $sql = "SELECT Empresas.`ENombre`, Empresas.`ERFC`, Empresas.`ERamo`, Empresas.`ESector`, Empresas.`EActPrincipal`, Empresas.`EDomicilio`, Empresas.`EColonia`, Empresas.`ECiudad`, Empresas.`ECp`, Empresas.`EFax`, Empresas.`ETelefono`,Empresas.`EEstatus`, Empresas.`ENombreTitular`, Empresas.`ENombreAcuerdo`, Empresas.`EPuestoTitular`, Empresas.`EPuestoAcuerdo`
+        FROM `Empresas`
+        INNER JOIN SolicitudProyecto ON SolicitudProyecto.`ERFC` = Empresas.`ERFC`
+        INNER JOIN BancoProyectos ON BancoProyectos.`SPID` = SolicitudProyecto.`SPID`
+        WHERE SolicitudProyecto.`SPID` = $SPID";
+        $query = mysqli_query($conection, $sql);
+        $result = mysqli_fetch_assoc($query);
+    
+        return array(
+            'nombre' => $result['ENombre'],
+            'ramo' => $result['ERamo'],
+            'erfc' => $result['ERFC'],
+            'esector' => $result['ESector'],
+            'eactprincipal' => $result['EActPrincipal'],
+            'edomicilio' => $result['EDomicilio'],
+            'ecolonia' => $result['EColonia'],
+            'ecp' => $result['ECp'],
+            'efax' => $result['EFax'],
+            'eciudad' => $result['ECiudad'],
+            'etelefono' => $result['ETelefono'],
+            'enombretitular' => $result['ENombreTitular'],
+            'epuestotitular' => $result['EPuestoTitular'],
+            'enombreacuerdo' => $result['ENombreAcuerdo'],
+            'epuestoacuerdo' => $result['EPuestoAcuerdo']
+        );
+    }  
+function RFCprofesor($SPID){
+    $conection = conn();
+    $sql = "SELECT Profesor.`RFCProfesor` FROM Profesor INNER JOIN `SolicitudProyecto` INNER JOIN `Profesor_Usuarios` ON Profesor.`RFCProfesor` = Profesor_Usuarios.`RFCProfesor` AND Profesor_Usuarios.`UID` = SolicitudProyecto.`UIDResponsable`  WHERE SolicitudProyecto.`SPID` = $SPID;";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $query;
+}
+function alumnosResidentes($SPID){
+    $conection = conn();
+    $sql = "SELECT * FROM Alumnos 
+      INNER JOIN Alumno_Usuarios ON Alumno_Usuarios.`NumeroControl` = Alumnos.`NumeroControl` 
+      INNER JOIN SolicitudResidencia ON Alumno_Usuarios.`UID` = SolicitudResidencia.`UAlumno` 
+      INNER JOIN BancoProyectos ON BancoProyectos.`BPID` = SolicitudResidencia.`BPID`
+      INNER JOIN SolicitudProyecto ON BancoProyectos.`SPID` = SolicitudProyecto.`SPID`
+      WHERE SolicitudResidencia.`SREstatus` ='APROBADO' AND SolicitudProyecto.`SPID` = $SPID;";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $query;
+}
 ?>
