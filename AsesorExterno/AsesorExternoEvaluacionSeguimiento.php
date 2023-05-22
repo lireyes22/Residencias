@@ -57,7 +57,7 @@
             <div id="parcial1">
                 <!-- PARCIAL 1  -->
                 <form method="post">
-                    <fieldset style="background-color: rgb(139, 0, 79)">
+                    <fieldset style="background-color: rgb(75, 75, 75)">
                         <legend style="color: white;"><button type="button" onclick="intercambiarDivs()">Primer Parcial</button></legend>
                         <table class="tb-ev">
                             <tr>
