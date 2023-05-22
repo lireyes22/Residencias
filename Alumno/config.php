@@ -1,13 +1,6 @@
 <?php
 include '../InicioSessionSeg.php';
 include '../funciones.php';
-if($_POST){
-    $imgFirma = $_FILES['firma']['tmp_name'];
-    $archivo = file_get_contents($imgFirma);
-    $ID = $_SESSION['id'];
-    //llamar al metodo para agregar la firma al usuario
-    setFirma($ID,$imagenEnBase64);
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">

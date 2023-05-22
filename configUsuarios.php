@@ -3,8 +3,8 @@
     $ID = $_SESSION['id'];
     //validar la existencia de la firma del usuario
     $firma=validarFirma($ID);
-    //print_r($firma);
-    
+    print_r($firma);
+    echo $ID;
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,8 +17,9 @@
     if($firma['Ufirma']==null | $firma['Ufirma']==''){
         echo '<div class="btn-firma">
             <form method="POST" enctype="multipart/form-data" >
-                <input type="file" name="firma" id="firma" accept=".png" required><br>
-                <input type="submit" value="agregar firma" formaction="../agregarFirma.php">
+            <h3>Agregar Firma:</h3>
+                <p><input type="file" name="firma" id="firma" value="agregar nueva firma" accept=".png" required></p>
+                <p><input type="submit" value="Guardar" formaction="../agregarFirma.php"></p><br>
                 <input type="hidden" name="id" value = "'.$ID.'">
             </form>
         </div>';
@@ -26,15 +27,17 @@
     else{
         echo '<div class="btn-firma">
             <div class = "ufirma">
-                <input type="text" size="80" maxlength="80" value= "'.$firma['Ufirma'].' " disabled>
+                <h3>Mi Firma: </h3>
+                <p><input type="text" size="80" maxlength="80" value= "'.$firma['Ufirma'].' " disabled></p>
             </div>
             <form method="POST" enctype="multipart/form-data">
-                <br><br><input type="file" name="firma" id="firma" accept=".png" required><br><br>
-                <input type="submit" value="Agregar una nueva firma" formaction="../agregarFirma.php">
+                <h3>Agregar Nueva Firma: </h3>
+                <p><input type="file" name="firma" id="firma" value="agregar nueva firma" accept=".png" required></p>
+                <p><input type="submit" value="Guardar" formaction="../agregarFirma.php"></p><br>
                 <input type="hidden" name="id" value = "'.$ID.'">
             </form>
         </div>';
     }
     ?>
-</body>
+    </body>
 <html>
