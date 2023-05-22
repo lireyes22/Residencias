@@ -13,15 +13,15 @@ mysqli_query($conection, $query);
 $query = "SELECT URol FROM Usuarios WHERE UID=$ID";
 $rol=mysqli_query($conection, $query);
 $rol =  mysqli_fetch_assoc($rol);
-switch ($rol['URol']){
-    case "Alumno":
-        header('location:Alumno/config.php');
-    case "Profesor":
-        header('location:Profesor/config.php');
-    case "AsesorExterno":
-        header('location:AsesorExterno/config.php');
-    case "JefDeptAca":
-        header('location:DeptoAcademico/config.php');
+
+if($rol['URol'] == 'Alumno'){
+    header('location:Alumno/config.php');
+}elseif($rol['URol'] == 'Profesor'){
+    header('location:Profesor/config.php');
+}elseif($rol['URol'] == 'AsesorExterno'){
+    header('location:AsesorExterno/config.php');
+}elseif($rol['URol'] == 'JefDeptAca'){
+    header('location:DeptoAcademico/config.php');
 }
 
 ?>
