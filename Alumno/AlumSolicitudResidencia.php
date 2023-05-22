@@ -262,7 +262,7 @@
                         <label for="SRAnteProyecto">Anteproyecto: </label>
                             <div class="form-group" align="right">
                                 <label for="file-input">
-                                    <img src="../img/archivo.jpg" width="40px"/>
+                            
                                 </label>
                                 <input id="file-input" accept=".pdf" type="file" name="anteproyecto" required/>
                             </div>
