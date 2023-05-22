@@ -56,8 +56,19 @@
 				<li>Fuentes de información</li>
 			</ol>
 			<div class="tb-th-asp">
+			
 				<input type="submit" value="Enviar" formaction="AlumnoInsertarReporte.php">
-				<input type="hidden" name="idAlumno" value="<?php echo $idAlumno; ?>">
+				<input type="hidden" name="idAlumno" value="<?php echo $idAlumno; ?>" accept="*">
+			
+				<script>
+					function abrirDocumento() {
+					var urlDocumento = "ReporteFinal"; 
+					window.open(urlDocumento);
+					}
+					</script>
+
+					<button onclick="abrirDocumento()">Abrir documento</button>
+
 			</div>
 			<br>
 			<div class="form-group">
