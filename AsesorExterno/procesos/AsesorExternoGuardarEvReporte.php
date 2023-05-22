@@ -37,9 +37,7 @@ $total = $Portada + $Agradecimientos + $Resumen + $Indice + $Introduccion + $Ant
 
 $conectionn = conn();
 $sql = "CALL InsertarEvaluacionReporteFinal($idSolicitudResidencia, $Portada, $Agradecimientos, $Resumen, $Indice, $Introduccion, $Antecedentes, $Justificacion, $Objetivos, $Metodologia, $Resultados, $Discusiones, $Conclusiones, $FuentesInformacion, $total,'$Observaciones', $idAsesor, 1)";
-echo $sql;'
-'
-/*$query = mysqli_query($conectionn, $sql);
+$query = mysqli_query($conectionn, $sql);
 
 if (!$query) {
     echo "Error: " . $sql . "<br>" . mysqli_error($conectionn);
@@ -49,5 +47,5 @@ if (!$query) {
 }
 
 mysqli_close($conectionn);
-*/
+
 ?>
