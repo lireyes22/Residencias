@@ -57,7 +57,7 @@ $idAlumno = $_POST['idAlumno'];
             <div id="parcial1">
                 <!-- PARCIAL 1  -->
                 <form method="post">
-                    <fieldset style="background-color: rgb(139, 0, 79)">
+                    <fieldset style="background-color: rgb(75, 75, 75)">
                         <legend style="color: white;"><button type="button" onclick="intercambiarDivs()">Primer Parcial</button></legend>
                         <table class="tb-ev">
                             <tr>
@@ -182,8 +182,9 @@ $idAlumno = $_POST['idAlumno'];
             ?>
             <label class="txtSizeEvC3 mrgEvC3 lb-inp">Nombre del Asesor Interno:</label>
             <input class="txtSizeEvC3 lb-inp" type="text" name="AsesorInterno" value="<?php echo $consultaAsesor['NombreCompleto']; ?>" disabled>
+            <!-- 
             <label class="txtSizeEvC3 mrgEvC3 lb-inp">Firma electronica:</label>
-            <input class="txtSizeEvC3 lb-inp" type="file" name="archivo">
+            <input class="txtSizeEvC3 lb-inp" type="file" name="archivo">-->
             <label class="txtSizeEvC3 mrgEvC3 lb-inp">Fecha:</label>
             <input class="txtSizeEvC3 lb-inp" type="date" value="<?php echo date('Y-m-d'); ?>" disabled>
             <label class="txtSizeEvC3 mrgEvC3 lb-inp">Total Puntos:</label>
