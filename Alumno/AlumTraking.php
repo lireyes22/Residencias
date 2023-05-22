@@ -91,9 +91,17 @@ $link = conn();
 							<input type="hidden" name="SRID" value="<?php echo $fila['SRID']?>">
 							<input type="submit" value="Reenviar">
 						</form>
+						<!--condicion para que pueda editar su solicitud  -->
+						<?php
+						if($fila['SREstatus'] == 'PENDIENTE'){
+							//IMPRIMIR EL BOTON DE EDITAR
+							echo '<form method="POST" action="AlumEditSoliResidencia.php">
+									<button class="btn btn-actualizar" type="submit">Editar</button>
+								</form>';}
+						?>
 					</div>
     				<?php
-				}
+				} 
 			} else {
 				echo "No se han propuesto proyectos.";
 			}
