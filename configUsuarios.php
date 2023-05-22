@@ -3,8 +3,6 @@
     $ID = $_SESSION['id'];
     //validar la existencia de la firma del usuario
     $firma=validarFirma($ID);
-    print_r($firma);
-    echo $ID;
 ?>
 <!DOCTYPE html>
 <html>

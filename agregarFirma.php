@@ -20,6 +20,8 @@ switch ($rol['URol']){
         header('location:Profesor/config.php');
     case 'AsesorExterno':
         header('location:AsesorExterno/config.php');
+    case 'JefDeptAca':
+        header('location:DeptoAcademico/config.php');
 }
 
 ?>
