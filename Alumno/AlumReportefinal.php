@@ -59,17 +59,15 @@
 			<div class="tb-th-asp">
 			
 				<input type="submit" value="Enviar" formaction="AlumnoInsertarReporte.php">
-				<input type="hidden" name="idAlumno" value="<?php echo $idAlumno; ?>" accept="*">
+				<input type="hidden" name="idAlumno" value="<?php echo $idAlumno; ?>">
 			
 				<script>
 					function abrirDocumento() {
-					var urlDocumento = "ReporteFinal"; 
+					var urlDocumento = $idAlumno = $_POST['idAlumno'];
 					window.open(urlDocumento);
 					}
 					</script>
-
 					<button onclick="abrirDocumento()">Abrir documento</button>
-
 			</div>
 			<br>
 			<div class="form-group">
