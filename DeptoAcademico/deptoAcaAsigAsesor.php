@@ -95,6 +95,12 @@
 			<input type="hidden" name="periodo" value="<?php echo $solicitudResidencia[5]; ?>"> <br> <br>
 			<input type="hidden" name="BPID" value="<?php echo $BPID[0]; ?>">
 			<input class="medium" type="submit" value="Asignar">
+			<button id="cancelar" class="medium" onclick="cerrarPagina()">Cancelar</button>
+			<script>
+				function cerrarPagina(){
+					window.close();
+				}
+			</script>
 		</div>
 	</form>
 	</div>
