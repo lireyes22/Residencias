@@ -4,6 +4,7 @@
         <title>Mi sitio web</title>
         <link rel="stylesheet" href="../style/StyleBase.css">
         <link rel="stylesheet" href="Style/StyleAsesor.css">
+        <link rel="stylesheet" href="Style/StyleAsesor1.css">
         <script src="procesos/intercDivs.js"></script>
         <meta charset="utf-8">
     </head>
