@@ -109,3 +109,11 @@
     left: 0;
   }
 }
+.btn-actualizar{
+  background-color: white;
+  border: 2px solid green;
+}
+.btn-actualizar:hover{
+  background-color: green;
+  color: #fff;
+}

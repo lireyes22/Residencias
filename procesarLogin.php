@@ -57,7 +57,7 @@ if (file_exists('funciones.php')) {
 						header('Location: Asesor/IndexAI.php');
 					}elseif ($row['URol']=="Alumno") {
 						header('Location: Alumno/AlumTraking.php');
-					}elseif($row['URol']=="Profesor"){
+					}elseif($row['URol']=="Profesor"||$rol=="Profesor"){
 						header('Location: Profesor/index.php');
 					}elseif($row['URol']=="JefDeptAca"){
 						header('Location: DeptoAcademico/index.php');
