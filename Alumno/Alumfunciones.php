@@ -445,6 +445,13 @@ WHERE FVTramite='$id'";
     $totalRegistros = $row["FVFechaLimite"];
     return $totalRegistros;
   }
-    
+  function comentarios($SRID){ //DEVUELVE LAS OBSERVACIONES DE UNA SOLICITUD DE RESIDENCIA
+    $conection = conn();
+    $sql = "SELECT Observvaciones FROM ObservacionesSolicitudes WHERE idSolicitud = $SRID;";
+    $query = mysqli_fetch_array(mysqli_query($conection, $sql));
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+        return $query[0];
+}    
 
 ?>

@@ -11,8 +11,8 @@
         $residencia = getResidencia($SPID);
         $asesorI = getAsesor($SPID);
     }
-    if(rechazado($SRID) == "ACEPTADO"){
-        echo"<script>alert('Esta solicitud ya fue previamente aceptada')</script>";
+    if(rechazado($SRID) != "RECHAZADO"){
+        echo"<script>alert('Esta solicitud no se encuentra en el estado de RECHAZADO')</script>";
         echo"<script  language='javascript'>window.location='alumTraking.php'</script>";
     }else{
         if(estudiantesActuales($SPID) == 0){
@@ -261,7 +261,14 @@
                         <label for="telefono">Teléfono:</label>
                         <input type="tel" name="telAlumno" id="telefono" value="<?php echo $residente['tel'] ?>" required disabled>
                     </div>
+
             <form method="POST" action='inserts/updateAnteproyecto.php' enctype="multipart/form-data">
+                    <textarea name="." cols="30" rows="10">
+                        <?php 
+                            $comentarios = comentarios($SRID);
+                            echo $comentarios;
+                        ?>
+                    </textarea>
                     <label for="file-input">
                         <p>Anteproyecto:</p>
                     </label>
