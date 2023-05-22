@@ -35,12 +35,13 @@ include '../InicioSessionSeg.php';
 		?>
 	</div> 
 	<div class="tabla-scroll">
-		<table class = "tb-asp">
+		<table class = "tb-asp" id="obsrv">
 				<tr> 
 					<td class="sticky" colspan="3">ESTATUS DE MIS PROYECTOS</td>
 					<td class="sticky"> OBSERVACIONES </td>
+					<td class="sticky">OPCIONES</td>
 				</tr>
-				<tr>
+				<tr> 
 				<?php
 					while ($proy = mysqli_fetch_array($result)){
 						$row = mysqli_fetch_array(listProySolicitados($proy[0]));
@@ -60,6 +61,18 @@ include '../InicioSessionSeg.php';
 						?>
 						<tr class="par">
 							<th class="tb-th-asp" id="nombProy" colspan="4"><?php echo $row[0]; ?></th>
+							<th rowspan="2" class="tb-th-asp" style="border: 1px solid;">
+								<?php 
+									if($row[1] != 'ACEPTADO' && $row[1] != 'RECHAZADO'){
+										?>
+										<form action="profesorEditProyRes.php" method="POST">
+											<input type="hidden" name="SPID" value="<?php echo $proy[0]; ?>">
+											<input type="submit" value="EDITAR" class="tb-th-asb">
+										</form>
+										<?php
+									}
+								?>
+							</th>
 						</tr>
 						<tr>
 							<th class="tb-th-asp" id="<?php echo $color; ?>" colspan="<?php echo $colspan; ?>"><?php echo $row[1]; ?></th>
