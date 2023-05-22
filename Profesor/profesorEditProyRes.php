@@ -6,8 +6,8 @@
     $query= "SELECT * FROM Empresas";
     $result = mysqli_query($link, $query);
     $IDUser=$_SESSION['id'];
-	#$IDSP_ACTUAL=$_POST['SPID'];
-	$IDSP_ACTUAL= 999925;
+	$IDSP_ACTUAL=$_POST['SPID'];
+
 
     $query2="SELECT Profesor.NombreCompleto FROM Profesor INNER JOIN Profesor_Usuarios ON Profesor.RFCProfesor=Profesor_Usuarios.RFCProfesor INNER JOIN Usuarios ON Profesor_Usuarios.UID=Usuarios.UID WHERE Usuarios.UID='$IDUser'";
 	$result2 = mysqli_query($link, $query2);
