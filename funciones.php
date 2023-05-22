@@ -54,4 +54,18 @@ function GenerarLogAsesorInt($correo) {
     WHERE Profesor.CorreoInstitucional='$correo'";
     return $sql;
 }
+function GenerarLogAsesorExt($correo) {
+    $sql="SELECT * FROM AsesorExterno
+    WHERE AsesorExterno.AECorreo='$correo'";
+    return $sql;
+}
+
+//funcion que busca la firma de usuario
+function validarFirma($ID){
+    $conection = conn();
+    $sql="SELECT Ufirma FROM Usuarios WHERE UID=$ID";
+    $query = mysqli_query($conection, $sql);
+    $sql=mysqli_fetch_assoc($query);
+    return $sql;
+}
 ?>

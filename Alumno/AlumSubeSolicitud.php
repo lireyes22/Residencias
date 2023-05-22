@@ -6,7 +6,7 @@ $opcion = $_POST['opcionElegida'];
 // $consarchivo = file_get_contents($cons);
 $anteproyecto = $_FILES['anteproyecto']['tmp_name'];
 $antearchivo = file_get_contents($anteproyecto);
-$periodo = '';
+$periodo = ''; 
 function conn(){
     $host = 'mapachitos.cisuktad1m53.us-east-2.rds.amazonaws.com';
     $user = 'admin';

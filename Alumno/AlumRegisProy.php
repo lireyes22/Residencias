@@ -21,7 +21,7 @@
 			<div class="row">
 				<div class="left-column">
 					<a class="home-btn" href="index.php">
-						<h2><span style="margin-right: 10px;">Profesor</span></h2>
+						<h2><span style="margin-right: 10px;">Alumno</span></h2>
 						<img src="../img/sombrero.png" width="50px">
 					</a>
 				</div>
@@ -29,6 +29,7 @@
 					<h1>Solicitar Proyecto</h1>
 				</div>
 				<div class="right-column">
+					<a href="config.php"><img src="../img/configuraciones.png" width="50px"></a> &nbsp; &nbsp;
 					<a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
 				</div>
 			</div>
@@ -38,7 +39,7 @@
 		</div> 
 		<div class="fondoP">
 			<div class="datosSolicitudproy">
-				<form action="exc/insertSP.php" method="POST">
+				<form action="inserts/insertAlumRegisProy.php" method="POST">
 					<div>
 						<h3>Nombre del Proyecto</h3> 
 						<input class="inp-sr" type="text" name="nombreProy" required size="100%"><br>
@@ -92,11 +93,26 @@
 							?>
 						</select>
 						<br><br>
+
 						<h3>Carrera Requerida por los estudiantes: </h3>
-						<input type="checkbox" name="carreraReq[]" value="6">Ing. en Sistemas Computacionales<br>
-						<input type="checkbox" name="carreraReq[]" value="1">Ing. en Tecnologías de la información
-						<br><br>
-					</div><br><br>
+						<?php
+							#$row2 = mysqli_fetch_array($result4)
+							$query = getCarreras();
+							
+
+                			while($consulta = mysqli_fetch_array($query)){
+								$idCarrera = $consulta['CID'];
+								$nombreCarrera = $consulta['Nombre'];
+						?>
+
+
+							<input type="checkbox" name="carreraReq[]" value="<?php echo $idCarrera; ?>" 
+							><?php echo $nombreCarrera; ?><br>
+							
+							
+						<?php } #end while?>
+
+					</div><br><br><br><br>
 
 						<input class="boton"type="submit" name="enviar" value="Enviar">
 

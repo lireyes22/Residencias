@@ -4,41 +4,15 @@
     $idAsesor = $_POST['idAsesor'];
     $idAlumno = $_POST['idAlumno'];
     //echo $idAsesor;echo '<br>';echo $idAlumno;
+    $evaluacionReporte = ObtenerEvaluacionFinal($idAsesor, $idAlumno);
 
 ?>
 
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>Mi sitio web</title>
-    <link rel="stylesheet" href="../style/StyleBase.css">
-    <link rel="stylesheet" href="Style/StyleAsesor.css">
-    <meta charset="utf-8">
-</head>
-
-<body style="margin: 0;">
-    <div class="container">
-        <div class="row">
-            <div class="left-column">
-                <div class="dropdown">
-                    <a class="dropbtn home-btn" href="IndexAI.php" style="text-decoration: none;"><span>Asesor</span><img src="img/asesor.png" width="50px"></a>
-                    <ul class="dropdown-content">
-                        <li><a href="../Profesor/indexProfesor.php"><span>Profesor</span><img src="img/profesor.png" width="50px"></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="center-column">
-                <h1>Evaluacion de Reporte final</h1>
-            </div>
-            <div class="right-column">
-                <a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
-            </div>
-        </div>
-        <?php
-        include 'MenuAsesorInterno.html';
-        ?>
-    </div>
+    <?php include ('encabezado.php'); encabezadox('Evaluacion de Reporte Final') #encabezado xd?>
+    
     <form method="post">
         <?php 
             $queryAlumno = consultaUsuarioAlumno($idAlumno);
@@ -65,7 +39,7 @@
                 <input type="text" class="lb-inp" name="ProgramaEducativo" value="<?php echo $consultaAlumnoCarrera['Nombre']; ?>" disabled> <br>
                 <label for="" class="lb-inp">Periodo de Realizacion:</label> <br>
                 <input type="text" class="lb-inp" name="PeriodoRealizacion" value="<?php echo $consultaAlumnoProyecto['SRPeriodo']; ?>" disabled> <br>
-                <input type="submit" value="Guardar Cambios" class="lb-inp btnEnviarEv" formaction="procesos/AsesorInternoGuardarEvReporte.php">
+                <?php getBotonRF(); ?>
             </div>
             <!-- Columna central tabla  -->
             <div class="column-Ev2">
@@ -78,71 +52,71 @@
                     <tr>
                         <td>Portada</td>
                         <td>1</td>
-                        <td><input type="number" name="Portada" min="0" max="1" step="1" required></td>
+                        <td><input type="number" name="Portada" min="0" max="1" step="1" value="<?php echo $evaluacionReporte['ERFPortada'] ?>" required></td>
                     </tr>
                     <tr>
                         <td>Agradecimientos</td>
                         <td>0</td>
-                        <td><input type="number" name="Agradecimientos" min="0" max="0" step="1" required></td>
+                        <td><input type="number" name="Agradecimientos" min="0" max="0" step="1" value="<?php echo $evaluacionReporte['ERFAgradecimientos'] ?>" required></td>
                     </tr>
                     <tr>
                         <td>Resumen</td>
                         <td>2</td>
-                        <td><input type="number" name="Resumen" min="0" max="2" step="1" required></td>
+                        <td><input type="number" name="Resumen" min="0" max="2" step="1" value="<?php echo $evaluacionReporte['ERFResumen'] ?>" required></td>
                     </tr>
                     <tr>
                         <td>Índice</td>
                         <td>2</td>
-                        <td><input type="number" name="Indice" min="0" max="2" step="1" required></td>
+                        <td><input type="number" name="Indice" min="0" max="2" step="1" value="<?php echo $evaluacionReporte['ERFIndice'] ?>" required></td>
                     </tr>
                     <tr>
                         <td>Introducción</td>
                         <td>5</td>
-                        <td><input type="number" name="Introduccion" min="0" max="5" step="1" required></td>
+                        <td><input type="number" name="Introduccion" min="0" max="5" step="1" value="<?php echo $evaluacionReporte['ERFIntroduccion'] ?>" required></td>
                     </tr>
                     <tr>
                         <td>Antecedentes o marco Teórico</td>
                         <td>5</td>
-                        <td><input type="number" name="Antecedentes" min="0" max="5" step="1" required></td>
+                        <td><input type="number" name="Antecedentes" min="0" max="5" step="1" value="<?php echo $evaluacionReporte['ERFAntecedentes'] ?>" required></td>
                     </tr>
                     <tr>
                         <td>Justificación</td>
                         <td>5</td>
-                        <td><input type="number" name="Justificacion" min="0" max="5" step="1" required></td>
+                        <td><input type="number" name="Justificacion" min="0" max="5" step="1" value="<?php echo $evaluacionReporte['ERFJustificacion'] ?>" required></td>
                     </tr>
                     <tr>
                         <td>Objetivos</td>
                         <td>10</td>
-                        <td><input type="number" name="Objetivos" min="0" max="10" step="1" required></td>
+                        <td><input type="number" name="Objetivos" min="0" max="10" step="1" value="<?php echo $evaluacionReporte['ERFObjetivos'] ?>" required></td>
                     </tr>
                     <tr>
                         <td>Metodología</td>
                         <td>10</td>
-                        <td><input type="number" name="Metodologia" min="0" max="10" step="1" required></td>
+                        <td><input type="number" name="Metodologia" min="0" max="10" step="1" value="<?php echo $evaluacionReporte['ERFMetodologia'] ?>" required></td>
                     </tr>
                     <tr>
                         <td>Resultados</td>
                         <td>15</td>
-                        <td><input type="number" name="Resultados" min="0" max="15" step="1" required></td>
+                        <td><input type="number" name="Resultados" min="0" max="15" step="1" value="<?php echo $evaluacionReporte['ERFResultados'] ?>" required></td>
                     </tr>
                     <tr>
                         <td>Discusiones</td>
                         <td>25</td>
-                        <td><input type="number" name="Discusiones" min="0" max="25" step="1" required></td>
+                        <td><input type="number" name="Discusiones" min="0" max="25" step="1" value="<?php echo $evaluacionReporte['ERFDiscusiones'] ?>" required></td>
                     </tr>
                     <tr>
                         <td>Conclusiones</td>
                         <td>15</td>
-                        <td><input type="number" name="Conclusiones" min="0" max="15" step="1" required></td>
+                        <td><input type="number" name="Conclusiones" min="0" max="15" step="1" value="<?php echo $evaluacionReporte['ERFConclusiones'] ?>" required></td>
                     </tr>
                     <tr>
                         <td>Fuentes de Información</td>
                         <td>5</td>
-                        <td><input type="number" name="FuentesInformacion" min="0" max="5" step="1" required></td>
+                        <td><input type="number" name="FuentesInformacion" min="0" max="5" step="1" value="<?php echo $evaluacionReporte['ERFFuentes'] ?>" required></td>
                     </tr>
                 </table>
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp" style="color: white; font-size: 20px;" ><strong>Observaciones:</strong></label>
-                <textarea name="Observaciones" id="" rows="5" style="width: 80%; margin: 10px; resize: none;" required></textarea>
+                <textarea name="Observaciones" id="" rows="5" style="width: 80%; margin: 10px; resize: none;" required><?php echo $evaluacionReporte['ERFObservaciones'] ?></textarea>
             </div>
             <!-- Columna derecha  -->
             <div class="column-Ev3">
@@ -158,7 +132,7 @@
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp">Fecha de evaluación</label>
                 <input class="txtSizeEvC3 lb-inp" type="date" name="FechaEvaluacion" value="<?php echo date('Y-m-d'); ?>" disabled>
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp">Total Puntos:</label>
-                <input class="txtSizeEvC3 lb-inp" type="text" name="TotalPuntos" disabled>
+                <input class="txtSizeEvC3 lb-inp" type="text" name="TotalPuntos" value="<?php echo $evaluacionReporte['ERFTotal'] ?>" disabled>
                 <input type="hidden" name="idSoliRes" value="<?php echo $idSolicitudResidencia; ?>">
                 <input type="hidden" name="idUAsesor" value="<?php echo $idAsesor; ?>">
                 <input class="txtSizeEvC3 mrgEvC3 lb-inp" type="submit" value="Descargar Reporte" formaction="procesos/AsesorInternoDescargarArchivo.php">

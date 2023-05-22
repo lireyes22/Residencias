@@ -34,6 +34,7 @@
 				<h2>LISTADO DE PROYECTOS</h2>
 			</div>
 			<div class="right-column">
+				<a href="config.php"><img src="../img/configuraciones.png" width="50px"></a> &nbsp; &nbsp;
 				<a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
 			</div>
 		</div>
@@ -53,6 +54,8 @@
 		<option value="Descripción">Descripción</option>
 		<option value="Nombre del Proyecto">Nombre del Proyecto</option>
 	</select>
+
+	<a href="AlumRegisProy.php"><button class="boton2">Proponer Proyecto</button></a>
 
 	<div class="tabla-scroll">
 		<table class="tb-asp">

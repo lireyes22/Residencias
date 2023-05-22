@@ -1,0 +1,242 @@
+/*-------------CSS PARA AsesorInternoSRP------------------*/
+.containerSRP {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3%;
+}
+
+.column-SRP1 {
+    width: 20%;
+    height: 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10px;
+    background-color: red;
+}
+
+.column-SRP2 {
+    width: 40%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+}
+
+.column-SRP3 {
+    width: 40%;
+    height: 100px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10px;
+    background-color: green;
+}
+
+.home-btn {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+/* TABLA DE ALUMNOS DEL ASESOR */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    /*max-width: 800px;*/
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #eee;
+    font-weight: bold;
+}
+
+/*xd*/
+/* Estilos para el botón del menú desplegable */
+.dropbtn {
+    background-color: #2A424D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Estilos para la lista desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-content li a {
+    color: #f1f1f1;
+    background-color: #2A424D;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-content li a:hover {
+    background-color: #f1f1f1;
+    color: #2A424D;
+}
+
+/* Mostrar la lista desplegable cuando el botón es clickeado */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*body Evaluacion*/
+.containerEv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: linear-gradient(120deg, #3F6374, #2b5569fd);
+}
+
+.column-Ev1 {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    height: 100%;
+    width: 15%;
+    background-color: #2A424D;
+    border: 1px solid white;
+    display: flex;
+
+    align-items: center;
+    flex-direction: column;
+}
+
+.column-Ev2 {
+    width: 60%;
+    font-size: 15px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.column-Ev3 {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    height: 100%;
+    width: 25%;
+    /*background-color: #2A424D;
+    border: 1px solid white;*/
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lb-inp {
+    width: 70%;
+}
+
+.txtSizeEv {
+    font-size: 25px;
+    margin: 25px 0;
+}
+
+.txtSizeEvC3 {
+    font-size: 15px;
+}
+.mrgEvC3{
+    margin-top: 20px;
+}
+.btnEnviarEv {
+    color: white;
+    background-color: green;
+    border: 2px solid white;
+    padding: 10px 0;
+}
+
+/*Tabla de evaluacion*/
+.tb-ev {
+    color: white;
+    margin-top: 5%;
+    width: 90%;
+}
+
+.tb-ev th {
+    color: black;
+}
+
+.tb-ev tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+    color: black;
+}
+
+.tb-ev tbody tr:nth-child(odd) {
+    background-color: #ddd;
+    color: black;
+}
+#parcial2 {
+    display: none;
+}
+
+.fl-pr{
+    background-color: transparent;
+    width: 30px;
+}
+.inp-tb{
+    border: none;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    outline: none;
+    text-align: center;
+}
+/*botones para tabla */
+.btn {
+    background-color: #fff;
+    border: 2px solid #000;
+    color: #000;
+    border-radius: 5px; 
+    padding: 8px 16px;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.btn-actualizar{
+    background-color: white;
+    border: 2px solid green;
+}
+.btn-actualizar:hover{
+    background-color: green;
+    color: #fff;
+}
