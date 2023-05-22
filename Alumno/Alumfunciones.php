@@ -436,5 +436,15 @@ function verificarSolicitudReporteFinal($respuesta,$alumno){
 
 }
 
+function retornarFechaLimite($id){
+    $conection = conn();
+    $sql ="SELECT * FROM FechasVencimiento 
+WHERE FVTramite='$id'";
+    $result = $conection->query($sql);
+    $row = $result->fetch_assoc();
+    $totalRegistros = $row["FVFechaLimite"];
+    return $totalRegistros;
+  }
+    
 
 ?>

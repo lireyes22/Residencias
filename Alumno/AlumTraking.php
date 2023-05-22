@@ -44,7 +44,7 @@ $link = conn();
     	</div>    	
 
     	<div class="center-container">
-    		<div class="TituloTraking"><b>Proyectos Propuestos</b></div>
+    		<div class="TituloTraking"><b>Proyectos Propuestos</b> Fecha Limite: <?php echo retornarFechaLimite('ProponerProyecto'); ?></div>
     		<?php 
     		$conn = conn();
     		$id=$_SESSION['id'];
@@ -58,7 +58,7 @@ $link = conn();
     				<div class="TituloTraking"><?php echo $fila['SPNombreProyecto']." (".$fila['SPEstatus'].")"; ?></div>
 					<div class="progress-container">
 						<div class="progress-bar"><span class="<?php echo verificarSolicitudProyecto($fila['SPEstatus']); ?>"></span></div>
-						<button>Botón</button>    		
+						<button class="btn btn-actualizar">Botón</button>    		
 					</div>
     				<?php
 				}
@@ -68,7 +68,7 @@ $link = conn();
 			?>
 
 
-			<div class="TituloTraking"><b>Solicitud Residencia</b></div>
+			<div class="TituloTraking"><b>Solicitud Residencia</b> Fecha Limite: <?php echo retornarFechaLimite('SolicitarResidencia'); ?></div>
     		<?php 
     		$conn = conn();
     		$id=$_SESSION['id'];
@@ -86,7 +86,7 @@ $link = conn();
 					<div class="progress-container">
 						<div class="progress-bar"><span class="<?php echo verificarSolicitudResidencia($fila['SREstatus']); ?>"></span></div>
 						
-						<button>Botón</button>    		
+						<button class="btn btn-actualizar">Botón</button>    		
 					</div>
     				<?php
 				}
@@ -94,20 +94,20 @@ $link = conn();
 				echo "No se han propuesto proyectos.";
 			}
 			?>
-		<div class="TituloTraking">Reporte parcial 1 (<?php echo verificarSolicitudReporteParcial1(true,$_SESSION['id']);?>)</div>
+		<div class="TituloTraking">Reporte parcial 1 (<?php echo verificarSolicitudReporteParcial1(true,$_SESSION['id']);?>)<b></b>Fecha Limite: <?php echo retornarFechaLimite('AsesoresEvaluacionSeguimiento'); ?></div>
 		<div class="progress-container">
 			<div class="progress-bar"><span class="<?php echo verificarSolicitudReporteParcial1(false,$_SESSION['id']);?>"></span></div>
-			<button>Generar</button>
+			<button class="btn btn-actualizar">Generar</button>
 		</div>
-		<div class="TituloTraking">Reporte parcial 2 (<?php echo verificarSolicitudReporteParcial2(true,$_SESSION['id']);?>)</div>
+		<div class="TituloTraking">Reporte parcial 2 (<?php echo verificarSolicitudReporteParcial2(true,$_SESSION['id']);?>)<b></b>Fecha Limite: <?php echo retornarFechaLimite('AsesoresEvaluacionSeguimiento'); ?></div>
 		<div class="progress-container">
 			<div class="progress-bar"><span class="<?php echo verificarSolicitudReporteParcial2(false,$_SESSION['id']);?>"></span></div>
-			<button>Generar</button>
+			<button class="btn btn-actualizar">Generar</button>
 		</div>
-		<div class="TituloTraking">Reporte Final (<?php echo verificarSolicitudReporteFinal(true,$_SESSION['id']);?>)</div>
+		<div class="TituloTraking">Reporte Final (<?php echo verificarSolicitudReporteFinal(true,$_SESSION['id']);?>)<b></b>Fecha Limite: <?php echo retornarFechaLimite('AsesoresEvaluacionReporteFinal'); ?></div>
 		<div class="progress-container">
 			<div class="progress-bar"><span class="<?php echo verificarSolicitudReporteFinal(false,$_SESSION['id']);?>"></span></div>
-			<button>Generar</button>
+			<button class="btn btn-actualizar">Generar</button>
 		</div>
 	</div>
 </body>
