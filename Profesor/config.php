@@ -15,7 +15,7 @@ include '../funciones.php';
     <div class="container">
         <div class="row">
             <div class="left-column">
-                <a class="home-btn" href="AlumTraking.php">
+                <a class="home-btn" href="index.php">
                     <h2><span style="margin-right: 10px;">Profesor</span></h2>
                     <img src="../img/sombrero.png" width="50px">
                 </a>
