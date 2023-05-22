@@ -60,19 +60,10 @@
 			
 				<input type="submit" value="Enviar" formaction="AlumnoInsertarReporte.php">
 				<input type="hidden" name="idAlumno" value="<?php echo $idAlumno; ?>">
-			
-				<script>
-					function abrirDocumento() {
-					var urlDocumento = $idAlumno = $_POST['idAlumno'];
-					window.open(urlDocumento);
-					}
-					</script>
-					<button onclick="abrirDocumento()">Abrir documento</button>
 			</div>
 			<br>
 			<div class="form-group">
 				<label for="file-input">
-					<img src="../img/archivo.jpg">
 				</label>
 				<input id="file-input" accept=".pdf" type="file" name="ReporteFinal">
 			</div>

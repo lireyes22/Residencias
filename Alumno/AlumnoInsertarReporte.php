@@ -32,12 +32,28 @@ mysqli_stmt_bind_param($stmt, "is", $idAlumno, $contenido);
 
 //Ejecuta la consulta preparada
 if (mysqli_stmt_execute($stmt)) {
-    echo "Archivo insertado correctamente.";
+    echo "<script>alert('Archivo insertado correctamente.');</script>";
 } else {
-    echo "Error al insertar archivo: " . mysqli_error($conexion);
+    echo "<script>alert('Error al insertar archivo:');</script>";  mysqli_error($conexion);
 }
 
 // Cierra la conexión
 mysqli_close($conexion);
 
 ?>
+
+<!DOCTYPE html>
+<html>
+                <script>
+					function abrirDocumento() {
+					var urlDocumento = $archivo = $_FILES['ReporteFinal']['tmp_name'];
+					window.open(urlDocumento);
+					}
+				</script>
+					<button onclick="abrirDocumento()">Abrir documento</button>
+               
+<br>                
+<br>                
+
+<button><a href="AlumReportefinal.php">volver</a></button>
+</html>
