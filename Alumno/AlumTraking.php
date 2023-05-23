@@ -89,7 +89,7 @@ $link = conn();
 						<form action="AlumReenviaSoliResidencia.php" method="POST">
 							<input type="hidden" name="SPID" value="<?php echo $fila['SPID']?>">
 							<input type="hidden" name="SRID" value="<?php echo $fila['SRID']?>">
-							<input type="submit" value="Reenviar">
+							<input type="submit" class="btn btn-actualizar" value="Reenviar">
 						</form>
 						<!--condicion para que pueda editar su solicitud  -->
 						<?php
@@ -99,6 +99,10 @@ $link = conn();
 									<button class="btn btn-actualizar" type="submit">Editar</button>
 								</form>';}
 						?>
+						<form action="inserts/dataGenerator.php" method="POST" target="blank">
+						<input type="hidden" name="SPID" value="<?php echo $fila['SPID']?>">
+						<input type="submit" class="btn btn-actualizar" value="Generar">
+						</form>
 					</div>
     				<?php
 				} 
