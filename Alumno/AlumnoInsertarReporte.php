@@ -42,18 +42,3 @@ mysqli_close($conexion);
 
 ?>
 
-<!DOCTYPE html>
-<html>
-                <script>
-					function abrirDocumento() {
-					var urlDocumento = $archivo = $_FILES['ReporteFinal']['tmp_name'];
-					window.open(urlDocumento);
-					}
-				</script>
-					<button onclick="abrirDocumento()">Abrir documento</button>
-               
-<br>                
-<br>                
-
-<button><a href="AlumReportefinal.php">volver</a></button>
-</html>

@@ -125,6 +125,11 @@ $link = conn();
 		<div class="progress-container">
 			<div class="progress-bar"><span class="<?php echo verificarSolicitudReporteFinal(false,$_SESSION['id']);?>"></span></div>
 			<button class="btn btn-actualizar">Generar</button>
+			
+			<form action="Alumndescargardoc.php" method="post"> 
+				<input type="submit" value="Descargar">
+				<input type="hidden" name="uid" value="<?php echo $_SESSION['id'] ?>">
+			</form>  
 		</div>
 	</div>
 </body>
