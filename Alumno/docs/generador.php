@@ -35,6 +35,7 @@
   $a33 = $_POST['33'] ?? null;
   $a34 = $_POST['34'] ?? null;
   $a35 = $_POST['35'] ?? null;
+  $b35 = $_POST['b35'] ?? null;
   $a36 = $_POST['36'] ?? null;
 
 ob_start(); //PARA GUARDAR TODO EL CONTENIDO PHP A CONTINUACION EN UNA VARIABLE

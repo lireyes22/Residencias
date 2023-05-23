@@ -8,6 +8,7 @@
     $residente = getResidente($_SESSION['id']);
     $residencia = getResidencia($SPID);
     $asesorI = getAsesor($SPID);
+    $conn = conn();
 ?>
 
 <!DOCTYPE html>
@@ -24,43 +25,58 @@
 <body style="margin: 0;">
     <!----------------------------------------------------- Fieldset Proyecto ---------------------------------------------------------->
     <form method="POST" action="../docs/generador.php"; enctype="multipart/form-data" target="blank">
-        <input type="date" name="1" value="<?php echo date('Y-m-d'); ?>">
+        <input type="hidden" name="1" value="<?php echo date('Y-m-d'); ?>">
         <input type="hidden" name="2" value="<?php echo 'Juan Cocio' ?>">
         <input type="hidden" name="3" value="<?php echo 'Benja' ?>">
         <input type="hidden" name="4" value="<?php echo $residente['nomcarrera'] ?>">
         <input type="hidden" name="5" value="<?php echo $residencia['spnombreproyecto']; ?>">
-        <select name="6" disabled>
-            <option value="interno" <?php if($residencia['sptipo'] == 'INTERNO') echo 'selected'; ?>>Interno</option>
-            <option value="externo" <?php if($residencia['sptipo'] == 'EXTERNO') echo 'selected'; ?>>Externo</option>
-            <option value="dual" <?php if($residencia['sptipo'] == 'DUAL') echo 'selected'; ?>>Dual</option>
-            <option value="CIIE" <?php if($residencia['sptipo'] == 'CIIE') echo 'selected'; ?>>CIIE</option>
-        </select>
-        <select name="7">
+        <?php if($residencia['sptipo'] == 'INTERNO'){
+            echo '<input type="hidden" name="6" value="interno">';
+        }else if($residencia['sptipo'] == 'EXTERNO'){
+            echo '<input type="hidden" name="6" value="externo">';
+        }else if($residencia['sptipo'] == 'DUAL'){
+            echo '<input type="hidden" name="6" value="dual">';
+        }else if($residencia['sptipo'] == 'CIIE'){
+            echo '<input type="hidden" name="6" value="ciie">';
+        }
+        ?>
             <?php
-                if($residencia['SROpcionElegida'] == 'Op1'){
-                    echo "<option value='Propuesta Propia'>Propuesta Propia</option>";
-                }else if($residencia['SROpcionElegida'] == 'Op2'){
-                    echo '<option value="Trabajador">Trabajador</option>';
-                }else if($residencia['SROpcionElegida'] == 'Op3'){
-                    echo '<option value="Op3">Banco de Proyectos</option>';
-                }
-            ?>
-            </select>
+            $query = "SELECT SolicitudResidencia.`SROpcionElegida` FROM `SolicitudResidencia`
+            INNER JOIN BancoProyectos ON BancoProyectos.BPID = SolicitudResidencia.BPID
+            INNER JOIN SolicitudProyecto ON SolicitudProyecto.SPID = BancoProyectos.SPID
+            WHERE SolicitudResidencia.UAlumno = ".$_SESSION['id']." AND SolicitudProyecto.`SPID` = $SPID";
+            $residenciaOP = mysqli_fetch_array(mysqli_query($conn,$query));
+            if($residenciaOP[0] == 'Op1'){
+                    echo "<input type='hidden' name='7' value='interno'>";
+                }else if($residenciaOP[0] == 'Op2'){
+                    echo "<input type='hidden' name='7' value='externo'>";
+                }else if($residenciaOP[0] == 'Op3'){
+                    echo "<input type='hidden' name='7' value='Banco'>";
+            }
+        ?>
         <input type="hidden" name="8" value="<?php echo $residencia['sdtiempoestimado'] . ' meses'; ?>">
-        <input type="number" name="10" min="1" max="4" placeholder="0" value="<?php echo $residencia['spestudiantesrequeridos']; ?>">
+        <input type="hidden" name="10" min="1" max="4" value="<?php echo $residencia['spestudiantesrequeridos']; ?>">
         <input type="hidden" name="11" value="<?php echo $empresa['nombre'] ?>">
-        <select name="12" disabled>
-            <option value="Industrial" <?php if($empresa['ramo'] == 'Industrial') echo 'selected'; ?>>Industrial</option>
-            <option value="Servicios" <?php if($empresa['ramo'] == 'Servicios') echo 'selected'; ?>>Servicios</option>
-            <option value="Escolar" <?php if($empresa['ramo'] == 'Escolar') echo 'selected'; ?>>Escolar</option>
-            <option value="Otro" <?php if(empty($empresa['ramo']) || $empresa['ramo'] == 'Otro' || ($empresa['ramo'] != 'Industrial' && $empresa['ramo'] != 'Servicios' && $empresa['ramo'] != 'Escolar')) echo 'selected'; ?>>Otro</option>
-        </select>
+        <?php if($empresa['ramo'] == 'Industrial'){
+            echo '<input type="hidden" name="12" value="Industrial">';
+            }else if($empresa['ramo'] == 'Servicios'){
+                echo '<input type="hidden" name="12" value="Servicios">';
+            }else if($empresa['ramo'] == 'Escolar'){
+                echo '<input type="hidden" name="12" value="Escolar">';
+            }else if(empty($empresa['ramo']) || $empresa['ramo'] == 'Otro' || ($empresa['ramo'] != 'Industrial' && $empresa['ramo'] != 'Servicios' && $empresa['ramo'] != 'Escolar')){
+                echo '<input type="hidden" name="12" value="Otro">';
+            }
+        ?>
         <input type="hidden" name="13" value="<?php echo $empresa['erfc'] ?>">
-        <select name="14" disabled>
-            <option value="Publico" <?php if($empresa['esector'] == 'Publico') echo 'selected'; ?>>Publico</option>
-            <option value="Privado" <?php if($empresa['esector'] == 'Privado') echo 'selected'; ?>>Privado</option>
-            <option value="Otro" <?php if(empty($empresa['esector']) || $empresa['esector'] == 'Otro' || ($empresa['esector'] != 'Publico' && $empresa['esector'] != 'Privado')) echo 'selected'; ?>>Otro</option>
-        </select>
+        <?php if($empresa['esector'] == 'Publico'){
+            echo '<input type="hidden" name="14" value="Publico">';
+        }else if($empresa['esector'] == 'Privado'){
+            echo '<input type="hidden" name="14" value="Privado">';
+        }else if(empty($empresa['esector']) || $empresa['esector'] == 'Otro' || ($empresa['esector'] != 'Publico' && $empresa['esector'] != 'Privado')){
+            echo '<input type="hidden" name="14" value="Otro">';
+        }
+
+        ?>
         <input type="hidden" name="15" value="<?php echo $empresa['eactprincipal'] ?>">
         <input type="hidden" name="16" value="<?php echo $empresa['edomicilio'] ?>">
         <input type="hidden" name="17" value="<?php echo $empresa['ecolonia'] ?>">
@@ -79,10 +95,15 @@
         <input type="hidden" name="31" value="<?php echo $residente['semestre'] ?>">
         <input type="hidden" name="32" value="<?php echo $residente['domicilio'] ?>">
         <input type="hidden" name="33" value="<?php echo $residente['email'] ?>">
-        <input type="hidden" name="34" value="<?php echo $residente['seguro_social'] ?>">
-        <input type="radio" name="34" value="IMSS" <?php if($residente['institucionseguro'] == 'IMSS') echo 'checked'; ?> >
-        <input type="radio" name="34" value="ISSSTE" <?php if($residente['institucionseguro'] == 'ISSSTE') echo 'checked'; ?> >
-        <input type="radio" name="34" value="OTROS" <?php if(empty($residente['institucionseguro']) || $residente['institucionseguro'] == 'Otro' || ($residente['institucionseguro'] != 'IMSS' && $residente['institucionseguro'] != 'ISSSTE')) echo 'checked'; ?>>
+        <input type="hidden" name="b35" value="<?php echo $residente['seguro_social'] ?>">
+        <?php if($residente['institucionseguro'] == 'IMSS'){
+                echo '<input type="hidden" name="34" value="IMSS">';   
+            }else if($residente['institucionseguro'] == 'ISSSTE'){
+                echo '<input type="radio" name="34" value="ISSSTE">';
+            }else if(empty($residente['institucionseguro']) || $residente['institucionseguro'] == 'Otro' || ($residente['institucionseguro'] != 'IMSS' && $residente['institucionseguro'] != 'ISSSTE')){
+                echo '<input type="radio" name="34" value="OTROS">';
+            }
+        ?>
         <input type="hidden" name="35" value="<?php echo $residente['ciudad'] ?>">
         <input type="hidden" name="36" value="<?php echo $residente['tel'] ?>">  
         <input type="submit" id="submitButton" value="">

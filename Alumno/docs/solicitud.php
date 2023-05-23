@@ -64,9 +64,9 @@
 <p style="position:absolute;top:223px;left:90px;white-space:nowrap" class="ft111">&#160;</p>
 <p style="position:absolute;top:223px;left:436px;white-space:nowrap" class="ft111">&#160;</p>
 <p style="position:absolute;top:231px;left:90px;white-space:nowrap" class="ft13">Jefe(a)&#160;de&#160;la&#160;Div.&#160;de&#160;Estudios&#160;Profesionales&#160;</p>
-<p style="position:absolute;top:231px;left:436px;white-space:nowrap" class="ft13">&#160;Coord.&#160;de&#160;la&#160;Carrera&#160;de&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<?php echo $a4 ;?>&#160;</p>
+<p style="position:absolute;top:231px;left:436px;white-space:nowrap" class="ft13">&#160;Coord.&#160;de&#160;la&#160;Carrera&#160;de:&#160;&#160;<?php echo $a4 ;?>&#160;</p>
 <p style="position:absolute;top:247px;left:475px;white-space:nowrap" class="ft12"><b>&#160;</b></p>
-<p style="position:absolute;top:267px;left:91px;white-space:nowrap" class="ft17"><b>NOMBRE&#160;DEL&#160;PROYECTO:&#160;</b><?php echo $a5 ;?><b>&#160;</b></p>
+<p style="position:absolute;top:267px;left:91px;white-space:nowrap" class="ft17"><b>NOMBRE&#160;DEL&#160;PROYECTO:&#160;</b><b>&#160;</b>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <?php echo $a5 ;?></p>
 <p style="position:absolute;top:267px;left:330px;white-space:nowrap" class="ft110">&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&#160;</p>
 <p style="position:absolute;top:293px;left:91px;white-space:nowrap" class="ft17"><b>TIPO&#160;DE&#160;PROYECTO&#160;</b><?php echo $a6 ;?><b>&#160;</b></p>
 <p style="position:absolute;top:293px;left:330px;white-space:nowrap" class="ft110">Interno (&#160; )&#160;</p>
@@ -81,10 +81,10 @@
 <p style="position:absolute;top:376px;left:352px;white-space:nowrap" class="ft17"><b>NOMBRE&#160;DEL&#160;ASESOR&#160;INTERNO:&#160;&#160;</b><?php echo $a9 ;?></p>
 <p style="position:absolute;top:374px;left:623px;white-space:nowrap" class="ft15">&#160;</p>
 <p style="position:absolute;top:376px;left:660px;white-space:nowrap" class="ft17"><b>&#160;</b></p>
-<p style="position:absolute;top:376px;left:681px;white-space:nowrap" class="ft117"><b>NÚMERO&#160;DE&#160;<br/>RESIDENTES&#160;</b><?php echo $a10 ;?>&#160;</p>
+<p style="position:absolute;top:376px;left:681px;white-space:nowrap" class="ft117"><b>NÚMERO&#160;DE&#160;<br/>RESIDENTES&#160;&#160;&#160;:&#160;&#160;</b><?php echo $a10 ;?>&#160;</p>
 <p style="position:absolute;top:412px;left:85px;white-space:nowrap" class="ft17"><b>Datos&#160;de&#160;la&#160;empresa:&#160;</b></p>
 <p style="position:absolute;top:430px;left:91px;white-space:nowrap" class="ft110">Nombre:&#160;</p>
-<p style="position:absolute;top:450px;left:203px;white-space:nowrap" class="ft112">(</p>
+<p style="position:absolute;top:450px;left:203px;white-space:nowrap" class="ft112"></p>
 <p style="position:absolute;top:448px;left:206px;white-space:nowrap" class="ft18"><?php echo $a11 ;?></p>
 <p style="position:absolute;top:450px;left:225px;white-space:nowrap" class="ft112">&#160;</p>
 <p style="position:absolute;top:469px;left:91px;white-space:nowrap" class="ft110">Ramo:&#160;&#160;</p>
@@ -131,7 +131,7 @@
 <p style="position:absolute;top:969px;left:437px;white-space:nowrap" class="ft118">Para&#160;Seguridad&#160;<br/>Social acudir&#160;<br/><?php echo $a34;?>&#160;</p>
 <p style="position:absolute;top:969px;left:554px;white-space:nowrap" class="ft110">IMSS&#160;(&#160;&#160;)&#160;</p>
 <p style="position:absolute;top:969px;left:663px;white-space:nowrap" class="ft110">ISSSTE&#160;(&#160;&#160;&#160;&#160;&#160;)&#160;OTROS(&#160;&#160;&#160;&#160;&#160;)&#160;</p>
-<p style="position:absolute;top:988px;left:554px;white-space:nowrap" class="ft110">No.&#160;:&#160;&#160;</p>
+<p style="position:absolute;top:988px;left:554px;white-space:nowrap" class="ft110">No.&#160;:&#160;<?php echo $b35;?>&#160;</p>
 <p style="position:absolute;top:1022px;left:91px;white-space:nowrap" class="ft110">Ciudad:&#160;</p>
 <p style="position:absolute;top:1022px;left:168px;white-space:nowrap" class="ft110"><?php echo $a35;?>&#160;</p>
 <p style="position:absolute;top:1022px;left:437px;white-space:nowrap" class="ft110">Teléfono(s):&#160;</p>
@@ -143,7 +143,7 @@
 <p style="position:absolute;top:332px;left:293px;white-space:nowrap" class="ft110">Propuesta&#160;propia</p>
 <p style="position:absolute;top:327px;left:407px;white-space:nowrap" class="ft17"><b>&#160;</b></p>
 <p style="position:absolute;top:329px;left:436px;white-space:nowrap" class="ft17"><b>&#160;</b></p>
-<p style="position:absolute;top:329px;left:469px;white-space:nowrap" class="ft17"><b>&#160;&#160;</b>Trabajador&#160;</p>
+<p style="position:absolute;top:329px;left:469px;white-space:nowrap" class="ft17"><b>&#160;&#160;&#160;&#160;</b>Trabajador&#160;</p>
 <p style="position:absolute;top:329px;left:596px;white-space:nowrap" class="ft17"><b>&#160;</b></p>
 <p style="position:absolute;top:332px;left:636px;white-space:nowrap" class="ft110">&#160;</p>
 <p style="position:absolute;top:332px;left:660px;white-space:nowrap" class="ft110">Banco&#160;de&#160;Proyectos&#160;&#160;&#160;</p>
