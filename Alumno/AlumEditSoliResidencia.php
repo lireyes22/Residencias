@@ -45,8 +45,9 @@
         ?>
 	</div>
     <br>
+    <div class="ms-soli" style="color: red;"><p>**solo puede editar su Anteproyecto**</p></div><br>
     <!----------------------------------------------------- Fieldset Proyecto ---------------------------------------------------------->
-    <form method="GET" action='AlumEditSoliResidencia.php'>
+    <form method="POST" action='editSolicitud.php' enctype="multipart/form-data">
         <input type="hidden" name="SPID" value="<?php echo $SPID?>">
         <input type="hidden" name="residente" value="<?php echo $_SESSION['id']?>">
         <fieldset class="bg-fldst">
@@ -87,7 +88,7 @@
                     </div>
                     <div class="form-row">
                         <label for="opcionElegida">Opción elegida:</label>
-                            <select id="opcionElegida" name="opcionElegida">
+                            <select id="opcionElegida" name="opcionElegida" disabled>
                                 <option value="Op1">Propuesta Propia</option>
                                 <option value="Op2">Trabajador</option>
                                 <option value="Op3">Banco de Proyectos</option>
@@ -253,7 +254,12 @@
                         <label for="telefono">Teléfono:</label>
                         <input type="tel" name="telAlumno" id="telefono" value="<?php echo $residente['tel'] ?>" required disabled>
                     </div>
-
+                    <div align="right">
+                <label for="SRAnteProyecto">Anteproyecto: </label>
+                    <div class="form-group" align="right">
+                        <input id="file-input" accept=".pdf" type="file" name="anteproyecto" required/>
+                    </div>
+            </div>
                 </div>                  
             </div>
             <div class="caja-tb-th-asp" align="center">
