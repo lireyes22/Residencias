@@ -8,8 +8,9 @@ include '../funciones.php';
     <meta charset="UTF-8">
     <title>Configuraciones</title>
     <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/styleConfu.css">
     <link rel="stylesheet" href="../style/styleAlumno.css">
-    <link rel="stylesheet" href="../style/styleConf.css">
+    
 </head>
 <body>
     <div class="container">

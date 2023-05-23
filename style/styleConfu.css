@@ -11,7 +11,7 @@
     text-align: center;
 }
 
-.btn-firma input[type='submit']{
+.btn-firma input[type='submit'], .btn-firma input[type='reset']{
     background-color: rgb(9, 170, 9);
     height: 40px;
     width: 80px;
@@ -19,7 +19,7 @@
     color: white;
     border-radius: 5px;
 }
-.btn-firma input[type='submit']:hover{
+.btn-firma input[type='submit']:hover , .btn-firma input[type='reset']:hover{
     background-color: rgb(77, 191, 77);
 }
 
