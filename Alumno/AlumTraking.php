@@ -97,6 +97,7 @@ $link = conn();
 							//IMPRIMIR EL BOTON DE EDITAR
 							echo '<form method="POST" action="AlumEditSoliResidencia.php">
 									<button class="btn btn-actualizar" type="submit">Editar</button>
+									<input type="hidden" name="SPID" value="'.$fila['SPID'].'">
 								</form>';}
 						?>
 						<form action="inserts/dataGenerator.php" method="POST" target="blank">
@@ -109,7 +110,7 @@ $link = conn();
 			} else {
 				echo "No se han propuesto proyectos.";
 			}
-			?>
+			?> 
 		<div class="TituloTraking">Reporte parcial 1 (<?php echo verificarSolicitudReporteParcial1(true,$_SESSION['id']);?>)<b></b>Fecha Limite: <?php echo retornarFechaLimite('AsesoresEvaluacionSeguimiento'); ?></div>
 		<div class="progress-container">
 			<div class="progress-bar"><span class="<?php echo verificarSolicitudReporteParcial1(false,$_SESSION['id']);?>"></span></div>
