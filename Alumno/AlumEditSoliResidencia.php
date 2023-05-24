@@ -36,7 +36,7 @@
 				<h1> Editar Solicitud de Residencia</h1>
 			</div>
 			<div class="right-column">
-                <a href="config.php"><img src="../img/configuraciones.png" width="50px"></a> &nbsp; &nbsp;
+                <a href="../usuariosConfig.php?idUsuario=<?php echo $_SESSION['id'];?>"><img src="../img/configuraciones.png" width="50px"></a> &nbsp; &nbsp;
 				<a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
 			</div>
 		</div>
