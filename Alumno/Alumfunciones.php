@@ -27,7 +27,18 @@ function generarBancoProyecto($IDUsuario){
     WHERE Usuarios.UID='$IDUsuario'";
 
 }
+function getNombreProyecto($idAlumno){
+    $conection = conn();
+    $sql = "CALL AlumnoxNombreProyecto($idAlumno)";
+    $query = mysqli_query($conection, $sql);
 
+    //Obtengo datos del profesor
+    $result = mysqli_fetch_assoc($query);
+
+    return array(
+        'nombreProyecto' => $result['SPNombreProyecto']
+    );
+}
 function getAsesor($SPID){
     $conection = conn();
     $sql = "SELECT Profesor.NombreCompleto FROM Profesor
@@ -103,7 +114,7 @@ function getResidente($UID){
         'tel' => $tel,
         'nomcarrera' => $nomCarrera,
         'institucionseguro' => $result['InstitucionSeguro']
-    );
+    ); 
 }
 
 function getEmpresa($SPID){
@@ -484,7 +495,30 @@ WHERE FVTramite='$id'";
             'jefeDivEst' => $jefeEstPrf[0]
         );
     }
-
+    function DID($UID){ //OBTIENE EL DEPARTAMENTO ID CON EL ID DEL USUARIO
+        $conection = conn();
+        $sql = "SELECT Departamentos.`DID` FROM `Departamentos` INNER JOIN `UsuariosDepartamentos` ON `Departamentos`.DID= `UsuariosDepartamentos`.DID WHERE `UsuariosDepartamentos`.UID = $UID;";
+        $query = mysqli_query($conection, $sql);
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        return $query;
+    }
+    function listaDocentes($DID, $RFC){ //LISTA DE DOCENTES EN EL DEPARTAMENTO EXCEPTUANDO A UNO (UN RESPONSABLE O ASESOR), CONTIENE TODO DE PROFESORES
+        $conection = conn();
+        $sql = "SELECT * FROM Profesor WHERE Profesor.DID = $DID AND Profesor.RFCProfesor != '$RFC';";
+        $query = mysqli_query($conection, $sql);
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        return $query;
+    }
+    function UProfesor($RFCProfesor){ //OBTIENE EL UID DEL PROFESOR CON SU RFC
+        $conection = conn();
+        $sql = "SELECT Profesor_Usuarios.UID FROM Profesor INNER JOIN Profesor_Usuarios ON Profesor_Usuarios.RFCProfesor = Profesor.RFCProfesor WHERE Profesor.RFCProfesor = '$RFCProfesor';";
+        $query = mysqli_query($conection, $sql);
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        return $query;
+    }
   
   
 ?>
