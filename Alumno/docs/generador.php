@@ -37,7 +37,40 @@
   $a35 = $_POST['35'] ?? null;
   $b35 = $_POST['b35'] ?? null;
   $a36 = $_POST['36'] ?? null;
-
+  $month = date("m");
+  $year = date("y");
+  $day = date("d");
+  $partes = explode('-', $month); 
+  if($month == '01'){
+    $month1 = 'Enero';
+  }else if($month == '02'){
+    $month1 = 'Febrero';
+  }else if($month == '03'){
+    $month1 = 'Marzo';
+  }else if($month == '04'){
+    $month1 = 'Abril';
+  }else if($month == '05'){
+    $month1 = 'Mayo';
+  }else if($month == '06'){
+    $month1 = 'Junio';
+  }else if($month == '07'){
+    $month1 = 'Julio';
+  }else if($month == '08'){
+    $month1 = 'Agosto';
+  }else if($month == '09'){
+    $month1 = 'Septiembre';
+  }else if($month == '10'){
+    $month1 = 'Octubre';
+  }else if($month == '11'){
+    $month1 = 'Noviembre';
+  }else if($month == '12'){
+    $month1 = 'Diciembre';
+  }
+  $_fecha = "$day de $month1 del 20$year";
+  //$mes = $a1->format('m');
+  //$dia = $a1->format('d');
+  //$anio = $a1->format('Y');
+  //date_format($date, 'Y-m-d H:i:s');
 ob_start(); //PARA GUARDAR TODO EL CONTENIDO PHP A CONTINUACION EN UNA VARIABLE
 $nombreImagen = "solicitudBG.png";
 $imagenBase64 = "data:image/png;base64," . base64_encode(file_get_contents($nombreImagen)); //PARA PODER VISUALIZAR LA IMAGEN
