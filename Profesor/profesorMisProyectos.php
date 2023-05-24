@@ -65,7 +65,7 @@ include '../InicioSessionSeg.php';
 								<?php 
 									if($row[1] != 'ACEPTADO' && $row[1] != 'RECHAZADO'){
 										?>
-										<form action="profesorEditProyRes.php" method="POST">
+										<form action="profesorEditProyRes.php" method="POST" target ="blank">
 											<input type="hidden" name="SPID" value="<?php echo $proy[0]; ?>">
 											<input type="submit" value="EDITAR" class="tb-th-asb">
 										</form>
