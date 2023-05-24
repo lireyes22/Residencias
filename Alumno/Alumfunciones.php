@@ -27,7 +27,18 @@ function generarBancoProyecto($IDUsuario){
     WHERE Usuarios.UID='$IDUsuario'";
 
 }
+function getNombreProyecto($idAlumno){
+    $conection = conn();
+    $sql = "CALL AlumnoxNombreProyecto($idAlumno)";
+    $query = mysqli_query($conection, $sql);
 
+    //Obtengo datos del profesor
+    $result = mysqli_fetch_assoc($query);
+
+    return array(
+        'nombreProyecto' => $result['SPNombreProyecto']
+    );
+}
 function getAsesor($SPID){
     $conection = conn();
     $sql = "SELECT Profesor.NombreCompleto FROM Profesor

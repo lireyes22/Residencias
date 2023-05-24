@@ -1,7 +1,8 @@
 <?php 
 	include '../InicioSessionSeg.php';
+	include 'Alumfunciones.php';
 	$idAlumno = $_SESSION['id']; 
-	$idAlumno = 30;
+	#$idAlumno = 30;
 ?>
 <!DOCTYPE html>
 <html>
@@ -34,12 +35,16 @@
         include 'MenuAlumno.html';
         ?>
 	</div>
+	<?php
+		$nombProy = getNombreProyecto($idAlumno);
+		
+	?>
 	<form action="AlumnoInsertarReporte.php" method="post" enctype="multipart/form-data">
 		
 		<div>
 			<h1>ESTRUCTURA DEL REPORTE</h1>
 			<div style="margin-left: 10px;">
-				Nombre del Proyecto:&nbsp;<input name="nombre" type="text" value="">
+				Nombre del Proyecto:&nbsp;<input name="nombre" type="text" value="<?php echo $nombProy['nombreProyecto'];?>">
 			</div>
 			<ol>
 				<li>Portada</li>
@@ -64,7 +69,7 @@
 			<br>
 			<div class="form-group">
 				<label for="file-input"></label>
-				<input id="file-input" accept=".pdf" type="file" name="ReporteFinal">
+				<input id="file-input" accept=".pdf" type="file" name="ReporteFinal" required>
 			</div>
 		</div>
 	</form>
