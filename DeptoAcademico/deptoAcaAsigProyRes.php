@@ -60,7 +60,7 @@
 						<th class="tb-th-asp"><p><?php echo $row[2]?></p></th>
 						<th class="tb-th-asp"><p><?php echo $row[3]?></p></th>
 						<th class="tb-th-asp"><?php echo $row[4]?> MESES</th>
-						<th class="tb-th-asp"><?php echo $row[5] ?></th> 
+						<th class="tb-th-asp"><?php echo $row[5]?></th> 
 						    <th class="tb-th-asp">
 							<select name="UProfesor">
 								<?php
