@@ -1,6 +1,6 @@
 <?php 
 	include '../InicioSessionSeg.php';
-	//$idAlumno =	$_SESSION['id']; Desactivar este cuando este validado el login
+	$idAlumno = $_SESSION['id']; 
 	$idAlumno = 30;
 ?>
 <!DOCTYPE html>
@@ -34,12 +34,12 @@
         include 'MenuAlumno.html';
         ?>
 	</div>
-	<form action="" method="post" enctype="multipart/form-data" action="AlumnoInsertarReporte.php">
+	<form action="AlumnoInsertarReporte.php" method="post" enctype="multipart/form-data">
 		
 		<div>
 			<h1>ESTRUCTURA DEL REPORTE</h1>
 			<div style="margin-left: 10px;">
-				Nombre del Proyecto:&nbsp;<input name='nombre' type='text' value="">
+				Nombre del Proyecto:&nbsp;<input name="nombre" type="text" value="">
 			</div>
 			<ol>
 				<li>Portada</li>
@@ -49,22 +49,21 @@
 				<li>Introdución</li>
 				<li>Antecedentes o Marco Teórico</li>
 				<li>Justificación</li>
-				<li>Objetivos (General y Especificos)</li>
-				<li>Metodologia</li>
+				<li>Objetivos (General y Específicos)</li>
+				<li>Metodología</li>
 				<li>Resultados</li>
-				<li>Discuciones</li>
+				<li>Discusiones</li>
 				<li>Conclusiones</li>
 				<li>Fuentes de información</li>
 			</ol>
 			<div class="tb-th-asp">
 			
-				<input type="submit" value="Enviar" formaction="AlumnoInsertarReporte.php">
+				<input type="submit" value="Enviar">
 				<input type="hidden" name="idAlumno" value="<?php echo $idAlumno; ?>">
 			</div>
 			<br>
 			<div class="form-group">
-				<label for="file-input">
-				</label>
+				<label for="file-input"></label>
 				<input id="file-input" accept=".pdf" type="file" name="ReporteFinal">
 			</div>
 		</div>
