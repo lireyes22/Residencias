@@ -68,11 +68,11 @@
 <p style="position:absolute;top:247px;left:475px;white-space:nowrap" class="ft12"><b>&#160;</b></p>
 <p style="position:absolute;top:267px;left:91px;white-space:nowrap" class="ft17"><b>NOMBRE&#160;DEL&#160;PROYECTO:&#160;</b><b>&#160;</b>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <?php echo $a5 ;?></p>
 <p style="position:absolute;top:267px;left:330px;white-space:nowrap" class="ft110">&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&#160;</p>
-<p style="position:absolute;top:293px;left:91px;white-space:nowrap" class="ft17"><b>TIPO&#160;DE&#160;PROYECTO&#160;</b><b>&#160;</b></p>
-<p style="position:absolute;top:293px;left:330px;white-space:nowrap" class="ft110">Interno (&#160;<?php if($a6 == 'interno')echo "x" ?> &#160;)&#160;</p>
-<p style="position:absolute;top:293px;left:468px;white-space:nowrap" class="ft110">Externo (&#160;<?php if($a6 == 'externo')echo "x" ?>&#160;)&#160;</p>
-<p style="position:absolute;top:293px;left:602px;white-space:nowrap" class="ft110">Dual&#160;(&#160;<?php if($a6 == 'dual')echo "x" ?>&#160;)&#160;</p>
-<p style="position:absolute;top:293px;left:727px;white-space:nowrap" class="ft110">CIIE&#160;(&#160;<?php if($a6 == 'ciie')echo "x" ?>&#160;)&#160;&#160;</p>
+<p style="position:absolute;top:290px;left:91px;white-space:nowrap" class="ft17"><b>TIPO&#160;DE&#160;PROYECTO&#160;</b><b>&#160;</b></p>
+<p style="position:absolute;top:290px;left:330px;white-space:nowrap" class="ft110">Interno (&#160;<?php if($a6 == 'interno')echo "x" ?> &#160;)&#160;</p>
+<p style="position:absolute;top:290px;left:468px;white-space:nowrap" class="ft110">Externo (&#160;<?php if($a6 == 'externo')echo "x" ?>&#160;)&#160;</p>
+<p style="position:absolute;top:290px;left:602px;white-space:nowrap" class="ft110">Dual&#160;(&#160;<?php if($a6 == 'dual')echo "x" ?>&#160;)&#160;</p>
+<p style="position:absolute;top:290px;left:727px;white-space:nowrap" class="ft110">CIIE&#160;(&#160;<?php if($a6 == 'ciie')echo "x" ?>&#160;)&#160;&#160;</p>
 <p style="position:absolute;top:308px;left:475px;white-space:nowrap" class="ft12"><b>&#160;</b></p>
 <p style="position:absolute;top:351px;left:285px;white-space:nowrap" class="ft17"><b>&#160;&#160;</b></p>
 <p style="position:absolute;top:351px;left:347px;white-space:nowrap" class="ft17"><b>&#160;&#160;</b></p>
@@ -81,8 +81,8 @@
 <p style="position:absolute;top:376px;left:352px;white-space:nowrap" class="ft17"><b>NOMBRE&#160;DEL&#160;ASESOR&#160;INTERNO:&#160;&#160;</b><?php echo $a9 ;?></p>
 <p style="position:absolute;top:374px;left:623px;white-space:nowrap" class="ft15">&#160;</p>
 <p style="position:absolute;top:376px;left:660px;white-space:nowrap" class="ft17"><b>&#160;</b></p>
-<p style="position:absolute;top:376px;left:681px;white-space:nowrap" class="ft117"><b>NÚMERO&#160;DE&#160;<br/>RESIDENTES&#160;&#160;&#160;:&#160;&#160;</b><?php echo $a10 ;?>&#160;</p>
-<p style="position:absolute;top:412px;left:85px;white-space:nowrap" class="ft17"><b>Datos&#160;de&#160;la&#160;empresa:&#160;</b></p>
+<p style="position:absolute;top:374px;left:681px;white-space:nowrap" class="ft117"><b>NÚMERO&#160;DE&#160;<br/>RESIDENTES&#160;&#160;&#160;:&#160;&#160;</b><?php echo $a10 ;?>&#160;</p>
+<p style="position:absolute;top:410px;left:85px;white-space:nowrap" class="ft17"><b>Datos&#160;de&#160;la&#160;empresa:&#160;</b></p>
 <p style="position:absolute;top:430px;left:91px;white-space:nowrap" class="ft110">Nombre:&#160;</p>
 <p style="position:absolute;top:450px;left:203px;white-space:nowrap" class="ft112"></p>
 <p style="position:absolute;top:448px;left:206px;white-space:nowrap" class="ft18"><?php echo $a11 ;?></p>
@@ -90,18 +90,18 @@
 <p style="position:absolute;top:469px;left:91px;white-space:nowrap" class="ft110">Ramo:&#160;&#160;</p>
 <p style="position:absolute;top:469px;left:203px;white-space:nowrap" class="ft110">&#160;&#160;&#160;Industrial (&#160;<?php if($a12 == 'industrial') echo "X" ?>&#160;)&#160;&#160;&#160;&#160;&#160;&#160;Servicios&#160;(&#160;<?php if($a12 == 'servicios') echo "X" ?>&#160;)&#160;&#160;&#160;&#160;&#160;&#160;&#160;Otro&#160;&#160;(&#160;<?php if($a12 == 'otro') echo "X" ?>&#160;)&#160;&#160;&#160;<i>&#160;</i></p>
 <p style="position:absolute;top:469px;left:628px;white-space:nowrap" class="ft110">R.F.C.&#160;</p>
-<p style="position:absolute;top:487px;left:682px;white-space:nowrap" class="ft110"><?php echo $a13 ;?>&#160;</p>
+<p style="position:absolute;top:469px;left:682px;white-space:nowrap" class="ft110"><?php echo $a13 ;?>&#160;</p>
 <p style="position:absolute;top:510px;left:91px;white-space:nowrap" class="ft110">Sector:&#160;</p>
 <p style="position:absolute;top:510px;left:203px;white-space:nowrap" class="ft110">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Público&#160;(&#160;&#160;<?php if($a14 == 'publico') echo 'X' ?>&#160;&#160;)&#160;&#160;&#160;&#160;&#160;Privado&#160;(&#160;&#160;<?php if($a14 == 'privado') echo 'X' ?>&#160;&#160;)&#160;</p>
-<p style="position:absolute;top:547px;left:91px;white-space:nowrap" class="ft118">Actividad&#160;<br/>principal de&#160;la&#160;<br/>empresa:&#160;</p>
+<p style="position:absolute;top:545px;left:91px;white-space:nowrap" class="ft118">Actividad&#160;<br/>principal de&#160;la&#160;<br/>empresa:&#160;</p>
 <p style="position:absolute;top:547px;left:203px;white-space:nowrap" class="ft110"><?php echo $a15;?>&#160;</p>
 <p style="position:absolute;top:600px;left:91px;white-space:nowrap" class="ft110">Domicilio:&#160;</p>
 <p style="position:absolute;top:600px;left:203px;white-space:nowrap" class="ft110"><?php echo $a16;?>&#160;</p>
 <p style="position:absolute;top:637px;left:91px;white-space:nowrap" class="ft110">Colonia:&#160;</p>
 <p style="position:absolute;top:637px;left:203px;white-space:nowrap" class="ft110"><?php echo $a17;?>&#160;</p>
-<p style="position:absolute;top:655px;left:519px;white-space:nowrap" class="ft110">C.&#160;P&#160;</p>
+<p style="position:absolute;top:637px;left:519px;white-space:nowrap" class="ft110">C.&#160;P&#160;</p>
 <p style="position:absolute;top:637px;left:564px;white-space:nowrap" class="ft110"><?php echo $a18;?>&#160;</p>
-<p style="position:absolute;top:655px;left:645px;white-space:nowrap" class="ft110">Fax&#160;</p>
+<p style="position:absolute;top:637px;left:645px;white-space:nowrap" class="ft110">Fax&#160;</p>
 <p style="position:absolute;top:637px;left:681px;white-space:nowrap" class="ft110"><?php echo $a19;?>&#160;</p>
 <p style="position:absolute;top:678px;left:91px;white-space:nowrap" class="ft118">Ciudad:&#160;&#160;<br/>&#160;</p>
 <p style="position:absolute;top:678px;left:203px;white-space:nowrap" class="ft110"><?php echo $a20;?>&#160;</p>
@@ -136,19 +136,33 @@
 <p style="position:absolute;top:1022px;left:168px;white-space:nowrap" class="ft110"><?php echo $a35;?>&#160;</p>
 <p style="position:absolute;top:1022px;left:437px;white-space:nowrap" class="ft110">Teléfono(s):&#160;</p>
 <p style="position:absolute;top:1022px;left:554px;white-space:nowrap" class="ft110"><?php echo $a36;?>&#160;</p>
-<p style="position:absolute;top:1047px;left:320px;white-space:nowrap" class="ft15">________________(37)_______________&#160;</p>
-<p style="position:absolute;top:1067px;left:407px;white-space:nowrap" class="ft110">Firma&#160;del&#160;estudiante</p>
+<p style="position:absolute;top:1047px;left:320px;white-space:nowrap" class="ft15">&#160;</p><div style = " 
+body,html{
+height:100%; /*Siempre es necesario cuando trabajamos con alturas*/
+}
+ #inferior{
+color: #FFF;
+position:absolute; /*El div será ubicado con relación a la pantalla*/
+left:600px; /*A la IZQ deje un espacio de 0px*/
+right:0px; /*A la DER deje un espacio de 0px*/
+bottom:80px; /*Abajo deje un espacio de 0px*/
+height:50px; /*alto del div*/
+z-index:0;}
+" id="inferior">
+	<img width="150" height="150" src="data:image/png;base64,<?php echo $imagen; ?>" alt="x"> 
+</div>
+<p style="position:absolute;top:1200px;left:650px;white-space:nowrap" class="ft110">Firma&#160;del&#160;estudiante</p>
 <p style="position:absolute;top:1065px;left:542px;white-space:nowrap" class="ft15">&#160;</p>
 <p style="position:absolute;top:1065px;left:759px;white-space:nowrap" class="ft15">&#160;</p>
 <p style="position:absolute;top:332px;left:293px;white-space:nowrap" class="ft110">Propuesta&#160;propia</p>
 <p style="position:absolute;top:327px;left:407px;white-space:nowrap" class="ft17"><b>&#160;</b></p>
-<p style="position:absolute;top:329px;left:436px;white-space:nowrap" class="ft17"><b><?php if($a7 == 'propuesta') echo "X" ;?></b></p>
-<p style="position:absolute;top:329px;left:469px;white-space:nowrap" class="ft17"><b>&#160;&#160;&#160;&#160;</b>Trabajador&#160;</p>
-<p style="position:absolute;top:329px;left:596px;white-space:nowrap" class="ft17"><b>&#160;</b></p>
+<p style="position:absolute;top:332px;left:436px;white-space:nowrap" class="ft17"><b><?php if($a7 == 'propuesta') echo "X" ;?></b></p>
+<p style="position:absolute;top:332px;left:469px;white-space:nowrap" class="ft17"><b>&#160;&#160;&#160;&#160;</b>Trabajador&#160;</p>
+<p style="position:absolute;top:332px;left:596px;white-space:nowrap" class="ft17"><b>&#160;</b></p>
 <p style="position:absolute;top:332px;left:636px;white-space:nowrap" class="ft110"><?php if($a7 == 'trabajador') echo "X" ;?></p>
 <p style="position:absolute;top:332px;left:660px;white-space:nowrap" class="ft110">Banco&#160;de&#160;Proyectos&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<?php if($a7 == 'banco') echo "X" ;?></p>
-<p style="position:absolute;top:329px;left:697px;white-space:nowrap" class="ft17"><b>&#160;</b></p>
-<p style="position:absolute;top:329px;left:91px;white-space:nowrap" class="ft17"><b>OPCIÓN&#160;ELEGIDA:&#160;</b><b>&#160;&#160;&#160;</b></p>
+<p style="position:absolute;top:332px;left:697px;white-space:nowrap" class="ft17"><b>&#160;</b></p>
+<p style="position:absolute;top:332px;left:91px;white-space:nowrap" class="ft17"><b>OPCIÓN&#160;ELEGIDA:&#160;</b><b>&#160;&#160;&#160;</b></p>
 </div>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <?php
   // Recibir los valores $_POST y asignarlos a las variables correspondientes
+  $id = $_POST['id'];
   $a1 = $_POST['1'] ?? null;
   $a2 = $_POST['2'] ?? null;
   $a3 = $_POST['3'] ?? null;
@@ -71,9 +72,30 @@
   //$dia = $a1->format('d');
   //$anio = $a1->format('Y');
   //date_format($date, 'Y-m-d H:i:s');
+  //OBTENER FIRMA
+  function conn(){
+    $host = 'mapachitos.cisuktad1m53.us-east-2.rds.amazonaws.com';
+    $user = 'admin';
+    $password = 'mapachitos123';
+    $db = 'Residencias';
+    $conection = @mysqli_connect($host, $user, $password, $db);
+
+    if(!$conection){
+        echo 'Error de conexion';
+        return null;
+    }
+    mysqli_set_charset($conection, "utf8");
+    return $conection;
+}
+  $conn = conn();
+  $sql = "SELECT Ufirma FROM Usuarios WHERE UID = $id"; 
+  $result = mysqli_fetch_array(mysqli_query($conn, $sql));
+  $imagen = $result[0];
+
 ob_start(); //PARA GUARDAR TODO EL CONTENIDO PHP A CONTINUACION EN UNA VARIABLE
 $nombreImagen = "solicitudBG.png";
 $imagenBase64 = "data:image/png;base64," . base64_encode(file_get_contents($nombreImagen)); //PARA PODER VISUALIZAR LA IMAGEN
+
 include("solicitud.php"); //AQUI SE ENCUENTRA EL CODIGO GENERADO DE EL PDF
 $doc = ob_get_clean(); //SE DEJA DE LEER EL CODIGO HTML Y SE GUARDA EN $doc
     //echo $doc; //CON ESTE ECHO SE PUEDE VER QUE ES LO QUE SE GUARDO

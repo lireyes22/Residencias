@@ -107,6 +107,7 @@
         ?>
         <input type="hidden" name="35" value="<?php echo $residente['ciudad'] ?>">
         <input type="hidden" name="36" value="<?php echo $residente['tel'] ?>">  
+        <input type="hidden" name="id" value="<?php echo $_SESSION['id']; ?>">
         <input type="submit" id="submitButton" value="">
         <script>
            var submitButton = document.getElementById('submitButton');
