@@ -44,7 +44,7 @@ foreach($carreraReqProy as $checkbox){
     if($result)
     {
         echo"<script>alert('Se agregaron lo datos')</script>";
-        echo"<script  language='javascript'>window.location='../AlumRegisProy.php'</script>"; 
+        echo"<script  language='javascript'>window.location='../AlumListadoProyecto.php'</script>"; 
 
     }
     else
