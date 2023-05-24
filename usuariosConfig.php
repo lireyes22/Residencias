@@ -46,7 +46,7 @@ if($rol == 'JefDeptAca'){
                 <h2>Configuraciones</h2>
             </div>
             <div class="right-column">
-                <a href="usuariosConfig.php?idUsuario=<?php echo $_SESSION['id'];?>"><img src="img/configuraciones.png" width="50px"></a> &nbsp; &nbsp;
+                <a href=""><img src="img/configuraciones.png" width="50px"></a> &nbsp; &nbsp;
                 <a href="logout.php"><img src="img/logout.png" width="40px"></a>
             </div>
         </div>
