@@ -1,5 +1,4 @@
-<?php
-    include '../InicioSessionSeg.php'; 
+<?php 
     function encabezadox($titulo){
         echo '<head>
         <title>Mi sitio web</title>
