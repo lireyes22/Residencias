@@ -4,7 +4,9 @@
     $message = "Realizado correctamente.";
     if($nFuncion == 'ComisionProyectoProfesor'){
         try{
+
         $_SPID = $_POST['SPID'];
+        echo $_SPID;
         $x = comisionProyecto($_SPID);
         if( $x == '0'){ 
         $prevUPROF = $_POST['UProfesor'];

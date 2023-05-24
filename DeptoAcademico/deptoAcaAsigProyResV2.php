@@ -37,34 +37,42 @@
 	</div>
 	<div class="tabla-scroll">
 		
-	<form action="exc/insert.php" method="POST" target="blank">
+	
 	<table class = "tb-asp">
 			<tr> 
 				<td class="sticky">Nombre del proyecto</td>
 				<td class="sticky">Objetivo</td>
 				<td class="sticky">Numero Estudiantes</td>
 				<td class="sticky">Tiempo Estimado</td>
-				<td class="sticky">Docente responsable</td>
 				<td class="sticky">Asignar a: </td>
 				<td class="sticky">Fecha Maxima</td>
 				<td class="sticky"></td>
 			</tr>
             <tr>
-			<?php
+			<?php 
+    		$conn = conn();
+    		$id=$_SESSION['id'];
+    		$sql = "SELECT * FROM UsuariosDepartamentos INNER JOIN `SolicitudProyecto` ON UsuariosDepartamentos.`UID` = SolicitudProyecto.`UIDResponsable` WHERE UsuariosDepartamentos.`DID` = 5 AND SolicitudProyecto.`SPEstatus`='PENDIENTE';";
+    		$resultado = $conn->query($sql);
+
+    		if ($resultado->num_rows > 0) {
+				// Imprimir los resultados línea por línea
 				$i = 0;
-				while ($SPID = mysqli_fetch_array($result)){
-					$row = mysqli_fetch_array(basicInfoProy($SPID[0]));
-					?>
+    			while ($fila = $resultado->fetch_assoc()) {
+
+
+    				?>
+    				<form action="exc/insert.php" method="POST" target="blank">
 					<tr <?php if($i%2==0) echo "class='par'" ?> >
-						<th class="tb-th-asp"><p><?php echo $row[1]?></p></th>
-						<th class="tb-th-asp"><p><?php echo $row[2]?></p></th>
-						<th class="tb-th-asp"><p><?php echo $row[3]?></p></th>
-						<th class="tb-th-asp"><?php echo $row[4]?> MESES</th>
-						<th class="tb-th-asp"><?php echo $row[5] ?></th> 
+
+						<th class="tb-th-asp"><p><?php echo $fila['SPNombreProyecto']?></p></th>
+						<th class="tb-th-asp"><p><?php echo $fila['SPObjetivo']?></p></th>
+						<th class="tb-th-asp"><p><?php echo $fila['SPEstudiantesRequeridos']?></p></th>
+						<th class="tb-th-asp"><?php echo $fila['SDTiempoEstimado']?> MESES</th>
 						    <th class="tb-th-asp">
 							<select name="UProfesor">
 								<?php
-									$RFC = mysqli_fetch_array(RFCprofesor($row[0]));
+									$RFC = mysqli_fetch_array(RFCprofesor($fila['SPID']));
 									$listaProfesores = listaDocentes($DID[0], $RFC[0]);
 									while ($profesor = mysqli_fetch_array($listaProfesores)){
 										?>
@@ -77,22 +85,27 @@
 							</th>
 							<th class="tb-th-asp">
 								<?php /*<input type="hidden" name="UProfesor" value="<?php echo $UProfesor[0]; ?>">*/?>
-								<input type="hidden" name="SPID" value="<?php echo $row[0]; ?>">
+								
 								<input type="number" name="mes" min="1" max="12" PLACEHOLDER="MES">
 								<input type="number" name="dia" min="1" max="30" PLACEHOLDER="DIA">
 							</th>
 							<th class="tb-th-asp">
+								<input type="hidden" name="SPID" value="<?php echo $fila['SPID']; ?>">
 								<input type="hidden" name="IDfuncion" value="ComisionProyectoProfesor">
 								<input type="submit" value="Asignar">
 							</th>
 					</tr>
+					</form>
 					<?php
 					$i++;
-				}
-				?>
+				} 
+			} else {
+				echo "No se han propuesto proyectos.";
+			}
+			?> 
             </tr>
         </table>
-	</form>
+	
 	</div>
 </body>
 </html>
