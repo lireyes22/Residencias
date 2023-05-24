@@ -19,15 +19,6 @@ if($rol == 'JefDeptAca'){
 }elseif($rol == 'Alumno'){
     $rol= 'Alumno';
     $url='Alumno/AlumTraking.php';
-}elseif($rol == 'AsesorInterno'){
-    $rol= 'Asesor';
-    $url='Asesor/IndexAI.php';
-}elseif($rol == 'Departamento'){
-    $rol= 'Departamento Academico';
-    $url='DeptoAcademico/index.php';
-}elseif($rol == 'Profesor'){
-    $rol= 'Profesor';
-    $url='Profesor/index.php';
 }
 
 //crear el link de para que pueda regresar a su index
