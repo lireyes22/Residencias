@@ -33,7 +33,7 @@ $link = conn();
     				<h2>TRAKING</h2>
     			</div>
     			<div class="right-column">
-    				<a href="config.php"><img src="../img/configuraciones.png" width="50px"></a> &nbsp; &nbsp;
+    				<a href="../usuariosConfig.php?idUsuario=<?php echo $_SESSION['id'];?>"><img src="../img/configuraciones.png" width="50px"></a> &nbsp; &nbsp;
     				<a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
     			</div>
     		</div>
@@ -58,7 +58,7 @@ $link = conn();
     				<div class="TituloTraking"><?php echo $fila['SPNombreProyecto']." (".$fila['SPEstatus'].")"; ?></div>
 					<div class="progress-container">
 						<div class="progress-bar"><span class="<?php echo verificarSolicitudProyecto($fila['SPEstatus']); ?>"></span></div>
-						<!--<button class="btn-actualizar">Botón</button>    		-->
+						<button class="btn btn-actualizar">Botón</button>    		
 					</div>
     				<?php
 				}
@@ -85,30 +85,24 @@ $link = conn();
     				<div class="TituloTraking"><?php echo $fila['SPNombreProyecto']." (".$fila['SREstatus'].")"; ?></div>
 					<div class="progress-container">
 						<div class="progress-bar"><span class="<?php echo verificarSolicitudResidencia($fila['SREstatus']); ?>"></span></div> 
-						<!--<button class="btn-actualizar">Botón</button>  -->
+						<button class="btn btn-actualizar">Botón</button>  
 						<form action="AlumReenviaSoliResidencia.php" method="POST">
 							<input type="hidden" name="SPID" value="<?php echo $fila['SPID']?>">
 							<input type="hidden" name="SRID" value="<?php echo $fila['SRID']?>">
-							<?php
-							if($fila['SREstatus']=="RECHAZADO"){
-								?>
-								<input type="submit" class="btn-actualizar" value="Reenviar">
-								<?php
-							}
-							?>							
+							<input type="submit" class="btn btn-actualizar" value="Reenviar">
 						</form>
 						<!--condicion para que pueda editar su solicitud  -->
 						<?php
 						if($fila['SREstatus'] == 'PENDIENTE'){
 							//IMPRIMIR EL BOTON DE EDITAR
 							echo '<form method="POST" action="AlumEditSoliResidencia.php">
-									<button class="btn-actualizar" type="submit">Editar</button>
+									<button class="btn btn-actualizar" type="submit">Editar</button>
 									<input type="hidden" name="SPID" value="'.$fila['SPID'].'">
 								</form>';}
 						?>
 						<form action="inserts/dataGenerator.php" method="POST" target="blank">
 						<input type="hidden" name="SPID" value="<?php echo $fila['SPID']?>">
-						<input type="submit" class="btn-actualizar" value="Generar">
+						<input type="submit" class="btn btn-actualizar" value="Generar">
 						</form>
 					</div>
     				<?php
@@ -120,17 +114,17 @@ $link = conn();
 		<div class="TituloTraking">Reporte parcial 1 (<?php echo verificarSolicitudReporteParcial1(true,$_SESSION['id']);?>)<b></b>Fecha Limite: <?php echo retornarFechaLimite('AsesoresEvaluacionSeguimiento'); ?></div>
 		<div class="progress-container">
 			<div class="progress-bar"><span class="<?php echo verificarSolicitudReporteParcial1(false,$_SESSION['id']);?>"></span></div>
-			<button class="btn-actualizar">Generar</button>
+			<button class="btn btn-actualizar">Generar</button>
 		</div>
 		<div class="TituloTraking">Reporte parcial 2 (<?php echo verificarSolicitudReporteParcial2(true,$_SESSION['id']);?>)<b></b>Fecha Limite: <?php echo retornarFechaLimite('AsesoresEvaluacionSeguimiento'); ?></div>
 		<div class="progress-container">
 			<div class="progress-bar"><span class="<?php echo verificarSolicitudReporteParcial2(false,$_SESSION['id']);?>"></span></div>
-			<button class="btn-actualizar">Generar</button>
+			<button class="btn btn-actualizar">Generar</button>
 		</div>
 		<div class="TituloTraking">Reporte Final (<?php echo verificarSolicitudReporteFinal(true,$_SESSION['id']);?>)<b></b>Fecha Limite: <?php echo retornarFechaLimite('AsesoresEvaluacionReporteFinal'); ?></div>
 		<div class="progress-container">
 			<div class="progress-bar"><span class="<?php echo verificarSolicitudReporteFinal(false,$_SESSION['id']);?>"></span></div>
-			<button class="btn-actualizar">Generar</button>
+			<button class="btn btn-actualizar">Generar</button>
 			
 			<form action="Alumndescargardoc.php" method="post"> 
 				<input type="submit" value="Descargar">
