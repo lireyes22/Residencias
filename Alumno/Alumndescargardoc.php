@@ -17,12 +17,12 @@ function conn(){
 $idAlumno=$_POST ["uid"];
 function descargardoc($idAlumno){
     $conexion = conn();
-    $sql = "SELECT ReporteFinal.`RPContenido` FROM `ReporteFinal` INNER JOIN `SolicitudResidencia` ON ReporteFinal.`SRID` = SolicitudResidencia.`SRID` WHERE SolicitudResidencia.`SREstatus`='APROBADO' AND SolicitudResidencia.`UAlumno`=$idAlumno";
+    $sql = "SELECT ReporteFinal.`RPContenido` FROM `ReporteFinal` INNER JOIN `SolicitudResidencia` ON ReporteFinal.`SRID` = SolicitudResidencia.`SRID` WHERE SolicitudResidencia.`SREstatus`='APROBADO' AND SolicitudResidencia.`UAlumno`=$idAlumno;";
     $row = mysqli_fetch_array(mysqli_query($conexion, $sql)); 
-    header("Content-type:application/pdf");
-    header("Content-Disposition: attachment; filename=Reportefinal.pdf");
-    return  $row(0);
-  }
-  echo descargardoc($idAlumno);
+    return $row;
+  } 
+  header("Content-type:application/pdf");
+  header("Content-Disposition: attachment; filename=Reportefinal.pdf");
+  $documento = descargardoc($idAlumno); 
+  echo $documento[0];
 ?>
-
