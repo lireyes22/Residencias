@@ -451,7 +451,7 @@ WHERE FVTramite='$id'";
     $query = mysqli_fetch_array(mysqli_query($conection, $sql));
     // vaciar el buffer de resultados
     while (mysqli_next_result($conection)) { }
-        return $query[0];
+        return $query;
 }    
 
   

@@ -263,10 +263,15 @@
                     </div>
 
             <form method="POST" action='inserts/updateAnteproyecto.php' enctype="multipart/form-data">
-                    <textarea name="." cols="30" rows="10">
                         <?php 
                             $comentarios = comentarios($SRID);
-                            echo $comentarios;
+                            if(empty($comentarios)){
+                                $comentarios[0] = "NO EXISTEN COMENTARIOS";
+                            }
+                        ?>
+                    <textarea name="." cols="30" rows="10" disabled>
+                        <?php 
+                            echo $comentarios[0];
                         ?>
                     </textarea>
                     <label for="file-input">
