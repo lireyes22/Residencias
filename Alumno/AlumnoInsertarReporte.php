@@ -40,5 +40,7 @@ if (mysqli_stmt_execute($stmt)) {
 // Cierra la conexión
 mysqli_close($conexion);
 
+echo"<script language='javascript'>window.location='AlumReportefinal.php'</script>";
+
 ?>
-<button><a href="AlumReportefinal.php">Volver</a></button>
+
