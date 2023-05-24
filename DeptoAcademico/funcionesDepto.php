@@ -58,7 +58,7 @@ function DID($UID){ //OBTIENE EL DEPARTAMENTO ID CON EL ID DEL USUARIO
 }
 function listSolicProy($DID){ //LISTA DE SPID PENDIENTES Y EN EL DEPARTAMENTO SOLICITADO
     $conection = conn();
-    $sql = "SELECT SolicitudProyecto.`SPID` FROM UsuariosDepartamentos INNER JOIN `SolicitudProyecto` ON UsuariosDepartamentos.`UID` = SolicitudProyecto.`UIDResponsable` WHERE UsuariosDepartamentos.`DID` = 5 AND SolicitudProyecto.`SPEstatus`='PENDIENTE';";
+    $sql = "SELECT SolicitudProyecto.`SPID` FROM UsuariosDepartamentos INNER JOIN `SolicitudProyecto` ON UsuariosDepartamentos.`UID` = SolicitudProyecto.`UIDResponsable` WHERE UsuariosDepartamentos.`DID` = $DID AND SolicitudProyecto.`SPEstatus`='PENDIENTE';";
     $query = mysqli_query($conection, $sql);
     // vaciar el buffer de resultados
     while (mysqli_next_result($conection)) { }
@@ -136,7 +136,7 @@ function bancoSPID($SPID){
 }
 function alumnosResidencia($BPID){ //DEBERIA DE SER UNA RELACION MUCHOS A MUCHOS 
     $conection = conn();
-    $sql = "SELECT Alumnos.`NombreCompleto`, Carreras.`Nombre` FROM `Alumnos` INNER JOIN `Alumno_Usuarios` INNER JOIN `SolicitudResidencia` INNER JOIN `Carreras` ON Alumnos.`NumeroControl` = Alumno_Usuarios.`NumeroControl` AND SolicitudResidencia.`UAlumno` = Alumno_Usuarios.`UID` AND Alumnos.`CID` = Carreras.`CID` WHERE SolicitudResidencia.BPID = $BPID AND SolicitudResidencia.SREstatus = 'ACEPTADO';";
+    $sql = "SELECT Alumnos.`NombreCompleto`, Carreras.`Nombre` FROM `Alumnos` INNER JOIN `Alumno_Usuarios` INNER JOIN `SolicitudResidencia` INNER JOIN `Carreras` ON Alumnos.`NumeroControl` = Alumno_Usuarios.`NumeroControl` AND SolicitudResidencia.`UAlumno` = Alumno_Usuarios.`UID` AND Alumnos.`CID` = Carreras.`CID` WHERE SolicitudResidencia.BPID = $BPID AND SolicitudResidencia.SREstatus = 'APROBADO';";
     $query = mysqli_query($conection, $sql);
     // vaciar el buffer de resultados
     while (mysqli_next_result($conection)) { }
