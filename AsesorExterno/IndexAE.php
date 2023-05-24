@@ -31,7 +31,7 @@
                     $ProyectoS = ObtenerSolicitudProyecto($consulta['SPID']);
                     
             ?>
-            <form method="POST">
+            <form method="POST" target ="blank">
                 <input type="hidden" name="idAlumno" value="<?php echo $idAlumno; ?>">
                 <input type="hidden" name="idAsesor" value="<?php echo $idAsesor; ?>">
             <tbody>
