@@ -269,13 +269,13 @@
                                 $comentarios[0] = "NO EXISTEN COMENTARIOS";
                             }
                         ?>
-                    <textarea name="." cols="30" rows="10" disabled>
+                    <textarea name="." cols="60" rows="10" disabled>
                         <?php 
                             echo $comentarios[0];
                         ?>
                     </textarea>
                     <label for="file-input">
-                        <p>Anteproyecto:</p>
+                        <p>Anteproyecto corregido:</p>
                     </label>
                         <input id="file-input" accept=".pdf" type="file" name="anteproyecto" required/>
                     </div>
