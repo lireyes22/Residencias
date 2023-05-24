@@ -1,0 +1,93 @@
+.main-cont {
+    padding-top: 5em;
+    min-width: 91.3%;
+    min-height: 600px;
+  }
+  
+  .panel-izq {
+    float: left;
+  }
+  
+  .panel-izq label {
+    margin-left: 20em;
+  }
+  
+  .panel-der {
+    float: right;
+  }
+  
+  .panel-der input {
+    margin-right: 30em;
+  }
+  
+  .tb-th-asp .medium {
+    margin-left: 65em;
+  }
+  button#cancelar {
+    background-color: #ff4d4d;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  button#cancelar:hover {
+    background-color: #e60000;
+  }
+  #cancelar{
+    margin-left: 48em;
+    margin-top: 5px;
+  }
+  #bgcolor{
+    background-color: #3f6275;
+  }
+  #bgcolor label {
+    color: white;
+  }
+  /*botones para tabla */
+.btn {
+  background-color: #fff;
+  border: 2px solid #000;
+  color: #000;
+  border-radius: 5px; 
+  padding: 8px 16px;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.btn-actualizar{
+  background-color: white;
+  border: 2px solid green;
+}
+.btn-actualizar:hover{
+  background-color: green;
+  color: #fff;
+}
+/* TABLA DE FECHAS */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  /*max-width: 800px;*/
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #eee;
+  font-weight: bold;
+}
