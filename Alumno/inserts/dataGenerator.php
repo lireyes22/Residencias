@@ -28,7 +28,7 @@
         <?php
             $administrativo = Division_Coordinador($residente['nomcarrera']);
         ?>
-        <input type="hidden" name="1" value="<?php echo date('Y-m-d'); ?>">
+        <input type="hidden" name="1" value="<?php echo date('dd-md-yyyy'); ?>">
         <input type="hidden" name="2" value="<?php echo $administrativo['jefeDivEst'] ?>">
         <input type="hidden" name="3" value="<?php echo $administrativo['coordinador'] ?>">
         <input type="hidden" name="4" value="<?php echo $residente['nomcarrera'] ?>">
@@ -50,31 +50,29 @@
             WHERE SolicitudResidencia.UAlumno = ".$_SESSION['id']." AND SolicitudProyecto.`SPID` = $SPID";
             $residenciaOP = mysqli_fetch_array(mysqli_query($conn,$query));
             if($residenciaOP[0] == 'Op1'){
-                    echo "<input type='hidden' name='7' value='interno'>";
+                    echo "<input type='hidden' name='7' value='propuesta'>";
                 }else if($residenciaOP[0] == 'Op2'){
-                    echo "<input type='hidden' name='7' value='externo'>";
+                    echo "<input type='hidden' name='7' value='trabajador'>";
                 }else if($residenciaOP[0] == 'Op3'){
-                    echo "<input type='hidden' name='7' value='Banco'>";
+                    echo "<input type='hidden' name='7' value='banco'>";
             }
         ?>
         <input type="hidden" name="8" value="<?php echo $residencia['sdtiempoestimado'] . ' meses'; ?>">
         <input type="hidden" name="10" min="1" max="4" value="<?php echo $residencia['spestudiantesrequeridos']; ?>">
         <input type="hidden" name="11" value="<?php echo $empresa['nombre'] ?>">
         <?php if($empresa['ramo'] == 'Industrial'){
-            echo '<input type="hidden" name="12" value="Industrial">';
+            echo '<input type="hidden" name="12" value="infustrial">';
             }else if($empresa['ramo'] == 'Servicios'){
-                echo '<input type="hidden" name="12" value="Servicios">';
-            }else if($empresa['ramo'] == 'Escolar'){
-                echo '<input type="hidden" name="12" value="Escolar">';
+                echo '<input type="hidden" name="12" value="servicios">';
             }else if(empty($empresa['ramo']) || $empresa['ramo'] == 'Otro' || ($empresa['ramo'] != 'Industrial' && $empresa['ramo'] != 'Servicios' && $empresa['ramo'] != 'Escolar')){
-                echo '<input type="hidden" name="12" value="Otro">';
+                echo '<input type="hidden" name="12" value="otro">';
             }
         ?>
         <input type="hidden" name="13" value="<?php echo $empresa['erfc'] ?>">
         <?php if($empresa['esector'] == 'Publico'){
-            echo '<input type="hidden" name="14" value="Publico">';
+            echo '<input type="hidden" name="14" value="publico">';
         }else if($empresa['esector'] == 'Privado'){
-            echo '<input type="hidden" name="14" value="Privado">';
+            echo '<input type="hidden" name="14" value="privado">';
         }else if(empty($empresa['esector']) || $empresa['esector'] == 'Otro' || ($empresa['esector'] != 'Publico' && $empresa['esector'] != 'Privado')){
             echo '<input type="hidden" name="14" value="Otro">';
         }
