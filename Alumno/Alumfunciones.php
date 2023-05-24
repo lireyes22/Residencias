@@ -452,7 +452,38 @@ WHERE FVTramite='$id'";
     // vaciar el buffer de resultados
     while (mysqli_next_result($conection)) { }
         return $query;
-}    
+    }    
+    function Division_Coordinador($nomCarrera){ //DEVUELVE LAS OBSERVACIONES DE UNA SOLICITUD DE RESIDENCIA
+        $conection = conn();
+        $sql = "SELECT Profesor.`NombreCompleto` 
+        FROM `Profesor` 
+        INNER JOIN `Carreras` 
+        INNER JOIN `UsuariosDepartamentos` 
+        INNER JOIN `Usuarios` 
+        INNER JOIN `Profesor_Usuarios`
+        ON Profesor.`RFCProfesor` = Profesor_Usuarios.`RFCProfesor`
+        AND Profesor_Usuarios.`UID` = UsuariosDepartamentos.`UID`
+        AND Usuarios.`UID` = Profesor_Usuarios.`UID`
+        AND Carreras.`DID` = UsuariosDepartamentos.`DID`
+            WHERE Usuarios.`URol`='Coordinador' AND
+            Carreras.`Nombre` = '$nomCarrera';";
+        $coord = mysqli_fetch_array(mysqli_query($conection, $sql));
+        $sql = "SELECT Profesor.`NombreCompleto` 
+        FROM `Profesor`
+        INNER JOIN `Usuarios` 
+        INNER JOIN `Profesor_Usuarios`
+        ON Profesor.`RFCProfesor` = Profesor_Usuarios.`RFCProfesor`
+        AND Usuarios.`UID` = Profesor_Usuarios.`UID`
+            WHERE Usuarios.`URol`='JefeDivisonEstudios';";
+        $jefeEstPrf = mysqli_fetch_array(mysqli_query($conection, $sql));
+        
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        return array(
+            'coordinador' => $coord[0],
+            'jefeDivEst' => $jefeEstPrf[0]
+        );
+    }
 
   
   

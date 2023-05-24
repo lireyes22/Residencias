@@ -25,9 +25,12 @@
 <body style="margin: 0;">
     <!----------------------------------------------------- Fieldset Proyecto ---------------------------------------------------------->
     <form method="POST" action="../docs/generador.php"; enctype="multipart/form-data" target="blank">
+        <?php
+            $administrativo = Division_Coordinador($residente['nomcarrera']);
+        ?>
         <input type="hidden" name="1" value="<?php echo date('Y-m-d'); ?>">
-        <input type="hidden" name="2" value="<?php echo 'Juan Cocio' ?>">
-        <input type="hidden" name="3" value="<?php echo 'Benja' ?>">
+        <input type="hidden" name="2" value="<?php echo $administrativo['jefeDivEst'] ?>">
+        <input type="hidden" name="3" value="<?php echo $administrativo['coordinador'] ?>">
         <input type="hidden" name="4" value="<?php echo $residente['nomcarrera'] ?>">
         <input type="hidden" name="5" value="<?php echo $residencia['spnombreproyecto']; ?>">
         <?php if($residencia['sptipo'] == 'INTERNO'){
