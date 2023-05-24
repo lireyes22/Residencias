@@ -58,7 +58,7 @@ $link = conn();
     				<div class="TituloTraking"><?php echo $fila['SPNombreProyecto']." (".$fila['SPEstatus'].")"; ?></div>
 					<div class="progress-container">
 						<div class="progress-bar"><span class="<?php echo verificarSolicitudProyecto($fila['SPEstatus']); ?>"></span></div>
-						<button class="btn-actualizar">Botón</button>    		
+						<!--<button class="btn-actualizar">Botón</button>    		-->
 					</div>
     				<?php
 				}
@@ -85,11 +85,17 @@ $link = conn();
     				<div class="TituloTraking"><?php echo $fila['SPNombreProyecto']." (".$fila['SREstatus'].")"; ?></div>
 					<div class="progress-container">
 						<div class="progress-bar"><span class="<?php echo verificarSolicitudResidencia($fila['SREstatus']); ?>"></span></div> 
-						<button class="btn-actualizar">Botón</button>  
+						<!--<button class="btn-actualizar">Botón</button>  -->
 						<form action="AlumReenviaSoliResidencia.php" method="POST">
 							<input type="hidden" name="SPID" value="<?php echo $fila['SPID']?>">
 							<input type="hidden" name="SRID" value="<?php echo $fila['SRID']?>">
-							<input type="submit" class="btn-actualizar" value="Reenviar">
+							<?php
+							if($fila['SREstatus']=="RECHAZADO"){
+								?>
+								<input type="submit" class="btn-actualizar" value="Reenviar">
+								<?php
+							}
+							?>							
 						</form>
 						<!--condicion para que pueda editar su solicitud  -->
 						<?php

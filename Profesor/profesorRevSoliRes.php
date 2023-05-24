@@ -1,4 +1,5 @@
 <?php 
+include '../InicioSessionSeg.php';
 include ('funcProfesor.php');
     //ID del proyecto
 $SRID = $_POST['SRID'];
@@ -32,9 +33,10 @@ $SRID = $_POST['SRID'];
                     </a>
                 </div>
                 <div class="center-column">
-                    <h1>Solicitudes de Proyectos</h1>
+                    <h1>Revision Solicitud de Residencia</h1>
                 </div>
                 <div class="right-column">
+                    <a href="config.php"><img src="../img/configuraciones.png" width="50px"></a> &nbsp; &nbsp;
                     <a href="index.php"><img src="../img/logout.png" width="40px"></a>
                 </div>
             </div>
@@ -279,22 +281,23 @@ $SRID = $_POST['SRID'];
             </div> -->
         </fieldset>
     </form>
-    <form method="POST" action="profesorDecideSolicitud.php">
+    <form method="POST" action="funcionesFProfesor.php">
         <div id="myDiv" style="background-color: gray; width: 100%; margin-top: 20px; margin-bottom: 20px;">
             <div style="margin-bottom: 10px;" align="center">
-              <textarea id="myTextArea" style="width: 60%; margin-top: 10px; margin-bottom: 10px;" rows="4" cols="50">Observaciones:</textarea>
+              <textarea id="myTextArea" name="observaciones" style="width: 60%; margin-top: 10px; margin-bottom: 10px;" rows="4" cols="50">Observaciones:</textarea>
           </div>
           <div style="text-align: center;  margin-top: 10px; margin-bottom: 10px;">
-              <input type="hidden" name="accion" id="accion" value="">
-              <input type="submit" name="aceptar" value="Aprobar" onclick="if(confirm('¿Está seguro que desea aprobar esta solicitud?')) { document.getElementById('accion').value = 'APROBADO'; } else { return false; }" style="margin-right: 10px; padding: 5px 10px; background-color: green; color: white;">
-              <input type="submit" name="rechazar" value="Rechazar" onclick="if(confirm('¿Está seguro que desea rechazar esta solicitud?')) { document.getElementById('accion').value = 'RECHAZADO'; } else { return false; }" style="padding: 5px 10px; background-color: red; color: white;">
-          </div>
-          <div></div>
-      </div>
-  </form>
-      <footer style="background-color: #E8EDEB; padding: 20px; text-align: center; color: #333;"></footer>
-      <script>
-        window.location.href = "#myDiv";
-    </script>
+            <input type="hidden" name="SRID" value="<?php echo $SRID?>">
+            <input type="hidden" name="accion" id="accion" value="">
+            <input type="submit" name="aceptar" value="Aprobar" onclick="if(confirm('¿Está seguro que desea aprobar esta solicitud?')) { document.getElementById('accion').value = 'APROBADO'; } else { return false; }" style="margin-right: 10px; padding: 5px 10px; background-color: green; color: white;">
+            <input type="submit" name="rechazar" value="Rechazar" onclick="if(confirm('¿Está seguro que desea rechazar esta solicitud?')) { document.getElementById('accion').value = 'RECHAZADO'; } else { return false; }" style="padding: 5px 10px; background-color: red; color: white;">
+        </div>
+        <div></div>
+    </div>
+</form>
+<footer style="background-color: #E8EDEB; padding: 20px; text-align: center; color: #333;"></footer>
+<script>
+    window.location.href = "#myDiv";
+</script>
 </body>
 </html>
