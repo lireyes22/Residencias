@@ -1,8 +1,7 @@
 <?php 
-	#include '../InicioSessionSeg.php';
+	include '../InicioSessionSeg.php';
     include ('funcAsesorE.php');
-    #$idAsesor = $_SESSION['id'];
-    $idAsesor = 37;
+    $idAsesor = $_SESSION['id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
