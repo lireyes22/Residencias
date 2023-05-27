@@ -1,0 +1,7 @@
+<FilesMatch "\.css$">
+    FileETag None
+    Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "Thu, 1 Jan 1970 00:00:00 GMT"
+</FilesMatch>
+

@@ -159,7 +159,7 @@ function getBoton($botonName){
     } elseif ($fechaActual <= $fechaComparar) {
         echo '<td><strong>NOTA: Al hacer clic en guardar se actualizaran los datos</strong></td>';
         #echo '<td></td>';
-        echo '<td  colspan="2" ><input type="submit" class="btn btn-actualizar" value="Guardar" name="'.$botonName.'" formaction="procesos/AsesorInternoGuardarEvSeguimiento.php"></td>';
+        echo '<td  colspan="2" ><input type="submit" class="btn btn-actualizar btn-evrf" value="Guardar" name="'.$botonName.'" formaction="procesos/AsesorInternoGuardarEvSeguimiento.php"></td>';
     }
 }
 function getBotonRF(){
@@ -174,7 +174,7 @@ function getBotonRF(){
     if ($fechaActual > $fechaComparar) {
         echo '<input style="color: rgb(255, 255, 255); background-color: transparent;" class="lb-inp" type="text" value="Fuera de periodo de evaluacion" disabled>';
     } elseif ($fechaActual <= $fechaComparar) {
-        echo '<input type="submit" value="Guardar Cambios" class="btn btn-actualizar" formaction="procesos/AsesorInternoGuardarEvReporte.php">';
+        echo '<input type="submit" value="Guardar Cambios" class="btn btn-actualizar btn-evrf" formaction="procesos/AsesorInternoGuardarEvReporte.php">';
     }
 }
    function getEmpresa($SPID){
