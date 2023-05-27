@@ -4,6 +4,9 @@
     include('funcionesGD.php');
 
     $idAlumno = $_POST['idUAlumno'];
-    echo $idAlumno;
-    echo implode(',',)
+    echo $idAlumno.'<br>';
+    
+    $consultaReporteFinal = ObtenerEvaluacionFinal($idAlumno, 0);
+
+    #echo implode(',',$consultaReporteFinal);
 ?>
