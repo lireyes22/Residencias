@@ -15,45 +15,45 @@
                 <div class="columnaL">
                     <div class="form-row">
                         <label for="NombreProyecto">Nombre del Proyecto:</label>
-                        <input type="text" class="input-estiloDG" name="NombreProyecto" value="<?php echo $ProyectoS['SPNombreProyecto']; ?>" disabled>
+                        <input type="text" class="input-estiloDG" name="NombreProyecto" value="<?php echo $ProyectoS['SPNombreProyecto']; ?>" readonly>
                     </div>
                     <div class="form-row">
                         <label for="ObjetivoP">Objetivo:</label>
-                        <input type="text" name="ObjetivoP" value="<?php echo $ProyectoS['SPObjetivo']; ?>" disabled>
+                        <input type="text" name="ObjetivoP" value="<?php echo $ProyectoS['SPObjetivo']; ?>" readonly>
                     </div>
                     <div class="form-row">
-                        <label for='DespripcionP'>Descripcion:</label>
-                        <input type="text" name="DespripcionP" value="<?php echo $ProyectoS['SPDescripcion']; ?>" disabled>
+                        <label for='DespripcionP'>Descripción:</label>
+                        <input type="text" name="DespripcionP" value="<?php echo $ProyectoS['SPDescripcion']; ?>" readonly>
                     </div>
                     <div class="form-row">
                         <label for="ImapactoP">Impacto:</label>
-                        <input type="text" name="ImapactoP" value="<?php echo $ProyectoS['SPImpacto'] ?>" disabled>
+                        <input type="text" name="ImapactoP" value="<?php echo $ProyectoS['SPImpacto'] ?>" readonly>
                     </div>
                     <div class="form-row">
                     <label for="LugarP">Lugar:</label>
-                        <input type="text" name="LugarP" value="<?php echo $ProyectoS['SPLugar']; ?>" disabled>
+                        <input type="text" name="LugarP" value="<?php echo $ProyectoS['SPLugar']; ?>" readonly>
                     </div>
                 </div>
                 <div class="columnaC">
                     <div class="form-row">
                         <label for="Estudiantes-req">Estudiantes Requeridos:</label>
-                        <input type="text" name="Estudiantes-req" value="<?php echo $ProyectoS['SPEstudiantesRequeridos']; ?>" disabled>
+                        <input type="text" name="Estudiantes-req" value="<?php echo $ProyectoS['SPEstudiantesRequeridos']; ?>" readonly>
                     </div>
                     <div class="form-row">
                         <label for="TiempoP">Tiempo Estimado:</label>
-                        <input type="text" name="TiempoP" value="<?php echo $ProyectoS['SDTiempoEstimado'] . ' Meses'; ?>" disabled>
+                        <input type="text" name="TiempoP" value="<?php echo $ProyectoS['SDTiempoEstimado'] . ' Meses'; ?>" readonly>
                     </div>
                     <div class="form-row">
                         <label for="TipoP">Tipo Proyecto:</label>
-                        <input type="text" name="TipoP" value="<?php echo $ProyectoS['SPTipo']; ?>" disabled>
+                        <input type="text" name="TipoP" value="<?php echo $ProyectoS['SPTipo']; ?>" readonly>
                     </div>
                     <div class="form-row">
-                        <label for="lineaInv">Linea de Investigacion:</label>
-                        <input type="text" name="lineaInv" value="<?php echo $ProyectoS['SPLineaInvestigacion']; ?>" disabled>
+                        <label for="lineaInv">Linea de Investigación:</label>
+                        <input type="text" name="lineaInv" value="<?php echo $ProyectoS['SPLineaInvestigacion']; ?>" readonly>
                     </div>
                     <div class="form-row">
                         <label for="ReferenciasP">Referencias:</label>
-                        <input type="text" name="ReferenciasP" value="<?php echo $ProyectoS['SPReferencias']; ?>" disabled>
+                        <input type="text" name="ReferenciasP" value="<?php echo $ProyectoS['SPReferencias']; ?>" readonly>
                     </div>
                 </div>
         </fieldset>
@@ -64,69 +64,69 @@
                     <div class="columnaL">
                         <div class="form-row">
                         <label for="ENombre">Nombre Empresa:</label>
-                        <input type="text" id="ENombre" name="ENombre" value="<?php echo $empresa['nombre'] ?>" disabled>
+                        <input type="text" id="ENombre" name="ENombre" value="<?php echo $empresa['nombre'] ?>" readonly>
                         </div>
                         <div class="form-row">
                             <label for="Eramo">Ramo:</label>
-                            <input type="text" name="ramo" value="<?php echo $empresa['ramo'] ?>" disabled>
+                            <input type="text" name="ramo" value="<?php echo $empresa['ramo'] ?>" readonly>
                         </div>
                         <div class="form-row">
                             <label for="ERFC">RFC:</label>
-                            <input type="text" id="ERFC" name="ERFC" value="<?php echo $empresa['erfc'] ?>" disabled>
+                            <input type="text" id="ERFC" name="ERFC" value="<?php echo $empresa['erfc'] ?>" readonly>
                         </div>
                         <div class="form-row">
                             <label for="ESector">Sector:</label>
-                            <input type="text" name="ESector" value="<?php echo $empresa['esector'] ?>" disabled>
+                            <input type="text" name="ESector" value="<?php echo $empresa['esector'] ?>" readonly>
                         </div>
                         <div class="form-row">
                             <label for="EActPrincipal">Actividad principal de la empresa:</label>
-                            <input type="text" id="EActPrincipal" name="EActPrincipal" value="<?php echo $empresa['eactprincipal'] ?>" disabled>
+                            <input type="text" id="EActPrincipal" name="EActPrincipal" value="<?php echo $empresa['eactprincipal'] ?>" readonly>
                         </div>
                         <div class="form-row">
                             <label for="EDomicilio">Domicilio:</label>
-                            <input type="text" id="EDomicilio" name="EDomicilio" value="<?php echo $empresa['edomicilio'] ?>" disabled>
+                            <input type="text" id="EDomicilio" name="EDomicilio" value="<?php echo $empresa['edomicilio'] ?>" readonly>
                         </div>
                         <div class="form-row">
                             <label for="EColonia">Colonia:</label>
-                            <input type="text" id="EColonia" name="EColonia" value="<?php echo $empresa['ecolonia'] ?>" disabled>
+                            <input type="text" id="EColonia" name="EColonia" value="<?php echo $empresa['ecolonia'] ?>" readonly>
                         </div>
                         <div class="form-row">
                             <label for="ECp">CP:</label>
-                            <input type="text" id="ECp" name="ECp" value="<?php echo $empresa['ecp'] ?>" disabled>
+                            <input type="text" id="ECp" name="ECp" value="<?php echo $empresa['ecp'] ?>" readonly>
                         </div>
                         <div class="form-row">
                             <label for="EFax">FAX:</label>
-                            <input type="text" id="EFax" name="EFax" value="<?php echo $empresa['efax'] ?>" disabled>
+                            <input type="text" id="EFax" name="EFax" value="<?php echo $empresa['efax'] ?>" readonly>
                         </div>
                         <div class="form-row">
                             <label for="ECiudad">Ciudad:</label>
-                            <input type="text" id="ECiudad" name="ECiudad" value="<?php echo $empresa['eciudad'] ?>" disabled>
+                            <input type="text" id="ECiudad" name="ECiudad" value="<?php echo $empresa['eciudad'] ?>" readonly>
                         </div>
                     </div>
                     <div class="columnaC">
                         <div class="form-row">
                             <label for="ETelefono">Teléfono:</label>
-                            <input type="tel" id="ETelefono" name="ETelefono" value="<?php echo $empresa['etelefono'] ?>" disabled>
+                            <input type="tel" id="ETelefono" name="ETelefono" value="<?php echo $empresa['etelefono'] ?>" readonly>
                         </div>
                         <div class="form-row">
                         <label for="nombreTitular">Nombre del titular de la empresa:</label>
-                            <input type="text" id="nombreTitular" value="<?php echo $empresa['enombretitular']?>" disabled>
+                            <input type="text" id="nombreTitular" value="<?php echo $empresa['enombretitular']?>" readonly>
                         </div>
                         <div class="form-row">
                             <label for="puestoTitular">Puesto:</label>
-                            <input type="text" name="puestoTitular" value="<?php echo $empresa['epuestotitular']?>" disabled>
+                            <input type="text" name="puestoTitular" value="<?php echo $empresa['epuestotitular']?>" readonly>
                         </div>
                         <div class="form-row">
                             <label for="nomAsesorExterno">Nombre del Asesor Externo:</label>
-                            <input type="text" name="nomAsesorExterno" value="<?php echo $empresa['enombreacuerdo']?>" disabled>
+                            <input type="text" name="nomAsesorExterno" value="<?php echo $empresa['enombreacuerdo']?>" readonly>
                         </div>
                         <div class="form-row">
                             <label for="puestoAsesor">Puesto:</label>
-                            <input type="text" name="puestoAsesor" value="<?php echo $empresa['epuestoacuerdo']?>" disabled>
+                            <input type="text" name="puestoAsesor" value="<?php echo $empresa['epuestoacuerdo']?>" readonly>
                         </div>
                         <div class="form-row">
                             <label for="ENombreEncargado">Nombre de la persona que firmará el acuerdo de trabajo. Estudiante- Escuela-Empresa:</label>
-                            <input type="text" name="ENombreEncargado" value="<?php echo $empresa['enombreacuerdo']?>" disabled>
+                            <input type="text" name="ENombreEncargado" value="<?php echo $empresa['enombreacuerdo']?>" readonly>
                         </div> 
                     </div>
         </fieldset><br>
@@ -136,7 +136,7 @@
         <table>
             <thead>
                 <tr>
-                    <th>Numero de control</th>
+                    <th>Número de control</th>
                     <th>Nombre Completo</th>
                     <th>Semestre Actual</th>
                     <th>Correo Institucional</th>
