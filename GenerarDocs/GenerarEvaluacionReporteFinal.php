@@ -5,4 +5,5 @@
 
     $idAlumno = $_POST['idUAlumno'];
     echo $idAlumno;
+    echo implode(',',)
 ?>
