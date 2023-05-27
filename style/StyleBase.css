@@ -1,6 +1,12 @@
+/*--- Body aplica tipo de letra ---*/
+@font-face {
+    font-family: 'Comfortaa';
+    src: url('ruta/a/Comfortaa-Bold.ttf') format('truetype');
+}
 body {
     margin: 0;
     background-color: whitesmoke;
+    font-family: 'Comfortaa', sans-serif;
 }
 
 .container {

@@ -1,4 +1,5 @@
     <?php 
+    include '../InicioSessionSeg.php';
     include ('funcAsesor.php');
     $SPID = $_POST['SPID'];
     $empresa = getEmpresa($SPID);
