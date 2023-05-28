@@ -23,7 +23,7 @@ include '../InicioSessionSeg.php';
 				</a>
 			</div>
 			<div class="center-column">
-				<h1>Banco de Proyectos</h1>
+				<h1>Proyectos Registrados</h1>
 			</div>
 			<div class="right-column">
 				<a href="../usuariosConfig.php?idUsuario=<?php echo $_SESSION['id'];?>"><img src="../img/configuraciones.png" width="50px"></a> &nbsp; &nbsp;
@@ -34,6 +34,11 @@ include '../InicioSessionSeg.php';
 		include 'MenuProfesor.html';
 		?>
 	</div> 
+
+	<div class="MargenBoton">
+		<a href="profesorSoliProyRes.php"><button class="boton2">Registrar Proyecto</button></a>
+	</div>
+
 	<div class="tabla-scroll">
 		<table class = "tb-asp" id="obsrv">
 				<tr> 

@@ -44,13 +44,12 @@ foreach($carreraReqProy as $checkbox){
 
     if($result)
     {
-        echo"<script>alert('Se agregaron lo datos')</script>";
-        echo"<script  language='javascript'>window.location='../profesorSoliProyRes.php'</script>"; 
+        echo"<script  language='javascript'>window.location='../profesorMisProyectos.php'</script>"; 
 
     }
     else
     {
-        echo"<script>alert('No mi chavo... algo sucedió, pedo de product owner')</script>";
+        echo"<script>alert('Error')</script>";
         echo"<script  language='javascript'>window.location='../profesorSoliProyRes.php'</script>"; 
     }
 
