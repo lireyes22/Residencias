@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 
-    <?php include ('encabezado.php'); encabezadox('Evaluacion de Seguimiento') #encabezado xd?>
+    <?php include ('encabezado.php'); encabezadox('Evaluación de Seguimiento') #encabezado xd?>
 
     <?php
     $queryAlumno = consultaUsuarioAlumno($idAlumno);
@@ -36,7 +36,7 @@
         <div class="column-Ev1">
             <form method="post">
                 <label for="" class="lb-inp txtSizeEv">Información:</label>
-                <label for="" class="lb-inp">Numero de control:</label> <br>
+                <label for="" class="lb-inp">Número de control:</label> <br>
                 <input type="text" name="numControl" class="lb-inp" value="<?php echo $consultaAlumno['NumeroControl']; ?>" disabled> <br>
                 <label for="" class="lb-inp">Nombre del residente:</label> <br>
                 <input type="text" class="lb-inp" name="NombreResidente" value="<?php echo $consultaAlumno['NombreCompleto']; ?>" disabled> <br>
@@ -44,7 +44,7 @@
                 <input type="text" class="lb-inp" name="NombreProyecto" value="<?php echo $consultaAlumnoProyecto['SPNombreProyecto']; ?>" disabled> <br>
                 <label for="" class="lb-inp">Programa Educativo:</label> <br>
                 <input type="text" class="lb-inp" name="ProgramaEducativo" value="<?php echo $consultaAlumnoCarrera['Nombre']; ?>" disabled> <br>
-                <label for="" class="lb-inp">Periodo de Realizacion:</label> <br>
+                <label for="" class="lb-inp">Periodo de Realización:</label> <br>
                 <input type="text" class="lb-inp" name="PeriodoRealizacion" value="<?php echo $consultaAlumnoProyecto['SRPeriodo']; ?>" disabled> <br>
             </form>
         </div>
@@ -67,12 +67,12 @@
                                 <th>Puntuación</th>
                             </tr>
                             <tr>
-                                <td>Asistio puntualmente a las reuniones de asesoria</td>
+                                <td>Asistió puntualmente a las reuniones de asesoría</td>
                                 <td>10</td>
                                 <td><input type="number" name="PuntualidadP1" min="0" max="10" step="1" value="<?php  echo $ParcialUno['ERPuntualidad'] ?>" required></td>
                             </tr>
                             <tr>
-                                <td>Demuestra conocimento en el area de su especialidad</td>
+                                <td>Demuestra conocimiento en el área de su especialidad</td>
                                 <td>20</td>
                                 <td><input type="number" name="ConocimientoP1" min="0" max="20" step="1" value="<?php  echo $ParcialUno['ERConocimiento'] ?>" required></td>
                             </tr>
@@ -125,12 +125,12 @@
                                 <th>Puntuación</th>
                             </tr>
                             <tr>
-                                <td>Asistio puntualmente a las reuniones de asesoria</td>
+                                <td>Asistió puntualmente a las reuniones de asesoría</td>
                                 <td>10</td>
                                 <td><input type="number" name="PuntualidadP2" min="0" max="10" step="1" value="<?php  echo $ParcialDos['ERPuntualidad'] ?>" required></td>
                             </tr>
                             <tr>
-                                <td>Demuestra conocimento en el area de su especialidad</td>
+                                <td>Demuestra conocimiento en el área de su especialidad</td>
                                 <td>20</td>
                                 <td><input type="number" name="ConocimientoP2" min="0" max="20" step="1" value="<?php  echo $ParcialDos['ERConocimiento'] ?>" required></td>
                             </tr>
@@ -180,7 +180,7 @@
             ?>
             <label class="txtSizeEvC3 mrgEvC3 lb-inp">Nombre del Asesor Interno:</label>
             <input class="txtSizeEvC3 lb-inp" type="text" name="AsesorExterno" value="<?php echo $consultaAsesor['AENombre']; ?>" disabled>
-            <label class="txtSizeEvC3 mrgEvC3 lb-inp">Firma electronica:</label>
+            <label class="txtSizeEvC3 mrgEvC3 lb-inp">Firma electrónica:</label>
             <input class="txtSizeEvC3 lb-inp" type="file" name="archivo">
             <label class="txtSizeEvC3 mrgEvC3 lb-inp">Fecha de evaluación</label>
             <input class="txtSizeEvC3 lb-inp" type="date" value="" disabled>

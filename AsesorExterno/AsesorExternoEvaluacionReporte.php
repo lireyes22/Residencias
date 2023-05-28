@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 
-    <?php include ('encabezado.php'); encabezadox('Evaluacion Reporte Final') #encabezado xd?>
+    <?php include ('encabezado.php'); encabezadox('Evaluación Reporte Final') #encabezado xd?>
 
     <form method="post">
         <?php 
@@ -28,7 +28,7 @@
             <!-- Columna izquierda  -->
             <div class="column-Ev1">
                 <label for="" class="lb-inp txtSizeEv">Información:</label>
-                <label for="" class="lb-inp">Numero de control:</label> <br>
+                <label for="" class="lb-inp">Número de control:</label> <br>
                 <input type="text" name="numControl" class="lb-inp" value="<?php echo $consultaAlumno['NumeroControl']; ?>" disabled> <br>
                 <label for="" class="lb-inp">Nombre del residente:</label> <br>
                 <input type="text" class="lb-inp" name="NombreResidente" value="<?php echo $consultaAlumno['NombreCompleto']; ?>" disabled> <br>
@@ -36,7 +36,7 @@
                 <input type="text" class="lb-inp" name="NombreProyecto" value="<?php echo $consultaAlumnoProyecto['SPNombreProyecto']; ?>" disabled> <br>
                 <label for="" class="lb-inp">Programa Educativo:</label> <br>
                 <input type="text" class="lb-inp" name="ProgramaEducativo" value="<?php echo $consultaAlumnoCarrera['Nombre']; ?>" disabled> <br>
-                <label for="" class="lb-inp">Periodo de Realizacion:</label> <br>
+                <label for="" class="lb-inp">Periodo de Realización:</label> <br>
                 <input type="text" class="lb-inp" name="PeriodoRealizacion" value="<?php echo $consultaAlumnoProyecto['SRPeriodo']; ?>" disabled> <br>
                 <?php getBotonRF(); ?>
             </div>
@@ -121,7 +121,7 @@
             <div class="column-Ev3">
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp">Nombre del Asesor Interno:</label>
                 <input class="txtSizeEvC3 lb-inp" type="text" name="AsesorInterno" value="<?php echo $consultaAsesor['AENombre']; ?>" disabled>
-                <label class="txtSizeEvC3 mrgEvC3 lb-inp">Firma electronica:</label>
+                <label class="txtSizeEvC3 mrgEvC3 lb-inp">Firma electrónica:</label>
                 <input class="txtSizeEvC3 lb-inp" type="file" name="archivo">
                 <label class="txtSizeEvC3 mrgEvC3 lb-inp">Fecha de evaluación</label>
                 <input class="txtSizeEvC3 lb-inp" type="date" name="FechaEvaluacion" value="<?php echo date('Y-m-d'); ?>" disabled>
