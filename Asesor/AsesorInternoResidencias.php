@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
     
-    <?php include ('encabezado.php'); encabezadox('Residencias') #encabezado xd?>
+    <?php include ('encabezado.php'); encabezadox('Lista Residencias') #encabezado xd?>
 
 	<div class="containerSRP">
         <table>

@@ -24,11 +24,12 @@
                     <a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
                 </div>
             </div>
-            <div class="button-row">
-                <a href=# class="button-link" name="asesorias">Asesorias</a>
-                <a href="AsesorInternoAlumnos.php" class="button-link" name="alumnos">Alumnos</a>
-                <a href=# class="button-link" name="reportesemestral">Reporte Semestral</a>
+            <div class="button-row">                
                 <a href="AsesorInternoResidencias.php" class="button-link" name="residencias">Residencias</a>
+                <a href="AsesorInternoAlumnos.php" class="button-link" name="alumnos">Alumnos</a>
+                <a href=# class="button-link" name="asesorias">Asesorias</a>
+                <a href=# class="button-link" name="reportesemestral">Reporte Semestral</a>
+                
             </div>
         </div>';
     }
