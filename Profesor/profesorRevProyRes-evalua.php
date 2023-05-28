@@ -33,11 +33,7 @@ $link = conn();
     				<a href="../usuariosConfig.php?idUsuario=<?php echo $_SESSION['id'];?>"><img src="../img/configuraciones.png" width="50px"></a> &nbsp; &nbsp;
     				<a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
     			</div>
-    		</div>
-    		<?php
-    		include 'MenuProfesor.html';
-    		?>
-    	</div> 
+    		</div>    	</div> 
     	<div>
     		<div class="izq-decision">
     			<p>Nombre del Proyecto</p> 
@@ -87,7 +83,15 @@ $link = conn();
     				<textarea name="refEsenciales" cols="150" rows="4" disabled><?php echo $row[10] ?></textarea>
     			</form>
     		</div>
-
     	</div>
+    	<div align="center">
+    	<button class="floating-button" onclick="cerrarPagina()">Cerrar Pagina</button>	
+    </div>
+
+    <script>
+    	function cerrarPagina(){
+    		window.close();
+    	}
+    </script>
     </body>
     </html>
