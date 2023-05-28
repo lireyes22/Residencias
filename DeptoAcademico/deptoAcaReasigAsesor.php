@@ -16,7 +16,7 @@
 <html>
 
 <head>
-	<title>Departamento Academico</title>
+	<title>Departamento Académico</title>
 	<link rel="stylesheet" href="../style/style.css">
 	<link rel="stylesheet" href="style/styleDepto.css">
 </head>
@@ -26,7 +26,7 @@
 		<div class="row">
 			<div class="left-column">
 				<a class="home-btn" href="index.php">
-					<h2><span style="margin-right: 10px;">Dep. Academico</span></h2>
+					<h2><span style="margin-right: 10px;">Dep. Académico</span></h2>
 					<img src="../img/sombrero.png" width="50px">
 				</a>
 			</div>
@@ -74,11 +74,11 @@
 					<?php
 					}
 			?>
-			<label for="razon">Razon de la reasignacion: </label> 
+			<label for="razon">Razón de la reasignación: </label> 
 			<input type="text" name="razon" required> <br> <br>
 		</div>
 		<div class="panel-der">
-			<label for="period">Perido de Realizacion: </label>
+			<label for="period">Periodo de Realización: </label>
 			<input type="text" name="period" disabled value="<?php echo $solicitudResidencia[5]; ?>"> <br> <br>
 			<label for="anterior">Asesor anterior: </label>
 			<input type="text" name="anterior" disabled value="<?php

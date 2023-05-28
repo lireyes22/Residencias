@@ -9,7 +9,7 @@
 <html>
  
 <head>
-	<title>Departamento Academico</title> 
+	<title>Departamento Académico</title> 
 	<link rel="stylesheet" href="../style/style.css">
 	<link rel="stylesheet" href="Style/styleDepto.css">
 </head>
@@ -19,12 +19,12 @@
 		<div class="row">
 			<div class="left-column">
 				<a class="home-btn" href="index.php">
-					<h2><span style="margin-right: 10px;">Dep. Academico</span></h2>
+					<h2><span style="margin-right: 10px;">Dep. Académico</span></h2>
 					<img src="../img/sombrero.png" width="50px">
 				</a>
 			</div>
 			<div class="center-column">
-				<h1>Asignación de Solicitud de proyecto</h1>
+				<h1>Asignación de Solicitud de Proyecto</h1>
 			</div>
 			<div class="right-column">
 				<a href="../usuariosConfig.php?idUsuario=<?php echo $_SESSION['id'];?>"><img src="../img/configuraciones.png" width="50px"></a> &nbsp; &nbsp;
@@ -42,10 +42,10 @@
 			<tr> 
 				<td class="sticky">Nombre del proyecto</td>
 				<td class="sticky">Objetivo</td>
-				<td class="sticky">Numero Estudiantes</td>
+				<td class="sticky">Número Estudiantes</td>
 				<td class="sticky">Tiempo Estimado</td>
 				<td class="sticky">Asignar a: </td>
-				<td class="sticky">Fecha Maxima</td>
+				<td class="sticky">Fecha Máxima</td>
 				<td class="sticky"></td>
 			</tr>
             <tr>
