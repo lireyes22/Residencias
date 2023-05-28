@@ -63,7 +63,7 @@ include '../InicioSessionSeg.php';
 							<th class="tb-th-asp" id="nombProy" colspan="4"><?php echo $row[0]; ?></th>
 							<th rowspan="2" class="tb-th-asp" style="border: 1px solid;">
 								<?php 
-									if($row[1] != 'ACEPTADO' && $row[1] != 'RECHAZADO'){
+									if($row[1] != 'ACEPTADO' && $row[1] != 'RECHAZADO' && $row[1] != 'REVISION'){
 										?>
 										<form action="profesorEditProyRes.php" method="POST" target ="blank">
 											<input type="hidden" name="SPID" value="<?php echo $proy[0]; ?>">
