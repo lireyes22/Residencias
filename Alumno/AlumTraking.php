@@ -133,7 +133,7 @@ $link = conn();
 			<button class="btn-actualizar">Generar</button>
 			
 			<form action="Alumndescargardoc.php" method="post"> 
-				<input type="submit" value="Descargar">
+				<input type="submit" value="Descargar" class="btn-actualizar">
 				<input type="hidden" name="uid" value="<?php echo $_SESSION['id'] ?>">
 			</form>  
 		</div>
