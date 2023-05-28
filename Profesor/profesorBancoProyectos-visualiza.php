@@ -53,13 +53,13 @@ include '../InicioSessionSeg.php';
 		<div class="datos-proy">
 			<form action="">
 					<p class="_blanco">Objetivo del proyecto </p> <textarea name="objetivo-1" cols="150" rows="4" disabled > <?php echo $row[2] ?> </textarea> 
-					<p class="_blanco">Breve descripcion del proyecto</p> <textarea name="descripcion" cols="150" rows="4" disabled><?php echo $row[3] ?></textarea> 
+					<p class="_blanco">Breve descripción del proyecto</p> <textarea name="descripcion" cols="150" rows="4" disabled><?php echo $row[3] ?></textarea> 
 					<p>Impacto del proyecto</p>
 					<p class="_blanco"><?php echo "Aqui va el impacto del proyecto" ?></p>
 					<textarea name="objetivo-2" cols="150" rows="4" disabled><?php echo $row[4] ?></textarea> 
 					<p class="_blanco">Lugar donde se va a desarrollar</p>
 					<input type="text" name="lugar" size="155" disabled value="<?php echo $row[5] ?>"> <br> <br> 
-					<p class="_blanco">Docentes Responsables</p>
+					<p class="_blanco">Docente Responsable</p>
 					<?php $profesor_nombre = mysqli_fetch_array(NombreProfesor($row[11])); ?>
 					<input type="text" name="docente" size="155" disabled value="<?php echo $profesor_nombre[0] ?>"> <br> <br> 
 					<div class="doble-fila">
@@ -105,7 +105,7 @@ include '../InicioSessionSeg.php';
 							<td><input type="text" name="titulacion" disabled size="5"></td>
 						</tr>
 						<tr class="tr-td-gray">
-							<td>Creditos Complementarios</td>
+							<td>Créditos Complementarios</td>
 							<td><input type="text" name="credComp" disabled size="5"></td>
 							<td>Beca</td>
 							<td><input type="text" name="beca" disabled size="5"></td>
@@ -122,7 +122,7 @@ include '../InicioSessionSeg.php';
 						</tr>
 					</table>*/
 					?>
-					<p class="_blanco">Incluya las referencias esenciales para enmarcar el contenido de su propuesta.</p>
+					<p class="_blanco">Incluya las referencias esenciales para enmarcar el contenido de su propuesta:</p>
 					<textarea name="refEsenciales" cols="150" rows="4" disabled><?php echo $row[10] ?></textarea>
 			</form>
 		</div>

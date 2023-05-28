@@ -33,7 +33,7 @@ $SRID = $_POST['SRID'];
                     </a>
                 </div>
                 <div class="center-column">
-                    <h1>Revision Solicitud de Residencia</h1>
+                    <h1>Revisión Solicitud de Residencia</h1>
                 </div>
                 <div class="right-column">
                     <a href="../usuariosConfig.php?idUsuario=<?php echo $_SESSION['id'];?>"><img src="../img/configuraciones.png" width="50px"></a> &nbsp; &nbsp;
@@ -218,7 +218,7 @@ $SRID = $_POST['SRID'];
                             <input type="text" id="carrera" name="carrera" value="<?php echo $residente['nomcarrera'] ?>" disabled='disabled' required>
                         </div>
                         <div class="form-row">
-                            <label for="numControl">Numero de Control:</label>
+                            <label for="numControl">Número de Control:</label>
                             <input type="text" id="numControl" name="numControl" value="<?php echo $residente['numcontrol'] ?>" disabled='disabled' required>
                         </div>
                         <div class="form-row">

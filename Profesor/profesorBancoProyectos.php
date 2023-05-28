@@ -40,9 +40,9 @@ include '../InicioSessionSeg.php';
 				<tr> 
 					<td class="sticky">Nombre del proyecto</td>
 					<td class="sticky">Objetivo</td>
-					<td class="sticky">Numero Estudiantes</td>
+					<td class="sticky">Número Estudiantes</td>
 					<td class="sticky">Tiempo Estimado</td>
-					<td class="sticky">Docente</td>
+					<td class="sticky">Docente Responsable</td>
 					<td class="sticky"></td>
 				</tr>
 				<tr>

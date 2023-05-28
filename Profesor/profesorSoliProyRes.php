@@ -95,7 +95,7 @@
 						</select>
 						<br><br>
 
-						<h3>Carrera Requerida por los estudiantes: </h3>
+						<h3>Carrera Requerida de los estudiantes: </h3>
 						<?php
 							#$row2 = mysqli_fetch_array($result4)
 							$query = getCarreras();
