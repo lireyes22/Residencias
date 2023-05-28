@@ -12,12 +12,12 @@
             <thead>
                 <tr>
                     <th>Nombre del proyecto</th>
-                    <th>Numero de control</th>
+                    <th>Número de control</th>
                     <th>Nombre Completo</th>
                     <th>Semestre Actual</th>
                     <th>Correo Institucional</th>
-                    <th>Evaluacion de Seguimiento</th>
-                    <th>Evaluacion de Reporte Final</th>
+                    <th>Evaluación de Seguimiento</th>
+                    <th>Evaluación de Reporte Final</th>
                 </tr>
             </thead>
             <?php 
@@ -42,8 +42,8 @@
                 <td><?php echo $consultaAlumno['NombreCompleto']?></td>
                 <td><?php echo $consultaAlumno['SemestreActual']?></td>
                 <td><?php echo $consultaAlumno['CorreoInstitucional']?></td>
-                <td><input type="submit" formaction="AsesorInternoEvaluacionSeguimiento.php" value="Evaluacion de Seguimiento" class="btn btn-actualizar"></td>
-                <td><input type="submit" formaction="AsesorInternoEvaluacionReporte.php" value="Evaluacion de Reporte Final" class="btn btn-actualizar"></td>
+                <td><input type="submit" formaction="AsesorInternoEvaluacionSeguimiento.php" value="Evaluación de Seguimiento" class="btn btn-actualizar"></td>
+                <td><input type="submit" formaction="AsesorInternoEvaluacionReporte.php" value="Evaluación de Reporte Final" class="btn btn-actualizar"></td>
             </tbody>
                     <input type="hidden" name="idAlumno" value="<?php echo $idAlumno; ?>">
                     <input type="hidden" name="idAsesor" value="<?php echo $idAsesor; ?>">

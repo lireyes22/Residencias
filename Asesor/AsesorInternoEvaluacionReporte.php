@@ -32,7 +32,7 @@
             <!-- Columna izquierda  -->
             <div class="column-Ev1">
                 <label for="" class="lb-inp txtSizeEv">Información:</label>
-                <label for="" class="lb-inp">Numero de control:</label>
+                <label for="" class="lb-inp">Número de control:</label>
                 <input type="text" name="numControl" class="lb-inp" value="<?php echo $consultaAlumno['NumeroControl']; ?>" readonly> <br>
                 <label for="" class="lb-inp">Nombre del residente:</label>
                 <input type="text" class="lb-inp" name="NombreResidente" value="<?php echo $consultaAlumno['NombreCompleto']; ?>" readonly> <br>
@@ -40,7 +40,7 @@
                 <input type="text" class="lb-inp" name="NombreProyecto" value="<?php echo $consultaAlumnoProyecto['SPNombreProyecto']; ?>" readonly> <br>
                 <label for="" class="lb-inp">Programa Educativo:</label>
                 <input type="text" class="lb-inp" name="ProgramaEducativo" value="<?php echo $consultaAlumnoCarrera['Nombre']; ?>" readonly> <br>
-                <label for="" class="lb-inp">Periodo de Realizacion:</label>
+                <label for="" class="lb-inp">Periodo de Realización:</label>
                 <input type="text" class="lb-inp" name="PeriodoRealizacion" value="<?php echo $consultaAlumnoProyecto['SRPeriodo']; ?>" readonly> <br>
                 <label class="lb-inp">Nombre del Asesor Interno:</label>
                 <input class="lb-inp" type="text" name="AsesorInterno" value="<?php echo $consultaAsesor['NombreCompleto']; ?>" readonly> <br>
@@ -50,7 +50,7 @@
                 <input class="lb-inp" type="text" name="TotalPuntos" value="<?php echo $evaluacionReporte['ERFTotal'] ?>" readonly> <br>
                 <?php getBotonRF(); ?> <br>
                 <input class="btn btn-actualizar btn-evrf" type="submit" value="Descargar Reporte" formaction="procesos/AsesorInternoDescargarArchivo.php"> <br>  
-                <input class="btn btn-actualizar btn-evrf" type="submit" value="Descargar Evaluacion" formaction="../GenerarDocs/GenerarEvaluacionReporteFinal.php"> <br>        
+                <input class="btn btn-actualizar btn-evrf" type="submit" value="Descargar Evaluación" formaction="../GenerarDocs/GenerarEvaluacionReporteFinal.php"> <br>        
             </div>
             <!-- Columna central tabla  -->
             <div class="column-Ev2">

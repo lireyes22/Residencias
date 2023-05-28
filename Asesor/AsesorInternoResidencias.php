@@ -14,8 +14,8 @@
                     <th>Nombre del Proyecto</th>
                     <th>Objetivo</th>
                     <th>Descripcion</th>
-                    <th>Numero de Residentes</th>
-                    <th>Actualizar Numero de Residentes</th>
+                    <th>Número de Residentes</th>
+                    <th>Actualizar Número de Residentes</th>
                     <th>Detalles del Proyecto</th>
                 </tr>
             </thead>
