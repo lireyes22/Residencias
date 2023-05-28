@@ -274,4 +274,12 @@
         while (mysqli_next_result($conection)) { }
         return $query;
     }
+    function banco($DID){
+        $conection = conn();
+        $sql = "CALL bancoProyecto($DID);";
+        $query = mysqli_query($conection, $sql);
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        return $query;
+    }
 ?>

@@ -3,7 +3,7 @@ include '../InicioSessionSeg.php';
 	include ('funcProfesor.php');
 	$UID = $_SESSION['id'];
 	$DID = mysqli_fetch_array(DID($UID));
-	$result = listSolicProyAcep($DID[0]);
+	$result = banco($DID[0]);
 ?>
 <!DOCTYPE html>
 <html>
@@ -48,8 +48,7 @@ include '../InicioSessionSeg.php';
 				<tr>
 				<?php
 					$i = 0;
-					while ($SPID_Pendiente = mysqli_fetch_array($result)){
-						$row = mysqli_fetch_array(basicInfoProy($SPID_Pendiente[0]));
+					while ($row = mysqli_fetch_array($result)){
 						?>
 						<tr <?php if($i%2==0) echo "class='par'" ?> >
 							<th class="tb-th-asp"><p><?php echo $row[1];?></p></th>
