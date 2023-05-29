@@ -188,9 +188,9 @@ function insertComisionAsesor($UProfesor, $BPID, $CAPeriodo,$Razon){
     // vaciar el buffer de resultados
     while (mysqli_next_result($conection)) { }
 }
-function nuevoAsesor($BPID, $AIID){
+function nuevoAsesor($BPID, $AIID){ 
     $conection = conn();
-    $sql = "UPDATE BancoProyectos SET BancoProyectos.AIID = $AIID WHERE BancoProyectos.BPID = $BPID";
+    $sql = "UPDATE BancoProyectos SET BancoProyectos.AIID = $AIID, BancoProyectos.AEID = 2 WHERE BancoProyectos.BPID = $BPID";
     $query = mysqli_query($conection, $sql);
     // vaciar el buffer de resultados
     while (mysqli_next_result($conection)) { }

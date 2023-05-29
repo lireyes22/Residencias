@@ -54,7 +54,7 @@
         $rCAPeriodo = $_POST['periodo'];
         $RFCProfesor = $_POST['docente'];
         $UID = mysqli_fetch_array(UProfesor($RFCProfesor));
-        $AIID = mysqli_fetch_array(esAsesor($UID[0]));
+        $AIID = mysqli_fetch_array(esAsesor($UID[0])); 
         if( empty($AIID)){ //REVISAMOS SI EXISTE EN LA TABLA DE ASESORES
             insertAsesor($UID[0]); //SI NO EXISTE LO AGREGAMOS
             $AIID = mysqli_fetch_array(esAsesor($UID[0]));//OBTENEMOS EL AIID CREADO
