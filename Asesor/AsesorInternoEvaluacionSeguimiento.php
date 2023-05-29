@@ -36,14 +36,14 @@
 <!DOCTYPE html>
 <html>
 
-    <?php include ('encabezado.php'); encabezadox('Evaluacion de Seguimiento') #encabezado xd?>
+    <?php include ('encabezado.php'); encabezadox('Evaluación de Seguimiento') #encabezado xd?>
     <div class="containerEv">
         <!-- Columna izquierda  -->
         <div class="column-Ev1">
             <form method="post" style="all: unset;">
                 <input type="hidden" name="idUAlumno" value="<?php echo $idAlumno; ?>">
                 <label class="lb-inp txtSizeEv">Información:</label><br><br>
-                <label class="lb-inp">Numero de control:</label> <br>
+                <label class="lb-inp">Número de control:</label> <br>
                 <input type="text" name="numControl" class="lb-inp" value="<?php echo $consultaAlumno['NumeroControl']; ?>" readonly><br><br>
                 <label class="lb-inp">Nombre del residente:</label> <br>
                 <input type="text" class="lb-inp" name="NombreResidente" value="<?php echo $consultaAlumno['NombreCompleto']; ?>" readonly><br><br>
@@ -51,7 +51,7 @@
                 <input type="text" class="lb-inp" name="NombreProyecto" value="<?php echo $consultaAlumnoProyecto['SPNombreProyecto']; ?>" readonly><br><br>
                 <label class="lb-inp">Programa Educativo:</label> <br>
                 <input type="text" class="lb-inp" name="ProgramaEducativo" value="<?php echo $consultaAlumnoCarrera['Nombre']; ?>" readonly><br><br>
-                <label class="lb-inp">Periodo de Realizacion:</label> <br>
+                <label class="lb-inp">Periodo de Realización:</label> <br>
                 <input type="text" class="lb-inp" name="PeriodoRealizacion" value="<?php echo $consultaAlumnoProyecto['SRPeriodo']; ?>" readonly><br><br>
                 <label class="lb-inp">Nombre del Asesor Interno:</label>
                 <input class="lb-inp" type="text" name="AsesorInterno" value="<?php echo $consultaAsesor['NombreCompleto']; ?>" readonly><br><br>
@@ -59,7 +59,7 @@
                 <input class="lb-inp" type="date" value="<?php echo date('Y-m-d'); ?>" readonly><br><br>
                 <label class="lb-inp">Total Puntos:</label> <br>
                 <input type="text" class="lb-inp" name="TotalPuntos" value="<?php  echo $ParcialUno['ERCalificacion'] + $ParcialDos['ERCalificacion']?>" readonly><br><br>
-                <input class="btn btn-actualizar btn-evrf" type="submit" value="Descargar Evaluacion" formaction="../GenerarDocs/GenerarEvaluacionReporteFinal.php"><br>        
+                <input class="btn btn-actualizar btn-evrf" type="submit" value="Descargar Evaluacion" formaction="../GenerarDocs/GenerarEvaluacionSeguimiento.php"><br>        
             </form>
         </div>
         <!-- Columna central tabla  -->
@@ -76,12 +76,12 @@
                                 <th>Puntuación</th>
                             </tr>
                             <tr>
-                                <td>Asistio puntualmente a las reuniones de asesoria</td>
+                                <td>Asistió puntualmente a las reuniones de asesoría</td>
                                 <td>10</td>
                                 <td><input type="number" name="PuntualidadP1" min="0" max="10" step="1" value="<?php  echo $ParcialUno['ERPuntualidad'] ?>" required></td>
                             </tr>
                             <tr>
-                                <td>Demuestra conocimento en el area de su especialidad</td>
+                                <td>Demuestra conocimiento en el área de su especialidad</td>
                                 <td>20</td>
                                 <td><input type="number" name="ConocimientoP1" min="0" max="20" step="1" value="<?php  echo $ParcialUno['ERConocimiento'] ?>" required></td>
                             </tr>
@@ -134,12 +134,12 @@
                                 <th>Puntuación</th>
                             </tr>
                             <tr>
-                                <td>Asistio puntualmente a las reuniones de asesoria</td>
+                                <td>Asistió puntualmente a las reuniones de asesoría</td>
                                 <td>10</td>
                                 <td><input type="number" name="PuntualidadP2" min="0" max="10" step="1" value="<?php  echo $ParcialDos['ERPuntualidad'] ?>" required></td>
                             </tr>
                             <tr>
-                                <td>Demuestra conocimento en el area de su especialidad</td>
+                                <td>Demuestra conocimiento en el área de su especialidad</td>
                                 <td>20</td>
                                 <td><input type="number" name="ConocimientoP2" min="0" max="20" step="1" value="<?php  echo $ParcialDos['ERConocimiento'] ?>" required></td>
                             </tr>
