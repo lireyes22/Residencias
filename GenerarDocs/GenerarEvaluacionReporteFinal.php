@@ -14,7 +14,11 @@
     $consultaAlumnoCarrera = mysqli_fetch_array(consultaCarreraAlumno($consultaAlumno['NumeroControl']));
     #ProyectoXAlumno
     $consultaAlumnoProyecto = mysqli_fetch_array(consultaProyectoAlumno($idAlumno));
-
+    #AsesoresDatos
+    $idsAsesores = AsesoresxAlumnoIDS($idAlumno);
+    echo $idsAsesores['AIID'].','.$idsAsesores['AEID'];
+    $AsesorInterno = ProfesorxAsesorI($idsAsesores['AIID']);
+    $AsesorExterno = ProfesorxAsesorE($idsAsesores['AEID']);
     #echo implode(',',$consultaEvReporteFinalInterno);
 
     #Cargar el documento
@@ -64,8 +68,16 @@
     $TBS->MergeField('EvaE13',$consultaEvReporteFinalExterno['ERFFuentes']);
     $TBS->MergeField('EvaETotal',$consultaEvReporteFinalExterno['ERFTotal']);
 
+    #Informacion de los asesores
+    $TBS->MergeField('AsesorExterno',$AsesorExterno['AENombre']);
+    $TBS->MergeField('AsesorInterno',$AsesorInterno['NombreCompleto']);
+
+    #Fechas
+    $TBS->MergeField('FechaUno',$consultaEvReporteFinalInterno['ERFecha']);
+    $TBS->MergeField('FechaDos',$consultaEvReporteFinalExterno['ERFecha']);
+
     #Observaciones
-    $observaciones = $consultaEvReporteFinalInterno['ERFObservaciones']. ' Y '.$consultaEvReporteFinalExterno['ERFObservaciones'];
+    $observaciones = $consultaEvReporteFinalInterno['ERFObservaciones']. '. '.$consultaEvReporteFinalExterno['ERFObservaciones'];
     $TBS->MergeField('EvaObservaciones',$observaciones);
 
     #Promedio final

@@ -39,6 +39,64 @@
         }
         return $consultaEvReporteFinal;
     }
+    function consultaEvaluacionSeguimiento($UAlumno, $NParcial, $Tipo) {
+        $conection = conn();
+        $sql = "CALL ObtenerEvaluacionSeguimientoT($UAlumno, $NParcial, $Tipo)";
+        $query = mysqli_query($conection, $sql);
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        
+        if (!($consultaEvSeguimiento = mysqli_fetch_array($query))) {
+            $consultaEvSeguimiento['ERPuntualidad'] = 0;
+            $consultaEvSeguimiento['ERTrabajoEquipo'] = 0;
+            $consultaEvSeguimiento['ERDedicacion'] = 0;
+            $consultaEvSeguimiento['ERDaMejoras'] = 0;
+            $consultaEvSeguimiento['ERCumpleObjetivos'] = 0;
+            $consultaEvSeguimiento['EROrdenado'] = 0;
+            $consultaEvSeguimiento['ERLiderazgo'] = 0;
+            $consultaEvSeguimiento['ERConocimiento'] = 0;
+            $consultaEvSeguimiento['ERComportamiento'] = 0;
+            $consultaEvSeguimiento['ERCalificacion'] = 0;
+            $consultaEvSeguimiento['ERObservaciones'] = 0;
+        }
+        return $consultaEvSeguimiento;
+    }
+    function AsesoresxAlumnoIDS($idAlumno) {
+        $conection = conn();
+        $sql = "CALL ObtenerIDAsesoresXAlumno($idAlumno)";
+        $query = mysqli_query($conection, $sql);
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        if (!($consultaOAA = mysqli_fetch_array($query))) {
+            echo 'error';
+            $consultaOAA = -1;
+        }
+        return $consultaOAA;
+    }
+    function ProfesorxAsesorI($idAsesor) {
+        $conection = conn();
+        $sql = "CALL ProfesorxAsesor($idAsesor)";
+        $query = mysqli_query($conection, $sql);
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        if (!($consulta = mysqli_fetch_array($query))) {
+            echo 'error';
+            $consulta = -1;
+        }
+        return $consulta;
+    }
+    function ProfesorxAsesorE($idAsesor) {
+        $conection = conn();
+        $sql = "SELECT * FROM AsesorExterno WHERE AEID = $idAsesor";
+        $query = mysqli_query($conection, $sql);
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        if (!($consulta = mysqli_fetch_array($query))) {
+            echo 'error';
+            $consulta = -1;
+        }
+        return $consulta;
+    }
     function consultaUsuarioAlumno($idAlumno) {
         $conection = conn();
         $sql = "CALL UsuarioxAlumno($idAlumno)";

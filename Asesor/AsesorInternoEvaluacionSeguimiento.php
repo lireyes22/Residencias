@@ -59,7 +59,7 @@
                 <input class="lb-inp" type="date" value="<?php echo date('Y-m-d'); ?>" readonly><br><br>
                 <label class="lb-inp">Total Puntos:</label> <br>
                 <input type="text" class="lb-inp" name="TotalPuntos" value="<?php  echo $ParcialUno['ERCalificacion'] + $ParcialDos['ERCalificacion']?>" readonly><br><br>
-                <input class="btn btn-actualizar btn-evrf" type="submit" value="Descargar Evaluacion" formaction="../GenerarDocs/GenerarEvaluacionReporteFinal.php"><br>        
+                <input class="btn btn-actualizar btn-evrf" type="submit" value="Descargar Evaluacion" formaction="../GenerarDocs/GenerarEvaluacionSeguimiento.php"><br>        
             </form>
         </div>
         <!-- Columna central tabla  -->

@@ -38,6 +38,18 @@ function consultaProfesorAsesor($idAsesor) {
     while (mysqli_next_result($conection)) { }
     return $query;
 }
+function ProfesorxAsesorE($idAsesor) {
+    $conection = conn();
+    $sql = "SELECT * FROM AsesorExterno WHERE AEID = $idAsesor";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    if (!($consulta = mysqli_fetch_array($query))) {
+        echo 'error';
+        $consulta = -1;
+    }
+    return $consulta;
+}
 function getIDAsesorInterno($uid) {
     $conection = conn();
     $sql = "CALL ObtenerIDAsesorInterno($uid)";
@@ -136,11 +148,14 @@ function consultaEvaluacionSeguimiento($UAsesor, $UAlumno, $NParcial, $Tipo) {
     
     if (!($consultaAlumnoProyecto = mysqli_fetch_array($query))) {
             $consultaAlumnoProyecto['ERPuntualidad'] = 0;
-            $consultaAlumnoProyecto['ERConocimiento'] = 0;
             $consultaAlumnoProyecto['ERTrabajoEquipo'] = 0;
             $consultaAlumnoProyecto['ERDedicacion'] = 0;
-            $consultaAlumnoProyecto['EROrdenado'] = 0;
             $consultaAlumnoProyecto['ERDaMejoras'] = 0;
+            $consultaAlumnoProyecto['ERCumpleObjetivos'] = 0;
+            $consultaAlumnoProyecto['EROrdenado'] = 0;
+            $consultaAlumnoProyecto['ERLiderazgo'] = 0;
+            $consultaAlumnoProyecto['ERConocimiento'] = 0;
+            $consultaAlumnoProyecto['ERComportamiento'] = 0;
             $consultaAlumnoProyecto['ERObservaciones'] = '';
             $consultaAlumnoProyecto['ERCalificacion'] = 0;
     }
