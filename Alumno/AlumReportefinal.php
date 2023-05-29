@@ -1,7 +1,6 @@
 <?php 
 	include '../InicioSessionSeg.php';
 	$idAlumno = $_SESSION['id']; 
-	$idAlumno = 30;
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,9 +37,9 @@
 		
 		<div>
 			<h1>ESTRUCTURA DEL REPORTE</h1>
-			<div style="margin-left: 10px;">
+			<!--<div style="margin-left: 10px;">
 				Nombre del Proyecto:&nbsp;<input name="nombre" type="text" value="">
-			</div>
+			</div>-->
 			<ol>
 				<li>Portada</li>
 				<li>Agradecimientos</li>
@@ -56,15 +55,15 @@
 				<li>Conclusiones</li>
 				<li>Fuentes de información</li>
 			</ol>
-			<div class="tb-th-asp">
 			
-				<input type="submit" value="Enviar">
-				<input type="hidden" name="idAlumno" value="<?php echo $idAlumno; ?>">
-			</div>
 			<br>
 			<div class="form-group">
 				<label for="file-input"></label>
-				<input id="file-input" accept=".pdf" type="file" name="ReporteFinal">
+				<input id="file-input" accept=".pdf" type="file" name="ReporteFinal" required>
+			</div>
+			<div class="tb-th-asp">			
+				<input type="submit" value="Enviar">
+				<input type="hidden" name="idAlumno" value="<?php echo $idAlumno; ?>">
 			</div>
 		</div>
 	</form>
