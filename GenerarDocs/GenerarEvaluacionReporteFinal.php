@@ -77,7 +77,11 @@
     $TBS->MergeField('FechaDos',$consultaEvReporteFinalExterno['ERFecha']);
 
     #Observaciones
-    $observaciones = $consultaEvReporteFinalInterno['ERFObservaciones']. '. '.$consultaEvReporteFinalExterno['ERFObservaciones'];
+    $observaciones = $consultaEvReporteFinalInterno['ERFObservaciones'];
+    if(!empty($observaciones)){
+        $observaciones = $observaciones.'. ';
+    }
+    $observaciones = $observaciones . $consultaEvReporteFinalExterno['ERFObservaciones'];
     $TBS->MergeField('EvaObservaciones',$observaciones);
 
     #Promedio final
