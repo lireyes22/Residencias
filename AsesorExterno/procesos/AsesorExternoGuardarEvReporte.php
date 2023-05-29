@@ -32,7 +32,7 @@ foreach ($campos as $campo) {
 #Inicio con el proceso una vez validado
 if (!empty($campos_vacios)) {#si hay algo, significa que hay campos vacios
     echo "<script>alert('Los siguientes campos están vacíos: " . implode(', ', $campos_vacios) . "')</script>";
-    echo"<script  language='javascript'>window.location='../AsesorInternoAlumnos.php'</script>";  
+    echo"<script  language='javascript'>window.location='../IndexAE.php'</script>";  
     exit();
 }
 ##################################################################################
