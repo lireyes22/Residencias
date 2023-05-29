@@ -51,7 +51,7 @@ function getAsesor($SPID){
 
     //Obtengo datos del profesor
     $result = mysqli_fetch_assoc($query);
-
+    if(empty($result)) $result['NombreCompleto'] = "";
     return array(
         'nombreasesor' => $result['NombreCompleto']
     );
