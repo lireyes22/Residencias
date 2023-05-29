@@ -19,7 +19,9 @@
     echo $idsAsesores['AIID'].','.$idsAsesores['AEID'];
     if(empty($idsAsesores['AIID']) || empty($idsAsesores['AEID']) ){
         echo"<script>alert('No se han asignado todos los asesores')</script>";
-        echo"<script  language='javascript'>window.close()</script>";  
+        if(!empty($_POST['redireccionar'])){
+            echo"<script  language='javascript'>window.location='".$_POST['redireccionar']."'</script>";  
+        }else echo"<script  language='javascript'>window.close()</script>";  
     }
     $AsesorInterno = ProfesorxAsesorI($idsAsesores['AIID']);
     $AsesorExterno = ProfesorxAsesorE($idsAsesores['AEID']);

@@ -41,6 +41,7 @@
         <!-- Columna izquierda  -->
         <div class="column-Ev1">
             <form method="post" style="all: unset;">
+                <input type="hidden" name="redireccionar" value="../Asesor/AsesorInternoAlumnos.php">
                 <input type="hidden" name="idUAlumno" value="<?php echo $idAlumno; ?>">
                 <label class="lb-inp txtSizeEv">Información:</label><br><br>
                 <label class="lb-inp">Número de control:</label> <br>
