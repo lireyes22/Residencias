@@ -50,7 +50,7 @@
                 <input class="lb-inp" type="text" name="TotalPuntos" value="<?php echo $evaluacionReporte['ERFTotal'] ?>" readonly> <br>
                 <?php getBotonRF(); ?> <br>
                 <input class="btn btn-actualizar btn-evrf" type="submit" value="Descargar Reporte" formaction="procesos/AsesorInternoDescargarArchivo.php"> <br>  
-                <input class="btn btn-actualizar btn-evrf" type="submit" value="Descargar Evaluación" formaction="../GenerarDocs/GenerarEvaluacionReporteFinal.php" target="_blank"> <br>        
+                <input class="btn btn-actualizar btn-evrf" type="submit" value="Descargar Evaluación" formaction="../GenerarDocs/GenerarEvaluacionReporteFinal.php"> <br>        
             </div>
             <!-- Columna central tabla  -->
             <div class="column-Ev2">

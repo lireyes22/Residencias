@@ -29,6 +29,9 @@ if ($fila = mysqli_fetch_assoc($resultado)) {
     header("Content-Disposition: attachment; filename=documento.pdf");
     // Imprimir el archivo
     echo $archivo;
+} else {
+    echo"<script>alert('No hay documento.')</script>";
+    echo"<script  language='javascript'>window.location='../AsesorInternoAlumnos.php'</script>";  
 }
 // Cerrar la conexión
 mysqli_close($conection);
