@@ -17,9 +17,12 @@
     #AsesoresDatos
     $idsAsesores = AsesoresxAlumnoIDS($idAlumno);
     echo $idsAsesores['AIID'].','.$idsAsesores['AEID'];
+    if(empty($idsAsesores['AIID']) || empty($idsAsesores['AEID']) ){
+        echo"<script>alert('No se han asignado todos los asesores')</script>";
+        echo"<script  language='javascript'>window.close()</script>";  
+    }
     $AsesorInterno = ProfesorxAsesorI($idsAsesores['AIID']);
     $AsesorExterno = ProfesorxAsesorE($idsAsesores['AEID']);
-    #echo implode(',',$consultaEvReporteFinalInterno);
 
     #Cargar el documento
     $template = 'templates/EvaluacionReporteFinal.docx';
@@ -92,5 +95,4 @@
     
     $FileName = 'EvaluacionReporteFinal.docx';
     $TBS->Show(OPENTBS_DOWNLOAD, $FileName);
-    #exit();
 ?>

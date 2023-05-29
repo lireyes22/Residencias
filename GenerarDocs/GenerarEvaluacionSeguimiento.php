@@ -21,6 +21,10 @@
     #AsesoresDatos
     $idsAsesores = AsesoresxAlumnoIDS($idAlumno);
     echo $idsAsesores['AIID'].','.$idsAsesores['AEID'];
+    if(empty($idsAsesores['AIID']) || empty($idsAsesores['AEID']) ){
+        echo"<script>alert('No se han asignado todos los asesores')</script>";
+        echo"<script  language='javascript'>window.close()</script>";  
+    }
     $AsesorInterno = ProfesorxAsesorI($idsAsesores['AIID']);
     $AsesorExterno = ProfesorxAsesorE($idsAsesores['AEID']);
 

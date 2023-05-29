@@ -120,12 +120,18 @@ $link = conn();
 		<div class="TituloTraking">Reporte parcial 1 (<?php echo verificarSolicitudReporteParcial1(true,$_SESSION['id']);?>)<b></b>Fecha Limite: <?php echo retornarFechaLimite('AsesoresEvaluacionSeguimiento'); ?></div>
 		<div class="progress-container">
 			<div class="progress-bar"><span class="<?php echo verificarSolicitudReporteParcial1(false,$_SESSION['id']);?>"></span></div>
-			
+			<form action="../GenerarDocs/GenerarEvaluacionSeguimiento.php" method="post"> 
+				<input type="submit" value="Evaluación" class="btn-actualizar">
+				<input type="hidden" name="idUAlumno" value="<?php echo $_SESSION['id'] ?>">
+			</form>
 		</div>
 		<div class="TituloTraking">Reporte parcial 2 (<?php echo verificarSolicitudReporteParcial2(true,$_SESSION['id']);?>)<b></b>Fecha Limite: <?php echo retornarFechaLimite('AsesoresEvaluacionSeguimiento'); ?></div>
 		<div class="progress-container">
 			<div class="progress-bar"><span class="<?php echo verificarSolicitudReporteParcial2(false,$_SESSION['id']);?>"></span></div>
-			
+			<form action="../GenerarDocs/GenerarEvaluacionSeguimiento.php" method="post"> 
+				<input type="submit" value="Evaluación" class="btn-actualizar">
+				<input type="hidden" name="idUAlumno" value="<?php echo $_SESSION['id'] ?>">
+			</form>
 		</div>
 		<div class="TituloTraking">Reporte Final (<?php echo verificarSolicitudReporteFinal(true,$_SESSION['id']);?>)<b></b>Fecha Limite: <?php echo retornarFechaLimite('AsesoresEvaluacionReporteFinal'); ?></div>
 		<div class="progress-container">
@@ -133,8 +139,12 @@ $link = conn();
 			<button class="btn-actualizar">Generar</button>
 			
 			<form action="Alumndescargardoc.php" method="post"> 
-				<input type="submit" value="Descargar" class="btn-actualizar">
+				<input type="submit" value="Descargar" class="btn-actualizar" >
 				<input type="hidden" name="uid" value="<?php echo $_SESSION['id'] ?>">
+			</form>  
+			<form action="../GenerarDocs/GenerarEvaluacionReporteFinal.php" method="post""> 
+				<input type="submit" value="Evaluación" class="btn-actualizar" target="_blank">
+				<input type="hidden" name="idUAlumno" value="<?php echo $_SESSION['id'] ?>">
 			</form>  
 		</div>
 	</div>
