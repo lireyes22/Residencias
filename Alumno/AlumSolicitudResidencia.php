@@ -86,13 +86,22 @@
                         </select>
                     </div>
                     <div class="form-row">
-                        <label for="opcionElegida">Opción elegida:</label>
-                            <select id="opcionElegida" name="opcionElegida" required>
-                                <option value="">Seleccione una opción</option>
-                                <option value="Op1">Propuesta Propia</option>
-                                <option value="Op2">Trabajador</option>
-                                <option value="Op3">Banco de Proyectos</option>
-                            </select>
+                        <label for="opcionElegida">Opción elegida:</label> 
+                        <?php
+                        $conn = conn();
+                        $query = "SELECT SolicitudResidencia.`SROpcionElegida` FROM `SolicitudResidencia`
+                        INNER JOIN BancoProyectos ON BancoProyectos.BPID = SolicitudResidencia.BPID
+                        INNER JOIN SolicitudProyecto ON SolicitudProyecto.SPID = BancoProyectos.SPID
+                        WHERE SolicitudResidencia.UAlumno = ".$_SESSION['id']." AND SolicitudProyecto.`SPID` = $SPID";
+                        $residenciaOP = mysqli_fetch_array(mysqli_query($conn,$query));
+                        if($residenciaOP[0] == 'Op1'){
+                                echo "<input type='text' name='opcionElegida' value='Propuesta' disabled>";
+                            }else if($residenciaOP[0] == 'Op2'){
+                                echo "<input type='text' name='opcionElegida' value='Trabajador' disabled>";
+                            }else if($residenciaOP[0] == 'Op3'){
+                                echo "<input type='text' name='opcionElegida' value='Banco' disabled>";
+                        }
+        ?>
                     </div>
                     <div class="form-row">
                         <label for="periodoProyect">Periodo proyectado:</label>
