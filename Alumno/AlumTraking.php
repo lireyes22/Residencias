@@ -121,7 +121,7 @@ $link = conn();
 		<div class="progress-container">
 			<div class="progress-bar"><span class="<?php echo verificarSolicitudReporteParcial1(false,$_SESSION['id']);?>"></span></div>
 			<form action="../GenerarDocs/GenerarEvaluacionSeguimiento.php" method="post"> 
-				<input type="submit" value="Evaluación" class="btn-actualizar">
+				<input type="submit" value="Evaluación" class="btn-actualizar" target="_blank">
 				<input type="hidden" name="idUAlumno" value="<?php echo $_SESSION['id'] ?>">
 			</form>
 		</div>
@@ -129,7 +129,7 @@ $link = conn();
 		<div class="progress-container">
 			<div class="progress-bar"><span class="<?php echo verificarSolicitudReporteParcial2(false,$_SESSION['id']);?>"></span></div>
 			<form action="../GenerarDocs/GenerarEvaluacionSeguimiento.php" method="post"> 
-				<input type="submit" value="Evaluación" class="btn-actualizar">
+				<input type="submit" value="Evaluación" class="btn-actualizar" target="_blank">
 				<input type="hidden" name="idUAlumno" value="<?php echo $_SESSION['id'] ?>">
 			</form>
 		</div>
