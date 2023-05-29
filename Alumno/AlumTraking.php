@@ -48,7 +48,7 @@ $link = conn();
     		<?php 
     		$conn = conn();
     		$id=$_SESSION['id'];
-    		$sql = "SELECT * FROM SolicitudProyecto WHERE UIDResponsable='$id'";
+    		$sql = "SELECT * FROM SolicitudProyecto WHERE UPropietario='$id'";
     		$resultado = $conn->query($sql);
 
     		if ($resultado->num_rows > 0) {
