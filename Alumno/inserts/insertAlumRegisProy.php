@@ -17,8 +17,9 @@ $uidResp = mysqli_fetch_array(UProfesor($rfcresp));
 $estatus="PENDIENTE";
 $RFCEmpresa=$_POST['Empresas'];
 $carreraReqProy = $_POST['carreraReq'];
+$UPropietarios = $_POST['idAlumno'];
 
-echo $nameProy;
+/*echo $nameProy;
 echo $objetivoProy;
 echo $descripcionProy;
 echo $impactoProy;
@@ -27,11 +28,11 @@ echo $estudiantesReqProy;
 echo $tipoPropProy;
 echo $lineaInvsProy;
 echo $referebciasEProy;
-echo $RFCEmpresa;
+echo $RFCEmpresa;*/
 
 
-$query = "INSERT INTO SolicitudProyecto (SPID,SPNombreProyecto, SPObjetivo, SPDescripcion, SPImpacto, SPLugar, SPEstudiantesRequeridos, SDTiempoEstimado, SPTipo, SPLineaInvestigacion , SPReferencias, UIDResponsable,SPEstatus,ERFC) 
-VALUES(null,'$nameProy','$objetivoProy','$descripcionProy','$impactoProy','$lugarProy','$estudiantesReqProy','$tiempoEst','$tipoPropProy','$lineaInvsProy','$referebciasEProy','$uidResp[0]','$estatus','$RFCEmpresa')";
+$query = "INSERT INTO SolicitudProyecto (SPID,SPNombreProyecto, SPObjetivo, SPDescripcion, SPImpacto, SPLugar, SPEstudiantesRequeridos, SDTiempoEstimado, SPTipo, SPLineaInvestigacion , SPReferencias, UIDResponsable,SPEstatus,ERFC,UPropietario) 
+VALUES(null,'$nameProy','$objetivoProy','$descripcionProy','$impactoProy','$lugarProy','$estudiantesReqProy','$tiempoEst','$tipoPropProy','$lineaInvsProy','$referebciasEProy','$uidResp[0]','$estatus','$RFCEmpresa','$UPropietarios')";
 $result = mysqli_query($link, $query);
 
 $id_generado = mysqli_insert_id($link);

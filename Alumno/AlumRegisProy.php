@@ -9,7 +9,7 @@
     $query2="SELECT Alumnos.NombreCompleto FROM Alumnos INNER JOIN Alumno_Usuarios ON Alumnos.NumeroControl=Alumno_Usuarios.NumeroControl INNER JOIN Usuarios ON Alumno_Usuarios.UID=Usuarios.UID WHERE Usuarios.UID='$IDUser'";
 	$result2 = mysqli_query($link, $query2);
 	$DID = mysqli_fetch_array(DID($IDUser));
-	$docentes = listaDocentes($DID[0], '');
+	$docentes = listaDocentes($DID[0], ''); 
 ?>
 	<!DOCTYPE html>
 	<html>
@@ -43,6 +43,7 @@
 			<div class="datosSolicitudproy">
 				<form action="inserts/insertAlumRegisProy.php" method="POST">
 					<div>
+						<input type="hidden" name="idAlumno" value="<?php echo $_SESSION['id'];?>">
 						<h3>Nombre del Proyecto</h3> 
 						<input class="inp-sr" type="text" name="nombreProy" required size="100%"><br>
 						<h3>Objetivo Proyecto</h3>
