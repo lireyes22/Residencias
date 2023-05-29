@@ -25,6 +25,7 @@
         <input type="hidden" name="idSoliRes" value="<?php echo $idSolicitudResidencia; ?>">
         <input type="hidden" name="idUAsesor" value="<?php echo $idAsesor; ?>">
         <input type="hidden" name="idUAlumno" value="<?php echo $idAlumno; ?>">
+        <input type="hidden" name="redireccionar" value="../AsesorExterno/IndexAE.php">
         <div class="containerEv">
             <!-- Columna izquierda  -->
             <div class="column-Ev1">

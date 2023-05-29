@@ -38,7 +38,8 @@
         <!-- Columna izquierda  -->
         <div class="column-Ev1">
             <form method="post">
-            <input type="hidden" name="idUAlumno" value="<?php echo $idAlumno; ?>">
+                <input type="hidden" name="idUAlumno" value="<?php echo $idAlumno; ?>">
+                <input type="hidden" name="redireccionar" value="../AsesorExterno/IndexAE.php">
                 <label for="" class="lb-inp txtSizeEv">Información:</label> <br> <br>
                 <label for="" class="lb-inp">Número de control:</label> <br>
                 <input type="text" name="numControl" class="lb-inp" value="<?php echo $consultaAlumno['NumeroControl']; ?>" readonly> <br><br>
@@ -53,7 +54,7 @@
                 <label class="lb-inp">Nombre del Asesor Externo:</label>
                 <input class="lb-inp" type="text" name="AsesorExterno" value="<?php echo $consultaAsesor['AENombre']; ?>" readonly><br><br>
                 <label class="lb-inp">Fecha de evaluación</label><br>
-                <input class="lb-inp" type="date" value="" readonly><br><br>
+                <input class="lb-inp" type="date" name="FechaEvaluacion" value="<?php echo date('Y-m-d'); ?>" readonly> <br><br>
                 <label class="lb-inp">Total Puntos:</label> <br>
                 <input class="lb-inp" type="text" name="TotalPuntos" value="<?php  echo $ParcialUno['ERCalificacion'] + $ParcialDos['ERCalificacion']?>" readonly> <br><br>
                 <input class="btn btn-actualizar btn-evrf" type="submit" value="Descargar Evaluacion" formaction="../GenerarDocs/GenerarEvaluacionSeguimiento.php" target="_blank"><br>      
