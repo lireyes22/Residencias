@@ -9,7 +9,7 @@
     INNER JOIN UsuariosDepartamentos ON Usuarios.UID=UsuariosDepartamentos.UID
     WHERE UsuariosDepartamentos.DID='5' ";
     $result = mysqli_query($link, $query);
-	$candidato = candidato($_SESSION['id']);
+	$candidato = candidato($_SESSION['id']); 
 ?>
 <!DOCTYPE html>
 <html>
