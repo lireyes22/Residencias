@@ -231,7 +231,9 @@ th {
     transition-duration: 0.4s;
     cursor: pointer;
 }
-
+.btn-evrf{
+    width: 180px;
+}
 .btn-actualizar{
     background-color: white;
     border: 2px solid green;
