@@ -30,36 +30,42 @@
     }
 
     $idSolicitudResidencia = $consultaAlumnoProyecto['SRID'];
+
+    $ParcialUno = consultaEvaluacionSeguimiento($idAsesor, $idAlumno, 1, 1);
+    $ParcialDos = consultaEvaluacionSeguimiento($idAsesor, $idAlumno, 2, 1);
     ?>
     <div class="containerEv">
         <!-- Columna izquierda  -->
         <div class="column-Ev1">
             <form method="post">
-                <label for="" class="lb-inp txtSizeEv">Información:</label>
+            <input type="hidden" name="idUAlumno" value="<?php echo $idAlumno; ?>">
+                <label for="" class="lb-inp txtSizeEv">Información:</label> <br> <br>
                 <label for="" class="lb-inp">Número de control:</label> <br>
-                <input type="text" name="numControl" class="lb-inp" value="<?php echo $consultaAlumno['NumeroControl']; ?>" disabled> <br>
+                <input type="text" name="numControl" class="lb-inp" value="<?php echo $consultaAlumno['NumeroControl']; ?>" readonly> <br><br>
                 <label for="" class="lb-inp">Nombre del residente:</label> <br>
-                <input type="text" class="lb-inp" name="NombreResidente" value="<?php echo $consultaAlumno['NombreCompleto']; ?>" disabled> <br>
+                <input type="text" class="lb-inp" name="NombreResidente" value="<?php echo $consultaAlumno['NombreCompleto']; ?>" readonly> <br><br>
                 <label for="" class="lb-inp">Nombre del Proyecto:</label> <br>
-                <input type="text" class="lb-inp" name="NombreProyecto" value="<?php echo $consultaAlumnoProyecto['SPNombreProyecto']; ?>" disabled> <br>
+                <input type="text" class="lb-inp" name="NombreProyecto" value="<?php echo $consultaAlumnoProyecto['SPNombreProyecto']; ?>" readonly> <br><br>
                 <label for="" class="lb-inp">Programa Educativo:</label> <br>
-                <input type="text" class="lb-inp" name="ProgramaEducativo" value="<?php echo $consultaAlumnoCarrera['Nombre']; ?>" disabled> <br>
+                <input type="text" class="lb-inp" name="ProgramaEducativo" value="<?php echo $consultaAlumnoCarrera['Nombre']; ?>" readonly> <br><br>
                 <label for="" class="lb-inp">Periodo de Realización:</label> <br>
-                <input type="text" class="lb-inp" name="PeriodoRealizacion" value="<?php echo $consultaAlumnoProyecto['SRPeriodo']; ?>" disabled> <br>
+                <input type="text" class="lb-inp" name="PeriodoRealizacion" value="<?php echo $consultaAlumnoProyecto['SRPeriodo']; ?>" readonly> <br><br>
+                <label class="lb-inp">Nombre del Asesor Externo:</label>
+                <input class="lb-inp" type="text" name="AsesorExterno" value="<?php echo $consultaAsesor['AENombre']; ?>" readonly><br><br>
+                <label class="lb-inp">Fecha de evaluación</label><br>
+                <input class="lb-inp" type="date" value="" readonly><br><br>
+                <label class="lb-inp">Total Puntos:</label> <br>
+                <input class="lb-inp" type="text" name="TotalPuntos" value="<?php  echo $ParcialUno['ERCalificacion'] + $ParcialDos['ERCalificacion']?>" readonly> <br><br>
+                <input class="btn btn-actualizar btn-evrf" type="submit" value="Descargar Evaluacion" formaction="../GenerarDocs/GenerarEvaluacionSeguimiento.php"><br>      
             </form>
         </div>
         <!-- Columna central tabla  -->
-        <?php
-            $ParcialUno = consultaEvaluacionSeguimiento($idAsesor, $idAlumno, 1, 1);
-            $ParcialDos = consultaEvaluacionSeguimiento($idAsesor, $idAlumno, 2, 1);
-            
-        ?>
         <div class="column-Ev2">
-            <div id="parcial1">
+            <div id="parcial1" style="margin-top: 5%;">
                 <!-- PARCIAL 1  -->
                 <form method="post">
                     <fieldset style="background-color: rgb(75, 75, 75)">
-                        <legend style="color: white;"><button type="button" onclick="intercambiarDivs()">Primer Parcial</button></legend>
+                        <legend style="color: white;"><button type="button" class="btn btn-actualizar" onclick="intercambiarDivs()">Primer Parcial</button></legend>
                         <table class="tb-ev">
                             <tr>
                                 <th>Criterios a evaluar para el primer parcial</th>
@@ -113,11 +119,11 @@
                     <input class="txtSizeEvC3 lb-inp" type="hidden" value="<?php echo date('Y-m-d'); ?>" disabled>
                 </form>
             </div>
-            <div id="parcial2">
+            <div id="parcial2" style="margin-top: 5%;">
                 <!-- PARCIAL 2  -->
                 <form method="post">
                     <fieldset style="background-color: darkcyan">
-                    <legend style="color: white;"><button type="button" onclick="intercambiarDivs()">Segundo Parcial</button></legend>
+                    <legend style="color: white;"><button type="button" class="btn btn-actualizar" onclick="intercambiarDivs()">Segundo Parcial</button></legend>
                         <table class="tb-ev">
                             <tr>
                                 <th>Criterios a evaluar para el segundo parcial</th>
@@ -174,18 +180,8 @@
         </div>
         
         <!-- Columna derecha  -->
-        <div class="column-Ev3">
-            <?php
-                #de donde saco la info del asesorexterno xd
-            ?>
-            <label class="txtSizeEvC3 mrgEvC3 lb-inp">Nombre del Asesor Interno:</label>
-            <input class="txtSizeEvC3 lb-inp" type="text" name="AsesorExterno" value="<?php echo $consultaAsesor['AENombre']; ?>" disabled>
-            <label class="txtSizeEvC3 mrgEvC3 lb-inp">Firma electrónica:</label>
-            <input class="txtSizeEvC3 lb-inp" type="file" name="archivo">
-            <label class="txtSizeEvC3 mrgEvC3 lb-inp">Fecha de evaluación</label>
-            <input class="txtSizeEvC3 lb-inp" type="date" value="" disabled>
-            <label class="txtSizeEvC3 mrgEvC3 lb-inp">Total Puntos:</label>
-            <input class="txtSizeEvC3 lb-inp" type="text" name="TotalPuntos" value="<?php  echo $ParcialUno['ERCalificacion'] + $ParcialDos['ERCalificacion']?>" disabled>
+        <div>
+            
         </div>
     </div>
 </body>
