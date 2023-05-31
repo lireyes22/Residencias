@@ -63,7 +63,7 @@
 			<th class="sticky">Nombre del Proyecto</th>
 				<td class="sticky">Objetivo Proyecto</td>
 				<td class="sticky">Descripción</td>
-				<td class="sticky">Partcipantes</td>
+				<td class="sticky">Participantes</td>
 				<td class="sticky">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 			</tr>
 			<tr>

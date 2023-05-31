@@ -112,7 +112,7 @@
                         <input type="text" name="nomAsesorInterno" id="nomAsesorInterno" value="<?php echo $asesorI['nombreasesor'] ?>" disabled='disabled' required>
                     </div>
                     <div class="form-row">
-                        <label for="SPVacantes">Numero Residentes:</label>
+                        <label for="SPVacantes">Número Residentes:</label>
                         <input type="number" name="SPVacantes" id="SPVacantes" min="1" max="4" placeholder="0" value="<?php echo $residencia['spestudiantesrequeridos']; ?>" required disabled>
                     </div>
                 </div>
@@ -146,7 +146,7 @@
                         <div class="form-row">
                             <label for="ESector">Sector:</label>
                             <select id="ESector" name="ESector" disabled>
-                                <option value="Publico" <?php if($empresa['esector'] == 'Publico') echo 'selected'; ?>>Publico</option>
+                                <option value="Publico" <?php if($empresa['esector'] == 'Publico') echo 'selected'; ?>>Público</option>
                                 <option value="Privado" <?php if($empresa['esector'] == 'Privado') echo 'selected'; ?>>Privado</option>
                                 <option value="Otro" <?php if(empty($empresa['esector']) || $empresa['esector'] == 'Otro' || ($empresa['esector'] != 'Publico' && $empresa['esector'] != 'Privado')) echo 'selected'; ?>>Otro</option>
                             </select>
@@ -229,7 +229,7 @@
                         <input type="text" id="carrera" name="carrera" value="<?php echo $residente['nomcarrera'] ?>" disabled='disabled' required>
                     </div>
                     <div class="form-row">
-                        <label for="numControl">Numero de Control:</label>
+                        <label for="numControl">Número de Control:</label>
                         <input type="text" id="numControl" name="numControl" value="<?php echo $residente['numcontrol'] ?>" disabled='disabled' required>
                     </div>
                     <div class="form-row">

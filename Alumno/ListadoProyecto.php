@@ -37,7 +37,7 @@
 			<a href="a.html" class="button-link">Solicitud de residencia</a>
 			<a href="a.html" class="button-link">Proyectos</a>
 			<a href="a.html" class="button-link">Reporte</a>
-			<a href="a.html" class="button-link">Asesorias</a>
+			<a href="a.html" class="button-link">Asesorías</a>
 			<a href="a.html" class="button-link">Faq &nbsp;<img src="../img/pregunta.jpg" width="20px"></a>
 		</div>
 	</div>
