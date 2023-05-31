@@ -54,13 +54,16 @@
         <article>
                 <section id="projectData">
                 <div class="columnaL">
+                    <?php
+                        $administrativo = Division_Coordinador($residente['nomcarrera']);
+                    ?>
                     <div class="form-row">
                         <label for="jefeDiv">Jefe(a) de la Div. de Estudios Profesionales:</label>
-                        <input type="text" id="jefeDiv" name="jefeDiv" value="<?php echo 'Juan Cocio' ?>" disabled='disabled' required>
+                        <input type="text" id="jefeDiv" name="jefeDiv" value="<?php echo $administrativo['jefeDivEst'] ?>" disabled='disabled' required> 
                     </div>
                     <div class="form-row">
                         <label for='coordinador'>Coord. de la Carrera de:</label>
-                        <input type="text" id="coordinador" name="coordinador" value="<?php echo 'Benja' ?>" disabled='disabled' required>
+                        <input type="text" id="coordinador" name="coordinador" value="<?php echo $administrativo['coordinador'] ?>" disabled='disabled' required>
                     </div>
                     <div class="form-row">
                         <label for="">AT'N C:</label>
@@ -94,12 +97,16 @@
                         INNER JOIN SolicitudProyecto ON SolicitudProyecto.SPID = BancoProyectos.SPID
                         WHERE SolicitudResidencia.UAlumno = ".$_SESSION['id']." AND SolicitudProyecto.`SPID` = $SPID";
                         $residenciaOP = mysqli_fetch_array(mysqli_query($conn,$query));
-                        if($residenciaOP[0] == 'Op1'){
+                        if(!empty($residenciaOP)){
+                            if($residenciaOP[0] == 'Op1'){
                                 echo "<input type='text' name='opcionElegida' value='Propuesta' disabled>";
                             }else if($residenciaOP[0] == 'Op2'){
                                 echo "<input type='text' name='opcionElegida' value='Trabajador' disabled>";
                             }else if($residenciaOP[0] == 'Op3'){
                                 echo "<input type='text' name='opcionElegida' value='Banco' disabled>";
+                            }
+                        }else{
+                            echo "<input type='text' name='opcionElegida' value='Banco' disabled>";
                         }
         ?>
                     </div>
