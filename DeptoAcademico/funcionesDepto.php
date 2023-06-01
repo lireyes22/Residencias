@@ -136,8 +136,8 @@ function bancoSPID($SPID){
 }
 function alumnosResidencia($BPID){ //DEBERIA DE SER UNA RELACION MUCHOS A MUCHOS 
     $conection = conn();
-    $sql = "SELECT Alumnos.`NombreCompleto`, Carreras.`Nombre` FROM `Alumnos` INNER JOIN `Alumno_Usuarios` INNER JOIN `SolicitudResidencia` INNER JOIN `Carreras` ON Alumnos.`NumeroControl` = Alumno_Usuarios.`NumeroControl` AND SolicitudResidencia.`UAlumno` = Alumno_Usuarios.`UID` AND Alumnos.`CID` = Carreras.`CID` WHERE SolicitudResidencia.BPID = $BPID AND SolicitudResidencia.SREstatus = 'ACEPTADO';";
-    $query = mysqli_query($conection, $sql);
+    $sql = "SELECT Alumnos.`NombreCompleto`, Carreras.`Nombre` FROM `Alumnos` INNER JOIN `Alumno_Usuarios` INNER JOIN `SolicitudResidencia` INNER JOIN `Carreras` ON Alumnos.`NumeroControl` = Alumno_Usuarios.`NumeroControl` AND SolicitudResidencia.`UAlumno` = Alumno_Usuarios.`UID` AND Alumnos.`CID` = Carreras.`CID` WHERE SolicitudResidencia.BPID = $BPID AND SolicitudResidencia.SREstatus = 'APROBADO';";
+    $query = mysqli_query($conection, $sql); 
     // vaciar el buffer de resultados
     while (mysqli_next_result($conection)) { }
     return $query;
