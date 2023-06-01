@@ -69,7 +69,8 @@
                 <!-- PARCIAL 1  -->
                 <form method="post">
                     <fieldset style="background-color: rgb(75, 75, 75)">
-                        <legend style="color: white;"><button type="button" class="btn btn-actualizar btn-evrf" onclick="intercambiarDivs()">Primer Parcial</button></legend>
+                        <legend style="color: white;"><button type="button" class="btn btn-actualizar btn-evrf">Primer Parcial</button>
+                        <button type="button" class="btn btn-actualizar btn-evrf" onclick="intercambiarDivs()">Segundo Parcial</button></legend>
                         <table class="tb-ev">
                             <tr>
                                 <th>Criterios a evaluar para el primer parcial</th>
@@ -127,7 +128,8 @@
                 <!-- PARCIAL 2  -->
                 <form method="post">
                     <fieldset style="background-color: darkcyan">
-                    <legend style="color: white;"><button type="button" class="btn btn-actualizar btn-evrf" onclick="intercambiarDivs()">Segundo Parcial</button></legend>
+                    <legend style="color: white;"><button type="button" class="btn btn-actualizar btn-evrf" onclick="intercambiarDivs()">Primer Parcial</button>
+                        <button type="button" class="btn btn-actualizar btn-evrf">Segundo Parcial</button></legend>
                         <table class="tb-ev">
                             <tr>
                                 <th>Criterios a evaluar para el segundo parcial</th>
