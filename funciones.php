@@ -1,9 +1,6 @@
 <?php
-include ('conectionBD.php');
 
-function conn(){
-    return conectBD();
-}
+include ('conectionBD.php');
 function Ejemplo() {
     $conection = conn();
     $consulta = "select xd............";
