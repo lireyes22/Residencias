@@ -1,6 +1,7 @@
 <?php
 include '../../InicioSessionSegNvl2.php';
 include ('../funcProfesor.php');
+include ('../conectionBD.php');
 $link = conn();
 $nameProy = $_POST['nombreProy'];
 $objetivoProy = $_POST['objetivo'];

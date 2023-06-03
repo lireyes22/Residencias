@@ -1,5 +1,5 @@
 <?php
-    function conn(){
+    /*function conn(){
         $host = 'mapachitos.cisuktad1m53.us-east-2.rds.amazonaws.com';
         $user = 'admin';
         $password = 'mapachitos123';
@@ -12,11 +12,14 @@
         }
         mysqli_set_charset($conection, "utf8");
         return $conection;
-    }
+    }*/
     /*
     function nombreUsuario(){
        return $sql; 
     }*/
+    include ('../conectionBD.php');
+
+
     function basicInfoProy($SPID){ //Nombre del proyecto, Objetivo, Numero Estudiantes, Tiempo Estimado, Nombre del Responsable
         $conection = conn();
         $sql = "CALL basicInfo($SPID);";

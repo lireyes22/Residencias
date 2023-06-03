@@ -1,6 +1,7 @@
 <?php 
-include '../InicioSessionSeg.php';
+	include '../InicioSessionSeg.php';
 	include ('funcProfesor.php');
+	include ('../conectionBD.php');
 	$UID = $_SESSION['id'];
 	$result = listSPIDsolicitudes($UID); //SUS 
 ?>
