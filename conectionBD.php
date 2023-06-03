@@ -1,8 +1,11 @@
 <?php
     function conectBD(){
-        $host = 'localhost';
+        /*$host = 'localhost';
         $user = 'root';
-        $password = '';
+        $password = '';*/
+        $host = 'mapachitosd.cisuktad1m53.us-east-2.rds.amazonaws.com';
+        $user = 'admin';
+        $password = 'mapachitos123';
         $db = 'Residencias';
         $conection = @mysqli_connect($host, $user, $password, $db);
     
