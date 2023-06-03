@@ -1,6 +1,7 @@
 <?php 
 include '../InicioSessionSeg.php';
 	include ('funcProfesor.php');
+	include ('../conectionBD.php');
 	$UID = $_SESSION['id'];
 	$DID = mysqli_fetch_array(DID($UID));
 	$result = banco($DID[0]);

@@ -1,5 +1,6 @@
 <?php
     include ('../funcProfesor.php');
+    include ('../conectionBD.php');
     $nFuncion = $_POST['IDfuncion'];
     $message = 'REALIZADO';
     if($nFuncion == 'desicionProyecto'){

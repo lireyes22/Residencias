@@ -2,6 +2,7 @@
 include '../InicioSessionSeg.php';
 $idProy = $_POST['idProy'];
 include ('funcProfesor.php');
+include ('../conectionBD.php');
 $link = conn();
     $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
     $query = "SELECT * FROM SolicitudProyecto WHERE SPID = '$idProy'";
