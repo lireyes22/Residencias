@@ -1,6 +1,5 @@
 <?php 
 include '../InicioSessionSeg.php';
-include ('../conectionBD.php');
 include ('funcProfesor.php');
     //ID del proyecto
 $SRID = $_POST['SRID'];

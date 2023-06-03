@@ -1,6 +1,5 @@
 <?php 
 	include '../InicioSessionSeg.php';
-	include ('../conectionBD.php');
 	include ('funcProfesor.php');
 	$link = conn();
     $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente

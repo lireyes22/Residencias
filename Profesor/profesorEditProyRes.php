@@ -1,5 +1,4 @@
 <?php
-	include ('../conectionBD.php');
 	include '../InicioSessionSeg.php';
 	include ('funcProfesor.php');
 	$link = conn();
