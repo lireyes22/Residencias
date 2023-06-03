@@ -1,9 +1,6 @@
 <?php
 include ('../conectionBD.php');
 
-function conn(){
-    return conectBD();
-}
 function consultaAsesorAlumno($idAsesor) {
     $conection = conn();
     $sql = "CALL AsesorxAlumno($idAsesor)";
