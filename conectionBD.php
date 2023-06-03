@@ -1,5 +1,5 @@
 <?php
-    function conectBD(){
+    function conn(){
         /*$host = 'localhost';
         $user = 'root';
         $password = '';*/
