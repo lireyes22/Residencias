@@ -8,7 +8,7 @@ $anteproyecto = $_FILES['anteproyecto']['tmp_name'];
 $antearchivo = file_get_contents($anteproyecto);
 $periodo = ''; 
 
-include ('conectionBD.php');
+include ('../conectionBD.php');
 
 	$fechaActual = date('Y-m-d');
 	$mesActual = date('m');
