@@ -1,5 +1,5 @@
 <?php
-include ('conectionBD.php');
+include ('../conectionBD.php');
 
 $idAlumno=$_POST ["uid"];
 function descargardoc($idAlumno){

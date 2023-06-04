@@ -5,7 +5,7 @@ $anteproyecto = $_FILES['anteproyecto']['tmp_name'];
 $antearchivo = file_get_contents($anteproyecto);
 $antearchivo = base64_encode($antearchivo);
 
-include ('conectionBD.php');
+include ('../conectionBD.php');
 
 $conection=conn();
 //BUSCAR LA SOLICITUD DEL RESIDENTE

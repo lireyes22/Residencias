@@ -1,5 +1,5 @@
 <?php
-include ('conectionBD.php');
+include ('../conectionBD.php');
 
 $conexion = conn();
 
