@@ -1,5 +1,5 @@
 <?php
-    function conn(){
+    /*function conn(){
         $host = 'mapachitos.cisuktad1m53.us-east-2.rds.amazonaws.com';
         $user = 'admin';
         $password = 'mapachitos123';
@@ -12,7 +12,9 @@
         }
         mysqli_set_charset($conection, "utf8");
         return $conection;
-    }
+    }*/
+    include ('../conectionBD.php');
+
     if(isset($_POST['Par1'])) {
         $nParcial = 1;
         $Puntualidad = $_POST['PuntualidadP1'];
