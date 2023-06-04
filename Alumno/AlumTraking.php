@@ -30,7 +30,7 @@ $link = conn();
     				</a>
     			</div>
     			<div class="center-column">
-    				<h2>TRAKING</h2>
+    				<h2>TRACKING</h2>
     			</div>
     			<div class="right-column">
 					<a href="../usuariosConfig.php?idUsuario=<?php echo $_SESSION['id'];?>"><img src="../img/configuraciones.png" width="50px"></a> &nbsp; &nbsp;
