@@ -1,4 +1,5 @@
-
+CREATE DATABASE Residencias;
+USE Residencias;
 DROP TABLE IF EXISTS ObservacionesSolicitudes;
 DROP TABLE IF EXISTS CarrerasSolicitudProyecto;
 DROP TABLE IF EXISTS UsuariosDepartamentos;

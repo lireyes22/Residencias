@@ -1,4 +1,35 @@
-CREATE DEFINER=`admin`@`%` PROCEDURE `ActualizarNResidentes`(
+DROP PROCEDURE IF EXISTS ActualizarNResidentes;
+DROP PROCEDURE IF EXISTS AlumnoXCarrera;
+DROP PROCEDURE IF EXISTS AlumnoxNombreProyecto;
+DROP PROCEDURE IF EXISTS AlumnoxProyecto;
+DROP PROCEDURE IF EXISTS AsesorExternoxAlumno;
+DROP PROCEDURE IF EXISTS AsesorxAlumno;
+DROP PROCEDURE IF EXISTS bancoProyecto;
+DROP PROCEDURE IF EXISTS basicInfo;
+DROP PROCEDURE IF EXISTS DecideResidencia;
+DROP PROCEDURE IF EXISTS EliminarSolicitudResiduo;
+DROP PROCEDURE IF EXISTS InsertarEvaluacionReporte;
+DROP PROCEDURE IF EXISTS InsertarEvaluacionReporteFinal;
+DROP PROCEDURE IF EXISTS ObtenerEvaluacionFinal;
+DROP PROCEDURE IF EXISTS ObtenerAsesorExterno;
+DROP PROCEDURE IF EXISTS ObtenerEvaluacionFinal;
+DROP PROCEDURE IF EXISTS ObtenerEvaluacionReporteFinal;
+DROP PROCEDURE IF EXISTS ObtenerEvaluacionSeguimiento;
+DROP PROCEDURE IF EXISTS ObtenerEvaluacionSeguimientoT;
+DROP PROCEDURE IF EXISTS ObtenerIDAsesoresXAlumno;
+DROP PROCEDURE IF EXISTS ObtenerIDAsesorInterno;
+DROP PROCEDURE IF EXISTS ObtenerResidenciaAIID;
+DROP PROCEDURE IF EXISTS ObtenerSolicitudProyecto;
+DROP PROCEDURE IF EXISTS ProfesorxAsesor;
+DROP PROCEDURE IF EXISTS reenviarSolicitudResidencia;
+DROP PROCEDURE IF EXISTS updateAntProySolicitudResidencia;
+DROP PROCEDURE IF EXISTS UsuarioxAlumno;
+DROP PROCEDURE IF EXISTS InsertarReporteFinal;
+DROP PROCEDURE IF EXISTS InsertarSolicitudResidencia;
+
+DELIMITER //
+#ActualizarNResidentes
+CREATE PROCEDURE ActualizarNResidentes(
     IN p_SPID INT,
     IN p_SPEstudiantesRequeridos INT
 )
@@ -6,57 +37,65 @@ BEGIN
     UPDATE SolicitudProyecto
     SET SPEstudiantesRequeridos = p_SPEstudiantesRequeridos
     WHERE SPID = p_SPID;
-END;
-CREATE DEFINER=`admin`@`%` PROCEDURE `AlumnoXCarrera`(IN NC VARCHAR(20))
+END //
+#AlumnoXCarrera
+CREATE PROCEDURE AlumnoXCarrera(IN NC VARCHAR(20))
 BEGIN 
 	SELECT *
 	FROM Alumnos AL
-	    INNER JOIN Carreras CA ON AL.CID = CA.CID
+		INNER JOIN Carreras CA ON AL.CID = CA.CID
 	WHERE AL.NumeroControl = NC;
-END;
-CREATE DEFINER=`admin`@`%` PROCEDURE `AlumnoxNombreProyecto`(IN id_alumno INT)
+END //
+#AlumnoxNombreProyecto
+CREATE PROCEDURE AlumnoxNombreProyecto(IN id_alumno INT)
 BEGIN
     SELECT SP.SPNombreProyecto
     FROM SolicitudProyecto SP
     INNER JOIN BancoProyectos BP ON SP.SPID = BP.SPID
     INNER JOIN SolicitudResidencia SR ON BP.BPID = SR.BPID
     WHERE SR.UAlumno = id_alumno AND SR.SREstatus= 'APROBADO';
-END;
-CREATE DEFINER=`admin`@`%` PROCEDURE `AlumnoxProyecto`(IN id_alumno INT)
+END //
+#AlumnoxProyecto
+CREATE PROCEDURE AlumnoxProyecto(IN id_alumno INT)
 BEGIN
     SELECT *
     FROM SolicitudProyecto SP
     INNER JOIN BancoProyectos BP ON SP.SPID = BP.SPID
     INNER JOIN SolicitudResidencia SR ON BP.BPID = SR.BPID
     WHERE SR.UAlumno = id_alumno AND SR.SREstatus= 'APROBADO';
-END;
-CREATE DEFINER=`admin`@`%` PROCEDURE `AsesorExternoxAlumno`(IN asesor_id INT)
+END //
+#AsesorExternoxAlumno
+CREATE PROCEDURE AsesorExternoxAlumno(IN asesor_id INT)
 BEGIN
     SELECT SR.UAlumno, SR.SRID, BP.AEID, AE.UID, BP.SPID
     FROM SolicitudResidencia SR
     INNER JOIN BancoProyectos BP ON SR.BPID = BP.BPID
     INNER JOIN AsesorExterno AE ON BP.AEID = AE.AEID
     WHERE AE.UID = asesor_id AND SR.SREstatus = 'APROBADO';
-END;
-CREATE DEFINER=`admin`@`%` PROCEDURE `AsesorxAlumno`(IN asesor_id INT)
+END //
+#AsesorxAlumno
+CREATE PROCEDURE AsesorxAlumno(IN asesor_id INT)
 BEGIN
     SELECT SR.UAlumno, SR.SRID, BP.AIID, AI.UID, BP.SPID
     FROM SolicitudResidencia SR
     INNER JOIN BancoProyectos BP ON SR.BPID = BP.BPID
     INNER JOIN AsesorInterno AI ON BP.AIID = AI.AIID
     WHERE AI.UID = asesor_id AND SR.SREstatus = 'APROBADO';
-END;
-CREATE DEFINER=`admin`@`%` PROCEDURE `bancoProyecto`(
+END //
+#bancoProyecto
+CREATE PROCEDURE bancoProyecto(
     IN v_DID int
 )
 BEGIN
     SELECT SolicitudProyecto.`SPID`, SolicitudProyecto.`SPNombreProyecto`, SolicitudProyecto.`SPObjetivo`, SolicitudProyecto.`SPEstudiantesRequeridos`, SolicitudProyecto.`SDTiempoEstimado`, Profesor.`NombreCompleto` FROM `SolicitudProyecto` INNER JOIN `Profesor_Usuarios` INNER JOIN `Profesor` ON `SolicitudProyecto`.`UIDResponsable` = Profesor_Usuarios.`UID` AND Profesor_Usuarios.`RFCProfesor` = Profesor.`RFCProfesor` WHERE SolicitudProyecto.SPEstatus = 'ACEPTADO' AND Profesor.DID = v_DID;
-END;
-CREATE DEFINER=`admin`@`%` PROCEDURE `basicInfo`(IN SPID_IN int)
+END //
+#basicInfo
+CREATE PROCEDURE basicInfo(IN SPID_IN int)
 BEGIN
     SELECT SolicitudProyecto.`SPID`, SolicitudProyecto.`SPNombreProyecto`, SolicitudProyecto.`SPObjetivo`, SolicitudProyecto.`SPEstudiantesRequeridos`, SolicitudProyecto.`SDTiempoEstimado`, Profesor.`NombreCompleto` FROM `SolicitudProyecto` INNER JOIN `Profesor_Usuarios` INNER JOIN `Profesor` ON `SolicitudProyecto`.`UIDResponsable` = Profesor_Usuarios.`UID` AND Profesor_Usuarios.`RFCProfesor` = Profesor.`RFCProfesor` WHERE SolicitudProyecto.`SPID` = SPID_IN;
-END;
-CREATE DEFINER=`admin`@`%` PROCEDURE `DecideResidencia`(
+END //
+#DecideResidencia
+CREATE PROCEDURE DecideResidencia(
     IN v_SRID INT,
     IN v_SREstatus varchar(10)
 )
@@ -64,8 +103,8 @@ BEGIN
     UPDATE SolicitudResidencia
     SET SREstatus = v_SREstatus
     WHERE v_SRID = SRID;
-END;
-CREATE DEFINER=`admin`@`%` PROCEDURE `EliminarSolicitudResiduo`(
+END //
+CREATE PROCEDURE EliminarSolicitudResiduo(
     IN v_UAlumno INT
 )
 BEGIN
@@ -74,8 +113,9 @@ BEGIN
         IN (
             'ESPERA', 'ASIGNADO', 'RECHAZADO', 'PENDIENTE'
             );
-END;
-CREATE DEFINER=`admin`@`%` PROCEDURE `InsertarEvaluacionReporte`(
+END //
+#InsertarEvaluacionReporte
+CREATE PROCEDURE InsertarEvaluacionReporte(
     IN v_SRID INT,
     IN v_ERFecha date,
     IN v_ERPuntualidad INT,
@@ -123,8 +163,9 @@ BEGIN
         v_UAsesor,
         v_Tipo
         );
-END;
-CREATE DEFINER=`admin`@`%` PROCEDURE `InsertarEvaluacionReporteFinal`(IN v_SRID INT, IN v_ERFPortada INT, IN v_ERFAgradecimientos INT, 
+END //
+#InsertarEvaluacionReporteFinal
+CREATE PROCEDURE InsertarEvaluacionReporteFinal(IN v_SRID INT, IN v_ERFPortada INT, IN v_ERFAgradecimientos INT, 
     IN v_ERFResumen INT, IN v_ERFIndice INT, IN v_ERFIntroduccion INT, IN v_ERFAntecedentes INT,
     IN v_ERFJustificacion INT, IN v_ERFObjetivos INT, IN v_ERFMetodologia INT, IN v_ERFResultados INT,
     IN v_ERFDiscusiones INT, IN v_ERFConclusiones INT, IN v_ERFFuentes INT, IN v_ERFTotal INT,
@@ -175,8 +216,9 @@ BEGIN
     v_UID,
     v_RFID,
     v_Tipo);
-END;
-CREATE DEFINER=`admin`@`%` PROCEDURE `InsertarReporteFinal`(IN p_UAlumno INT, IN p_RPContenido LONGBLOB)
+END //
+#InsertarReporteFinal
+CREATE PROCEDURE InsertarReporteFinal(IN p_UAlumno INT, IN p_RPContenido LONGBLOB)
 BEGIN
     DECLARE v_SRID INT;
     
@@ -189,8 +231,9 @@ BEGIN
     INSERT INTO ReporteFinal (SRID, RPContenido) VALUES (v_SRID, p_RPContenido);
     
     COMMIT;
-END;
-CREATE DEFINER=`admin`@`%` PROCEDURE `InsertarSolicitudResidencia`(
+END //
+#InsertarSolicitudResidencia
+CREATE PROCEDURE InsertarSolicitudResidencia(
     IN v_SRAnteProyecto LONGBLOB,
     
     IN v_SREstatus varchar(10),
@@ -219,14 +262,16 @@ BEGIN
             v_BPID,
             v_SROpcionElegida
             );
-END;
-CREATE DEFINER=`admin`@`%` PROCEDURE `ObtenerAsesorExterno`(IN v_uid INT)
+END //
+#ObtenerAsesorExterno
+CREATE PROCEDURE ObtenerAsesorExterno(IN v_uid INT)
 BEGIN
     SELECT *
     FROM AsesorExterno
     WHERE UID = v_uid;
-END;
-CREATE DEFINER=`admin`@`%` PROCEDURE `ObtenerEvaluacionFinal`(
+END //
+#ObtenerEvaluacionFinal
+CREATE PROCEDURE ObtenerEvaluacionFinal(
     IN v_UAsesor INT,
     IN v_UAlumno INT,
     IN v_Tipo INT
@@ -239,8 +284,9 @@ BEGIN
     WHERE ERF.UAsesor = v_UAsesor 
         AND SR.UAlumno = v_UAlumno
         AND ERF.Tipo = v_Tipo;
-END;
-CREATE DEFINER=`admin`@`%` PROCEDURE `ObtenerEvaluacionReporteFinal`(
+END //
+#ObtenerEvaluacionReporteFinal
+CREATE PROCEDURE ObtenerEvaluacionReporteFinal(
     IN v_UAlumno INT,
     IN v_Tipo INT
 )
@@ -251,8 +297,9 @@ BEGIN
     INNER JOIN SolicitudResidencia as SR ON SR.SRID = RF.SRID
     WHERE SR.UAlumno = v_UAlumno
         AND ERF.Tipo = v_Tipo;
-END;
-CREATE DEFINER=`admin`@`%` PROCEDURE `ObtenerEvaluacionSeguimiento`(
+END //
+#ObtenerEvaluacionSeguimiento
+CREATE PROCEDURE ObtenerEvaluacionSeguimiento(
     IN v_UAsesor INT,
     IN v_UAlumno INT,
     IN v_ERNoParcial INT,
@@ -265,8 +312,9 @@ BEGIN
     WHERE SR.UAlumno = v_UAlumno
         AND ER.ERNoParcial = v_ERNoParcial
         AND ER.Tipo = v_Tipo;
-END;
-CREATE DEFINER=`admin`@`%` PROCEDURE `ObtenerEvaluacionSeguimientoT`(
+END //
+#ObtenerEvaluacionSeguimientoT
+CREATE PROCEDURE ObtenerEvaluacionSeguimientoT(
     IN v_UAlumno INT,
     IN v_ERNoParcial INT,
     IN v_Tipo INT
@@ -278,42 +326,48 @@ BEGIN
     WHERE SR.UAlumno = v_UAlumno
         AND ER.ERNoParcial = v_ERNoParcial
         AND ER.Tipo = v_Tipo;
-END;
-CREATE DEFINER=`admin`@`%` PROCEDURE `ObtenerIDAsesoresXAlumno`(IN id_alumno INT)
+END //
+#ObtenerIDAsesoresXAlumno
+CREATE PROCEDURE ObtenerIDAsesoresXAlumno(IN id_alumno INT)
 BEGIN
     SELECT BP.*
     FROM SolicitudProyecto SP
     INNER JOIN BancoProyectos BP ON SP.SPID = BP.SPID
     INNER JOIN SolicitudResidencia SR ON BP.BPID = SR.BPID
     WHERE SR.UAlumno = id_alumno AND SR.SREstatus= 'APROBADO';
-END;
-CREATE DEFINER=`admin`@`%` PROCEDURE `ObtenerIDAsesorInterno`(IN p_UID INT)
+END //
+#ObtenerIDAsesorInterno
+CREATE PROCEDURE ObtenerIDAsesorInterno(IN p_UID INT)
 BEGIN
     SELECT AIID
     FROM AsesorInterno
     WHERE UID = p_UID;
-END;
-CREATE DEFINER=`admin`@`%` PROCEDURE `ObtenerResidenciaAIID`(IN v_AIID INT)
+END //
+#ObtenerResidenciaAIID
+CREATE PROCEDURE ObtenerResidenciaAIID(IN v_AIID INT)
 BEGIN
     SELECT *
     FROM SolicitudProyecto as SP
     INNER JOIN BancoProyectos as BP ON SP.SPID = BP.SPID
     WHERE BP.AIID = v_AIID;
-END;
-CREATE DEFINER=`admin`@`%` PROCEDURE `ObtenerSolicitudProyecto`(IN v_spid INT)
+END //
+#ObtenerSolicitudProyecto
+CREATE PROCEDURE ObtenerSolicitudProyecto(IN v_spid INT)
 BEGIN
     SELECT *
     FROM SolicitudProyecto as SP
     WHERE SP.SPID = v_spid;
-END;
-CREATE DEFINER=`admin`@`%` PROCEDURE `ProfesorxAsesor`(IN uid INT)
+END //
+#ProfesorxAsesor
+CREATE PROCEDURE ProfesorxAsesor(IN uid INT)
 BEGIN
 	SELECT *
 	FROM Profesor PR
 	INNER JOIN Profesor_Usuarios PU ON PR.RFCProfesor = PU.RFCProfesor
 	WHERE PU.UID = uid;
-END;
-CREATE DEFINER=`admin`@`%` PROCEDURE `reenviarSolicitudResidencia`(
+END //
+#reenviarSolicitudResidencia
+CREATE PROCEDURE reenviarSolicitudResidencia(
     IN v_SRAnteProyecto LONGBLOB
 )
 BEGIN
@@ -323,20 +377,23 @@ BEGIN
         VALUES (
             v_SRAnteProyecto
             );
-END;
-CREATE DEFINER=`admin`@`%` PROCEDURE `updateAntProySolicitudResidencia`(
+END //
+#updateAntProySolicitudResidencia
+CREATE PROCEDURE updateAntProySolicitudResidencia(
     IN v_SRAnteProyecto LONGBLOB, IN v_SRID int
 )
 BEGIN
     UPDATE SolicitudResidencia
     SET SRAnteProyecto = v_SRAnteProyecto
     WHERE SRID = v_SRID;
-END;
-CREATE DEFINER=`admin`@`%` PROCEDURE `UsuarioxAlumno`(IN alumno_id INT)
+END //
+#UsuarioxAlumno
+CREATE PROCEDURE UsuarioxAlumno(IN alumno_id INT)
 BEGIN
     SELECT * 
     FROM Alumnos AL
     INNER JOIN Alumno_Usuarios AU ON AL.NumeroControl = AU.NumeroControl
     INNER JOIN Usuarios US ON US.UID = AU.UID
     WHERE US.UID = alumno_id;
-END;
+END //
+DELIMITER ;
