@@ -1,5 +1,3 @@
--- Active: 1685755367897@@127.0.0.1@3306@residencias
-
 DROP PROCEDURE IF EXISTS ActualizarNResidentes;
 DROP PROCEDURE IF EXISTS AlumnoXCarrera;
 DROP PROCEDURE IF EXISTS AlumnoxNombreProyecto;
@@ -29,6 +27,7 @@ DROP PROCEDURE IF EXISTS UsuarioxAlumno;
 DROP PROCEDURE IF EXISTS InsertarReporteFinal;
 DROP PROCEDURE IF EXISTS InsertarSolicitudResidencia;
 
+DELIMITER //
 #ActualizarNResidentes
 CREATE PROCEDURE ActualizarNResidentes(
     IN p_SPID INT,
@@ -38,7 +37,7 @@ BEGIN
     UPDATE SolicitudProyecto
     SET SPEstudiantesRequeridos = p_SPEstudiantesRequeridos
     WHERE SPID = p_SPID;
-END;
+END //
 #AlumnoXCarrera
 CREATE PROCEDURE AlumnoXCarrera(IN NC VARCHAR(20))
 BEGIN 
@@ -46,7 +45,7 @@ BEGIN
 	FROM Alumnos AL
 		INNER JOIN Carreras CA ON AL.CID = CA.CID
 	WHERE AL.NumeroControl = NC;
-END;
+END //
 #AlumnoxNombreProyecto
 CREATE PROCEDURE AlumnoxNombreProyecto(IN id_alumno INT)
 BEGIN
@@ -55,7 +54,7 @@ BEGIN
     INNER JOIN BancoProyectos BP ON SP.SPID = BP.SPID
     INNER JOIN SolicitudResidencia SR ON BP.BPID = SR.BPID
     WHERE SR.UAlumno = id_alumno AND SR.SREstatus= 'APROBADO';
-END;
+END //
 #AlumnoxProyecto
 CREATE PROCEDURE AlumnoxProyecto(IN id_alumno INT)
 BEGIN
@@ -64,7 +63,7 @@ BEGIN
     INNER JOIN BancoProyectos BP ON SP.SPID = BP.SPID
     INNER JOIN SolicitudResidencia SR ON BP.BPID = SR.BPID
     WHERE SR.UAlumno = id_alumno AND SR.SREstatus= 'APROBADO';
-END;
+END //
 #AsesorExternoxAlumno
 CREATE PROCEDURE AsesorExternoxAlumno(IN asesor_id INT)
 BEGIN
@@ -73,7 +72,7 @@ BEGIN
     INNER JOIN BancoProyectos BP ON SR.BPID = BP.BPID
     INNER JOIN AsesorExterno AE ON BP.AEID = AE.AEID
     WHERE AE.UID = asesor_id AND SR.SREstatus = 'APROBADO';
-END;
+END //
 #AsesorxAlumno
 CREATE PROCEDURE AsesorxAlumno(IN asesor_id INT)
 BEGIN
@@ -82,19 +81,19 @@ BEGIN
     INNER JOIN BancoProyectos BP ON SR.BPID = BP.BPID
     INNER JOIN AsesorInterno AI ON BP.AIID = AI.AIID
     WHERE AI.UID = asesor_id AND SR.SREstatus = 'APROBADO';
-END;
+END //
 #bancoProyecto
 CREATE PROCEDURE bancoProyecto(
     IN v_DID int
 )
 BEGIN
     SELECT SolicitudProyecto.`SPID`, SolicitudProyecto.`SPNombreProyecto`, SolicitudProyecto.`SPObjetivo`, SolicitudProyecto.`SPEstudiantesRequeridos`, SolicitudProyecto.`SDTiempoEstimado`, Profesor.`NombreCompleto` FROM `SolicitudProyecto` INNER JOIN `Profesor_Usuarios` INNER JOIN `Profesor` ON `SolicitudProyecto`.`UIDResponsable` = Profesor_Usuarios.`UID` AND Profesor_Usuarios.`RFCProfesor` = Profesor.`RFCProfesor` WHERE SolicitudProyecto.SPEstatus = 'ACEPTADO' AND Profesor.DID = v_DID;
-END;
+END //
 #basicInfo
 CREATE PROCEDURE basicInfo(IN SPID_IN int)
 BEGIN
     SELECT SolicitudProyecto.`SPID`, SolicitudProyecto.`SPNombreProyecto`, SolicitudProyecto.`SPObjetivo`, SolicitudProyecto.`SPEstudiantesRequeridos`, SolicitudProyecto.`SDTiempoEstimado`, Profesor.`NombreCompleto` FROM `SolicitudProyecto` INNER JOIN `Profesor_Usuarios` INNER JOIN `Profesor` ON `SolicitudProyecto`.`UIDResponsable` = Profesor_Usuarios.`UID` AND Profesor_Usuarios.`RFCProfesor` = Profesor.`RFCProfesor` WHERE SolicitudProyecto.`SPID` = SPID_IN;
-END;
+END //
 #DecideResidencia
 CREATE PROCEDURE DecideResidencia(
     IN v_SRID INT,
@@ -104,7 +103,7 @@ BEGIN
     UPDATE SolicitudResidencia
     SET SREstatus = v_SREstatus
     WHERE v_SRID = SRID;
-END;
+END //
 CREATE PROCEDURE EliminarSolicitudResiduo(
     IN v_UAlumno INT
 )
@@ -114,7 +113,7 @@ BEGIN
         IN (
             'ESPERA', 'ASIGNADO', 'RECHAZADO', 'PENDIENTE'
             );
-END;
+END //
 #InsertarEvaluacionReporte
 CREATE PROCEDURE InsertarEvaluacionReporte(
     IN v_SRID INT,
@@ -164,7 +163,7 @@ BEGIN
         v_UAsesor,
         v_Tipo
         );
-END;
+END //
 #InsertarEvaluacionReporteFinal
 CREATE PROCEDURE InsertarEvaluacionReporteFinal(IN v_SRID INT, IN v_ERFPortada INT, IN v_ERFAgradecimientos INT, 
     IN v_ERFResumen INT, IN v_ERFIndice INT, IN v_ERFIntroduccion INT, IN v_ERFAntecedentes INT,
@@ -217,7 +216,7 @@ BEGIN
     v_UID,
     v_RFID,
     v_Tipo);
-END;
+END //
 #InsertarReporteFinal
 CREATE PROCEDURE InsertarReporteFinal(IN p_UAlumno INT, IN p_RPContenido LONGBLOB)
 BEGIN
@@ -232,7 +231,7 @@ BEGIN
     INSERT INTO ReporteFinal (SRID, RPContenido) VALUES (v_SRID, p_RPContenido);
     
     COMMIT;
-END;
+END //
 #InsertarSolicitudResidencia
 CREATE PROCEDURE InsertarSolicitudResidencia(
     IN v_SRAnteProyecto LONGBLOB,
@@ -263,14 +262,14 @@ BEGIN
             v_BPID,
             v_SROpcionElegida
             );
-END;
+END //
 #ObtenerAsesorExterno
 CREATE PROCEDURE ObtenerAsesorExterno(IN v_uid INT)
 BEGIN
     SELECT *
     FROM AsesorExterno
     WHERE UID = v_uid;
-END;
+END //
 #ObtenerEvaluacionFinal
 CREATE PROCEDURE ObtenerEvaluacionFinal(
     IN v_UAsesor INT,
@@ -285,7 +284,7 @@ BEGIN
     WHERE ERF.UAsesor = v_UAsesor 
         AND SR.UAlumno = v_UAlumno
         AND ERF.Tipo = v_Tipo;
-END;
+END //
 #ObtenerEvaluacionReporteFinal
 CREATE PROCEDURE ObtenerEvaluacionReporteFinal(
     IN v_UAlumno INT,
@@ -298,7 +297,7 @@ BEGIN
     INNER JOIN SolicitudResidencia as SR ON SR.SRID = RF.SRID
     WHERE SR.UAlumno = v_UAlumno
         AND ERF.Tipo = v_Tipo;
-END;
+END //
 #ObtenerEvaluacionSeguimiento
 CREATE PROCEDURE ObtenerEvaluacionSeguimiento(
     IN v_UAsesor INT,
@@ -313,7 +312,7 @@ BEGIN
     WHERE SR.UAlumno = v_UAlumno
         AND ER.ERNoParcial = v_ERNoParcial
         AND ER.Tipo = v_Tipo;
-END;
+END //
 #ObtenerEvaluacionSeguimientoT
 CREATE PROCEDURE ObtenerEvaluacionSeguimientoT(
     IN v_UAlumno INT,
@@ -327,7 +326,7 @@ BEGIN
     WHERE SR.UAlumno = v_UAlumno
         AND ER.ERNoParcial = v_ERNoParcial
         AND ER.Tipo = v_Tipo;
-END;
+END //
 #ObtenerIDAsesoresXAlumno
 CREATE PROCEDURE ObtenerIDAsesoresXAlumno(IN id_alumno INT)
 BEGIN
@@ -336,14 +335,14 @@ BEGIN
     INNER JOIN BancoProyectos BP ON SP.SPID = BP.SPID
     INNER JOIN SolicitudResidencia SR ON BP.BPID = SR.BPID
     WHERE SR.UAlumno = id_alumno AND SR.SREstatus= 'APROBADO';
-END;
+END //
 #ObtenerIDAsesorInterno
 CREATE PROCEDURE ObtenerIDAsesorInterno(IN p_UID INT)
 BEGIN
     SELECT AIID
     FROM AsesorInterno
     WHERE UID = p_UID;
-END;
+END //
 #ObtenerResidenciaAIID
 CREATE PROCEDURE ObtenerResidenciaAIID(IN v_AIID INT)
 BEGIN
@@ -351,14 +350,14 @@ BEGIN
     FROM SolicitudProyecto as SP
     INNER JOIN BancoProyectos as BP ON SP.SPID = BP.SPID
     WHERE BP.AIID = v_AIID;
-END;
+END //
 #ObtenerSolicitudProyecto
 CREATE PROCEDURE ObtenerSolicitudProyecto(IN v_spid INT)
 BEGIN
     SELECT *
     FROM SolicitudProyecto as SP
     WHERE SP.SPID = v_spid;
-END;
+END //
 #ProfesorxAsesor
 CREATE PROCEDURE ProfesorxAsesor(IN uid INT)
 BEGIN
@@ -366,7 +365,7 @@ BEGIN
 	FROM Profesor PR
 	INNER JOIN Profesor_Usuarios PU ON PR.RFCProfesor = PU.RFCProfesor
 	WHERE PU.UID = uid;
-END;
+END //
 #reenviarSolicitudResidencia
 CREATE PROCEDURE reenviarSolicitudResidencia(
     IN v_SRAnteProyecto LONGBLOB
@@ -378,7 +377,7 @@ BEGIN
         VALUES (
             v_SRAnteProyecto
             );
-END;
+END //
 #updateAntProySolicitudResidencia
 CREATE PROCEDURE updateAntProySolicitudResidencia(
     IN v_SRAnteProyecto LONGBLOB, IN v_SRID int
@@ -387,7 +386,7 @@ BEGIN
     UPDATE SolicitudResidencia
     SET SRAnteProyecto = v_SRAnteProyecto
     WHERE SRID = v_SRID;
-END;
+END //
 #UsuarioxAlumno
 CREATE PROCEDURE UsuarioxAlumno(IN alumno_id INT)
 BEGIN
@@ -396,5 +395,5 @@ BEGIN
     INNER JOIN Alumno_Usuarios AU ON AL.NumeroControl = AU.NumeroControl
     INNER JOIN Usuarios US ON US.UID = AU.UID
     WHERE US.UID = alumno_id;
-END;
-
+END //
+DELIMITER ;
