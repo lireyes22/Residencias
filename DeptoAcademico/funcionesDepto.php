@@ -83,6 +83,14 @@ function listaDocentes($DID, $RFC){ //LISTA DE DOCENTES EN EL DEPARTAMENTO EXCEP
     while (mysqli_next_result($conection)) { }
     return $query;
 }
+function listaDocentes2($DID){ //LISTA DE DOCENTES EN EL DEPARTAMENTO 
+    $conection = conn();
+    $sql = "SELECT * FROM Profesor WHERE Profesor.DID = $DID;";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $query;
+}
 function RFCprofesor($SPID){
     $conection = conn();
     $sql = "SELECT Profesor.`RFCProfesor` FROM Profesor INNER JOIN `SolicitudProyecto` INNER JOIN `Profesor_Usuarios` ON Profesor.`RFCProfesor` = Profesor_Usuarios.`RFCProfesor` AND Profesor_Usuarios.`UID` = SolicitudProyecto.`UIDResponsable`  WHERE SolicitudProyecto.`SPID` = $SPID;";
