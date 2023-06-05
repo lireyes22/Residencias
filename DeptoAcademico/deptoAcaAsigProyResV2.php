@@ -68,12 +68,12 @@
 						<th class="tb-th-asp"><p><?php echo $fila['SPNombreProyecto']?></p></th>
 						<th class="tb-th-asp"><p><?php echo $fila['SPObjetivo']?></p></th>
 						<th class="tb-th-asp"><p><?php echo $fila['SPEstudiantesRequeridos']?></p></th>
-						<th class="tb-th-asp"><?php echo $fila['SDTiempoEstimado']?> MESES</th> 
+						<th class="tb-th-asp"><?php echo $fila['SDTiempoEstimado']?> MESES</th>
 						    <th class="tb-th-asp">
 							<select name="UProfesor">
 								<?php
 									$RFC = mysqli_fetch_array(RFCprofesor($fila['SPID']));
-									$listaProfesores = listaDocentes2($DID[0]);
+									$listaProfesores = listaDocentes($DID[0], $RFC[0]);
 									while ($profesor = mysqli_fetch_array($listaProfesores)){
 										?>
 											<option value="<?php echo $profesor[0]; ?>" size="20"> <?php echo $profesor[1] ?> </option>
