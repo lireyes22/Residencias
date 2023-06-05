@@ -2,6 +2,7 @@
 include '../InicioSessionSeg.php';
 include ('../conectionBD.php');
 // Establecer la conexión a la base de datos
+$conn=conn();
 $comentario=$_POST['observaciones'];
 $SRID = $_POST['SRID'];
 $opcion = $_POST['accion'];
