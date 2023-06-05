@@ -2,14 +2,6 @@
 include '../../InicioSessionSegNvl2.php';
 include ('../../conectionBD.php');
 
-$conectionn = conn();
-
-    if(!$conection){
-        echo 'Error de conexion';
-        return null;
-    }
-    mysqli_set_charset($conection, "utf8");
-    return $conection;
 
 
 $conection = conn();
@@ -26,7 +18,7 @@ if (!$query) {
 	echo"<script  language='javascript'>window.location='../AsesorInternoResidencias.php'</script>";  
 }
 
-mysqli_close($conectionn);
+mysqli_close($conection);
 
 
 ?>
