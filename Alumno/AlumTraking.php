@@ -134,7 +134,7 @@ $link = conn();
 		<div class="TituloTraking" style="border-top: 1px solid black;"><b>Reporte Final </b>(<?php echo verificarSolicitudReporteFinal(true,$_SESSION['id']);?>)<b></b>Fecha Límite: <?php echo retornarFechaLimite('AsesoresEvaluacionReporteFinal'); ?></div>
 		<div class="progress-container">
 			<div class="progress-bar"><span class="<?php echo verificarSolicitudReporteFinal(false,$_SESSION['id']);?>"></span></div>
-			<button class="btn-actualizar">Generar</button>
+			
 			
 			<form action="Alumndescargardoc.php" method="post"> 
 				<input type="submit" value="Descargar" class="btn-actualizar" >
