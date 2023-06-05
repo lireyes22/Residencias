@@ -1,11 +1,8 @@
 <?php
 include '../../InicioSessionSegNvl2.php';
-echo '<br>';
-$host = 'mapachitos.cisuktad1m53.us-east-2.rds.amazonaws.com';
-$user = 'admin';
-$password = 'mapachitos123';
-$db = 'Residencias';
-$conection = @mysqli_connect($host, $user, $password, $db);
+include ('../../conectionBD.php');
+$conection = conn();
+
 
 if (!$conection) {
     echo 'Error de conexion';
