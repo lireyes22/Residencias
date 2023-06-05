@@ -8,14 +8,14 @@
     $consultaAlumno;$consultaAlumnoProyecto;$consultaAlumnoCarrera;
     #Se consulta la informacion del alumno
     if (!($consultaAlumno = mysqli_fetch_array(consultaUsuarioAlumno($idAlumno)))) {
-        echo 'error';
+        echo 'error1';
     }
     #La informacion del Pro
     if (!($consultaAlumnoProyecto = mysqli_fetch_array(consultaProyectoAlumno($idAlumno)))) {
-        echo 'error';
+        echo 'error2';
     }
     if (!($consultaAlumnoCarrera = mysqli_fetch_array(consultaCarreraAlumno($consultaAlumno['NumeroControl'])))) {
-        echo 'error';
+        echo 'error3';
     }
 
     #Se obtiene la id de la solicitud de residencia para saber con que solicitud se guarda la ev. Parcial
@@ -25,7 +25,7 @@
     $queryAsesor = consultaProfesorAsesor($idAsesor);
     $consultaAsesor;
     if (!($consultaAsesor = mysqli_fetch_array($queryAsesor))) {
-        echo 'error';
+        echo 'error4';
     }
 
     #Obtener calificaciones parciales

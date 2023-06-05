@@ -1138,6 +1138,14 @@ BEGIN
 	SELECT *
 	FROM Profesor PR
 	INNER JOIN Profesor_Usuarios PU ON PR.RFCProfesor = PU.RFCProfesor
+	WHERE PU.UID = uid;
+END //
+#ProfesorxAsesor
+CREATE PROCEDURE ProfesorxAsesorxExterno(IN uid INT)
+BEGIN
+	SELECT *
+	FROM Profesor PR
+	INNER JOIN Profesor_Usuarios PU ON PR.RFCProfesor = PU.RFCProfesor
     INNER JOIN AsesorInterno AI ON AI.UID = PU.UID 
 	WHERE AI.AIID = uid;
 END //
