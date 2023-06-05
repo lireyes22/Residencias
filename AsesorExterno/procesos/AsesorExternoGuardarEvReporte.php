@@ -16,13 +16,14 @@ $campos_vacios = array();
 foreach ($campos as $campo) {
     if (empty($_POST[$campo])) {
         $campos_vacios[] = $campo;
+        $_POST[$campo] = 0;
     }
 }
 #Inicio con el proceso una vez validado
 if (!empty($campos_vacios)) {#si hay algo, significa que hay campos vacios
-    echo "<script>alert('Los siguientes campos están vacíos: " . implode(', ', $campos_vacios) . "')</script>";
-    echo"<script  language='javascript'>window.location='../IndexAE.php'</script>";  
-    exit();
+    #echo "<script>alert('Los siguientes campos están vacíos: " . implode(', ', $campos_vacios) . "')</script>";
+    #echo"<script  language='javascript'>window.location='../IndexAE.php'</script>";  
+    #exit();
 }
 ##################################################################################
 #Si todo bien.......
