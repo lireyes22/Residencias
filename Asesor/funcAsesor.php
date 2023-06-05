@@ -81,7 +81,7 @@ function consultaEvaluacionSeguimiento($UAsesor, $UAlumno, $NParcial, $Tipo) {
 }
 function ObtenerEvaluacionFinal($UAsesor, $UAlumno) {
     $conection = conn();
-    $sql = "CALL ObtenerEvaluacionFinal($UAsesor, $UAlumno, 0)";
+    $sql = "CALL ObtenerEvaluacionReporteFinal($UAlumno, 0)";
     $query = mysqli_query($conection, $sql);
     // vaciar el buffer de resultados
     while (mysqli_next_result($conection)) { }
