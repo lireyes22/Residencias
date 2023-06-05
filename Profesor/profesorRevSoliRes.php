@@ -256,6 +256,10 @@ $SRID = $_POST['SRID'];
                             <label for="telefono">Teléfono:</label>
                             <input type="tel" name="telAlumno" id="telefono" value="<?php echo $residente['tel'] ?>" required disabled>
                         </div>
+                        <div class="form-row">
+                                <label for="Anteproyecto">Anteproyecto:</label>
+                                <a href="exc/downloadAnteproy.php?SRID=<?php echo $SRID?>" target="_blank">DESCARGAR</a>
+                        </div>
                     </div>  
 
 
@@ -270,15 +274,6 @@ $SRID = $_POST['SRID'];
                     </div>
                 </div> -->
             </article>
-        <!-- <div align="right">
-            <label for="SRAnteProyecto">Anteproyecto: </label>
-                <div class="form-group" align="right">
-                    <label for="file-input">
-                        <img src="../img/archivo.jpg" width="70px"/>
-                    </label>
-                    <input id="file-input" type="file" name="anteproyecto" required/>
-                </div>
-            </div> -->
         </fieldset>
     </form>
     <form method="POST" action="funcionesFProfesor.php">
