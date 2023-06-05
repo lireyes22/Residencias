@@ -43,7 +43,7 @@
                 
                 <label class="lb-inp">Nombre del Asesor Interno:</label> <br>
                 <input class="lb-inp" type="text" name="AsesorInterno" value="<?php echo $consultaAsesor['AENombre']; ?>" readonly> <br>
-                <label class="lb-inp">Fecha de evaluación</label> <br>
+                <label class="lb-inp">Fecha:</label> <br>
                 <input class="lb-inp" type="date" name="FechaEvaluacion" value="<?php echo date('Y-m-d'); ?>" readonly> <br>
                 <label class="lb-inp">Total Puntos:</label> <br>
                 <input class="lb-inp" type="text" name="TotalPuntos" value="<?php echo $evaluacionReporte['ERFTotal'] ?>" readonly> <br>

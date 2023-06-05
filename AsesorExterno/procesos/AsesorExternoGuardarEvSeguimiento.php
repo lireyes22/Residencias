@@ -29,7 +29,7 @@
     } 
     $idSolicitudResidencia = $_POST['idSoliRes'];
     $Fecha = date('Y-m-d');
-    $Observaciones = $_POST['Observaciones'];
+    $Observaciones = $_POST['Observaciones'];if(empty($Observaciones)) $Observaciones = " ";
     $idAsesor = $_POST['idUAsesor'];
 
     $conectionn = conn();

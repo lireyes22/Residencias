@@ -33,6 +33,12 @@
 
     $ParcialUno = consultaEvaluacionSeguimiento($idAsesor, $idAlumno, 1, 1);
     $ParcialDos = consultaEvaluacionSeguimiento($idAsesor, $idAlumno, 2, 1);
+    if(empty($ParcialUno['ERFecha'])){
+        $ParcialUno['ERFecha'] = date('Y-m-d');
+    }
+    if(empty($ParcialDos['ERFecha'])){
+        $ParcialDos['ERFecha'] = date('Y-m-d');
+    }
     ?>
     <div class="containerEv">
         <!-- Columna izquierda  -->
@@ -128,11 +134,11 @@
                             </tr>
                         </table>
                         <label class="txtSizeEvC3 mrgEvC3 lb-inp" style="color: white; font-size: 20px;"><strong>Observaciones:</strong></label> <br>
-                        <textarea name="Observaciones" id="" rows="5" style="width: 80%; margin: 10px; resize: none;" required><?php  echo $ParcialUno['ERObservaciones'] ?></textarea>
+                        <textarea name="Observaciones" id="" rows="5" style="width: 80%; margin: 10px; resize: none;"><?php  echo $ParcialUno['ERObservaciones'] ?></textarea>
                     </fieldset>
                     <input type="hidden" name="idSoliRes" value="<?php echo $idSolicitudResidencia; ?>">
                     <input type="hidden" name="idUAsesor" value="<?php echo $idAsesor; ?>">
-                    <input class="txtSizeEvC3 lb-inp" type="hidden" value="<?php echo date('Y-m-d'); ?>" disabled>
+                    <input class="txtSizeEvC3 lb-inp" type="hidden" value="<?php echo $ParcialUno['ERFecha']; ?>" disabled>
                 </form>
             </div>
             <div id="parcial2" style="margin-top: 5%;">
@@ -201,11 +207,11 @@
                             </tr>
                         </table>
                         <label class="txtSizeEvC3 mrgEvC3 lb-inp" style="color: white; font-size: 20px;"><strong>Observaciones:</strong></label> <br>
-                        <textarea name="Observaciones" id="" rows="5" style="width: 80%; margin: 10px; resize: none;" required><?php  echo $ParcialDos['ERObservaciones'] ?></textarea>
+                        <textarea name="Observaciones" id="" rows="5" style="width: 80%; margin: 10px; resize: none;"><?php  echo $ParcialDos['ERObservaciones'] ?></textarea>
                     </fieldset>
                     <input type="hidden" name="idSoliRes" value="<?php echo $idSolicitudResidencia; ?>">
                     <input type="hidden" name="idUAsesor" value="<?php echo $idAsesor; ?>">
-                    <input class="txtSizeEvC3 lb-inp" type="hidden" value="<?php echo date('Y-m-d'); ?>" disabled>
+                    <input class="txtSizeEvC3 lb-inp" type="hidden" value="<?php echo $ParcialDos['ERFecha']; ?>" disabled>
                 </form>
             </div>
         </div>
