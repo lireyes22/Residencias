@@ -74,24 +74,24 @@
                                 <th>Puntuación</th>
                             </tr>
                             <tr>
-                                <td>Asistie puntualmente en el horario establecido</td>
-                                <td>10</td>
-                                <td><input type="number" name="PuntualidadP1" min="0" max="10" step="1" value="<?php  echo $ParcialUno['ERPuntualidad'] ?>" required></td>
+                                <td>Asiste puntualmente en el horario establecido</td>
+                                <td>5</td>
+                                <td><input type="number" name="PuntualidadP1" min="0" max="5" step="1" value="<?php  echo $ParcialUno['ERPuntualidad'] ?>" required></td>
                             </tr>
                             <tr>
                                 <td>Trabaja en equipo y se comunica en forma efectiva (oral y escrita)</td>
-                                <td>15</td>
-                                <td><input type="number" name="TrabajoEquipoP1" min="0" max="15" step="1" value="<?php  echo $ParcialUno['ERTrabajoEquipo'] ?>" required></td>
+                                <td>10</td>
+                                <td><input type="number" name="TrabajoEquipoP1" min="0" max="10" step="1" value="<?php  echo $ParcialUno['ERTrabajoEquipo'] ?>" required></td>
                             </tr>
                             <tr>
                                 <td>Tiene iniciativa para colaborar</td>
-                                <td>20</td>
-                                <td><input type="number" name="DedicacionP1" min="0" max="20" step="1" value="<?php  echo $ParcialUno['ERDedicacion'] ?>" required></td>
+                                <td>5</td>
+                                <td><input type="number" name="DedicacionP1" min="0" max="5" step="1" value="<?php  echo $ParcialUno['ERDedicacion'] ?>" required></td>
                             </tr>
                             <tr>
                                 <td>Propone mejoras al proyecto</td>
-                                <td>15</td>
-                                <td><input type="number" name="DaMejorasP1" min="0" max="15" step="1" value="<?php  echo $ParcialUno['ERDaMejoras'] ?>" required></td>
+                                <td>10</td>
+                                <td><input type="number" name="DaMejorasP1" min="0" max="10" step="1" value="<?php  echo $ParcialUno['ERDaMejoras'] ?>" required></td>
                             </tr>
                             <tr>
                                 <td>Cumple con los objetivos correspondientes al proyecto</td>
@@ -100,13 +100,13 @@
                             </tr>
                             <tr>
                                 <td>Es ordenado y cumple satisfactoriamente con las actividades encomendadas en los tiempos establecidos en el cronograma</td>
-                                <td>20</td>
-                                <td><input type="number" name="OrdenadoP1" min="0" max="20" step="1" value="<?php  echo $ParcialUno['EROrdenado'] ?>" required></td>
+                                <td>15</td>
+                                <td><input type="number" name="OrdenadoP1" min="0" max="15" step="1" value="<?php  echo $ParcialUno['EROrdenado'] ?>" required></td>
                             </tr>
                             <tr>
                                 <td>Demuestra liderazgo en su actuar</td>
-                                <td>20</td>
-                                <td><input type="number" name="LiderazgoP1" min="0" max="20" step="1" value="<?php  echo $ParcialUno['ERLiderazgo'] ?>" required></td>
+                                <td>10</td>
+                                <td><input type="number" name="LiderazgoP1" min="0" max="10" step="1" value="<?php  echo $ParcialUno['ERLiderazgo'] ?>" required></td>
                             </tr>
                             <tr>
                                 <td>Demuestra conocimiento en el área de su especialidad</td>
@@ -115,13 +115,13 @@
                             </tr>
                             <tr>
                                 <td>Demuestra un comportamiento ético (es disciplinado, acata órdenes, respeta a sus compañeros de trabajo, entre otros)</td>
-                                <td>20</td>
-                                <td><input type="number" name="ComportamientoP1" min="0" max="20" step="1" value="<?php  echo $ParcialUno['ERComportamiento'] ?>" required></td>
+                                <td>19</td>
+                                <td><input type="number" name="ComportamientoP1" min="0" max="10" step="1" value="<?php  echo $ParcialUno['ERComportamiento'] ?>" required></td>
                             </tr>
                             <tr style="background-color: cadetblue;">
                                 <td><strong>TOTAL DE PUNTOS DEL PARCIAL 1</strong></td>
                                 <td>100</td>
-                                <td><input type="number" name="DaMejorasP2" min="0" max="15" step="1" value="<?php  echo $ParcialUno['ERCalificacion'] ?>" disabled></td>
+                                <td><input type="number" name="" value="<?php  echo $ParcialUno['ERCalificacion'] ?>" disabled></td>
                             </tr>
                             <tr style="background-color: cadetblue;">
                                 <?php getBoton('Par1'); ?>
@@ -147,9 +147,39 @@
                                 <th>Puntuación</th>
                             </tr>
                             <tr>
-                                <td>Asistió puntualmente a las reuniones de asesoría</td>
+                                <td>Asiste puntualmente en el horario establecido</td>
+                                <td>5</td>
+                                <td><input type="number" name="PuntualidadP2" min="0" max="5" step="1" value="<?php  echo $ParcialDos['ERPuntualidad'] ?>" required></td>
+                            </tr>
+                            <tr>
+                                <td>Trabaja en equipo y se comunica en forma efectiva (oral y escrita)</td>
                                 <td>10</td>
-                                <td><input type="number" name="PuntualidadP2" min="0" max="10" step="1" value="<?php  echo $ParcialDos['ERPuntualidad'] ?>" required></td>
+                                <td><input type="number" name="TrabajoEquipoP2" min="0" max="10" step="1" value="<?php  echo $ParcialDos['ERTrabajoEquipo'] ?>" required></td>
+                            </tr>
+                            <tr>
+                                <td>Tiene iniciativa para colaborar</td>
+                                <td>5</td>
+                                <td><input type="number" name="DedicacionP2" min="0" max="5" step="1" value="<?php  echo $ParcialDos['ERDedicacion'] ?>" required></td>
+                            </tr>
+                            <tr>
+                                <td>Propone mejoras al proyecto</td>
+                                <td>10</td>
+                                <td><input type="number" name="DaMejorasP2" min="0" max="10" step="1" value="<?php  echo $ParcialDos['ERDaMejoras'] ?>" required></td>
+                            </tr>
+                            <tr>
+                                <td>Cumple con los objetivos correspondientes al proyecto</td>
+                                <td>15</td>
+                                <td><input type="number" name="CumpleObjetivosP2" min="0" max="15" step="1" value="<?php  echo $ParcialDos['ERCumpleObjetivos'] ?>" required></td>
+                            </tr>
+                            <tr>
+                                <td>Es ordenado y cumple satisfactoriamente con las actividades encomendadas en los tiempos establecidos en el cronograma</td>
+                                <td>15</td>
+                                <td><input type="number" name="OrdenadoP2" min="0" max="15" step="1" value="<?php  echo $ParcialDos['EROrdenado'] ?>" required></td>
+                            </tr>
+                            <tr>
+                                <td>Demuestra liderazgo en su actuar</td>
+                                <td>10</td>
+                                <td><input type="number" name="LiderazgoP2" min="0" max="10" step="1" value="<?php  echo $ParcialDos['ERLiderazgo'] ?>" required></td>
                             </tr>
                             <tr>
                                 <td>Demuestra conocimiento en el área de su especialidad</td>
@@ -157,29 +187,14 @@
                                 <td><input type="number" name="ConocimientoP2" min="0" max="20" step="1" value="<?php  echo $ParcialDos['ERConocimiento'] ?>" required></td>
                             </tr>
                             <tr>
-                                <td>Trabaja en equipo y se comunica en forma efectiva (oral y escrita)</td>
-                                <td>15</td>
-                                <td><input type="number" name="TrabajoEquipoP2" min="0" max="15" step="1" value="<?php  echo $ParcialDos['ERTrabajoEquipo'] ?>" required></td>
-                            </tr>
-                            <tr>
-                                <td>Es dedicado y proactivo en las actividades encomendadas</td>
-                                <td>20</td>
-                                <td><input type="number" name="DedicacionP2" min="0" max="20" step="1" value="<?php  echo $ParcialDos['ERDedicacion'] ?>" required></td>
-                            </tr>
-                            <tr>
-                                <td>Es ordenado y cumple satisfactoriamente con las actividades encomendadas en los tiempos establecidos</td>
-                                <td>20</td>
-                                <td><input type="number" name="OrdenadoP2" min="0" max="20" step="1" value="<?php  echo $ParcialDos['EROrdenado'] ?>" required></td>
-                            </tr>
-                            <tr>
-                                <td>Propone mejoras al proyecto</td>
-                                <td>15</td>
-                                <td><input type="number" name="DaMejorasP2" min="0" max="15" step="1" value="<?php  echo $ParcialDos['ERDaMejoras'] ?>" required></td>
+                                <td>Demuestra un comportamiento ético (es disciplinado, acata órdenes, respeta a sus compañeros de trabajo, entre otros)</td>
+                                <td>19</td>
+                                <td><input type="number" name="ComportamientoP2" min="0" max="10" step="1" value="<?php  echo $ParcialDos['ERComportamiento'] ?>" required></td>
                             </tr>
                             <tr style="background-color: cadetblue;">
                                 <td><strong>TOTAL DE PUNTOS DEL PARCIAL 2</strong></td>
                                 <td>100</td>
-                                <td><input type="number" name="DaMejorasP2" min="0" max="15" step="1" value="<?php  echo $ParcialDos['ERCalificacion'] ?>" disabled></td>
+                                <td><input type="number" name="" min="0" max="15" step="1" value="<?php  echo $ParcialDos['ERCalificacion'] ?>" disabled></td>
                             </tr>
                             <tr style="background-color: cadetblue;">
                                 <?php getBoton('Par2'); ?>

@@ -49,7 +49,7 @@
     $conectionn = conn();
     $total = $Puntualidad + $Conocimiento + $Equipo + $Dedicacion + $Ordenado + $DaMejoras;
 
-    $sql = "CALL InsertarEvaluacionReporte($idSolicitudResidencia, '$Fecha', $Puntualidad, $Conocimiento, $Equipo, $Dedicacion, $Ordenado, $DaMejoras, $total, '$Observaciones', $nParcial, $idAsesor, 1)";
+    $sql = "CALL InsertarEvaluacionReporteExterno($idSolicitudResidencia, '$Fecha', $Puntualidad, $Equipo, $Dedicacion, $DaMejoras, $Objetivos, $Ordenado, $Liderazgo, $Conocimiento, $Comportamiento, $total, '$Observaciones', $nParcial, $idAsesor, 1)";
     $query = mysqli_query($conectionn, $sql);
     if (!$query) {
         echo "Error: " . $sql . "<br>" . mysqli_error($conectionn);

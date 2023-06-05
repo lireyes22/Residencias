@@ -799,6 +799,7 @@ DROP PROCEDURE IF EXISTS updateAntProySolicitudResidencia;
 DROP PROCEDURE IF EXISTS UsuarioxAlumno;
 DROP PROCEDURE IF EXISTS InsertarReporteFinal;
 DROP PROCEDURE IF EXISTS InsertarSolicitudResidencia;
+DROP PROCEDURE IF EXISTS InsertarEvaluacionReporteExterno;
 
 DELIMITER //
 #ActualizarNResidentes
@@ -1168,5 +1169,64 @@ BEGIN
     INNER JOIN Alumno_Usuarios AU ON AL.NumeroControl = AU.NumeroControl
     INNER JOIN Usuarios US ON US.UID = AU.UID
     WHERE US.UID = alumno_id;
+END //
+#Insertar evaluacion seguimiento del asesor externo
+CREATE PROCEDURE InsertarEvaluacionReporteExterno(
+    IN v_SRID INT,
+    IN v_ERFecha date,
+    IN v_ERPuntualidad INT,
+    IN v_ERTrabajoEquipo INT,
+    IN v_ERDedicacion INT,
+    IN v_ERDaMejoras INT,
+    IN v_ERCumpleObjetivos INT,
+    IN v_EROrdenado INT,
+    IN v_ERLiderazgo INT,
+    IN v_ERConocimiento INT,
+    IN v_ERComportamiento INT,
+    IN v_ERCalificacion INT,
+    IN v_ERObservaciones VARCHAR(200),
+    IN v_ERNoParcial INT,
+    IN v_UAsesor INT,
+    IN v_Tipo BIT
+    )
+BEGIN
+    DELETE FROM EvaReportes WHERE SRID = v_SRID AND ERNoParcial = v_ERNoParcial AND Tipo = v_Tipo;
+
+    INSERT INTO EvaReportes (
+        SRID,
+        ERFecha,
+        ERPuntualidad,
+        ERCumpleObjetivos,
+        ERLiderazgo,
+        ERConocimiento,
+        ERComportamiento,
+        ERTrabajoEquipo,
+        ERDedicacion,
+        EROrdenado,
+        ERDaMejoras,
+        ERCalificacion,
+        ERObservaciones,
+        ERNoParcial,
+        UAsesor,
+        Tipo
+        ) 
+    VALUES (
+        v_SRID,
+        v_ERFecha,
+        v_ERPuntualidad, 
+        v_ERCumpleObjetivos,
+        v_ERLiderazgo, 
+        v_ERConocimiento,
+        v_ERComportamiento,
+        v_ERTrabajoEquipo, 
+        v_ERDedicacion,   
+        v_EROrdenado, 
+        v_ERDaMejoras, 
+        v_ERCalificacion, 
+        v_ERObservaciones, 
+        v_ERNoParcial, 
+        v_UAsesor,
+        v_Tipo
+        );
 END //
 DELIMITER ;
