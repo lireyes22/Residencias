@@ -364,7 +364,8 @@ BEGIN
 	SELECT *
 	FROM Profesor PR
 	INNER JOIN Profesor_Usuarios PU ON PR.RFCProfesor = PU.RFCProfesor
-	WHERE PU.UID = uid;
+    INNER JOIN AsesorInterno AI ON AI.UID = PU.UID 
+	WHERE AI.AIID = uid;
 END //
 #reenviarSolicitudResidencia
 CREATE PROCEDURE reenviarSolicitudResidencia(

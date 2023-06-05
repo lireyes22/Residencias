@@ -4,7 +4,7 @@
     include('funcionesGD.php');
 
     $idAlumno = $_POST['idUAlumno'];
-    echo $idAlumno.'<br>';
+    #echo $idAlumno.'<br>';
     
     #Evaluaciones Del Asesor Interno
     $ParcialUnoAI = consultaEvaluacionSeguimiento($idAlumno, 1, 0);
@@ -20,7 +20,8 @@
 
     #AsesoresDatos
     $idsAsesores = AsesoresxAlumnoIDS($idAlumno);
-    echo $idsAsesores['AIID'].','.$idsAsesores['AEID'];
+    #echo $idsAsesores;
+    echo $idsAsesores['AIID'].','.$idsAsesores['AEID'].'<br>';
     if(empty($idsAsesores['AIID']) || empty($idsAsesores['AEID']) ){
         echo"<script>alert('No se han asignado todos los asesores')</script>";
         if(!empty($_POST['redireccionar'])){
@@ -129,5 +130,5 @@
     $TBS->PlugIn(OPENTBS_DELETE_COMMENTS);
     $FileName = 'EvaluacionSeguimiento.docx';
     $TBS->Show(OPENTBS_DOWNLOAD, $FileName);
-    #exit();
+    exit();
 ?>

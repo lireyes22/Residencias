@@ -52,10 +52,8 @@
         $conection = conn();
         $sql = "CALL ObtenerIDAsesoresXAlumno($idAlumno)";
         $query = mysqli_query($conection, $sql);
-        // vaciar el buffer de resultados
-        while (mysqli_next_result($conection)) { }
         if (!($consultaOAA = mysqli_fetch_array($query))) {
-            echo 'error';
+            #echo 'error';
             $consultaOAA = -1;
         }
         return $consultaOAA;
