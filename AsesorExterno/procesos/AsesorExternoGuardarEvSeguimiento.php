@@ -18,20 +18,28 @@
     if(isset($_POST['Par1'])) {
         $nParcial = 1;
         $Puntualidad = $_POST['PuntualidadP1'];
-        $Conocimiento = $_POST['ConocimientoP1'];
         $Equipo = $_POST['TrabajoEquipoP1'];
         $Dedicacion = $_POST['DedicacionP1'];
-        $Ordenado = $_POST['OrdenadoP1'];
         $DaMejoras = $_POST['DaMejorasP1'];
+        $Objetivos = $_POST['CumpleObjetivosP1'];
+        $Ordenado = $_POST['OrdenadoP1'];
+        $Liderazgo = $_POST['LiderazgoP1'];
+        $Conocimiento = $_POST['ConocimientoP1'];
+        $Comportamiento = $_POST['ComportamientoP1'];        
+        
+        
     }     
     if(isset($_POST['Par2'])) {
         $nParcial = 2;
         $Puntualidad = $_POST['PuntualidadP2'];
-        $Conocimiento = $_POST['ConocimientoP2'];
         $Equipo = $_POST['TrabajoEquipoP2'];
         $Dedicacion = $_POST['DedicacionP2'];
-        $Ordenado = $_POST['OrdenadoP2'];
         $DaMejoras = $_POST['DaMejorasP2'];
+        $Objetivos = $_POST['CumpleObjetivosP2'];
+        $Ordenado = $_POST['OrdenadoP2'];
+        $Liderazgo = $_POST['LiderazgoP2'];
+        $Conocimiento = $_POST['ConocimientoP2'];
+        $Comportamiento = $_POST['ComportamientoP2'];      
     } 
     $idSolicitudResidencia = $_POST['idSoliRes'];
     $Fecha = date('Y-m-d');
