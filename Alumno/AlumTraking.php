@@ -1,6 +1,6 @@
 <?php 
 include '../InicioSessionSeg.php';
-include ('Alumfunciones.php');
+include_once ('Alumfunciones.php');
 $link = conn();
     $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
     $query="SELECT * FROM SolicitudProyecto 

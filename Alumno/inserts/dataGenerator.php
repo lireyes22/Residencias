@@ -1,5 +1,5 @@
-<?php     
-	include ('../Alumfunciones.php');
+<?php  
+	include_once ('../Alumfunciones.php'); 
     include '../../InicioSessionSeg.php';
     //ID del proyecto
     $SPID = $_POST['SPID'];

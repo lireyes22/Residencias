@@ -1,5 +1,5 @@
 <?php
-include ('../conectionBD.php');
+include_once ('../conectionBD.php'); 
 
 // if(isset($_POST['EnviarSolicitud'])){
 //     setProyecto();
