@@ -367,7 +367,7 @@ BEGIN
 	WHERE PU.UID = uid;
 END //
 #ProfesorxAsesor
-CREATE PROCEDURE ProfesorxAsesorxExterno(IN uid INT)
+CREATE PROCEDURE ProfesorxAsesorxAIID(IN uid INT)
 BEGIN
 	SELECT *
 	FROM Profesor PR

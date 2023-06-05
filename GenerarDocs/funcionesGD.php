@@ -60,7 +60,7 @@
     }
     function ProfesorxAsesorI($idAsesor) {
         $conection = conn();
-        $sql = "CALL ProfesorxAsesor($idAsesor)";
+        $sql = "CALL ProfesorxAsesorxAIID($idAsesor)";
         $query = mysqli_query($conection, $sql);
         // vaciar el buffer de resultados
         while (mysqli_next_result($conection)) { }
