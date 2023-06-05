@@ -9,7 +9,7 @@
 	$solicitudResidencia = mysqli_fetch_array(existeBanco($SPID));
 	$nombreEmpresa = mysqli_fetch_array(empresa($SPID));
 	$RFC = mysqli_fetch_array(responsableResidencia($SPID));
-	$docentes = listaDocentes($DID[0], $RFC[0]);
+	$docentes = listaDocentes2($DID[0]);
 ?>
 <!DOCTYPE html>
 <html>
