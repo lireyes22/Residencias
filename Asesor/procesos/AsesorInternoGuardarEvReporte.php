@@ -1,6 +1,6 @@
 <?php
 include '../../InicioSessionSegNvl2.php';
-include ('../conectionBD.php');
+include ('../../conectionBD.php');
 #Especiales
 $idSolicitudResidencia = $_POST['idSoliRes']; 
 $idAsesor = $_POST['idUAsesor'];

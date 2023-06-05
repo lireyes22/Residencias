@@ -1,6 +1,6 @@
 <?php
 include '../../InicioSessionSegNvl2.php';
-include ('../conectionBD.php');
+include ('../../conectionBD.php');
 
 $conectionn = conn();
 

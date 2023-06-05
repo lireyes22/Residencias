@@ -110,7 +110,7 @@
                             <tr style="background-color: cadetblue;">
                                 <td><strong>TOTAL DE PUNTOS DEL PARCIAL 1</strong></td>
                                 <td>100</td>
-                                <td><input type="number" name="DaMejorasP2" min="0" max="15" step="1" value="<?php  echo $ParcialUno['ERCalificacion'] ?>" readonly></td>
+                                <td><input type="number" name="ERCalificacionP1" min="0" max="15" step="1" value="<?php  echo $ParcialUno['ERCalificacion'] ?>" readonly></td>
                             </tr>
                             <tr style="background-color: cadetblue;">
                                 <?php getBoton('Par1'); ?>
@@ -169,7 +169,7 @@
                             <tr style="background-color: cadetblue;">
                                 <td><strong>TOTAL DE PUNTOS DEL PARCIAL 2</strong></td>
                                 <td>100</td>
-                                <td><input type="number" name="DaMejorasP2" min="0" max="15" step="1" value="<?php  echo $ParcialDos['ERCalificacion'] ?>" readonly></td>
+                                <td><input type="number" name="ERCalificacionP2" min="0" max="15" step="1" value="<?php  echo $ParcialDos['ERCalificacion'] ?>" readonly></td>
                             </tr>
                             <tr style="background-color: cadetblue;">
                                 <?php getBoton('Par2'); ?>

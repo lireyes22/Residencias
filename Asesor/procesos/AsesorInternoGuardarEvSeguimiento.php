@@ -1,6 +1,6 @@
 <?php
     include '../../InicioSessionSegNvl2.php';
-    include ('../conectionBD.php');
+    include ('../../conectionBD.php');
     if(isset($_POST['Par1'])) {
         $nParcial = 1;
         $Puntualidad = $_POST['PuntualidadP1'];
