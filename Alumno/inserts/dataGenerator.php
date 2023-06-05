@@ -1,4 +1,5 @@
 <?php  
+    include '../../conectionBD.php';   
 	include ('../Alumfunciones.php'); 
     include '../../InicioSessionSeg.php';
     //ID del proyecto
