@@ -1040,13 +1040,13 @@ INSERT INTO `Usuarios` (`UID`, `URol`, `Ufirma`) VALUES
 
 	INSERT INTO `Alumnos` (`NumeroControl`, `NombreCompleto`, `NumeroSeguroSocial`, `SemestreActual`, `Domicilio`, `Email`, `Ciudad`, `Telefono`, `CreditosComplementariosCumplidos`, `NoTenerCursosEspeciales`, `OchentaPorcientoCargaAcademica`, `AcreditacionServicioSocial`, `CorreoInstitucional`, `ContrasenaCorreo`, `DID`, `CID`, `InstitucionSeguro`) VALUES
 	('20390001', 'Juan Perez Rodriguez', '12345678901', 8, 'Calle 1 #123, Col. Centro', 'juan.perez@example.com', 'Chetumal', '9981234561', 5, 0, 1, 1, 'L20000001@chetumal.tecnm.mx', 'mi_contrasena', 5, 1, 'IMSS'),
-	('20390002', 'Maria Gomez Hernandez', '23456789012', 9, 'Calle 2 #456, Col. Hidalgo', 'maria.gomez@example.com', 'Chetumal', '9982345678', 1, 0, 0, 1, 'L20000002@chetumal.tecnm.mx', 'mi_contrasena', 5, 1, NULL),
-	('20390003', 'Pedro Lopez Gomez', '34567890123', 7, 'Calle 3 #789, Col. Benito Juarez', 'pedro.lopez@example.com', 'Chetumal', '9983456789', 2, 1, 1, 0, 'L20000003@chetumal.tecnm.mx', 'mi_contrasena', 5, 1, NULL),
+	('20390002', 'Maria Gomez Hernandez', '23456789012', 9, 'Calle 2 #456, Col. Hidalgo', 'maria.gomez@example.com', 'Chetumal', '9982345678', 5, 0, 1, 1, 'L20000002@chetumal.tecnm.mx', 'mi_contrasena', 5, 1, NULL),
+	('20390003', 'Pedro Lopez Gomez', '34567890123', 7, 'Calle 3 #789, Col. Benito Juarez', 'pedro.lopez@example.com', 'Chetumal', '9983456789', 5, 1, 1, 0, 'L20000003@chetumal.tecnm.mx', 'mi_contrasena', 5, 1, NULL),
 	('20390004', 'Ana Hernandez Perez', '45678901234', 10, 'Calle 4 #1011, Col. Solidaridad', 'ana.hernandez@example.com', 'Chetumal', '9984567890', 5, 0, 1, 1, 'L20000004@chetumal.tecnm.mx', 'mi_contrasena', 5, 1, NULL),
 	('20390006', 'Laura Perez Sanchez', '67890123456', 8, 'Calle 6 #1415, Col. Lazaro Cardenas', 'laura.perez@example.com', 'Chetumal', '9986789012', 5, 0, 1, 1, 'L20000006@chetumal.tecnm.mx', 'mi_contrasena', 5, 1, NULL),
 	('20390007', 'Daniel Torres Gomez', '78901234567', 11, 'Calle 7 #1617, Col. Francisco I. Madero', 'daniel.torres@example.com', 'Chetumal', '9987890123', 0, 0, 1, 1, 'L20000007@chetumal.tecnm.mx', 'mi_contrasena', 5, 1, NULL),
 	('20390693', 'Cesar Antonio Xiu de la Cruz', '12345678910', 6, 'Calle Santa Cruz L18 M772', 'cesarxiu504@gmail.com', 'Chetumal', '9831054419', 5, 0, 1, 1, 'L20390693@chetumal.tecnm.mx', 'mi_contra', 5, 6, NULL),
-	('20391004', 'María García López', '10987654321', 7, 'Av. Reforma, Col. San Juan', 'mariagarcia@example.com', 'Bacalar', '9987654321', 1, 0, 0, 1, 'L20234568@chetumal.tecnm.mx', 'micontrasena', 5, 1, NULL);
+	('20391004', 'María García López', '10987654321', 7, 'Av. Reforma, Col. San Juan', 'mariagarcia@example.com', 'Bacalar', '9987654321', 5, 0, 1, 1, 'L20234568@chetumal.tecnm.mx', 'micontrasena', 5, 1, NULL);
 
 	INSERT INTO `Alumno_Usuarios` (`IDAU`, `UID`, `NumeroControl`) VALUES
 	(1, 10, '20390003'),
