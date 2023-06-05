@@ -3,7 +3,7 @@ include '../../InicioSessionSegNvl2.php';
 include ('../../conectionBD.php');
 echo '<br>';
 
-$conectionn = conn();
+$conection = conn();
 
 if (!$conection) {
     echo 'Error de conexion';
