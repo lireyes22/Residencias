@@ -989,7 +989,7 @@ BEGIN
     
     START TRANSACTION;
 
-    SELECT SRID INTO v_SRID FROM SolicitudResidencia WHERE UAlumno = p_UAlumno;
+    SELECT SRID INTO v_SRID FROM SolicitudResidencia WHERE UAlumno = p_UAlumno AND SREstatus = 'APROBADO';
     
     DELETE FROM ReporteFinal WHERE SRID = v_SRID;
 
