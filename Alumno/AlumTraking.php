@@ -108,10 +108,17 @@ $link = conn();
     							<input type="hidden" name="SPID" value="<?php echo $fila['SPID']?>">
     							<input type="submit" class="btn-actualizar" value="Generar">
     						</form>
+    						<?php
+    						if($fila['SREstatus'] == 'PENDIENTE'){
+    						?>
     						<form method="post">
     							<input type="hidden" name="registro_id" value="<?php echo $fila['SRID']?>">
     							<input type="submit" class="btn-actualizar" value="Eliminar"  onclick="return confirm('¿Estás seguro de eliminar este registro?')">
     						</form>
+    						<?php 
+    						}
+    						?>
+    						
     					</div>
     					<?php
     				} 
