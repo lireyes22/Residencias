@@ -115,7 +115,7 @@
                             </tr>
                             <tr>
                                 <td>Demuestra un comportamiento ético (es disciplinado, acata órdenes, respeta a sus compañeros de trabajo, entre otros)</td>
-                                <td>19</td>
+                                <td>10</td>
                                 <td><input type="number" name="ComportamientoP1" min="0" max="10" step="1" value="<?php  echo $ParcialUno['ERComportamiento'] ?>" required></td>
                             </tr>
                             <tr style="background-color: cadetblue;">
@@ -188,7 +188,7 @@
                             </tr>
                             <tr>
                                 <td>Demuestra un comportamiento ético (es disciplinado, acata órdenes, respeta a sus compañeros de trabajo, entre otros)</td>
-                                <td>19</td>
+                                <td>10</td>
                                 <td><input type="number" name="ComportamientoP2" min="0" max="10" step="1" value="<?php  echo $ParcialDos['ERComportamiento'] ?>" required></td>
                             </tr>
                             <tr style="background-color: cadetblue;">
