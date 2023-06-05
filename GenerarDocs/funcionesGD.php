@@ -44,7 +44,7 @@
             $consultaEvSeguimiento['ERConocimiento'] = 0;
             $consultaEvSeguimiento['ERComportamiento'] = 0;
             $consultaEvSeguimiento['ERCalificacion'] = 0;
-            $consultaEvSeguimiento['ERObservaciones'] = 0;
+            $consultaEvSeguimiento['ERObservaciones'] = '';
         }
         return $consultaEvSeguimiento;
     }
