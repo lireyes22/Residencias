@@ -168,9 +168,9 @@ $link = conn();
     // Eliminar el registro de la base de datos
     		$sql = "DELETE FROM solicitudresidencia WHERE SRID = $registro_id";
     		if (mysqli_query($conexion, $sql)) {
-    			echo "Registro eliminado exitosamente.";
+    			//echo "Registro eliminado exitosamente.";
     		} else {
-    			echo "Error al eliminar el registro: " . mysqli_error($conexion);
+    			//echo "Error al eliminar el registro: " . mysqli_error($conexion);
     		}
 
     // Cerrar la conexión
