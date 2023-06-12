@@ -82,7 +82,7 @@
 						<tr>
 							<th class="tb-th-asp" id="<?php echo $color; ?>" colspan="<?php echo $colspan; ?>"><?php echo $row[1]; ?></th>
 							<th class="tb-th-asp"><?php 
-								if($row[1] != 'PENDIENTE'){
+								if($row[1] != 'PENDIENTE' && $row[1] != 'REVISION'){
 									$obsrv = observaciones($proy[0]);
 									echo $obsrv;
 								}
