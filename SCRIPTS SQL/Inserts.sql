@@ -1,5 +1,4 @@
 
-	
 INSERT INTO `Departamentos` (`DID`, `DNombre`) VALUES
 	(1, 'Departamento División de Estudios Profesionales'),
 	(2, 'Departamento Económico Administrativo'),
