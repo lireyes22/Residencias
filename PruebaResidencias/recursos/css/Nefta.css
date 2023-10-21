@@ -1,0 +1,6 @@
+.custom-table tbody tr:nth-child(odd) {
+    background-color: #7adbbb; /* Color de fondo para las filas impares */
+}   
+.dataTables_filter {
+    margin-bottom: 10px; /* Ajusta el espacio hacia abajo según tus preferencias */
+}
