@@ -1,5 +1,5 @@
 <?php
-include 'headprofesores.php';
+include 'headAlumnos.php';
 ?>
         <!-- Contenido principal -->
         <div class="col ms-sm-auto px-4">
