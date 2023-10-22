@@ -67,7 +67,7 @@
 
                 <div id="menu" class="collapse collapse-horizontal bg-white menu col-sm-12 col-md-5 col-lx-4 col-xxl-2">
                 
-                    <ul id="lista"  class="nav flex-column" style="min-width: 15vw;">
+                    <ul id="lista"  class="nav flex-column">
                         <li class="nav-item  p-3 row">
                             <h1>Menú</h1>
                         </li>

@@ -79,6 +79,7 @@
 
         #lista{
             height: 100%;
+            min-width: 15vw;
         }
 
         #principal{
