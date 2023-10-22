@@ -33,11 +33,17 @@
             min-width: 230px;
         }
 
-        .centrarV {
+        .centrar {
             display: flex;
             justify-content: center;
             align-items: center;
         }
+
+        .centrarV {
+            display: flex;
+            align-items: center;
+        }
+
 
         .text-left{
             text-align: right;

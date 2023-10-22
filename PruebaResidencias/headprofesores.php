@@ -44,7 +44,7 @@
                       <li class="row"><a class="dropdown-item my-1" href="#">Coordinador</a></li>
                       <li><hr class="dropdown-divider"></li>
                       <li class="row p-1">
-                            <a class="dropdown-item d-flex centrarV" href="#">
+                            <a class="dropdown-item d-flex centrar" href="#">
                                 <div class="col-3">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
@@ -52,7 +52,7 @@
                                     </svg>
                                 </div>
 
-                                <div class="col-9 centrarV">
+                                <div class="col-9 centrar">
                                     Log Out
                                 </div>
                             </a>
