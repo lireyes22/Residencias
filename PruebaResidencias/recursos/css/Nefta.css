@@ -29,6 +29,16 @@
             background-color: #cedeef;
         }
 
+        #userMenu{
+            min-width: 230px;
+        }
+
+        .centrarV {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         .text-left{
             text-align: right;
         }
