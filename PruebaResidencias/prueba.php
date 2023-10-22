@@ -38,7 +38,8 @@ include 'headprofesores.php';
 				        </div>           
 				        
 				    </div>
-				</div>
+		</div>
+			
 <?php
 include 'footprofesores.php';
 ?>
