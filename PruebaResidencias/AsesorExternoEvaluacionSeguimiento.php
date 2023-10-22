@@ -64,8 +64,8 @@ include 'headprofesores.php';
         </li>
       </ul>
       <div class="tab-content" id="myTabContent">
+        <!-- Parcial 1 -->
         <div class="tab-pane fade show active" id="parcial1" role="tabpanel" aria-labelledby="parcial1-tab">
-          <!-- Parcial 1 -->
           <form class="rounded p-0" style="background-color: whitesmoke;">
             <div class="row rounded-top p-2 " style=" background-color: #384970; color: white;">
               <div class="col-md-4 text-center">
@@ -410,6 +410,7 @@ include 'headprofesores.php';
 
           </form>
         </div>
+        <!-- Fin Parcial 2 -->
       </div>
     </div>
   </div>
