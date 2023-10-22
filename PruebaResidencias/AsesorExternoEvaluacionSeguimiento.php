@@ -1,5 +1,5 @@
 <?php
-include 'headprofesores.php';
+include 'headProfesores.php';
 ?>
 <!-- Main -->
 <div class="col ms-sm-auto px-4 ">
@@ -53,7 +53,7 @@ include 'headprofesores.php';
         </div>
       </div>
     </div>
-    <!-- Parciales en pestañas -->
+    <!-- Parciales en Tabuladores -->
     <div class="col-md-9">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
@@ -420,5 +420,5 @@ include 'headprofesores.php';
 <!-- Fin Main -->
 </div>
 <?php
-include 'footprofesores.php';
+include 'footer.php';
 ?>
