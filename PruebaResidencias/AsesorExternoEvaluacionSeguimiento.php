@@ -13,8 +13,6 @@ include 'headProfesores.php';
         <div class="card-body">
           <h4 class="card-title">Información General</h4>
           <form method="post">
-            <input type="hidden" name="idUAlumno" value="<!-- Valor de idAlumno -->">
-            <input type="hidden" name="redireccionar" value="../AsesorExterno/IndexAE.php">
             <div class="form-group">
               <label for="numControl" class="form-label">Número de control:</label>
               <input type="text" id="numControl" class="form-control" value="<!-- NumeroControl -->" readonly>
@@ -36,15 +34,15 @@ include 'headProfesores.php';
               <input type="text" id="PeriodoRealizacion" class="form-control" value="<!-- Periodo -->" readonly>
             </div>
             <div class="form-group">
-              <label for="AsesorExterno" class="form-label">Nombre del Asesor Externo:</label>
-              <input type="text" id="AsesorExterno" class="form-control" value="<!-- Nombre -->" readonly>
+              <label for="asesorExterno" class="form-label">Nombre del Asesor Externo:</label>
+              <input type="text" id="asesorExterno" class="form-control" value="<!-- Nombre -->" readonly>
             </div>
             <div class="form-group">
               <label for="FechaEvaluacion" class="form-label">Fecha de evaluación</label>
               <input type="date" id="FechaEvaluacion" class="form-control" value="<!-- Fecha -->" readonly>
             </div>
             <div class="form-group">
-              <label for="TotalPuntos" class="form-label">Total Puntos:</label>
+              <label for="TotalPuntos" class="form-label">Total de Puntos:</label>
               <input type="text" id="TotalPuntos" class="form-control" value="<!-- Valor de Calificaciones -->" readonly>
             </div>
             <br>
@@ -69,7 +67,7 @@ include 'headProfesores.php';
           <form class="rounded p-0" style="background-color: whitesmoke;">
             <div class="row rounded-top p-2 " style=" background-color: #384970; color: white;">
               <div class="col-md-4 text-center">
-                <h5>Criterios de evaluación</h5>
+                <h5>Criterios de evaluación - Primer Parcial</h5>
               </div>
               <div class="col-md-4 text-center">
                 <h5>Valor Máximo</h5>
@@ -243,7 +241,7 @@ include 'headProfesores.php';
           <form class="rounded p-0" style="background-color: whitesmoke;">
             <div class="row rounded-top p-2 " style=" background-color: #384970; color: white;">
               <div class="col-md-4 text-center">
-                <h5>Criterios de evaluación</h5>
+                <h5>Criterios de evaluación - Segundo Parcial</h5>
               </div>
               <div class="col-md-4 text-center">
                 <h5>Valor Máximo</h5>
