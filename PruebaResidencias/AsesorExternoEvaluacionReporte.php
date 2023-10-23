@@ -1,14 +1,14 @@
 <?php
-include 'headProfesores.php';
+include 'headAsesorExterno.php';
 ?>
 <!-- Main -->
-<div class="col ms-sm-auto px-4 ">
+<div class="col ms-sm-auto px-4 " style="background: whitesmoke;">
   <br>
   <!-- #384970 Color -->
   <!-- Contenido Principal -->
   <div class="row">
     <!-- Informacion General -->
-    <div class="col-md-3">
+    <div class="col-md-3 d-flex align-items-center">
       <div class="card w-100 text-center text-white" style="background-color: #384970;">
         <div class="card-body">
           <h4 class="card-title">Información General</h4>
