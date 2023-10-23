@@ -105,22 +105,4 @@
             </div>
 
 
-            <!-- Contenido principal -->
-            <div class="col ms-sm-auto px-4">
-                <div class="container-fluid mt-3">
-                    <!--<h2></h2>-->
-                    <div class="table-responsive">
-                        <!-- Contenido -->
-                    </div>           
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--Scripts-->
-    <script src="recursos/js/bootstrap.bundle.min.js"></script>
-    <script src="recursos/js/jquery-3.6.0.min.js"></script>
-    <script src="recursos/js/jquery.dataTables.min.js"></script> 
-    <script src="recursos/js/AsesorInterno.js"></script>  
-</body>
-</html>
+            
