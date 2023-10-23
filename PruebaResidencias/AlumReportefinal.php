@@ -1,5 +1,5 @@
 <?php
-include 'headprofesores.php';
+include 'headAlumnos.php';
 ?>
 <!-- Main -->
 <div class="col ms-sm-auto px-4">
@@ -154,5 +154,5 @@ include 'headprofesores.php';
   <!-- Fin Main -->
 </div>
 <?php
-include 'footprofesores.php';
+include 'footer.php';
 ?>
