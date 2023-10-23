@@ -152,5 +152,5 @@ include 'headprofesores.php';
 
 
 <?php
-include 'footprofesores.php';
+include 'footer.php';
 ?>
