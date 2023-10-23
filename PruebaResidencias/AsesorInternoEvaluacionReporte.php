@@ -34,11 +34,11 @@ include 'headProfesores.php';
               <input type="text" id="PeriodoRealizacion" class="form-control" value="<!-- Periodo -->" readonly>
             </div>
             <div class="form-group">
-              <label for="AsesorExterno" class="form-label">Nombre del Asesor Externo:</label>
-              <input type="text" id="AsesorExterno" class="form-control" value="<!-- Nombre -->" readonly>
+              <label for="AsesorInterno" class="form-label">Nombre del Asesor Interno:</label>
+              <input type="text" id="AsesorInterno" class="form-control" value="<!-- Nombre -->" readonly>
             </div>
             <div class="form-group">
-              <label for="FechaEvaluacion" class="form-label">Fecha:</label>
+              <label for="FechaEvaluacion" class="form-label">Fecha de Evaluacion:</label>
               <input type="date" id="FechaEvaluacion" class="form-control" value="<!-- Fecha -->" readonly>
             </div>
             <div class="form-group">
@@ -75,7 +75,7 @@ include 'headProfesores.php';
                 <h5>Valor Máximo</h5>
               </div>
               <div class="col-md-4 text-center">
-                <h5>Evaluación Asesor Externo</h5>
+                <h5>Evaluación Asesor Interno</h5>
               </div>
             </div>
 

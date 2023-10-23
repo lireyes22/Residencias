@@ -18,7 +18,7 @@ include 'headProfesores.php';
               <input type="text" id="numControl" class="form-control" value="<!-- NumeroControl -->" readonly>
             </div>
             <div class="form-group">
-              <label for="NombreResidente" class="form-label">Nombre del Residente:</label>
+              <label for="NombreResidente" class="form-label">Nombre del residente:</label>
               <input type="text" id="NombreResidente" class="form-control" value="<!-- NombreCompleto -->" readonly>
             </div>
             <div class="form-group">
@@ -34,11 +34,11 @@ include 'headProfesores.php';
               <input type="text" id="PeriodoRealizacion" class="form-control" value="<!-- Periodo -->" readonly>
             </div>
             <div class="form-group">
-              <label for="AsesorExterno" class="form-label">Nombre del Asesor Externo:</label>
-              <input type="text" id="AsesorExterno" class="form-control" value="<!-- Nombre -->" readonly>
+              <label for="asesorExterno" class="form-label">Nombre del Asesor Interno:</label>
+              <input type="text" id="asesorExterno" class="form-control" value="<!-- Nombre -->" readonly>
             </div>
             <div class="form-group">
-              <label for="FechaEvaluacion" class="form-label">Fecha:</label>
+              <label for="FechaEvaluacion" class="form-label">Fecha de evaluación: </label>
               <input type="date" id="FechaEvaluacion" class="form-control" value="<!-- Fecha -->" readonly>
             </div>
             <div class="form-group">
@@ -46,224 +46,124 @@ include 'headProfesores.php';
               <input type="text" id="TotalPuntos" class="form-control" value="<!-- Valor de Calificaciones -->" readonly>
             </div>
             <br>
-            <button class="btn btn-outline-primary" type="submit" formaction="" target="_blank">Descargar Evaluación</button>
-            <br>
-            <br>
-            <button class="btn btn-outline-danger" type="submit" formaction="" target="_blank">Descargar Reporte</button>
+            <button class="btn btn-outline-primary" type="submit" formaction="../GenerarDocs/GenerarEvaluacionSeguimiento.php" target="_blank">Descargar Evaluación</button>
           </form>
         </div>
       </div>
     </div>
-    <!-- Reporte Final en Tabulador -->
+    <!-- Parciales en Tabuladores -->
     <div class="col-md-9">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item col-md-12 text-center" role="presentation">
-          <a class="nav-link active border-2" style="background-color: #384970; color: white;" id="reporteFinal-tab" data-bs-toggle="tab" role="tab" aria-controls="reporteFinal" aria-selected="true">
-            <h3>Reporte Final</h3>
-          </a>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active border-3" id="parcial1-tab" data-bs-toggle="tab" href="#parcial1" role="tab" aria-controls="parcial1" aria-selected="true">Primer Parcial</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link border-3" id="parcial2-tab" data-bs-toggle="tab" href="#parcial2" role="tab" aria-controls="parcial2" aria-selected="false">Segundo Parcial</a>
         </li>
       </ul>
       <div class="tab-content" id="myTabContent">
-        <!-- Reporte Final -->
-        <div class="tab-pane fade show active" id="reporteFinal" role="tabpanel" aria-labelledby="reporteFinal-tab">
+        <!-- Parcial 1 -->
+        <div class="tab-pane fade show active" id="parcial1" role="tabpanel" aria-labelledby="parcial1-tab">
           <form class="rounded p-0" style="background-color: whitesmoke;">
             <div class="row rounded-top p-2 " style=" background-color: #384970; color: white;">
               <div class="col-md-4 text-center">
-                <h5>Criterios de evaluación - Reporte Final</h5>
+                <h5>Criterios de evaluación - Primer Parcial</h5>
               </div>
               <div class="col-md-4 text-center">
                 <h5>Valor Máximo</h5>
               </div>
               <div class="col-md-4 text-center">
-                <h5>Evaluación Asesor Externo</h5>
+                <h5>Puntuación</h5>
               </div>
             </div>
 
             <div class="row" style="background-color: #E9ECEF; padding: 10px;">
               <div class="col-md-4">
-                <p>Portada</p>
-              </div>
-              <div class="col-md-4 text-center">
-                <p>1</p>
-              </div>
-              <div class="col-md-4">
-                <div class="input-group">
-                  <input type="number" name="portada" class="form-control" min="0" max="1" step="1" required>
-                </div>
-              </div>
-            </div>
-
-            <div class="row" style="background-color: #FFFFFF; padding: 10px;">
-              <div class="col-md-4">
-                <p>Agradecimientos</p>
-              </div>
-              <div class="col-md-4 text-center">
-                <p>0</p>
-              </div>
-              <div class="col-md-4">
-                <div class="input-group">
-                  <input type="number" name="agradecimiento" class="form-control" min="0" max="0" step="1" required>
-                </div>
-              </div>
-            </div>
-
-            <div class="row" style="background-color: #E9ECEF; padding: 10px;">
-              <div class="col-md-4">
-                <p>Resúmen</p>
-              </div>
-              <div class="col-md-4 text-center">
-                <p>2</p>
-              </div>
-              <div class="col-md-4">
-                <div class="input-group">
-                  <input type="number" name="resumen" class="form-control" min="0" max="2" step="1" required>
-                </div>
-              </div>
-            </div>
-
-            <div class="row" style="background-color: #FFFFFF; padding: 10px;">
-              <div class="col-md-4">
-                <p>índice</p>
-              </div>
-              <div class="col-md-4 text-center">
-                <p>2</p>
-              </div>
-              <div class="col-md-4">
-                <div class="input-group">
-                  <input type="number" name="indice" class="form-control" min="0" max="2" step="1" required>
-                </div>
-              </div>
-            </div>
-
-            <div class="row" style="background-color: #E9ECEF; padding: 10px;">
-              <div class="col-md-4">
-                <p>Introducción</p>
-              </div>
-              <div class="col-md-4 text-center">
-                <p>5</p>
-              </div>
-              <div class="col-md-4">
-                <div class="input-group">
-                  <input type="number" name="introduccion" class="form-control" min="0" max="5" step="1" required>
-                </div>
-              </div>
-            </div>
-
-            <div class="row" style="background-color: #FFFFFF; padding: 10px;">
-              <div class="col-md-4">
-                <p>Antecedentes o Marco Teórico</p>
-              </div>
-              <div class="col-md-4 text-center">
-                <p>5</p>
-              </div>
-              <div class="col-md-4">
-                <div class="input-group">
-                  <input type="number" name="antecedentes" class="form-control" min="0" max="5" step="1" required>
-                </div>
-              </div>
-            </div>
-
-            <div class="row" style="background-color: #E9ECEF; padding: 10px;">
-              <div class="col-md-4">
-                <p>Justificación</p>
-              </div>
-              <div class="col-md-4 text-center">
-                <p>5</p>
-              </div>
-              <div class="col-md-4">
-                <div class="input-group">
-                  <input type="number" name="justificacion" class="form-control" min="0" max="5" step="1" required>
-                </div>
-              </div>
-            </div>
-
-            <div class="row" style="background-color: #FFFFFF; padding: 10px;">
-              <div class="col-md-4">
-                <p>Objetivos</p>
+                <p>Asistió puntualmente a las reuniones de asesoría</p>
               </div>
               <div class="col-md-4 text-center">
                 <p>10</p>
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="objetivos" class="form-control" min="0" max="10" step="1" required>
-                </div>
-              </div>
-            </div>
-
-            <div class="row" style="background-color: #E9ECEF; padding: 10px;">
-              <div class="col-md-4">
-                <p>Metodología</p>
-              </div>
-              <div class="col-md-4 text-center">
-                <p>10</p>
-              </div>
-              <div class="col-md-4">
-                <div class="input-group">
-                  <input type="number" name="metodologia" class="form-control" min="0" max="10" step="1" required>
+                  <input type="number" name="PuntualidadP1" class="form-control" min="0" max="10" step="1" required>
                 </div>
               </div>
             </div>
 
             <div class="row" style="background-color: #FFFFFF; padding: 10px;">
               <div class="col-md-4">
-                <p>Resultados</p>
+                <p>Demuestra conocimiento en el área de su especialidad</p>
               </div>
               <div class="col-md-4 text-center">
-                <p>15</p>
+                <p>20</p>
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="resultado" class="form-control" min="0" max="15" step="1" required>
+                  <input type="number" name="ConocimientoP1" class="form-control" min="0" max="20" step="1" required>
                 </div>
               </div>
             </div>
 
             <div class="row" style="background-color: #E9ECEF; padding: 10px;">
               <div class="col-md-4">
-                <p>Discusiones</p>
+                <p>Trabaja en equipo y se comunica en forma efectiva (oral y escrita)</p>
               </div>
               <div class="col-md-4 text-center">
-                <p>25</p>
+                <p>15</p>
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="discusion" class="form-control" min="0" max="25" step="1" required>
+                  <input type="number" name="ColaboracionP1" class="form-control" min="0" max="15" step="1" required>
                 </div>
               </div>
             </div>
 
             <div class="row" style="background-color: #FFFFFF; padding: 10px;">
               <div class="col-md-4">
-                <p>Conclusiones</p>
+                <p>Es dedicado y proactivo en las actividades encomendadas</p>
               </div>
               <div class="col-md-4 text-center">
-                <p>15</p>
+                <p>20</p>
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="discusion" class="form-control" min="0" max="15" step="1" required>
+                  <input type="number" name="ProactividadP1" class="form-control" min="0" max="20" step="1" required>
                 </div>
               </div>
             </div>
 
             <div class="row" style="background-color: #E9ECEF; padding: 10px;">
               <div class="col-md-4">
-                <p>Fuentes de información</p>
+                <p>Es ordenado y cumple satisfactoriamente con las actividades encomendadas en los tiempos establecidos</p>
+              </div>
+              <div class="col-md-4 text-center">
+                <p>20</p>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group">
+                  <input type="number" name="ResponsableP1" class="form-control" min="0" max="20" step="1" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" style="background-color: #FFFFFF; padding: 10px;">
+              <div class="col-md-4">
+                <p>Propone mejoras al proyecto</p>
               </div>
               <div class="col-md-4 text-center">
                 <p>15</p>
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="fuenteInformacion" class="form-control" min="0" max="5" step="1" required>
+                  <input type="number" name="IniciativaP1" class="form-control" min="0" max="15" step="1" required>
                 </div>
               </div>
             </div>
 
             <div class="row" style="background-color: #384970E6; padding: 10px;">
               <div class="col-md-4">
-                <strong style="color: White">Puntuación Total Reporte Final:</strong>
+                <strong style="color: White">Total de Puntos del Primer Parcial:</strong>
               </div>
               <div class="col-md-4 text-center ">
                 <strong style="color: red">AQUI PUEDE IR LA ALERTA</strong>
@@ -292,7 +192,138 @@ include 'headProfesores.php';
 
           </form>
         </div>
-        <!-- Fin Reporte Final -->
+        <!-- Fin Parcial 1 -->
+        <!-- Inicio Parcial 2 -->
+        <div class="tab-pane fade show active" id="parcial2" role="tabpanel" aria-labelledby="parcial2-tab">
+          <form class="rounded p-0" style="background-color: whitesmoke;">
+            <div class="row rounded-top p-2 " style=" background-color: #384970; color: white;">
+              <div class="col-md-4 text-center">
+                <h5>Criterios de evaluación - Segundo Parcial</h5>
+              </div>
+              <div class="col-md-4 text-center">
+                <h5>Valor Máximo</h5>
+              </div>
+              <div class="col-md-4 text-center">
+                <h5>Puntuación</h5>
+              </div>
+            </div>
+
+            <div class="row" style="background-color: #E9ECEF; padding: 10px;">
+              <div class="col-md-4">
+                <p>Asistió puntualmente a las reuniones de asesoría</p>
+              </div>
+              <div class="col-md-4 text-center">
+                <p>10</p>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group">
+                  <input type="number" name="PuntualidadP1" class="form-control" min="0" max="10" step="1" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" style="background-color: #FFFFFF; padding: 10px;">
+              <div class="col-md-4">
+                <p>Demuestra conocimiento en el área de su especialidad</p>
+              </div>
+              <div class="col-md-4 text-center">
+                <p>20</p>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group">
+                  <input type="number" name="ConocimientoP2" class="form-control" min="0" max="20" step="1" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" style="background-color: #E9ECEF; padding: 10px;">
+              <div class="col-md-4">
+                <p>Trabaja en equipo y se comunica en forma efectiva (oral y escrita)</p>
+              </div>
+              <div class="col-md-4 text-center">
+                <p>15</p>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group">
+                  <input type="number" name="ColaboracionP2" class="form-control" min="0" max="15" step="1" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" style="background-color: #FFFFFF; padding: 10px;">
+              <div class="col-md-4">
+                <p>Es dedicado y proactivo en las actividades encomendadas</p>
+              </div>
+              <div class="col-md-4 text-center">
+                <p>20</p>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group">
+                  <input type="number" name="ProactividadP2" class="form-control" min="0" max="20" step="1" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" style="background-color: #E9ECEF; padding: 10px;">
+              <div class="col-md-4">
+                <p>Es ordenado y cumple satisfactoriamente con las actividades encomendadas en los tiempos establecidos</p>
+              </div>
+              <div class="col-md-4 text-center">
+                <p>20</p>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group">
+                  <input type="number" name="ResponsableP2" class="form-control" min="0" max="20" step="1" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" style="background-color: #FFFFFF; padding: 10px;">
+              <div class="col-md-4">
+                <p>Propone mejoras al proyecto</p>
+              </div>
+              <div class="col-md-4 text-center">
+                <p>15</p>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group">
+                  <input type="number" name="IniciativaP2" class="form-control" min="0" max="15" step="1" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" style="background-color: #384970E6; padding: 10px;">
+              <div class="col-md-4">
+                <strong style="color: White">Total de Puntos del Segundo Parcial:</strong>
+              </div>
+              <div class="col-md-4 text-center ">
+                <strong style="color: red">AQUI PUEDE IR LA ALERTA</strong>
+              </div>
+              <div class="col-md-4">
+                <input type="number" name="" disabled class="form-control">
+              </div>
+            </div>
+
+            <div class="row" style="background-color: #384970E6;">
+              <div class="col-md-12 text-center">
+                <label class="lb-inp" style="color: white; font-size: 20px;"><strong>Observaciones:</strong></label>
+              </div>
+            </div>
+            <div class="row" style="background-color:  #384970E6;">
+              <div class="col-md-12">
+                <textarea class="form-control" name="Observaciones" style="resize: none;"></textarea>
+              </div>
+            </div>
+
+            <div class="row rounded-bottom p-2" style="background-color: #384970E6;">
+              <div class="col-md-12 text-center ">
+                <button class="btn btn-outline-primary" type="submit">Enviar</button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+        <!-- Fin Parcial 2 -->
       </div>
     </div>
   </div>
