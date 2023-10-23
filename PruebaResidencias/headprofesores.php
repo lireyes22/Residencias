@@ -52,7 +52,7 @@
                                     </svg>
                                 </div>
 
-                                <div class="col-9 centrar">
+                                <div class="col-9 d-flex align-items-center">
                                     Log Out
                                 </div>
                             </a>

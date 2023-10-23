@@ -2,7 +2,7 @@
 include 'headAlumnos.php';
 ?>
 <!-- Main -->
-<div class="col ms-sm-auto px-4">
+<div class="col ms-sm-auto px-4" style="background: whitesmoke;">
   <!-- Contenido Principal -->
   <!-- Cards -->
   <h1 class="text-center mt-5">Estructura del Reporte Final</h1>

@@ -1,8 +1,8 @@
 <?php
-include 'headProfesores.php';
+include 'headAsesorInterno.php';
 ?>
 <!-- Main -->
-<div class="col ms-sm-auto px-4 ">
+<div class="col ms-sm-auto px-4 " style="background: whitesmoke;">
   <br>
   <!-- #384970 Color -->
   <!-- Contenido Principal -->
