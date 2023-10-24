@@ -18,12 +18,12 @@ include 'headProfesores.php';
                   <h2 class="h5">Evaluación Reporte Final</h2>
                </div>
                <div class="card-body">
-                  <p class="mb-0">Fecha Límite: 2023-01-15</p>
+                  <p class="mb-0"> <strong>Fecha Límite: 2023-01-15</strong></p>
                   <div class="form-group mt-3">
                      <label for="nueva_fecha_1">Nueva Fecha:</label>
                      <input type="date" class="form-control" id="nueva_fecha_1" required>
                   </div>
-                  <button class="btn btn-outline-secondary btn-block mt-3">Actualizar Fecha</button>
+                  <button class="btn btn-outline-danger btn-block mt-3">Actualizar Fecha</button>
                </div>
             </div>
          </div>
@@ -33,12 +33,12 @@ include 'headProfesores.php';
                   <h2 class="h5">Evaluación de Seguimiento</h2>
                </div>
                <div class="card-body">
-                  <p class="mb-0">Fecha Límite: 2023-02-20</p>
+                  <p class="mb-0"><strong>Fecha Límite: 2023-02-20</strong></p>
                   <div class="form-group mt-3">
                      <label for="nueva_fecha_2">Nueva Fecha:</label>
                      <input type="date" class="form-control" id="nueva_fecha_2" required>
                   </div>
-                  <button class="btn btn-outline-secondary btn-block mt-3">Actualizar Fecha</button>
+                  <button class="btn btn-outline-danger btn-block mt-3">Actualizar Fecha</button>
                </div>
             </div>
          </div>
@@ -52,12 +52,12 @@ include 'headProfesores.php';
                   <h2 class="h5">Espacio para proponer proyectos</h2>
                </div>
                <div class="card-body">
-                  <p class="mb-0">Fecha Límite: 2023-03-10</p>
+                  <p class="mb-0"><strong>Fecha Límite: 2023-03-10</strong></p>
                   <div class="form-group mt-3">
                      <label for="nueva_fecha_3">Nueva Fecha:</label>
                      <input type="date" class="form-control" id="nueva_fecha_3" required>
                   </div>
-                  <button class="btn btn-outline-secondary btn-block mt-3">Actualizar Fecha</button>
+                  <button class="btn btn-outline-danger btn-block mt-3">Actualizar Fecha</button>
                </div>
             </div>
          </div>
@@ -67,12 +67,12 @@ include 'headProfesores.php';
                   <h2 class="h5">Solicitar Residencia</h2>
                </div>
                <div class="card-body">
-                  <p class="mb-0">Fecha Límite: 2023-04-05</p>
+                  <p class="mb-0"><strong>Fecha Límite: 2023-04-05</strong></p>
                   <div class="form-group mt-3">
                      <label for="nueva_fecha_4">Nueva Fecha:</label>
                      <input type="date" class="form-control" id="nueva_fecha_4" required>
                   </div>
-                  <button class="btn btn-outline-secondary btn-block mt-3">Actualizar Fecha</button>
+                  <button class="btn btn-outline-danger btn-block mt-3">Actualizar Fecha</button>
                </div>
             </div>
          </div>
