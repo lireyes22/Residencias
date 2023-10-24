@@ -7,64 +7,22 @@ include 'headAsesorInterno.php';
   <!-- #384970 Color -->
   <!-- Contenido Principal -->
   <div class="row">
-    <!-- Informacion General -->
-    <div class="col-md-3">
-      <div class="card w-100 text-center text-white" style="background-color: #384970;">
-        <div class="card-body">
-          <h4 class="card-title">Información General</h4>
-          <form method="post">
-            <div class="form-group">
-              <label for="numControl" class="form-label">Número de control:</label>
-              <input type="text" id="numControl" class="form-control" value="<!-- NumeroControl -->" readonly>
-            </div>
-            <div class="form-group">
-              <label for="NombreResidente" class="form-label">Nombre del Residente:</label>
-              <input type="text" id="NombreResidente" class="form-control" value="<!-- NombreCompleto -->" readonly>
-            </div>
-            <div class="form-group">
-              <label for="NombreProyecto" class="form-label">Nombre del Proyecto:</label>
-              <input type="text" id="NombreProyecto" class="form-control" value="<!-- NombreProyecto -->" readonly>
-            </div>
-            <div class="form-group">
-              <label for="ProgramaEducativo" class="form-label">Programa Educativo:</label>
-              <input type="text" id="ProgramaEducativo" class="form-control" value="<!-- Nombre -->" readonly>
-            </div>
-            <div class="form-group">
-              <label for="PeriodoRealizacion" class="form-label">Periodo de Realización:</label>
-              <input type="text" id="PeriodoRealizacion" class="form-control" value="<!-- Periodo -->" readonly>
-            </div>
-            <div class="form-group">
-              <label for="AsesorInterno" class="form-label">Nombre del Asesor Interno:</label>
-              <input type="text" id="AsesorInterno" class="form-control" value="<!-- Nombre -->" readonly>
-            </div>
-            <div class="form-group">
-              <label for="FechaEvaluacion" class="form-label">Fecha de Evaluacion:</label>
-              <input type="date" id="FechaEvaluacion" class="form-control" value="<!-- Fecha -->" readonly>
-            </div>
-            <div class="form-group">
-              <label for="TotalPuntos" class="form-label">Total de Puntos:</label>
-              <input type="text" id="TotalPuntos" class="form-control" value="<!-- Valor de Calificaciones -->" readonly>
-            </div>
-            <br>
-            <button class="btn btn-outline-primary" type="submit" formaction="" target="_blank">Descargar Evaluación</button>
-            <br>
-            <br>
-            <button class="btn btn-outline-danger" type="submit" formaction="" target="_blank">Descargar Reporte</button>
-          </form>
-        </div>
-      </div>
-    </div>
     <!-- Reporte Final en Tabulador -->
-    <div class="col-md-9">
+    <div class="col-md-9 mx-auto my-auto">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item col-md-12 text-center" role="presentation">
-          <a class="nav-link active border-2" style="background-color: #384970; color: white;" id="reporteFinal-tab" data-bs-toggle="tab" role="tab" aria-controls="reporteFinal" aria-selected="true">
-            <h3>Reporte Final</h3>
+        <li class="nav-item col-md-3 text-center" role="presentation">
+          <a class="nav-link active border-2" id="reporteFinal-tab" data-bs-toggle="tab" href="#reporteFinal" role="tab" aria-controls="reporteFinal" aria-selected="true">
+            <h5>Reporte Final</h5>
+          </a>
+        </li>
+        <li class="nav-item col-md-4 text-center" role="presentation">
+          <a class="nav-link border-2 bg-danger text-white" id="informacionGeneral-tab" data-bs-toggle="tab" href="#informacionGeneral" role="tab" aria-controls="informacionGeneral" aria-selected="false">
+            <h5>Información General</h5>
           </a>
         </li>
       </ul>
       <div class="tab-content" id="myTabContent">
-        <!-- Reporte Final -->
+        <!-- Tab Reporte Final -->
         <div class="tab-pane fade show active" id="reporteFinal" role="tabpanel" aria-labelledby="reporteFinal-tab">
           <form class="rounded p-0" style="background-color: whitesmoke;">
             <div class="row rounded-top p-2 " style=" background-color: #384970; color: white;">
@@ -293,6 +251,54 @@ include 'headAsesorInterno.php';
           </form>
         </div>
         <!-- Fin Reporte Final -->
+        <!-- Tab de Información General -->
+        <div class="tab-pane fade" id="informacionGeneral" role="tabpanel">
+          <div class="card w-100 text-center text-white" style="background-color: #384970;">
+            <div class="card-body">
+              <h4 class="card-title">Información General</h4>
+              <form method="post">
+                <div class="form-group">
+                  <label for="numControl" class="form-label">Número de control:</label>
+                  <input type="text" id="numControl" class="form-control text-center" placeholder="<!-- NumeroControl -->" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="NombreResidente" class="form-label">Nombre del Residente:</label>
+                  <input type="text" id="NombreResidente" class="form-control text-center" placeholder="<!-- NombreCompleto -->" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="NombreProyecto" class="form-label">Nombre del Proyecto:</label>
+                  <input type="text" id="NombreProyecto" class="form-control text-center" placeholder="<!-- NombreProyecto -->" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="ProgramaEducativo" class="form-label">Programa Educativo:</label>
+                  <input type="text" id="ProgramaEducativo" class="form-control text-center" placeholder="<!-- Nombre -->" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="PeriodoRealizacion" class="form-label">Periodo de Realización:</label>
+                  <input type="text" id="PeriodoRealizacion" class="form-control text-center" placeholder="<!-- Periodo -->" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="AsesorExterno" class="form-label">Nombre del Asesor Interno:</label>
+                  <input type="text" id="AsesorExterno" class="form-control text-center" placeholder="<!-- Nombre -->" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="FechaEvaluacion" class="form-label">Fecha:</label>
+                  <input type="text" id="FechaEvaluacion" class="form-control text-center" placeholder="<!-- Fecha -->" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="TotalPuntos" class="form-label">Total de Puntos:</label>
+                  <input type="text" id="TotalPuntos" class="form-control text-center" placeholder="<!-- Valor de Calificaciones -->" readonly>
+                </div>
+                <br>
+                <button class="btn btn-outline-primary" type="submit" formaction="" target="_blank">Descargar Evaluación</button>
+                <br>
+                <br>
+                <button class="btn btn-outline-danger" type="submit" formaction="" target="_blank">Descargar Reporte</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- Fin Informacion General -->
       </div>
     </div>
   </div>
