@@ -2,7 +2,7 @@
 include 'headAsesorInterno.php';
 ?>
 <!-- Main -->
-<div class="col ms-sm-auto px-4 ">
+<div class="col ms-sm-auto px-4" style="background-color: whitesmoke;">
   <br>
   <!-- #384970 Color -->
   <!-- Contenido Principal -->
