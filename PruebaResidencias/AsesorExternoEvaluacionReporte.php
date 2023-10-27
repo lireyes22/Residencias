@@ -16,7 +16,7 @@ include 'headAsesorExterno.php';
           </a>
         </li>
         <li class="nav-item col-md-4 text-center" role="presentation">
-          <a class="nav-link border-2 bg-danger text-white" id="informacionGeneral-tab" data-bs-toggle="tab" href="#informacionGeneral" role="tab" aria-controls="informacionGeneral" aria-selected="false">
+          <a class="nav-link border-2 bg-danger text-white" id="informacionGeneral-tab" data-bs-toggle="modal" data-bs-target="#myModal" role="tab" aria-controls="informacionGeneral" aria-selected="false">
             <h5>Información General</h5>
           </a>
         </li>
@@ -253,50 +253,39 @@ include 'headAsesorExterno.php';
           </form>
         </div>
         <!-- Fin Reporte Final -->
-        <!-- Tab de Información General -->
-        <div class="tab-pane fade" id="informacionGeneral" role="tabpanel">
-          <div class="card w-100 text-center text-white" style="background-color: #384970;">
-            <div class="card-body">
-              <h4 class="card-title">Información General</h4>
-              <form method="post">
-                <div class="form-group">
-                  <label for="numControl" class="form-label">Número de control:</label>
-                  <input type="text" id="numControl" class="form-control text-center" placeholder="<!-- NumeroControl -->" readonly>
+        <!-- Modal de Información General -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">Información General</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <p>Número de control:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>20390231</p>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="NombreResidente" class="form-label">Nombre del Residente:</label>
-                  <input type="text" id="NombreResidente" class="form-control text-center" placeholder="<!-- NombreCompleto -->" readonly>
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <p>Nombre del Residente:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>Moy Acevedo Pérez</p>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="NombreProyecto" class="form-label">Nombre del Proyecto:</label>
-                  <input type="text" id="NombreProyecto" class="form-control text-center" placeholder="<!-- NombreProyecto -->" readonly>
-                </div>
-                <div class="form-group">
-                  <label for="ProgramaEducativo" class="form-label">Programa Educativo:</label>
-                  <input type="text" id="ProgramaEducativo" class="form-control text-center" placeholder="<!-- Nombre -->" readonly>
-                </div>
-                <div class="form-group">
-                  <label for="PeriodoRealizacion" class="form-label">Periodo de Realización:</label>
-                  <input type="text" id="PeriodoRealizacion" class="form-control text-center" placeholder="<!-- Periodo -->" readonly>
-                </div>
-                <div class="form-group">
-                  <label for="AsesorExterno" class="form-label">Nombre del Asesor Externo:</label>
-                  <input type="text" id="AsesorExterno" class="form-control text-center" placeholder="<!-- Nombre -->" readonly>
-                </div>
-                <div class="form-group">
-                  <label for="FechaEvaluacion" class="form-label">Fecha:</label>
-                  <input type="text" id="FechaEvaluacion" class="form-control text-center" placeholder="<!-- Fecha -->" readonly>
-                </div>
-                <div class="form-group">
-                  <label for="TotalPuntos" class="form-label">Total de Puntos:</label>
-                  <input type="text" id="TotalPuntos" class="form-control text-center" placeholder="<!-- Valor de Calificaciones -->" readonly>
-                </div>
-                <br>
-                <button class="btn btn-outline-primary" type="submit" formaction="" target="_blank">Descargar Evaluación</button>
-                <br>
-                <br>
-                <button class="btn btn-outline-danger" type="submit" formaction="" target="_blank">Descargar Reporte</button>
-              </form>
+                <!-- ... (Otros campos de información genérica) -->
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-primary">Descargar Evaluación</button>
+                <button type="button" class="btn btn-outline-danger">Descargar Reporte</button>
+              </div>
             </div>
           </div>
         </div>
