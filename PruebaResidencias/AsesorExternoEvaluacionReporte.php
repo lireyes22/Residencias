@@ -12,12 +12,12 @@ include 'headAsesorExterno.php';
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item col-md-3 text-center" role="presentation">
           <a class="nav-link active border-2" id="reporteFinal-tab" data-bs-toggle="tab" href="#reporteFinal" role="tab" aria-controls="reporteFinal" aria-selected="true">
-            <h5>Reporte Final</h5>
+            Reporte Final
           </a>
         </li>
-        <li class="nav-item col-md-4 text-center" role="presentation">
-          <a class="nav-link border-2 bg-danger text-white" id="informacionGeneral-tab" data-bs-toggle="modal" data-bs-target="#myModal" role="tab" aria-controls="informacionGeneral" aria-selected="false">
-            <h5>Información General</h5>
+        <li class="nav-item col-md-3 text-center" role="presentation">
+          <a class="nav-link border-2 text-black" id="informacionGeneral-tab" data-bs-toggle="modal" data-bs-target="#myModal" role="tab" aria-controls="informacionGeneral" aria-selected="false">
+            Información General
           </a>
         </li>
       </ul>
@@ -221,15 +221,15 @@ include 'headAsesorExterno.php';
             </div>
 
             <div class="row" style="background-color: #384970E6; padding: 10px;">
-              <div class="col-md-4">
-                <strong style="color: White">Puntuación Total Reporte Final:</strong>
-              </div>
-              <div class="col-md-4 text-center ">
+              <!-- <div class="col-md-4">
+                <strong style="color: White">Total de puntos - Reporte Final:</strong>
+              </div> -->
+              <div class="col-md-4 mx-auto text-center ">
                 <strong style="color: red">AQUI PUEDE IR LA ALERTA</strong>
               </div>
-              <div class="col-md-4">
+              <!-- <div class="col-md-4">
                 <input type="number" name="" disabled class="form-control text-center">
-              </div>
+              </div> -->
             </div>
 
             <div class="row" style="background-color: #384970E6;">
@@ -254,14 +254,12 @@ include 'headAsesorExterno.php';
         </div>
         <!-- Fin Reporte Final -->
         <!-- Modal de Información General -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
+        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="myModalLabel">Información General</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
                 <div class="row mb-3">
@@ -280,24 +278,73 @@ include 'headAsesorExterno.php';
                     <p>Moy Acevedo Pérez</p>
                   </div>
                 </div>
-                <!-- ... (Otros campos de información genérica) -->
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <p>Nombre del Proyecto:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>Drones</p>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <p>Programa Educativo:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>Ingeniería en Tecnologías de Informacíon y Comunicaciones</p>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <p>Periodo de Realización:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>AGO-NOV 2023</p>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <p>Nombre del Asesor Interno:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>Juan Sebastian Perez Dominguez</p>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <p>Fecha:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>11/11/2011</p>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <p>Total de puntos:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>25</p>
+                  </div>
+                </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-outline-primary">Descargar Evaluación</button>
                 <button type="button" class="btn btn-outline-danger">Descargar Reporte</button>
               </div>
             </div>
+
           </div>
         </div>
-        <!-- Fin Informacion General -->
       </div>
+      <!-- Fin Informacion General -->
     </div>
   </div>
-  <br>
-  <!-- Fin Contenido Principal -->
 </div>
+<br>
+<!-- Fin Contenido Principal -->
+</div>
+
 <!-- Fin Main -->
-</div>
 <?php
 include 'footer.php';
 ?>

@@ -2,25 +2,26 @@
 include 'headAsesorInterno.php';
 ?>
 <!-- Main -->
-<div class="col ms-sm-auto px-4" style="background-color: whitesmoke;">
+<div class="col ms-sm-auto px-4" style="background: whitesmoke;">
   <br>
   <!-- #384970 Color -->
   <!-- Contenido Principal -->
   <div class="row">
-    <!-- Reporte Final en Tabulador -->
+    <!-- Tabuladores -->
     <div class="col-md-9 mx-auto my-auto">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item col-md-3 text-center" role="presentation">
           <a class="nav-link active border-2" id="reporteFinal-tab" data-bs-toggle="tab" href="#reporteFinal" role="tab" aria-controls="reporteFinal" aria-selected="true">
-            <h5>Reporte Final</h5>
+            Reporte Final
           </a>
         </li>
-        <li class="nav-item col-md-4 text-center" role="presentation">
-          <a class="nav-link border-2 bg-danger text-white" id="informacionGeneral-tab" data-bs-toggle="tab" href="#informacionGeneral" role="tab" aria-controls="informacionGeneral" aria-selected="false">
-            <h5>Información General</h5>
+        <li class="nav-item col-md-3 text-center" role="presentation">
+          <a class="nav-link border-2 text-black" id="informacionGeneral-tab" data-bs-toggle="modal" data-bs-target="#myModal" role="tab" aria-controls="informacionGeneral" aria-selected="false">
+            Información General
           </a>
         </li>
       </ul>
+      <!-- Contenido de los Tab -->
       <div class="tab-content" id="myTabContent">
         <!-- Tab Reporte Final -->
         <div class="tab-pane fade show active" id="reporteFinal" role="tabpanel" aria-labelledby="reporteFinal-tab">
@@ -46,7 +47,7 @@ include 'headAsesorInterno.php';
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="portada" class="form-control" min="0" max="1" step="1" required>
+                  <input type="number" name="portada" class="form-control text-center" min="0" max="1" step="1" required>
                 </div>
               </div>
             </div>
@@ -60,7 +61,7 @@ include 'headAsesorInterno.php';
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="agradecimiento" class="form-control" min="0" max="0" step="1" required>
+                  <input type="number" name="agradecimiento" class="form-control text-center" min="0" max="0" step="1" required>
                 </div>
               </div>
             </div>
@@ -74,7 +75,7 @@ include 'headAsesorInterno.php';
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="resumen" class="form-control" min="0" max="2" step="1" required>
+                  <input type="number" name="resumen" class="form-control text-center" min="0" max="2" step="1" required>
                 </div>
               </div>
             </div>
@@ -88,7 +89,7 @@ include 'headAsesorInterno.php';
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="indice" class="form-control" min="0" max="2" step="1" required>
+                  <input type="number" name="indice" class="form-control text-center" min="0" max="2" step="1" required>
                 </div>
               </div>
             </div>
@@ -102,7 +103,7 @@ include 'headAsesorInterno.php';
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="introduccion" class="form-control" min="0" max="5" step="1" required>
+                  <input type="number" name="introduccion" class="form-control text-center" min="0" max="5" step="1" required>
                 </div>
               </div>
             </div>
@@ -116,7 +117,7 @@ include 'headAsesorInterno.php';
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="antecedentes" class="form-control" min="0" max="5" step="1" required>
+                  <input type="number" name="antecedentes" class="form-control text-center" min="0" max="5" step="1" required>
                 </div>
               </div>
             </div>
@@ -130,7 +131,7 @@ include 'headAsesorInterno.php';
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="justificacion" class="form-control" min="0" max="5" step="1" required>
+                  <input type="number" name="justificacion" class="form-control text-center" min="0" max="5" step="1" required>
                 </div>
               </div>
             </div>
@@ -144,7 +145,7 @@ include 'headAsesorInterno.php';
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="objetivos" class="form-control" min="0" max="10" step="1" required>
+                  <input type="number" name="objetivos" class="form-control text-center" min="0" max="10" step="1" required>
                 </div>
               </div>
             </div>
@@ -158,7 +159,7 @@ include 'headAsesorInterno.php';
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="metodologia" class="form-control" min="0" max="10" step="1" required>
+                  <input type="number" name="metodologia" class="form-control text-center" min="0" max="10" step="1" required>
                 </div>
               </div>
             </div>
@@ -172,7 +173,7 @@ include 'headAsesorInterno.php';
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="resultado" class="form-control" min="0" max="15" step="1" required>
+                  <input type="number" name="resultado" class="form-control text-center" min="0" max="15" step="1" required>
                 </div>
               </div>
             </div>
@@ -186,7 +187,7 @@ include 'headAsesorInterno.php';
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="discusion" class="form-control" min="0" max="25" step="1" required>
+                  <input type="number" name="discusion" class="form-control text-center" min="0" max="25" step="1" required>
                 </div>
               </div>
             </div>
@@ -200,7 +201,7 @@ include 'headAsesorInterno.php';
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="discusion" class="form-control" min="0" max="15" step="1" required>
+                  <input type="number" name="discusion" class="form-control text-center" min="0" max="15" step="1" required>
                 </div>
               </div>
             </div>
@@ -214,21 +215,21 @@ include 'headAsesorInterno.php';
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="fuenteInformacion" class="form-control" min="0" max="5" step="1" required>
+                  <input type="number" name="fuenteInformacion" class="form-control text-center" min="0" max="5" step="1" required>
                 </div>
               </div>
             </div>
 
             <div class="row" style="background-color: #384970E6; padding: 10px;">
-              <div class="col-md-4">
-                <strong style="color: White">Puntuación Total Reporte Final:</strong>
-              </div>
-              <div class="col-md-4 text-center ">
+              <!-- <div class="col-md-4">
+                <strong style="color: White">Total de puntos - Reporte Final:</strong>
+              </div> -->
+              <div class="col-md-4 mx-auto text-center ">
                 <strong style="color: red">AQUI PUEDE IR LA ALERTA</strong>
               </div>
-              <div class="col-md-4">
-                <input type="number" name="" disabled class="form-control">
-              </div>
+              <!-- <div class="col-md-4">
+                <input type="number" name="" disabled class="form-control text-center">
+              </div> -->
             </div>
 
             <div class="row" style="background-color: #384970E6;">
@@ -236,9 +237,10 @@ include 'headAsesorInterno.php';
                 <label class="lb-inp" style="color: white; font-size: 20px;"><strong>Observaciones:</strong></label>
               </div>
             </div>
-            <div class="row" style="background-color:  #384970E6;">
-              <div class="col-md-12">
-                <textarea class="form-control" name="Observaciones" style="resize: none;"></textarea>
+
+            <div class="row" style="background-color: #384970E6;">
+              <div class="col-md-12 d-flex align-items-center">
+                <textarea class="form-control text-center mx-auto my-auto" name="Observaciones" style="resize: none; width: 1000px; height: 150px;"></textarea>
               </div>
             </div>
 
@@ -251,62 +253,98 @@ include 'headAsesorInterno.php';
           </form>
         </div>
         <!-- Fin Reporte Final -->
-        <!-- Tab de Información General -->
-        <div class="tab-pane fade" id="informacionGeneral" role="tabpanel">
-          <div class="card w-100 text-center text-white" style="background-color: #384970;">
-            <div class="card-body">
-              <h4 class="card-title">Información General</h4>
-              <form method="post">
-                <div class="form-group">
-                  <label for="numControl" class="form-label">Número de control:</label>
-                  <input type="text" id="numControl" class="form-control text-center" placeholder="<!-- NumeroControl -->" readonly>
+        <!-- Modal de Información General -->
+        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">Información General</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <p>Número de control:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>20390231</p>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="NombreResidente" class="form-label">Nombre del Residente:</label>
-                  <input type="text" id="NombreResidente" class="form-control text-center" placeholder="<!-- NombreCompleto -->" readonly>
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <p>Nombre del Residente:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>Moy Acevedo Pérez</p>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="NombreProyecto" class="form-label">Nombre del Proyecto:</label>
-                  <input type="text" id="NombreProyecto" class="form-control text-center" placeholder="<!-- NombreProyecto -->" readonly>
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <p>Nombre del Proyecto:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>Drones</p>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="ProgramaEducativo" class="form-label">Programa Educativo:</label>
-                  <input type="text" id="ProgramaEducativo" class="form-control text-center" placeholder="<!-- Nombre -->" readonly>
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <p>Programa Educativo:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>Ingeniería en Tecnologías de Informacíon y Comunicaciones</p>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="PeriodoRealizacion" class="form-label">Periodo de Realización:</label>
-                  <input type="text" id="PeriodoRealizacion" class="form-control text-center" placeholder="<!-- Periodo -->" readonly>
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <p>Periodo de Realización:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>AGO-NOV 2023</p>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="AsesorExterno" class="form-label">Nombre del Asesor Interno:</label>
-                  <input type="text" id="AsesorExterno" class="form-control text-center" placeholder="<!-- Nombre -->" readonly>
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <p>Nombre del Asesor Interno:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>Juan Sebastian Perez Dominguez</p>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="FechaEvaluacion" class="form-label">Fecha:</label>
-                  <input type="text" id="FechaEvaluacion" class="form-control text-center" placeholder="<!-- Fecha -->" readonly>
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <p>Fecha:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>11/11/2011</p>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="TotalPuntos" class="form-label">Total de Puntos:</label>
-                  <input type="text" id="TotalPuntos" class="form-control text-center" placeholder="<!-- Valor de Calificaciones -->" readonly>
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <p>Total de puntos:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>25</p>
+                  </div>
                 </div>
-                <br>
-                <button class="btn btn-outline-primary" type="submit" formaction="" target="_blank">Descargar Evaluación</button>
-                <br>
-                <br>
-                <button class="btn btn-outline-danger" type="submit" formaction="" target="_blank">Descargar Reporte</button>
-              </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-primary">Descargar Evaluación</button>
+                <button type="button" class="btn btn-outline-danger">Descargar Reporte</button>
+              </div>
             </div>
+
           </div>
         </div>
-        <!-- Fin Informacion General -->
       </div>
+      <!-- Fin Informacion General -->
     </div>
   </div>
-  <br>
-  <!-- Fin Contenido Principal -->
 </div>
+<br>
+<!-- Fin Contenido Principal -->
+</div>
+
 <!-- Fin Main -->
-</div>
 <?php
 include 'footer.php';
 ?>
