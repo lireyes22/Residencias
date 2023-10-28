@@ -59,7 +59,7 @@
         </div>
 
 
-            <div id="contenedor" class="row fondo-transp">
+            <div id="contenedor" class="row">
 
                 <div id="menu" class="collapse collapse-horizontal bg-white menu col-sm-12 col-md-5 col-lx-4 col-xxl-2">
                 

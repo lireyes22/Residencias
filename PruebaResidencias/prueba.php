@@ -2,7 +2,7 @@
 include 'headPrueba.php';
 ?>
         <!-- Contenido principal -->
-        <div class="col ms-sm-auto px-4 fondo-transp">
+        <div class="col ms-sm-auto px-4">
 				    <div class="container-fluid mt-3">
 				        <h2>Banco de proyectos</h2>
 				        <div class="table-responsive">
