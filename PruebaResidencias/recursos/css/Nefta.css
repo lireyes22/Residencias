@@ -68,12 +68,6 @@
             display: flex;
         }
 
-        #contenedor {
-            display: flex;
-            height: 100%;
-            display: flex;
-            background-color: whitesmoke;
-        }
 
         .container-fluid {
             height: 100%; /* Asegura que el container-fluid ocupe toda la altura */
@@ -103,6 +97,19 @@
             background-color: #384970;
         }
 
+        .fondo-img{
+            background-image: url(fondo.jpg);
+            background-size: cover;
+        }
+
+        .fondo-img2{
+            background-image: url(fondo4.jpg);
+            background-size: cover;
+        }
+
+        .fondo-transp {
+            background-color: transparent;
+        }
 
 
 
