@@ -1,5 +1,5 @@
 <?php
-include 'headprofesores.php';
+include 'headDeptoAca.php';
 ?>
 
             <!-- Contenido principal -->
