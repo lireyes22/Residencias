@@ -158,7 +158,7 @@ function getBotonRF(){
     if ($fechaActual > $fechaComparar) {
         echo '<input style="color: rgb(255, 255, 255); background-color: transparent;" class="lb-inp" type="text" value="Fuera de periodo de evaluación" disabled>';
     } elseif ($fechaActual <= $fechaComparar) {
-        echo '<input type="submit" value="Guardar Cambios" class="btn btn-actualizar btn-evrf" formaction="procesos/AsesorInternoGuardarEvReporte.php">';
+        echo '<input type="submit" value="Guardar Cambios" class="btn btn-success" formaction="procesos/AsesorInternoGuardarEvReporte.php">';
     }
 }
    function getEmpresa($SPID){
