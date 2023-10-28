@@ -127,5 +127,5 @@ include 'headAlumnos.php';
 
 
 <?php
-include '../footer.php';
+include 'footer.php';
 ?>
