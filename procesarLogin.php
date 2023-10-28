@@ -47,7 +47,7 @@ if (file_exists('funciones.php')) {
 				$_SESSION['username'] = $username;
 				$_SESSION['id'] = $row['UID'];
 				$_SESSION['start'] = time();
-				$_SESSION['expire'] = $_SESSION['start'] + (60 * 60);
+				$_SESSION['expire'] = $_SESSION['start'] + (300 * 60);
 				$resultado = mysqli_query($conection, $sql);
 				while ($row = mysqli_fetch_assoc($resultado)) {
 					if($rol=="AsesorExterno"){
