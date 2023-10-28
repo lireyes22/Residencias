@@ -1,0 +1,117 @@
+.custom-table tbody tr:nth-child(odd) {
+    background-color: #7adbbb; /* Color de fondo para las filas impares */
+}   
+.dataTables_filter {
+    margin-bottom: 10px; /* Ajusta el espacio hacia abajo según tus preferencias */
+}
+
+
+/*Css de JABS*/
+
+ .btn-transparent {
+            background-color: transparent;
+            border: none;
+            color: #ffffff; /* Puedes cambiar el color a tu preferencia */
+            text-decoration: underline; /* Puedes añadir decoraciones de texto como subrayado, si lo deseas */
+        }
+
+        .nav-link{
+            box-sizing: border-box;
+        }
+
+        #navbar{
+            align-self: center;
+            align-items: center;
+        }
+
+
+        #menu{
+            height: 100%;
+            background-color: #cedeef;
+        }
+
+        #userMenu{
+            min-width: 230px;
+        }
+
+        .centrar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .centrarV {
+            display: flex;
+            align-items: center;
+        }
+
+
+        .text-left{
+            text-align: right;
+        }
+
+        body,html{
+            min-height: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container-fluid {
+            display: flex;
+            height: 100%;
+        }
+
+        #contenedor {
+            display: flex;
+            height: 100%;
+            display: flex;
+        }
+
+        #contenedor {
+            display: flex;
+            height: 100%;
+            display: flex;
+            background-color: whitesmoke;
+        }
+
+        .container-fluid {
+            height: 100%; /* Asegura que el container-fluid ocupe toda la altura */
+            display: flex; /* Activa el modelo de caja flexible */
+            flex-direction: column; /* Coloca los elementos en columnas */
+        }
+
+        .fixed-collapse {
+            position: fixed;
+            left: 0;
+            top: 30%;
+            max-width: 350px; /* Puedes ajustar el ancho máximo según tus necesidades */
+            z-index: 1050; /* Asegura que el div colapsado se superponga correctamente */
+        }
+
+
+        #contenido {
+            overflow-y: auto; /* Añade una barra de desplazamiento vertical si es necesario */
+        }
+
+        #lista{
+            height: 100%;
+            min-width: 15vw;
+        }
+
+        #principal{
+            background-color: #384970;
+        }
+
+
+
+
+
+
+ 
+
+
+
+
+
+        

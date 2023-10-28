@@ -1,5 +1,5 @@
 <?php
-include 'headprofesores.php';
+include 'headAlumnos.php';
 ?>
             
 
@@ -127,5 +127,5 @@ include 'headprofesores.php';
 
 
 <?php
-include 'footprofesores.php';
+include 'footer.php';
 ?>

@@ -140,13 +140,10 @@ function getBoton($botonName){
 
     #compararlas
     if ($fechaActual > $fechaComparar) {
-        echo '<td  colspan="3" style="color: rgb(180, 0, 0);"><strong>NOTA: Fuera de periodo de evaluacion</strong></td>';
-        #echo '<td></td>';
-        #echo '<td></td>';
+        
+        echo '<strong>NOTA: Fuera de periodo de evaluacion</strong>';
     } elseif ($fechaActual <= $fechaComparar) {
-        echo '<td><strong>NOTA: Al hacer clic en guardar se actualizarán los datos</strong></td>';
-        #echo '<td></td>';
-        echo '<td  colspan="2" ><input type="submit" class="btn btn-actualizar btn-evrf" value="Guardar" name="'.$botonName.'" formaction="procesos/AsesorInternoGuardarEvSeguimiento.php"></td>';
+        echo '<input class="btn btn-success" type="submit" value="Actualizar" name="'.$botonName.'" formaction="procesos/AsesorInternoGuardarEvSeguimiento.php">';
     }
 }
 function getBotonRF(){
