@@ -5,7 +5,9 @@ $idAsesor = $_POST['idAsesor'];
 $idAlumno = $_POST['idAlumno'];
 //echo $idAsesor;echo '<br>';echo $idAlumno;
 $evaluacionReporte = ObtenerEvaluacionFinal($idAsesor, $idAlumno);
-
+//$evaluacionReporteStr = implode(', ', $evaluacionReporte);
+//echo $evaluacionReporteStr;
+///
 $queryAlumno = consultaUsuarioAlumno($idAlumno);
 $queryProyectoAlumno = consultaProyectoAlumno($idAlumno);
 $consultaAlumno;
@@ -129,7 +131,6 @@ include 'headAsesorInterno.php';
                 </div>
               </div>
             </div>
-
             <div class="row" style="background-color: #E9ECEF; padding: 10px;">
               <div class="col-md-4">
                 <p>Introducción</p>
@@ -275,7 +276,7 @@ include 'headAsesorInterno.php';
                 <strong style="color: White">Total de puntos - Reporte Final:</strong>
               </div> -->
               <div class="col-md-4 mx-auto text-center ">
-                <strong style="color: red">AQUI PUEDE IR LA ALERTA</strong>
+                <strong style="color: white">Al hacer clic en guardar se actualizaran los datos</strong>
               </div>
               <!-- <div class="col-md-4">
                 <input type="number" name="" disabled class="form-control text-center">
@@ -291,13 +292,13 @@ include 'headAsesorInterno.php';
             <div class="row" style="background-color: #384970E6;">
               <div class="col-md-12 d-flex align-items-center">
                 <textarea class="form-control text-center mx-auto my-auto" name="Observaciones"
-                  style="resize: none; width: 1000px; height: 150px;"></textarea>
+                  style="resize: none; width: 1000px; height: 150px;"><?php echo $evaluacionReporte['ERFObservaciones'] ?></textarea>
               </div>
             </div>
 
             <div class="row rounded-bottom p-2" style="background-color: #384970E6;">
               <div class="col-md-12 text-center ">
-                <?php getBotonRF(); ?>
+                <?php getBotonRF($idSolicitudResidencia); ?>
               </div>
             </div>
 
@@ -305,87 +306,94 @@ include 'headAsesorInterno.php';
         </div>
         <!-- Fin Reporte Final -->
         <!-- Modal de Información General -->
-        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="myModalLabel">Información General</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <div class="row mb-3">
-                  <div class="col-md-4">
-                    <p>Número de control:</p>
+        <form method="post">
+          <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="myModalLabel">Información General</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <p>Número de control:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <p><?php echo $consultaAlumno['NumeroControl']; ?></p>
+                    </div>
                   </div>
-                  <div class="col-md-8">
-                    <p>20390231</p>
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <p>Nombre del Residente:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <p><?php echo $consultaAlumno['NombreCompleto']; ?></p>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <p>Nombre del Proyecto:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <p><?php echo $consultaAlumnoProyecto['SPNombreProyecto']; ?></p>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <p>Programa Educativo:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <p><?php echo $consultaAlumnoCarrera['Nombre']; ?></p>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <p>Periodo de Realización:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <p><?php echo $consultaAlumnoProyecto['SRPeriodo']; ?></p>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <p>Nombre del Asesor Interno:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <p><?php echo $consultaAsesor['NombreCompleto']; ?></p>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <p>Fecha:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <p><?php echo date('Y-m-d'); ?></p>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <p>Total de puntos:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <p><?php echo $evaluacionReporte['ERFTotal'] ?></p>
+                    </div>
                   </div>
                 </div>
-                <div class="row mb-3">
-                  <div class="col-md-4">
-                    <p>Nombre del Residente:</p>
-                  </div>
-                  <div class="col-md-8">
-                    <p>Moy Acevedo Pérez</p>
-                  </div>
+                <div class="modal-footer">
+                  <input type="submit" class="btn btn-outline-primary" value="Descargar Reporte"
+                    formaction="procesos/AsesorInternoDescargarArchivo.php">
+                  <input type="submit" class="btn btn-outline-danger" value="Descargar Evaluación"
+                    formaction="../GenerarDocs/GenerarEvaluacionReporteFinal.php">
+                  <input type="hidden" name="idSoliRes" value="<?php echo $idSolicitudResidencia; ?>">
+                  <input type="hidden" name="idUAsesor" value="<?php echo $idAsesor; ?>">
+                  <input type="hidden" name="idUAlumno" value="<?php echo $idAlumno; ?>">
+                  <input type="hidden" name="redireccionar" value="../Asesor/AsesorInternoAlumnos.php">
                 </div>
-                <div class="row mb-3">
-                  <div class="col-md-4">
-                    <p>Nombre del Proyecto:</p>
-                  </div>
-                  <div class="col-md-8">
-                    <p>Drones</p>
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <div class="col-md-4">
-                    <p>Programa Educativo:</p>
-                  </div>
-                  <div class="col-md-8">
-                    <p>Ingeniería en Tecnologías de Informacíon y Comunicaciones</p>
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <div class="col-md-4">
-                    <p>Periodo de Realización:</p>
-                  </div>
-                  <div class="col-md-8">
-                    <p>AGO-NOV 2023</p>
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <div class="col-md-4">
-                    <p>Nombre del Asesor Interno:</p>
-                  </div>
-                  <div class="col-md-8">
-                    <p>Juan Sebastian Perez Dominguez</p>
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <div class="col-md-4">
-                    <p>Fecha:</p>
-                  </div>
-                  <div class="col-md-8">
-                    <p>11/11/2011</p>
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <div class="col-md-4">
-                    <p>Total de puntos:</p>
-                  </div>
-                  <div class="col-md-8">
-                    <p>25</p>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-outline-primary">Descargar Evaluación</button>
-                <button type="button" class="btn btn-outline-danger">Descargar Reporte</button>
               </div>
             </div>
-
           </div>
-        </div>
+        </form>
       </div>
       <!-- Fin Informacion General -->
     </div>
