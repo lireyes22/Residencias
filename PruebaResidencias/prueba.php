@@ -1,5 +1,5 @@
 <?php
-include 'headPrueba.php';
+include 'headDeptoAca.php';
 ?>
         <!-- Contenido principal -->
         <div class="col ms-sm-auto px-4">
