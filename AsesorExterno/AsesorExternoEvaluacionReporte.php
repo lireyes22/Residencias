@@ -1,139 +1,415 @@
-<?php 
-    include '../InicioSessionSeg.php';
-    include ('funcAsesorE.php');
-    $idAsesor = $_POST['idAsesor'];
-    $idAlumno = $_POST['idAlumno'];
-    //echo $idAsesor;echo '<br>';echo $idAlumno;
-    $evaluacionReporte = ObtenerEvaluacionFinal($idAsesor, $idAlumno);
-    $consultaAsesor = ObtenerAsesorExterno($idAsesor);
-    $queryAlumno = consultaUsuarioAlumno($idAlumno);
-    $queryProyectoAlumno = consultaProyectoAlumno($idAlumno);
-    $consultaAlumno;$consultaAlumnoProyecto;$consultaAlumnoCarrera;
-    if(!($consultaAlumno = mysqli_fetch_array($queryAlumno))){echo 'error';}
-    $queryProyectoCarrera = consultaCarreraAlumno($consultaAlumno['NumeroControl']);
-    if(!($consultaAlumnoProyecto = mysqli_fetch_array($queryProyectoAlumno))){echo 'error';}
-    if(!($consultaAlumnoCarrera = mysqli_fetch_array($queryProyectoCarrera))){echo 'error';}
-    $idSolicitudResidencia = $consultaAlumnoProyecto['SRID'];
+<?php
+include '../InicioSessionSeg.php';
+include('funcAsesorE.php');
+$idAsesor = $_POST['idAsesor'];
+$idAlumno = $_POST['idAlumno'];
+//echo $idAsesor;echo '<br>';echo $idAlumno;
+$evaluacionReporte = ObtenerEvaluacionFinal($idAsesor, $idAlumno);
+$consultaAsesor = ObtenerAsesorExterno($idAsesor);
+$queryAlumno = consultaUsuarioAlumno($idAlumno);
+$queryProyectoAlumno = consultaProyectoAlumno($idAlumno);
+$consultaAlumno;
+$consultaAlumnoProyecto;
+$consultaAlumnoCarrera;
+if (!($consultaAlumno = mysqli_fetch_array($queryAlumno))) {
+  echo 'error';
+}
+$queryProyectoCarrera = consultaCarreraAlumno($consultaAlumno['NumeroControl']);
+if (!($consultaAlumnoProyecto = mysqli_fetch_array($queryProyectoAlumno))) {
+  echo 'error';
+}
+if (!($consultaAlumnoCarrera = mysqli_fetch_array($queryProyectoCarrera))) {
+  echo 'error';
+}
+$idSolicitudResidencia = $consultaAlumnoProyecto['SRID'];
+include 'headAsesorExterno.php';
 ?>
-
-<!DOCTYPE html>
-<html>
-
-    <?php include ('encabezado.php'); encabezadox('Evaluación Reporte Final') #encabezado xd?>
-
-    <form method="post">
-        <input type="hidden" name="idSoliRes" value="<?php echo $idSolicitudResidencia; ?>">
-        <input type="hidden" name="idUAsesor" value="<?php echo $idAsesor; ?>">
-        <input type="hidden" name="idUAlumno" value="<?php echo $idAlumno; ?>">
-        <input type="hidden" name="redireccionar" value="../AsesorExterno/IndexAE.php">
-        <div class="containerEv">
-            <!-- Columna izquierda  -->
-            <div class="column-Ev1">
-                <label for="" class="lb-inp txtSizeEv">Información:</label>
-                <label for="" class="lb-inp">Número de control:</label> <br>
-                <input type="text" name="numControl" class="lb-inp" value="<?php echo $consultaAlumno['NumeroControl']; ?>" readonly> <br>
-                <label for="" class="lb-inp">Nombre del residente:</label> <br>
-                <input type="text" class="lb-inp" name="NombreResidente" value="<?php echo $consultaAlumno['NombreCompleto']; ?>" readonly> <br>
-                <label for="" class="lb-inp">Nombre del Proyecto:</label> <br>
-                <input type="text" class="lb-inp" name="NombreProyecto" value="<?php echo $consultaAlumnoProyecto['SPNombreProyecto']; ?>" readonly> <br>
-                <label for="" class="lb-inp">Programa Educativo:</label> <br>
-                <input type="text" class="lb-inp" name="ProgramaEducativo" value="<?php echo $consultaAlumnoCarrera['Nombre']; ?>" readonly> <br>
-                <label for="" class="lb-inp">Periodo de Realización:</label> <br>
-                <input type="text" class="lb-inp" name="PeriodoRealizacion" value="<?php echo $consultaAlumnoProyecto['SRPeriodo']; ?>" readonly> <br>
-                
-                <label class="lb-inp">Nombre del Asesor Interno:</label> <br>
-                <input class="lb-inp" type="text" name="AsesorInterno" value="<?php echo $consultaAsesor['AENombre']; ?>" readonly> <br>
-                <label class="lb-inp">Fecha:</label> <br>
-                <input class="lb-inp" type="date" name="FechaEvaluacion" value="<?php echo date('Y-m-d'); ?>" readonly> <br>
-                <label class="lb-inp">Total Puntos:</label> <br>
-                <input class="lb-inp" type="text" name="TotalPuntos" value="<?php echo $evaluacionReporte['ERFTotal'] ?>" readonly> <br>
-                <?php getBotonRF(); ?> <br>
-                <input class="btn btn-actualizar btn-evrf" type="submit" value="Descargar Reporte" formaction="procesos/AsesorExternoDescargarArchivo.php"> <br>
-                <input class="btn btn-actualizar btn-evrf" type="submit" value="Descargar Evaluación" formaction="../GenerarDocs/GenerarEvaluacionReporteFinal.php" target="_blank"> <br>        
+<!-- Main -->
+<div class="col ms-sm-auto px-4" style="background: whitesmoke;">
+  <br>
+  <!-- #384970 Color -->
+  <!-- Contenido Principal -->
+  <div class="row">
+    <!-- Tabuladores -->
+    <div class="col-md-9 mx-auto my-auto">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item col-md-3 text-center" role="presentation">
+          <a class="nav-link active border-2" id="reporteFinal-tab" data-bs-toggle="tab" href="#reporteFinal" role="tab"
+            aria-controls="reporteFinal" aria-selected="true">
+            Reporte Final
+          </a>
+        </li>
+        <li class="nav-item col-md-3 text-center" role="presentation">
+          <a class="nav-link border-2 text-black" id="informacionGeneral-tab" data-bs-toggle="modal"
+            data-bs-target="#myModal" role="tab" aria-controls="informacionGeneral" aria-selected="false">
+            Información General
+          </a>
+        </li>
+      </ul>
+      <!-- Contenido de los Tab -->
+      <div class="tab-content" id="myTabContent">
+        <!-- Tab Reporte Final -->
+        <div class="tab-pane fade show active" id="reporteFinal" role="tabpanel" aria-labelledby="reporteFinal-tab">
+          <form class="rounded p-0" style="background-color: whitesmoke;" method="post">
+            <input type="hidden" name="idSoliRes" value="<?php echo $idSolicitudResidencia; ?>">
+            <input type="hidden" name="idUAsesor" value="<?php echo $idAsesor; ?>">
+            <input type="hidden" name="idUAlumno" value="<?php echo $idAlumno; ?>">
+            <input type="hidden" name="redireccionar" value="../AsesorExterno/IndexAE.php">
+            <div class="row rounded-top p-2 " style=" background-color: #384970; color: white;">
+              <div class="col-md-4 text-center">
+                <h5>Criterios de evaluación - Reporte Final</h5>
+              </div>
+              <div class="col-md-4 text-center">
+                <h5>Valor Máximo</h5>
+              </div>
+              <div class="col-md-4 text-center">
+                <h5>Evaluación Asesor Externo</h5>
+              </div>
             </div>
-            <!-- Columna central tabla  -->
-            <div class="column-Ev2">
-                <table class="tb-ev">
-                    <tr>
-                        <th>Criterios a evaluar</th>
-                        <th>Valor Máximo</th>
-                        <th>Evaluación Asesor Interno</th>
-                    </tr>
-                    <tr>
-                        <td>Portada</td>
-                        <td>1</td>
-                        <td><input type="number" name="Portada" min="0" max="1" step="1" value="<?php echo $evaluacionReporte['ERFPortada'] ?>"></td>
-                    </tr>
-                    <tr>
-                        <td>Agradecimientos</td>
-                        <td>0</td>
-                        <td><input type="number" name="Agradecimientos" min="0" max="0" step="1" value="<?php echo $evaluacionReporte['ERFAgradecimientos'] ?>"></td>
-                    </tr>
-                    <tr>
-                        <td>Resumen</td>
-                        <td>2</td>
-                        <td><input type="number" name="Resumen" min="0" max="2" step="1" value="<?php echo $evaluacionReporte['ERFResumen'] ?>"></td>
-                    </tr>
-                    <tr>
-                        <td>Índice</td>
-                        <td>2</td>
-                        <td><input type="number" name="Indice" min="0" max="2" step="1" value="<?php echo $evaluacionReporte['ERFIndice'] ?>"></td>
-                    </tr>
-                    <tr>
-                        <td>Introducción</td>
-                        <td>5</td>
-                        <td><input type="number" name="Introduccion" min="0" max="5" step="1" value="<?php echo $evaluacionReporte['ERFIntroduccion'] ?>"></td>
-                    </tr>
-                    <tr>
-                        <td>Antecedentes o marco Teórico</td>
-                        <td>5</td>
-                        <td><input type="number" name="Antecedentes" min="0" max="5" step="1" value="<?php echo $evaluacionReporte['ERFAntecedentes'] ?>"></td>
-                    </tr>
-                    <tr>
-                        <td>Justificación</td>
-                        <td>5</td>
-                        <td><input type="number" name="Justificacion" min="0" max="5" step="1" value="<?php echo $evaluacionReporte['ERFJustificacion'] ?>"></td>
-                    </tr>
-                    <tr>
-                        <td>Objetivos</td>
-                        <td>10</td>
-                        <td><input type="number" name="Objetivos" min="0" max="10" step="1" value="<?php echo $evaluacionReporte['ERFObjetivos'] ?>"></td>
-                    </tr>
-                    <tr>
-                        <td>Metodología</td>
-                        <td>10</td>
-                        <td><input type="number" name="Metodologia" min="0" max="10" step="1" value="<?php echo $evaluacionReporte['ERFMetodologia'] ?>"></td>
-                    </tr>
-                    <tr>
-                        <td>Resultados</td>
-                        <td>15</td>
-                        <td><input type="number" name="Resultados" min="0" max="15" step="1" value="<?php echo $evaluacionReporte['ERFResultados'] ?>"></td>
-                    </tr>
-                    <tr>
-                        <td>Discusiones</td>
-                        <td>25</td>
-                        <td><input type="number" name="Discusiones" min="0" max="25" step="1" value="<?php echo $evaluacionReporte['ERFDiscusiones'] ?>"></td>
-                    </tr>
-                    <tr>
-                        <td>Conclusiones</td>
-                        <td>15</td>
-                        <td><input type="number" name="Conclusiones" min="0" max="15" step="1" value="<?php echo $evaluacionReporte['ERFConclusiones'] ?>"></td>
-                    </tr>
-                    <tr>
-                        <td>Fuentes de Información</td>
-                        <td>5</td>
-                        <td><input type="number" name="FuentesInformacion" min="0" max="5" step="1" value="<?php echo $evaluacionReporte['ERFFuentes'] ?>"></td>
-                    </tr>
-                </table>
-                <label class="txtSizeEvC3 mrgEvC3 lb-inp" style="color: white; font-size: 20px;" ><strong>Observaciones:</strong></label>
-                <textarea name="Observaciones" id="" rows="5" style="width: 80%; margin: 10px; resize: none;"><?php echo $evaluacionReporte['ERFObservaciones'] ?></textarea>
+            <div class="row" style="background-color: #E9ECEF; padding: 10px;">
+              <div class="col-md-4">
+                <p>Portada</p>
+              </div>
+              <div class="col-md-4 text-center">
+                <p>1</p>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group">
+                  <input type="number" name="Portada" class="form-control text-center" min="0" max="1" step="1"
+                    value="<?php echo $evaluacionReporte['ERFPortada'] ?>" required>
+                </div>
+              </div>
             </div>
-            <!-- Columna derecha  -->
-            <div>
-                
+
+            <div class="row" style="background-color: #FFFFFF; padding: 10px;">
+              <div class="col-md-4">
+                <p>Agradecimientos</p>
+              </div>
+              <div class="col-md-4 text-center">
+                <p>0</p>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group">
+                  <input type="number" name="Agradecimientos" class="form-control text-center" min="0" max="0" step="1"
+                    value="<?php echo $evaluacionReporte['ERFAgradecimientos'] ?>" required>
+                </div>
+              </div>
             </div>
+
+            <div class="row" style="background-color: #E9ECEF; padding: 10px;">
+              <div class="col-md-4">
+                <p>Resúmen</p>
+              </div>
+              <div class="col-md-4 text-center">
+                <p>2</p>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group">
+                  <input type="number" name="Resumen" class="form-control text-center" min="0" max="2" step="1"
+                    value="<?php echo $evaluacionReporte['ERFResumen'] ?>" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" style="background-color: #FFFFFF; padding: 10px;">
+              <div class="col-md-4">
+                <p>índice</p>
+              </div>
+              <div class="col-md-4 text-center">
+                <p>2</p>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group">
+                  <input type="number" name="Indice" class="form-control text-center" min="0" max="2" step="1"
+                    value="<?php echo $evaluacionReporte['ERFIndice'] ?>" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" style="background-color: #E9ECEF; padding: 10px;">
+              <div class="col-md-4">
+                <p>Introducción</p>
+              </div>
+              <div class="col-md-4 text-center">
+                <p>5</p>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group">
+                  <input type="number" name="Introduccion" class="form-control text-center" min="0" max="5" step="1"
+                    value="<?php echo $evaluacionReporte['ERFIntroduccion'] ?>" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" style="background-color: #FFFFFF; padding: 10px;">
+              <div class="col-md-4">
+                <p>Antecedentes o Marco Teórico</p>
+              </div>
+              <div class="col-md-4 text-center">
+                <p>5</p>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group">
+                  <input type="number" name="Antecedentes" class="form-control text-center" min="0" max="5" step="1"
+                    value="<?php echo $evaluacionReporte['ERFAntecedentes'] ?>" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" style="background-color: #E9ECEF; padding: 10px;">
+              <div class="col-md-4">
+                <p>Justificación</p>
+              </div>
+              <div class="col-md-4 text-center">
+                <p>5</p>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group">
+                  <input type="number" name="Justificacion" class="form-control text-center" min="0" max="5" step="1"
+                    value="<?php echo $evaluacionReporte['ERFJustificacion'] ?>" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" style="background-color: #FFFFFF; padding: 10px;">
+              <div class="col-md-4">
+                <p>Objetivos</p>
+              </div>
+              <div class="col-md-4 text-center">
+                <p>10</p>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group">
+                  <input type="number" name="Objetivos" class="form-control text-center" min="0" max="10" step="1"
+                    value="<?php echo $evaluacionReporte['ERFObjetivos'] ?>" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" style="background-color: #E9ECEF; padding: 10px;">
+              <div class="col-md-4">
+                <p>Metodología</p>
+              </div>
+              <div class="col-md-4 text-center">
+                <p>10</p>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group">
+                  <input type="number" name="Metodologia" class="form-control text-center" min="0" max="10" step="1"
+                    value="<?php echo $evaluacionReporte['ERFMetodologia'] ?>" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" style="background-color: #FFFFFF; padding: 10px;">
+              <div class="col-md-4">
+                <p>Resultados</p>
+              </div>
+              <div class="col-md-4 text-center">
+                <p>15</p>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group">
+                  <input type="number" name="Resultados" class="form-control text-center" min="0" max="15" step="1"
+                    value="<?php echo $evaluacionReporte['ERFResultados'] ?>" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" style="background-color: #E9ECEF; padding: 10px;">
+              <div class="col-md-4">
+                <p>Discusiones</p>
+              </div>
+              <div class="col-md-4 text-center">
+                <p>25</p>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group">
+                  <input type="number" name="Discusiones" class="form-control text-center" min="0" max="25" step="1"
+                    value="<?php echo $evaluacionReporte['ERFDiscusiones'] ?>" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" style="background-color: #FFFFFF; padding: 10px;">
+              <div class="col-md-4">
+                <p>Conclusiones</p>
+              </div>
+              <div class="col-md-4 text-center">
+                <p>15</p>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group">
+                  <input type="number" name="Conclusiones" class="form-control text-center" min="0" max="15" step="1"
+                    value="<?php echo $evaluacionReporte['ERFConclusiones'] ?>" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" style="background-color: #E9ECEF; padding: 10px;">
+              <div class="col-md-4">
+                <p>Fuentes de información</p>
+              </div>
+              <div class="col-md-4 text-center">
+                <p>15</p>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group">
+                  <input type="number" name="FuentesInformacion" class="form-control text-center" min="0" max="5"
+                    step="1" value="<?php echo $evaluacionReporte['ERFFuentes'] ?>" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" style="background-color: #384970E6; padding: 10px;">
+              <!-- <div class="col-md-4">
+                <strong style="color: White">Total de puntos - Reporte Final:</strong>
+              </div> -->
+              <div class="col-md-4 mx-auto text-center ">
+                <strong style="color: red">AQUI PUEDE IR LA ALERTA</strong>
+              </div>
+              <!-- <div class="col-md-4">
+                <input type="number" name="" disabled class="form-control text-center">
+              </div> -->
+            </div>
+
+            <div class="row" style="background-color: #384970E6;">
+              <div class="col-md-12 text-center">
+                <label class="lb-inp" style="color: white; font-size: 20px;"><strong>Observaciones:</strong></label>
+              </div>
+            </div>
+
+            <div class="row" style="background-color: #384970E6;">
+              <div class="col-md-12 d-flex align-items-center">
+                <textarea class="form-control text-center mx-auto my-auto" name="Observaciones"
+                  style="resize: none; width: 1000px; height: 150px;"><?php echo $evaluacionReporte['ERFObservaciones'] ?></textarea>
+              </div>
+            </div>
+
+            <div class="row rounded-bottom p-2" style="background-color: #384970E6;">
+              <div class="col-md-12 text-center ">
+              <?php getBotonRF($idSolicitudResidencia); ?> 
+              </div>
+            </div>
+
+          </form>
         </div>
-        
-    </form>
-</body>
-</html>
+        <!-- Fin Reporte Final -->
+        <!-- Modal de Información General -->
+        <form method="post">
+          <input type="hidden" name="idSoliRes" value="<?php echo $idSolicitudResidencia; ?>">
+          <input type="hidden" name="idUAsesor" value="<?php echo $idAsesor; ?>">
+          <input type="hidden" name="idUAlumno" value="<?php echo $idAlumno; ?>">
+          <input type="hidden" name="redireccionar" value="../AsesorExterno/IndexAE.php">
+          <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="myModalLabel">Información General</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <p>Número de control:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <p>
+                        <?php echo $consultaAlumno['NumeroControl']; ?>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <p>Nombre del Residente:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <p>
+                        <?php echo $consultaAlumno['NombreCompleto']; ?>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <p>Nombre del Proyecto:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <p>
+                        <?php echo $consultaAlumnoProyecto['SPNombreProyecto']; ?>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <p>Programa Educativo:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <p>
+                        <?php echo $consultaAlumnoCarrera['Nombre']; ?>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <p>Periodo de Realización:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <p>
+                        <?php echo $consultaAlumnoProyecto['SRPeriodo']; ?>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <p>Nombre del Asesor Externo:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <p>
+                        <?php echo $consultaAsesor['AENombre']; ?>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <p>Fecha:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <p>
+                        <?php echo date('Y-m-d'); ?>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <p>Total de puntos:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <p>
+                        <?php echo $evaluacionReporte['ERFTotal'] ?>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <input type="submit" class="btn btn-outline-primary" value="Descargar Reporte"
+                    formaction="procesos/AsesorExternoDescargarArchivo.php">
+                  <input type="submit" class="btn btn-outline-danger" value="Descargar Evaluación"
+                    formaction="../GenerarDocs/GenerarEvaluacionReporteFinal.php" target="_blank">
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- Fin Informacion General -->
+    </div>
+  </div>
+</div>
+<br>
+<!-- Fin Contenido Principal -->
+</div>
+
+<!-- Fin Main -->
+<?php
+include 'footer.php';
+?>
