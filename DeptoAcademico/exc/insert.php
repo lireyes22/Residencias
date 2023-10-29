@@ -49,6 +49,7 @@
     }else if($nFuncion == 'asignacion'){
         try{
         $rRazon = '';
+        $origin = $_POST['origin'];
         $rBPID = $_POST['BPID'];
         if(asesorBPID($rBPID) == '0'){
         $rCAPeriodo = $_POST['periodo'];
@@ -68,7 +69,11 @@
             $message = "Ocurrio un error - ".$e;
         }
         ?>
-            <script>alert('<?php echo $message; ?>')</script>
+            <script>
+            alert('<?php echo $message; ?>')
+            location.href ='<?php echo $origin; ?>';
+            </script>
+
         <?php
     }  
     //Código JavaScript para cerrar la ventana
