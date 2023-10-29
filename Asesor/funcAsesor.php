@@ -177,10 +177,9 @@ function getBoton($botonName)
 
     #compararlas
     if ($fechaActual > $fechaComparar) {
-
-        echo '<strong>NOTA: Fuera de periodo de evaluacion</strong>';
+        echo '<td colspan="3" style="color: rgb(180, 0, 0);"><strong>NOTA: Fuera de periodo de evaluacion</strong></td>';
     } elseif ($fechaActual <= $fechaComparar) {
-        echo '<input class="btn btn-success" type="submit" value="Actualizar" name="' . $botonName . '" formaction="procesos/AsesorInternoGuardarEvSeguimiento.php">';
+        echo '<input class="btn btn-success" type="submit" value="Guardar" name="' . $botonName . '" formaction="procesos/AsesorInternoGuardarEvSeguimiento.php">';
     }
 }
 function getBotonRF($idSRID)
@@ -246,11 +245,11 @@ function alumnosResidentes($SPID)
 {
     $conection = conn();
     $sql = "SELECT * FROM Alumnos 
-      INNER JOIN Alumno_Usuarios ON Alumno_Usuarios.`NumeroControl` = Alumnos.`NumeroControl` 
-      INNER JOIN SolicitudResidencia ON Alumno_Usuarios.`UID` = SolicitudResidencia.`UAlumno` 
-      INNER JOIN BancoProyectos ON BancoProyectos.`BPID` = SolicitudResidencia.`BPID`
-      INNER JOIN SolicitudProyecto ON BancoProyectos.`SPID` = SolicitudProyecto.`SPID`
-      WHERE SolicitudResidencia.`SREstatus` ='APROBADO' AND SolicitudProyecto.`SPID` = $SPID;";
+        INNER JOIN Alumno_Usuarios ON Alumno_Usuarios.`NumeroControl` = Alumnos.`NumeroControl` 
+        INNER JOIN SolicitudResidencia ON Alumno_Usuarios.`UID` = SolicitudResidencia.`UAlumno` 
+        INNER JOIN BancoProyectos ON BancoProyectos.`BPID` = SolicitudResidencia.`BPID`
+        INNER JOIN SolicitudProyecto ON BancoProyectos.`SPID` = SolicitudProyecto.`SPID`
+        WHERE SolicitudResidencia.`SREstatus` ='APROBADO' AND SolicitudProyecto.`SPID` = $SPID;";
     $query = mysqli_query($conection, $sql);
     // vaciar el buffer de resultados
     while (mysqli_next_result($conection)) {
