@@ -4,17 +4,14 @@
     $message = "Realizado correctamente.";
     if($nFuncion == 'ComisionProyectoProfesor'){
         try{
-
+        $origin = $_POST['origin'];
         $_SPID = $_POST['SPID'];
         echo $_SPID;
         $x = comisionProyecto($_SPID);
         if( $x == '0'){ 
         $prevUPROF = $_POST['UProfesor'];
         $_UProfesor = mysqli_fetch_array(UProfesor($prevUPROF));
-        $_CPPFecha = date("Y-m-d");
-        $_MES = $_POST['mes'];
-        $_DIA = $_POST['dia'];
-        $_CPPFechaLimite = date('Y').'-0'.$_MES.'-0'.$_DIA;
+        $_CPPFechaLimite = $_POST['fecha'];;
         insertComisionProyectoProfesor($_SPID, $_UProfesor[0], $_CPPFecha, $_CPPFechaLimite);
         $_Estatus = 'REVISION';
         alterSolicitudProyecto($_SPID, $_Estatus);
@@ -25,7 +22,10 @@
             $message = "Ocurrio un error - ".$e;
         }
         ?>
-        <script>alert('<?php echo $message; ?>')</script>
+        <script>
+            alert('<?php echo $message; ?>')
+            location.href ='<?php echo $origin; ?>';
+            </script>
         <?php
     }else if($nFuncion == 'reAsignacion'){
         try{

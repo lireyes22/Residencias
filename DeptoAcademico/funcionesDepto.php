@@ -230,6 +230,14 @@ function asesorBPID($rBPID){
     while (mysqli_next_result($conection)) { }
     return $query[0];
 }
+function solicitudesProyecto($DID){
+    $conn = conn();
+    $sql = "SELECT * FROM UsuariosDepartamentos INNER JOIN `SolicitudProyecto` ON UsuariosDepartamentos.`UID` = SolicitudProyecto.`UIDResponsable` WHERE UsuariosDepartamentos.`DID` = $DID AND SolicitudProyecto.`SPEstatus`='PENDIENTE';";
+    $query = $conn->query($sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conn)) { }
+    return $query;
+}
 //----------------------------------------------------------------------------------------------------------//
 function plantilla(){
     $conection = conn();
