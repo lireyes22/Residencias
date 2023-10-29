@@ -1,11 +1,11 @@
 <?php
-include 'headAlumnos.php';
+include 'headprofesores.php';
 ?>
 <div class="col ms-sm-auto px-4">
     <div class="container col-9">
         <form action="#" class="mb-5 mt-5 shadow-lg" style="background-color: #E9ECEF;">
             <div class="rounded-top p-2" style=" background-color: #384970; color: white;">
-                <h2 class="text-center text-white">Solicitar Proyecto</h2>
+                <h2 class="text-center text-white">Revisión Solicitud de Residencia</h2>
             </div>
 
             <div class="mt-3 p-3">
@@ -75,41 +75,84 @@ include 'headAlumnos.php';
                 </div>
             </div>
 
-            <div class="col-9 d-flex justify-content-around mb-3 p-3">
-                <label for="Anteproyecto" class="form-label h6">Anteproyecto</label>
-                <input type="file" class="form-control" name="Anteproyecto" accept="application/pdf">
+            <div class="col-9 d-flex mb-3 p-3">
+                <label for="Anteproyecto" class="form-label h6">Anteproyecto:</label>
+                <a href="ruta_al_archivo.pdf" download>Descargar Anteproyecto</a>
             </div>
 
-            <div class="d-flex justify-content-around p-4 rounded-bottom" style="background-color: #384970;">
-                <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                    data-bs-target="#datosEmpresaModal">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-buildings" viewBox="0 0 16 16">
-                        <path
-                            d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022ZM6 8.694 1 10.36V15h5V8.694ZM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15Z" />
-                        <path
-                            d="M2 11h1v1H2v-1Zm2 0h1v1H4v-1Zm-2 2h1v1H2v-1Zm2 0h1v1H4v-1Zm4-4h1v1H8V9Zm2 0h1v1h-1V9Zm-2 2h1v1H8v-1Zm2 0h1v1h-1v-1Zm2-2h1v1h-1V9Zm0 2h1v1h-1v-1ZM8 7h1v1H8V7Zm2 0h1v1h-1V7Zm2 0h1v1h-1V7ZM8 5h1v1H8V5Zm2 0h1v1h-1V5Zm2 0h1v1h-1V5Zm0-2h1v1h-1V3Z" />
-                    </svg>
-                    Datos de la Empresa
-                </button>
-
-                <button type="submit" class="btn btn-success">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-check-circle" viewBox="0 0 16 16">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                        <path
-                            d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-                    </svg> Enviar Solicitud</button>
-
-                <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                    data-bs-target="#datosResidenteModal">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-person-fill" viewBox="0 0 16 16">
-                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-                    </svg>
-                    Datos del Residente
-                </button>
+            <div class="p-4 rounded-bottom" style="background-color: #384970;">
+                <div class="row text-center">
+                    <div class="col-md-6 mb-2">
+                        <div class="row">
+                            <div class="col">
+                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                    data-bs-target="#datosEmpresaModal"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="16" height="16" fill="currentColor" class="bi bi-buildings"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022ZM6 8.694 1 10.36V15h5V8.694ZM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15Z" />
+                                        <path
+                                            d="M2 11h1v1H2v-1Zm2 0h1v1H4v-1Zm-2 2h1v1H2v-1Zm2 0h1v1H4v-1Zm4-4h1v1H8V9Zm2 0h1v1h-1V9Zm-2 2h1v1H8v-1Zm2 0h1v1h-1v-1Zm2-2h1v1h-1V9Zm0 2h1v1h-1v-1ZM8 7h1v1H8V7Zm2 0h1v1h-1V7Zm2 0h1v1h-1V7ZM8 5h1v1H8V5Zm2 0h1v1h-1V5Zm2 0h1v1h-1V5Zm0-2h1v1h-1V3Z" />
+                                    </svg> Datos de la Empresa
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                    data-bs-target="#datosResidenteModal"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="16" height="16" fill="currentColor" class="bi bi-person-fill"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                                    </svg> Datos del Residente
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col">
+                                <button type="submit" class="btn btn-success"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="16" height="16" fill="currentColor" class="bi bi-check-circle"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                        <path
+                                            d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
+                                    </svg> Aceptar
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button type="submit" class="btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="16" height="16" fill="currentColor" class="bi bi-x-circle"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                        <path
+                                            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                                    </svg> Rechazar
+                                </button>
+                            </div>
+                            <div class="col">
+                                <a href="#" class="btn btn-secondary mt-md-0 mt-2" onclick=""><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-x-circle" viewBox="0 0 16 16">
+                                        <path
+                                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                        <path
+                                            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                                    </svg> Cancelar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col text-center text-white">
+                        <label for="Observaciones" class="form-label h6">Observaciones:</label>
+                        <textarea class="form-control" rows="3"></textarea>
+                    </div>
+                </div>
             </div>
+
         </form>
     </div>
 </div>
@@ -146,7 +189,7 @@ include 'headAlumnos.php';
                     </div>
                     <div class="col mb-3">
                         <label for="ESector">Sector:</label>
-                        <select class="form-selet">
+                        <select class="form-select">
                             <option>Público</option>
                             <option>Privado</option>
                             <option>Otro</option>
@@ -254,7 +297,7 @@ include 'headAlumnos.php';
                 <div class="row">
                     <div class="col">
                         <label for="numeroSeguro">Para seguridad social acudir:</label>
-                        <input type="text" class="form-control" placeholder="No.:" value="" readonly>
+                        <input type="text" class="form-control" placeholder="No.:" value="">
                         <div class="mb-3">
                             <input type="radio" readonly>
                             <label for="imss">IMSS</label>
