@@ -3,7 +3,7 @@
 	include ('funcionesDepto.php');
 	$UID = $_SESSION['id'];
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 
 <head>

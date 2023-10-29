@@ -2,63 +2,107 @@
 	include ('../InicioSessionSeg.php');
 	include ('funcionesDepto.php');
 	$UID = $_SESSION['id'];
+	$query = getFechas();
+	$limites  = [];
+	$fechaID = [];
+	$i = 0;
+	while($consulta = mysqli_fetch_assoc($query)){
+		$limites[$i] = $consulta['FVFechaLimite'];
+		$fechaID[$i] = $consulta['FVTramite'];
+		$i++;
+	}
+?> 
+<?php
+include 'headDeptoAca.php';
 ?>
-<!DOCTYPE html>
-<html>
-
-<head>
-	<title>Departamento Académico</title>
-	<link rel="stylesheet" href="../style/style.css">
-	<link rel="stylesheet" href="Style/styleDepto.css">
-</head>
-
-<body style="margin: 0;">
-	<div class="container">
-		<div class="row">
-			<div class="left-column">
-				<a class="home-btn" href="index.php">
-					<h2><span style="margin-right: 10px;">Dep. Académico</span></h2>
-					<img src="../img/sombrero.png" width="50px">
-				</a>
-			</div>
-			<div class="center-column">
-				<h1>Lista de Proyectos</h1>
-			</div>
-			<div class="right-column">
-				<a href="../usuariosConfig.php?idUsuario=<?php echo $_SESSION['id'];?>"><img src="../img/configuraciones.png" width="50px"></a> &nbsp; &nbsp;
-				<a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
-			</div>
-		</div>
-		<?php
-        include 'MenuDeptoAcademico.html';
-        ?>
-	</div> 
-	<div>
-		<table>
-			<thead>
-				<tr>
-                    <th>Nombre del trámite</th>
-                    <th>Fecha Límite</th>
-					<th>Actualizar Fecha</th>
-                </tr>
-			</thead>
-			<?php	
-				$query = getFechas();
-				while($consulta = mysqli_fetch_assoc($query)){
-					$FVTramite = $consulta['FVTramite'];
-					$FVFechaLimite = $consulta['FVFechaLimite'];
-					$FVDescripcionTramite = $consulta['FVDescripcionTramite'];				
-			?>
-			<tbody>
-			<form action="" method="post">
-				<input type="hidden" name="FVTramite" value="<?php echo $FVTramite; ?>">
-				<td><?php echo $consulta['FVDescripcionTramite'];?></td>
-				<td><input name="FVNewFechaLimite" type="date" min="<?php echo date('Y-m-d', strtotime('-1 day')); ?>" value="<?php echo $consulta['FVFechaLimite'];?>"></td>
-				<td><input name="UpdFecha" type="submit" formaction="exc/UpdateFechaLimite.php" value="Actualizar" class="btn btn-actualizar"></td>
-			</form>
-			</tbody>
-			<?php } #fin del while?>
-		</table>
-	</div>
-</body>
-</html>
+<!-- Main -->
+<div class="col ms-sm-auto px-4" style="background-color: whitesmoke">
+   <div class="container">
+      <div class="row">
+         <div class="col-12 text-center">
+            <h1 class="display-4">Lista de Trámites</h1>
+         </div>
+      </div>
+      <!-- Sección de Trámite 1 y 2 -->
+      <div class="row mt-4">
+         <div class="col-md-6">
+            <div class="card mb-4">
+               <div class="card-header text-white" style="background-color: #384970E6;">
+                  <h2 class="h5">Evaluación Reporte Final</h2>
+               </div>
+               <div class="card-body">
+                  <p class="mb-0"> <strong>Fecha Límite: <?php echo $limites[0];  ?></strong></p>
+				  <form action="exc/UpdateFechaLimite.php" method="POST">
+                  <div class="form-group mt-3">
+                     <label for="nueva_fecha_1">Nueva Fecha:</label>
+                     <input type="date" class="form-control" id="nueva_fecha_1" name="FVNewFechaLimite" required>
+                  </div>
+				  <input type="hidden" name="FVTramite" value="<?php echo $fechaID[0]; ?>">
+                  <button class="btn btn-outline-danger btn-block mt-3">Actualizar Fecha</button>
+				  </form>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-6">
+            <div class="card mb-4">
+               <div class="card-header text-white" style="background-color: #384970E6;">
+                  <h2 class="h5">Evaluación de Seguimiento</h2>
+               </div>
+               <div class="card-body">
+                  <p class="mb-0"><strong>Fecha Límite: <?php echo $limites[1];  ?></strong></p>
+				  <form action="exc/UpdateFechaLimite.php" method="POST">
+                  <div class="form-group mt-3">
+                     <label for="nueva_fecha_2">Nueva Fecha:</label>
+                     <input type="date" class="form-control" id="nueva_fecha_2" name="FVNewFechaLimite" required>
+                  </div>
+				  <input type="hidden" name="FVTramite" value="<?php echo $fechaID[1]; ?>">
+                  <button class="btn btn-outline-danger btn-block mt-3">Actualizar Fecha</button>
+				  </form>
+				</div>
+            </div>
+         </div>
+      </div>
+      <!-- Sección de Trámite 3 y 4 -->
+      <div class="row mt-4">
+         <div class="col-md-6">
+            <div class="card mb-4">
+               <div class="card-header text-white" style="background-color: #384970E6;">
+                  <h2 class="h5">Espacio para proponer proyectos</h2>
+               </div>
+               <div class="card-body">
+                  <p class="mb-0"><strong>Fecha Límite: <?php echo $limites[2];  ?></strong></p>
+				  <form action="exc/UpdateFechaLimite.php" method="POST">
+                  <div class="form-group mt-3">
+                     <label for="nueva_fecha_3">Nueva Fecha:</label>
+                     <input type="date" class="form-control" id="nueva_fecha_3" name="FVNewFechaLimite" required>
+                  </div>
+				  <input type="hidden" name="FVTramite" value="<?php echo $fechaID[2];  ?>">
+                  <button class="btn btn-outline-danger btn-block mt-3">Actualizar Fecha</button>
+				  </form>
+				</div>
+            </div>
+         </div>
+         <div class="col-md-6">
+            <div class="card mb-4">
+               <div class="card-header text-white" style="background-color: #384970E6;">
+                  <h2 class="h5">Solicitar Residencia</h2>
+               </div>
+               <div class="card-body">
+                  <p class="mb-0"><strong>Fecha Límite: <?php echo $limites[3];  ?></strong></p>
+                 <form action="exc/UpdateFechaLimite.php" method="POST"> 
+				  <div class="form-group mt-3">
+                     <label for="nueva_fecha_4">Nueva Fecha:</label>
+                     <input type="date" class="form-control" id="nueva_fecha_4" name="FVNewFechaLimite" required>
+                  </div>
+				  <input type="hidden" name="FVTramite" value="<?php echo $fechaID[3];  ?>">
+                  <button class="btn btn-outline-danger btn-block mt-3">Actualizar Fecha</button>
+				  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<?php
+include 'footer.php';
+?>
