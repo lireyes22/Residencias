@@ -305,6 +305,35 @@ function verificarSolicitudProyecto($estatus){
   return $clase;
 
 }
+function verificarSolicitudProyectoN1($estatus){
+    $result = array();
+
+    switch ($estatus) {
+        case 'ACEPTADO':
+            $result['clase'] = 'progress-bar text-bg-success';
+            $result['porcentaje'] = '100';
+            break;
+        case 'REVISION':
+            $result['clase'] = 'progress-bar text-bg-info';
+            $result['porcentaje'] = '75';
+            break;
+        case 'PENDIENTE':
+            $result['clase'] = 'progress-bar text-bg-secondary';
+            $result['porcentaje'] = '50';
+            break;
+        case 'RECHAZADO':
+            $result['clase'] = 'progress-bar text-bg-warning';
+            $result['porcentaje'] = '0';
+            break;
+        default:
+            $result['clase'] = 'progress-bar text-bg-dark';
+            $result['porcentaje'] = '0';
+            break;
+    }
+
+    return $result;
+}
+
 function verificarSolicitudResidencia($estatus){
     switch ($estatus) {
       case 'APROBADO':
@@ -325,6 +354,34 @@ function verificarSolicitudResidencia($estatus){
   }
   return $clase;
 
+}
+function verificarSolicitudResidenciaN1($estatus){
+    $result = array();
+
+    switch ($estatus) {
+        case 'APROBADO':
+            $result['clase'] = 'progress-bar text-bg-success';
+            $result['porcentaje'] = '100';
+            break;
+        case 'ASIGNADO':
+            $result['clase'] = 'progress-bar text-bg-info';
+            $result['porcentaje'] = '75';
+            break;
+        case 'ESPERA':
+            $result['clase'] = 'progress-bar text-bg-secondary';
+            $result['porcentaje'] = '50';
+            break;
+        case 'RECHAZADO':
+            $result['clase'] = 'progress-bar text-bg-warning';
+            $result['porcentaje'] = '100';
+            break;
+        default:
+            $result['clase'] = 'progress-bar text-bg-dark';
+            $result['porcentaje'] = '0';
+            break;
+    }
+
+    return $result;
 }
 
 function verificarSolicitudReporteParcial1($respuesta,$alumno){
