@@ -113,8 +113,8 @@ include 'headDeptoAca.php';
 											</button>
 										</div>
 										<div class="col container-fluid">
-											<button <?php echo $reasigna; ?> type="button"
-												class="btn btn-outline-warning" data-bs-target="">
+											<button <?php echo $reasigna; ?> type="button" class="btn btn-outline-warning"
+												data-bs-toggle="modal" data-bs-target="#Reasignar<?php echo $i - 1; ?>">
 												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 													fill="currentColor" class="bi bi-person-fill-gear"
 													viewBox="0 0 16 16">
@@ -150,6 +150,7 @@ include 'headDeptoAca.php';
 	}
 	for ($j = 0; $j < $i;$j++){
 		$BPID = mysqli_fetch_array(bancoSPID($SPIDs[$j]));
+		$anterior = mysqli_fetch_array(asesorInterno($BPID[0]));
 		$Residentes = alumnosResidencia($BPID[0]);
 		$solicitudResidencia = mysqli_fetch_array(existeBanco($SPIDs[$j]));
 		$nombreEmpresa = mysqli_fetch_array(empresa($SPIDs[$j]));
@@ -179,10 +180,10 @@ include 'headDeptoAca.php';
 							<div class="col-md-6 mb-3">
 								<label for="oficio" class="form-label">Numero de oficio:</label>
 								<input type="text" class="form-control" id="oficio" placeholder="Número de oficio"
-									name="oficio" value="'.$SPIDs[$j].'">
+									name="noOficio" value="">
 							</div>
 							<div class="col-md-6 mb-3">
-								<label for="profesor" class="form-label">Docente:</label>
+								<label for="profesor" class="form-label">Profesor:</label>
 								<select name="docente" class="form-select">
 								'.$optionProfesores.'
 								</select>
@@ -229,6 +230,95 @@ include 'headDeptoAca.php';
 		</div>
 	</div>
 	';
+	//---------------------- SEGUNDA MODAL -----------------------------------------------------------
+	if(isset($anterior)){
+		$nuevosAsesores = listaDocentes($DID[0], $anterior[0]);
+		$optionProfesores2 = '';
+		while ($profesores = mysqli_fetch_array($nuevosAsesores)){
+			$optionProfesores2 = $optionProfesores2.'<option value="'.$profesores[0].'">'.$profesores[1].'</option>';
+		}
+		echo '
+		<div class="modal fade" id="Reasignar'.$j.'">
+			<div class="modal-dialog modal-dialog-centered modal-xl">
+				<div class="modal-content">
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h4 class="modal-title">Asignación de asesor</h4>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+
+					<!-- Modal body --> 
+					<div class="modal-body">
+						<!--Formulario-->
+						<form action="exc/insert.php" method="POST">
+						<input type="hidden" name="IDfuncion" value="reAsignacion">
+						<input type="hidden" name="origin" value="../DeptoAcaLisPro.php">
+							<div class="row">
+								<div class="col-md-6 mb-3">
+									<label for="oficio" class="form-label">Numero de oficio:</label>
+									<input type="text" class="form-control" id="oficio" placeholder="Número de oficio"
+										name="noOficio" value="">
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="profesor" class="form-label">Nuevo Asesor:</label>
+									<select name="docente" class="form-select">
+									'.$optionProfesores2.'
+									</select>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6 mb-3">
+									<label for="oficio" class="form-label">Periodo de Realización:</label>
+									<input type="text" class="form-control" id="oficio" name="periodo" readonly value="'.$solicitudResidencia[5].'">
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="profesor" class="form-label">Asesor Actual:</label>
+									<input type="text" class="form-control" id="oficio" name="oficio" readonly value="'.$anterior[1].'">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6 mb-3">
+									<label for="profesor" class="form-label">Departamento:</label>
+									<input type="text" class="form-control" id="oficio" name="oficio" readonly value="'.$NombDepto[0].'">
+								</div>
+								
+								<div class="col-md-6 mb-3">
+									<label for="profesor" class="form-label">Empresa:</label>
+									<input type="text" class="form-control" id="oficio" name="oficio" readonly value="'.$nombreEmpresa[0].'">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 mb-3">
+									<label for="profesor" class="form-label">Razon de la Reasignacion:</label>
+									<input type="text" class="form-control" id="razon" name="razon" placeholder="¿Cual fue el motivo?">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 mb-3">
+									<label for="oficio" class="form-label">Estudiantes inscritos:</label>';
+									for ($m = 0; $m < $n;$m++){
+										echo '<input type="text" class="form-control" id="oficio" name="oficio" readonly value="'.$nombresResidentes[$m].'">';
+									}
+									if($n==0){
+										echo '<input type="text" class="form-control" id="oficio" name="oficio" readonly value="SIN RESIDENTES">';
+									}
+		echo '
+								</div>
+							</div>
+							<input type="hidden" name="periodo" value="'.$solicitudResidencia[5].'"> <br> <br>
+							<input type="hidden" name="BPID" value="'.$BPID[0].'">
+							<button type="submit" class="btn btn-primary">Submit</button>
+						</form>
+					</div>
+					<!-- Modal footer -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		';
+	}
 		} //TERMINA CICLO
 	?>
 <?php

@@ -83,7 +83,7 @@
 			<label for="anterior">Asesor anterior: </label>
 			<input type="text" name="anterior" disabled value="<?php
 				echo $anterior[1];
-			 ?>" size="30"> <br> <br>
+			 ?>" size="30"> <br> <br> 
 			<label for="docente">Nuevo asesor: </label>
 			<select name="docente">
 			<?php //RFC

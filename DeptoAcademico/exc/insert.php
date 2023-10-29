@@ -30,6 +30,7 @@
     }else if($nFuncion == 'reAsignacion'){
         try{
         $rBPID = $_POST['BPID'];
+        $origin = $_POST['origin'];
         $rCAPeriodo = $_POST['periodo'];
         $RFCProfesor = $_POST['docente'];
         $rRazon = $_POST['razon'];
@@ -44,7 +45,10 @@
         }catch(Exception $e){
             $message = "Ocurrio un error - ".$e;
         }?>
-        <script>alert('<?php echo $message; ?>')</script>
+        <script>
+            alert('<?php echo $message; ?>')
+            location.href ='<?php echo $origin; ?>';
+            </script>
         <?php
     }else if($nFuncion == 'asignacion'){
         try{
