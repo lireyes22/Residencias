@@ -229,7 +229,7 @@
         return $query;
     }
     function DID($UID){ //OBTIENE EL DEPARTAMENTO ID CON EL ID DEL USUARIO
-        $conection = conn();
+        $conection = conn(); 
         $sql = "SELECT UsuariosDepartamentos.`DID` FROM `UsuariosDepartamentos` WHERE `UsuariosDepartamentos`.UID = $UID;";
         $query = mysqli_query($conection, $sql);
         // vaciar el buffer de resultados
@@ -284,5 +284,25 @@
         // vaciar el buffer de resultados
         while (mysqli_next_result($conection)) { }
         return $query;
+    }
+    function coordinador($DID){
+        $conection = conn();
+        $sql = "SELECT Profesor.NombreCompleto FROM profesor INNER JOIN profesor_usuarios ON profesor.`RFCProfesor` = profesor_usuarios.`RFCProfesor` INNER JOIN usuarios ON profesor_usuarios.`UID` = usuarios.`UID` WHERE usuarios.`URol` = 'Coordinador' AND profesor.`DID` = $DID;";
+        $query = mysqli_fetch_assoc(mysqli_query($conection, $sql));
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        return array(
+            'coordinador' => $query['NombreCompleto']
+        );
+    }
+    function jefeDivision(){
+        $conection = conn();
+        $sql = "SELECT Profesor.NombreCompleto FROM profesor INNER JOIN profesor_usuarios ON profesor.`RFCProfesor` = profesor_usuarios.`RFCProfesor` INNER JOIN usuarios ON profesor_usuarios.`UID` = usuarios.`UID` WHERE usuarios.`URol` = 'JefeDivisonEstudios';";
+        $query = mysqli_fetch_assoc(mysqli_query($conection, $sql));
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        return array(
+            'jefeDivision' => $query['NombreCompleto']
+        );
     }
 ?>
