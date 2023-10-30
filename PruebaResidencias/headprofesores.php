@@ -72,7 +72,7 @@
                             <h1>Menú</h1>
                         </li>
                         <li class="nav-item p-3 row">
-    
+                            <a href="profesorMisProyectos.php" class="d-flex">
                             <div class="col-3 centrar">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-clipboard2" viewBox="0 0 16 16">
                                     <path d="M3.5 2a.5.5 0 0 0-.5.5v12a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-12a.5.5 0 0 0-.5-.5H12a.5.5 0 0 1 0-1h.5A1.5 1.5 0 0 1 14 2.5v12a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-12A1.5 1.5 0 0 1 3.5 1H4a.5.5 0 0 1 0 1h-.5Z"/>
@@ -83,9 +83,10 @@
                             <div class="col-9  d-flex align-items-center">
                                     <span class="p-1">Proyectos Propuestos</span>
                             </div>
-                            
+                            </a>
                         </li>
                         <li class="nav-item p-3 row">
+                            <a href="profesorBancoProyectos.php" class="d-flex">
                             <div class="col-3 centrar">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bank" viewBox="0 0 16 16">
                                     <path d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.501.501 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89L8 0ZM3.777 3h8.447L8 1 3.777 3ZM2 6v7h1V6H2Zm2 0v7h2.5V6H4Zm3.5 0v7h1V6h-1Zm2 0v7H12V6H9.5ZM13 6v7h1V6h-1Zm2-1V4H1v1h14Zm-.39 9H1.39l-.25 1h13.72l-.25-1Z"/>
@@ -95,8 +96,10 @@
                             <div class="col-9  d-flex align-items-center">
                                 <span class="p-1">Banco de Proyectos</span>
                             </div>
+                            </a>
                         </li>
                         <li class="nav-item p-3 row">
+                            <a href="profesorListadoSoliRes.php" class="d-flex">
                             <div class="col-3 centrar">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-mortarboard" viewBox="0 0 16 16">
                                     <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5ZM8 8.46 1.758 5.965 8 3.052l6.242 2.913L8 8.46Z"/>
@@ -107,8 +110,10 @@
                             <div class="col-9  d-flex align-items-center">
                                 <span class="p-1">Solicitudes de Residencia</span>
                             </div>
+                            </a>
                         </li>
                         <li class="nav-item p-3 row">
+                            <a href="profesorRevProyRes.php" class="d-flex">
                             <div class="col-3 centrar">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-p-square" viewBox="0 0 16 16">
                                     <path d="M5.5 4.002h2.962C10.045 4.002 11 5.104 11 6.586c0 1.494-.967 2.578-2.55 2.578H6.784V12H5.5V4.002Zm2.77 4.072c.893 0 1.419-.545 1.419-1.488s-.526-1.482-1.42-1.482H6.778v2.97H8.27Z"/>
@@ -119,8 +124,10 @@
                             <div class="col-9  d-flex align-items-center">
                                 <span class="p-1">Solicitudes de Proyectos</span>
                             </div>
+                            </a>
                         </li>
                         <li class="nav-item p-3 row">
+                            <a href="index.php" class="d-flex">
                             <div class="col-3 centrar">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
                                     <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8Zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816ZM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/>
@@ -130,6 +137,7 @@
                             <div class="col-9  d-flex align-items-center">
                                 <span class="p-1">Comisiones</span>
                             </div>
+                            </a>
                         </li>
                     </ul>  
                 </div>

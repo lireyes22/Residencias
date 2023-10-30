@@ -54,7 +54,7 @@
                             <hr class="dropdown-divider">
                         </li>
                         <li class="row p-1">
-                            <a class="dropdown-item d-flex centrar" href="#">
+                            <a class="dropdown-item d-flex centrar" href="../logout.php">
                                 <div class="col-3">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                                         class="bi bi-box-arrow-left" viewBox="0 0 16 16">
@@ -84,8 +84,8 @@
                     <li class="nav-item  p-3 row">
                         <h1>Menú</h1>
                     </li>
-                    <li class="nav-item p-3  row">
-
+                    <li id="opcion" class="nav-item p-3  row">
+                        <a href="AsesorInternoResidencias.php" class="d-flex">
                         <div class="col-3 centrar">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                                 class="bi bi-mortarboard" viewBox="0 0 16 16">
@@ -99,9 +99,10 @@
                         <div class="col-9 d-flex align-items-center">
                             <span>Residencias</span>
                         </div>
-
+                        </a>
                     </li>
-                    <li class="nav-item p-3 row">
+                    <li id="opcion" class="nav-item p-3 row">
+                        <a href="AsesorInternoAlumnos.php" class="d-flex">
                         <div class="col-3 centrar">
                             <svg fill="currentColor" width="30" height="30" viewBox="0 0 256 256" id="Flat"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -112,8 +113,10 @@
                         <div class="col-9 d-flex align-items-center">
                             <span>Alumnos</span>
                         </div>
+                        </a>
                     </li>
-                    <li class="nav-item p-3 row">
+                    <li id="opcion" class="nav-item p-3 row">
+                        <a href="#" class="d-flex">
                         <div class="col-3 centrar">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                                 class="bi bi-text-paragraph" viewBox="0 0 16 16">
@@ -127,9 +130,10 @@
                         <div class="col-9 d-flex align-items-center">
                             <span>Reporte Semestral</span>
                         </div>
+                        </a>
                     </li>
-                    <li class="nav-item p-3 row">
-
+                    <li id="opcion" class="nav-item p-3 row">
+                        <a href="#" class="d-flex">
                         <div class="col-3 centrar">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                                 class="bi bi-chat-right-text" viewBox="0 0 16 16">
@@ -139,11 +143,10 @@
                                     d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
                             </svg>
                         </div>
-
-
                         <div class="col-9 d-flex align-items-center">
                             <span>Asesorias</span>
                         </div>
+                        </a>
                     </li>
                 </ul>
             </div>

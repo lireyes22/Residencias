@@ -40,7 +40,7 @@
                     <ul id="userMenu" class="dropdown-menu p-4">
 
                         <li class="row p-1">
-                            <a class="dropdown-item d-flex centrarV" href="#">
+                            <a class="dropdown-item d-flex centrarV" href="../logout.php">
                                 <div class="col-3">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
@@ -67,8 +67,8 @@
                         <li class="nav-item  p-3 row">
                             <h1>Menú</h1>
                         </li>
-                        <li class="nav-item p-3  row">
-    
+                        <li id="opcion" class="nav-item p-3  row">
+                            <a href="IndexAE.php" class="d-flex">
                             <div class="col-3 centrar">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 100 100">
                                     <circle cx="50" cy="50" r="40" fill="#ccc" />
@@ -78,11 +78,12 @@
                             </div>
                 
                             <div class="col-9 d-flex align-items-center">
-                                    <span>Alumnos</span>
+                                    <span class="p-1">Alumnos</span>
                             </div>
-                            
+                            </a>
                         </li>
-                        <li class="nav-item p-3 row">
+                        <li id="opcion" class="nav-item p-3 row">
+                            <a href="#" class="d-flex">
                             <div class="col-3 centrar">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bank" viewBox="0 0 16 16">
                                     <path d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.501.501 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89L8 0ZM3.777 3h8.447L8 1 3.777 3ZM2 6v7h1V6H2Zm2 0v7h2.5V6H4Zm3.5 0v7h1V6h-1Zm2 0v7H12V6H9.5ZM13 6v7h1V6h-1Zm2-1V4H1v1h14Zm-.39 9H1.39l-.25 1h13.72l-.25-1Z"/>
@@ -90,8 +91,9 @@
                             </div>
             
                             <div class="col-9 d-flex align-items-center">
-                                <span>Otro</span>
+                                <span class="p-1">Otro</span>
                             </div>
+                            </a>
                         </li>
 
                     </ul>  
