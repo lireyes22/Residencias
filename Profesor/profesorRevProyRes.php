@@ -4,71 +4,66 @@
 	$UID = $_SESSION['id'];
 	$result = listProyPendientes($UID);
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Profesor</title>
-	<link rel="stylesheet" href="../style/style.css">
-	<link rel="stylesheet" href="style/StyleProfesor.css">
-</head>
-
-<body style="margin: 0;">
-	<div class="container">
-		<div class="row">
-			<div class="left-column">
-				<a class="home-btn" href="index.php">
-					<h2><span style="margin-right: 10px;">Profesor</span></h2>
-					<img src="../img/sombrero.png" width="50px">
-				</a>
-			</div> 
-			<div class="center-column">
-				<h1>Solicitudes de Proyectos</h1>
-			</div>
-			<div class="right-column">
-				<a href="../usuariosConfig.php?idUsuario=<?php echo $_SESSION['id'];?>"><img src="../img/configuraciones.png" width="50px"></a> &nbsp; &nbsp;
-				<a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
-			</div>
-			</div>
-		<?php
-		include 'MenuProfesor.html';
-		?>
-	</div>
-		</div>
-	<div class="tabla-scroll"> 
-	<table class = "tb-asp">
-			<tr> 
-				<td class="sticky">Nombre del proyecto</td>
-				<td class="sticky">Objetivo</td>
-				<td class="sticky">Número Estudiantes</td>
-				<td class="sticky">Tiempo Estimado</td>
-				<td class="sticky">Docente</td>
-				<td class="sticky"></td>
-			</tr>
-            <tr>
-			<?php
-				$i = 0;
-				while ($SPID_Pendiente = mysqli_fetch_array($result)){
-					$row = mysqli_fetch_array(basicInfoProy($SPID_Pendiente[0]));
-					?>
-					<tr <?php if($i%2==0) echo "class='par'" ?> >
-						<th class="tb-th-asp"><p><?php echo $row[1]?></p></th>
-						<th class="tb-th-asp"><p><?php echo $row[2]?></p></th>
-						<th class="tb-th-asp"><p><?php echo $row[3]?></p></th>
-						<th class="tb-th-asp"><p><?php echo $row[4]?> MESES</p></th>
-						<th class="tb-th-asp"><p><?php echo $row[5]?></p></th>
-						<form action="profesorRevProyRes-evalua.php" target="BLANK" method="post">
-							<th class="tb-th-asp">
-								<input type="hidden" name="idProy" value=<?php echo $row[0] ?>>
-								<input type="submit" value="Revisar">
-							</th>
-						</form>
-					</tr>
+<?php
+include 'headprofesores.php';
+?>
+<!-- Contenido principal -->
+<div class="col ms-sm-auto px-4">
+	<div class="container-fluid mt-3 text-center">
+		<h2>Solicitudes de Proyectos</h2>
+		<div class="container-fluid text-start mb-4">
+			<div class="table-responsive text-start">
+				<table id="example" class="display table-striped table-hover"
+					style="width:100%; background-color: #ededed;">
+					<thead>
+						<tr>
+							<th>Nombre del Proyecto</th>
+							<th>Objetivo</th>
+							<th>Número Estudiantes Requeridos</th>
+							<th>Tiempo Estimado</th>
+							<th>Docente</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
 					<?php
-					$i++;
-				}
-				?>
-            </tr>
-    </table>
+						$i = 0;
+						while ($SPID_Pendiente = mysqli_fetch_array($result)){
+							   $row = mysqli_fetch_array(basicInfoProy($SPID_Pendiente[0]));
+					?>
+						<tr>
+							<td><p><?php echo $row[1]?></p></td>
+							<td><p><?php echo $row[2]?></p></td>
+							<td><p><?php echo $row[3]?></p></td>
+							<td><p><?php echo $row[4]?> MESES</p></td>
+							<td><p><?php echo $row[5]?></p></td>
+							<td>
+								<form action="profesorRevProyRes-evalua.php" method="Post" target="blank">
+									<input type="hidden" name="idProy" value=<?php echo $row[0] ?>>
+										<button type="submit" class="btn btn-outline-info">
+											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+												class="bi bi-search" viewBox="0 0 16 16">
+												<path
+													d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+											</svg>
+											<style>
+												.btn-outline-info:hover::before {
+													content: "Revisar";
+												}
+											</style>
+										</button>
+								</form>
+							</td>
+							<?php
+							}
+							?>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
-</body>
-</html>
+</div>
+<?php
+include 'footer.php';
+?>
