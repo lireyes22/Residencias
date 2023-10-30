@@ -111,6 +111,15 @@
             background-color: transparent;
         }
 
+        li a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        #opcion:hover {
+            background-color: #eeeeee; /* Cambia el color de fondo al pasar el ratón */
+        }
+
 
 
 
