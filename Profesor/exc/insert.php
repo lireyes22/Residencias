@@ -1,13 +1,17 @@
 <?php
     include ('../funcProfesor.php');
     $nFuncion = $_POST['IDfuncion'];
+    echo ''.$nFuncion.'';
     $message = 'REALIZADO';
     if($nFuncion == 'desicionProyecto'){
         try{
         $_SPID = $_POST['SPID'];
+        echo $_SPID;
         if(revision($_SPID) == 'REVISION'){
         $_CPPEstatus = $_POST['desicion'];
-        $_CPPObservaciones = $_POST['observaciones'];        
+        echo $_CPPEstatus;
+        $_CPPObservaciones = $_POST['observaciones'];
+        echo $_CPPObservaciones;        
         updateComision($_SPID, $_CPPEstatus, $_CPPObservaciones); //SE ACTUALIZA A LA DESICION
         updateSolicitudProyecto($_SPID, $_CPPEstatus); //SE ACTUALIZA A LA DESICION
         $existe = existeBanco($_SPID);
@@ -27,6 +31,6 @@
     }else{
         echo 'n_';
     } 
-     //Código JavaScript para cerrar la ventana
-    echo "<script>window.close();</script>";
+    //Código JavaScript para cerrar la ventana
+    //echo "<script>window.close();</script>";
 ?>
