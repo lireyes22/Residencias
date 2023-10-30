@@ -182,7 +182,7 @@
         );
     }
 
-    function getAsesor($SRID){
+    function getAsesor($SRID){ //ALV
         $conection = conn();
         $sql = "SELECT Profesor.NombreCompleto FROM Profesor
         INNER JOIN `Profesor_Usuarios` ON Profesor.`RFCProfesor` = Profesor_Usuarios.RFCProfesor
@@ -194,9 +194,12 @@
     
         //Obtengo datos del profesor
         $result = mysqli_fetch_assoc($query);
-    
+        $nombre = 'SIN ASESOR';
+        if(isset($result["NombreCompleto"])){
+            $nombre = $result["NombreCompleto"];
+        }
         return array(
-            'nombreasesor' => $result['NombreCompleto']
+            'nombreasesor' => $nombre
         );
     }
     function revision($SPID){
@@ -300,5 +303,25 @@
         // vaciar el buffer de resultados
         while (mysqli_next_result($conection)) { }
         return $query;
+    }
+    function coordinador($DID){
+        $conection = conn();
+        $sql = "SELECT Profesor.NombreCompleto FROM profesor INNER JOIN profesor_usuarios ON profesor.`RFCProfesor` = profesor_usuarios.`RFCProfesor` INNER JOIN usuarios ON profesor_usuarios.`UID` = usuarios.`UID` WHERE usuarios.`URol` = 'Coordinador' AND profesor.`DID` = $DID;";
+        $query = mysqli_fetch_assoc(mysqli_query($conection, $sql));
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        return array(
+            'coordinador' => $query['NombreCompleto']
+        );
+    }
+    function jefeDivision(){
+        $conection = conn();
+        $sql = "SELECT Profesor.NombreCompleto FROM profesor INNER JOIN profesor_usuarios ON profesor.`RFCProfesor` = profesor_usuarios.`RFCProfesor` INNER JOIN usuarios ON profesor_usuarios.`UID` = usuarios.`UID` WHERE usuarios.`URol` = 'JefeDivisonEstudios';";
+        $query = mysqli_fetch_assoc(mysqli_query($conection, $sql));
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        return array(
+            'jefeDivision' => $query['NombreCompleto']
+        );
     }
 ?>

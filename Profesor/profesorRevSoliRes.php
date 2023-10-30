@@ -2,297 +2,363 @@
 include '../InicioSessionSeg.php';
 include ('funcProfesor.php');
     //ID del proyecto
-$SRID = $_POST['SRID'];
-
+    $SRID = $_POST['SRID'];
+    $UID = $_SESSION['id'];
     //Llamo a funciones
     $residente = getResidente($SRID); //Accedo al residente (alumno)
     $empresa = getEmpresa($SRID);
+    $DID = mysqli_fetch_array(DID($UID));
     $residencia = getResidencia($SRID);
     $asesorI = getAsesor($SRID);
-    ?>
+    $coordinador = coordinador($DID[0]);
+    $jefeDivision = jefeDivision();
+?>
+<?php
+include 'headprofesores.php';
+?>
+<div class="col ms-sm-auto px-4">
+    <div class="container col-9">
+        <form method="POST" action="funcionesFProfesor.php" class="mb-5 mt-5 shadow-lg" style="background-color: #E9ECEF;" id="myForm">
+            <input type="hidden" name="SRID" value="<?php echo $SRID?>">
+            <input type="hidden" id="accion" name="accion" value="">
+            <div class="rounded-top p-2" style=" background-color: #384970; color: white;">
+                <h2 class="text-center text-white">Revisión Solicitud de Residencia</h2>
+            </div>
 
-    <!DOCTYPE html>
-    <html>
-    
-    <head>
-        <link rel="stylesheet" type="text/css" href="../Alumno/style/styleAlumno.css" title="styleSolicRes">
-        <link rel="stylesheet" href="../style/style.css">
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Solicitud para la residencia profesional</title>
-    </head>
+            <div class="mt-3 p-3">
+                <label for="NombreProyecto" class="form-label h6">Nombre del Proyecto:</label>
+                <input type="text" class="form-control" value="<?php echo $residencia['spnombreproyecto']; ?>" readonly>
+            </div>
 
-    <body style="margin: 0;">
-        <div class="container">
-            <div class="row">
-                <div class="left-column">
-                    <a class="home-btn" href="index.php">
-                        <h2><span style="margin-right: 10px;">Profesor</span></h2>
-                        <img src="../img/sombrero.png" width="50px">
-                    </a>
-                </div>
-                <div class="center-column">
-                    <h1>Revisión Solicitud de Residencia</h1>
-                </div>
-                <div class="right-column">
-                    <a href="../usuariosConfig.php?idUsuario=<?php echo $_SESSION['id'];?>"><img src="../img/configuraciones.png" width="50px"></a> &nbsp; &nbsp;
-                    <a href="index.php"><img src="../img/logout.png" width="40px"></a>
+            <div class="container p-3">
+                <div class="row">
+                    <div class="col">
+                        <label for="jefeDiv" class="form-label h6">Jefe(a) de la Div. de Estudios
+                            Profesionales:</label>
+                        <input type="text" class="form-control" value="<?php echo $jefeDivision['jefeDivision']?>" readonly>
+                    </div>
+                    <div class="col">
+                        <label for="tipoProyecto" class="form-label h6">Tipo Proyecto:</label>
+                        <select id="tipoProyecto" name="tipoProyecto" class="form-select" disabled>
+                            <option class="form-control" value="interno" <?php if($residencia['sptipo'] == 'INTERNO') echo 'selected'; ?>>Interno</option>
+                            <option class="form-control" value="externo" <?php if($residencia['sptipo'] == 'EXTERNO') echo 'selected'; ?>>Externo</option>
+                            <option class="form-control" value="dual" <?php if($residencia['sptipo'] == 'DUAL') echo 'selected'; ?>>Dual</option>
+                            <option class="form-control" value="CIIE" <?php if($residencia['sptipo'] == 'CIIE') echo 'selected'; ?>>CIIE</option>
+                        </select>
+                    </div>
                 </div>
             </div>
-            <?php
-            include 'MenuProfesor.html';
-            ?>
-        </div>
-        <br>
-        <!----------------------------------------------------- Fieldset Proyecto ---------------------------------------------------------->
-        <form method="POST" action="profesorDecideSolicitud.php">
-            <input type="hidden" name="SRID" value="<?php echo $SRID?>">
-            <fieldset class="bg-fldst">
-                <legend class="legend">Proyecto</legend>
-                <article>
-                    <section id="projectData">
-                        <div class="columnaL">
-                            <div class="form-row">
-                                <label for="jefeDiv">Jefe(a) de la Div. de Estudios Profesionales:</label>
-                                <input type="text" id="jefeDiv" name="jefeDiv" value="<?php echo 'Juan Cocio' ?>" disabled='disabled' required>
-                            </div>
-                            <div class="form-row">
-                                <label for='coordinador'>Coord. de la Carrera de:</label>
-                                <input type="text" id="coordinador" name="coordinador" value="<?php echo 'Benja' ?>" disabled='disabled' required>
-                            </div>
-                            <div class="form-row">
-                                <label for="">AT'N C:</label>
-                                <input type="text" id="" name="" value="<?php echo $residente['nomcarrera'] ?>" required disabled>
-                            </div>
-                            <div class="form-row">
-                                <label for="fecha">Fecha:</label>
-                                <input type="date" id="fecha" name="fecha" value="<?php echo date('Y-m-d'); ?>" required disabled>
-                            </div>
-                            <div class="form-row">
-                                <label for="NombreProyecto">Nombre del Proyecto:</label>
-                                <input type="text" id="NombreProyecto" name="NombreProyecto" value="<?php echo $residencia['spnombreproyecto']; ?>" disabled='disabled' required>
-                            </div>
-                        </div>
-                        <div class="columnaR">
-                            <div class="form-row">
-                                <label for="tipoProyecto">Tipo Proyecto:</label>
-                                <select id="tipoProyecto" name="tipoProyecto" disabled>
-                                    <option value="interno" <?php if($residencia['sptipo'] == 'INTERNO') echo 'selected'; ?>>Interno</option>
-                                    <option value="externo" <?php if($residencia['sptipo'] == 'EXTERNO') echo 'selected'; ?>>Externo</option>
-                                    <option value="dual" <?php if($residencia['sptipo'] == 'DUAL') echo 'selected'; ?>>Dual</option>
-                                    <option value="CIIE" <?php if($residencia['sptipo'] == 'CIIE') echo 'selected'; ?>>CIIE</option>
-                                </select>
-                            </div>
-                            <div class="form-row">
-                                <label for="opcionElegida">Opción elegida:</label>
-                                <select id="opcionElegida" name="opcionElegida" disabled>
-                                    <option value="Op1" <?php if ($residencia['sropcionelegida'] == 'Op1') echo 'selected'; ?>>Propuesta Propia</option>
-                                    <option value="Op2" <?php if ($residencia['sropcionelegida'] == 'Op2') echo 'selected'; ?>>Trabajador</option>
-                                    <option value="Op3" <?php if ($residencia['sropcionelegida'] == 'Op3') echo 'selected'; ?>>Banco de Proyectos</option>
-                                </select>
-                            </div>
-                            <div class="form-row">
-                                <label for="periodoProyect">Periodo proyectado:</label>
-                                <input type="text" name="periodoProyect" id="periodoProyect" value="<?php echo $residencia['sdtiempoestimado'] . ' meses'; ?>" required disabled/>
-                            </div>
-                            <div class="form-row">
-                                <label for="nomAsesorInterno">Nombre Asesor Interno:</label>
-                                <input type="text" name="nomAsesorInterno" id="nomAsesorInterno" value="<?php echo $asesorI['nombreasesor'] ?>" disabled='disabled' required>
-                            </div>
-                            <div class="form-row">
-                                <label for="SPVacantes">Numero Residentes:</label>
-                                <input type="number" name="SPVacantes" id="SPVacantes" min="1" max="4" placeholder="0" value="<?php echo $residencia['spestudiantesrequeridos']; ?>" required disabled>
-                            </div>
-                        </div>
-                    </section>
-                </article>
-            </fieldset>
-            <br>
-            <!------------------------------------------------------- Fieldset Datos Empresa ---------------------------------------------------------->
-            <fieldset class="bg-fldst">
-                <legend class="legend">Datos de la empresa</legend>
-                <article id="fm-re">
-                    <section id="enterpriseData">
-                        <div class="columnaL">
-                            <div class="form-row">
-                                <label for="ENombre">Nombre:</label>
-                                <input type="text" id="ENombre" name="ENombre" value="<?php echo $empresa['nombre'] ?>" disabled='disabled' required>
-                            </div>
-                            <div class="form-row">
-                                <label for="Eramo">Ramo:</label>
-                                <select id="Eramo" name="Eramo" disabled>
-                                    <option value="Industrial" <?php if($empresa['ramo'] == 'Industrial') echo 'selected'; ?>>Industrial</option>
-                                    <option value="Servicios" <?php if($empresa['ramo'] == 'Servicios') echo 'selected'; ?>>Servicios</option>
-                                    <option value="Escolar" <?php if($empresa['ramo'] == 'Escolar') echo 'selected'; ?>>Escolar</option>
-                                    <option value="Otro" <?php if(empty($empresa['ramo']) || $empresa['ramo'] == 'Otro' || ($empresa['ramo'] != 'Industrial' && $empresa['ramo'] != 'Servicios' && $empresa['ramo'] != 'Escolar')) echo 'selected'; ?>>Otro</option>
-                                </select>
-                            </div>
-                            <div class="form-row">
-                                <label for="ERFC">RFC:</label>
-                                <input type="text" id="ERFC" name="ERFC" value="<?php echo $empresa['erfc'] ?>" disabled='disabled' required>
-                            </div>
-                            <div class="form-row">
-                                <label for="ESector">Sector:</label>
-                                <select id="ESector" name="ESector" disabled>
-                                    <option value="Publico" <?php if($empresa['esector'] == 'Publico') echo 'selected'; ?>>Publico</option>
-                                    <option value="Privado" <?php if($empresa['esector'] == 'Privado') echo 'selected'; ?>>Privado</option>
-                                    <option value="Otro" <?php if(empty($empresa['esector']) || $empresa['esector'] == 'Otro' || ($empresa['esector'] != 'Publico' && $empresa['esector'] != 'Privado')) echo 'selected'; ?>>Otro</option>
-                                </select>
-                            </div>
-                            <div class="form-row">
-                                <label for="EActPrincipal">Actividad principal de la empresa:</label>
-                                <input type="text" id="EActPrincipal" name="EActPrincipal" value="<?php echo $empresa['eactprincipal'] ?>" disabled='disabled' required>
-                            </div>
-                            <div class="form-row">
-                                <label for="EDomicilio">Domicilio:</label>
-                                <input type="text" id="EDomicilio" name="EDomicilio" value="<?php echo $empresa['edomicilio'] ?>" disabled='disabled'>
-                            </div>
-                        </div>
 
-                        <div class="columnaC">
-                            <div class="form-row">
-                                <label for="EColonia">Colonia:</label>
-                                <input type="text" id="EColonia" name="EColonia" value="<?php echo $empresa['ecolonia'] ?>" disabled='disabled' required>
-                            </div>
-                            <div class="form-row">
-                                <label for="ECp">CP:</label>
-                                <input type="text" id="ECp" name="ECp" value="<?php echo $empresa['ecp'] ?>" disabled='disabled' required>
-                            </div>
-                            <div class="form-row">
-                                <label for="EFax">FAX:</label>
-                                <input type="text" id="EFax" name="EFax" value="<?php echo $empresa['efax'] ?>" disabled='disabled' required>
-                            </div>
-                            <div class="form-row">
-                                <label for="ECiudad">Ciudad:</label>
-                                <input type="text" id="ECiudad" name="ECiudad" value="<?php echo $empresa['eciudad'] ?>" disabled='disabled' required>
-                            </div>
-                            <div class="form-row">
-                                <label for="ETelefono">Teléfono:</label>
-                                <input type="tel" id="ETelefono" name="ETelefono" value="<?php echo $empresa['etelefono'] ?>" disabled required>
-                            </div>
-                        <!-- <div class="form-row">
-                            <label for="ETelefonoDos">Segundo Telefono:</label>
-                            <input type="tel" id="ETelefonoDos" name="ETelefonoDos" placeholder="983-445-6778" required>
-                        </div> -->
+            <div class="container p-3">
+                <div class="row">
+                    <div class="col">
+                        <label for="coordinador" class="form-label h6">Coord. de la Carrera de:</label>
+                        <input type="text" class="form-control" value="<?php echo $coordinador['coordinador']?>" readonly>
                     </div>
-                    
-                    <div class="columnaR">
-                        <div class="form-row">
-                            <label for="nombreTitular">Nombre del titular de la empresa:</label>
-                            <input type="text" id="nombreTitular" name="nombreTitular" value="<?php echo $empresa['enombretitular']?>" disabled='disabled' required>
-                        </div>
-                        <div class="form-row">
-                            <label for="puestoTitular">Puesto:</label>
-                            <input type="text" name="puestoTitular" id="puestoTitular" value="<?php echo $empresa['epuestotitular']?>" disabled='disabled' required>
-                        </div>
-                        <div class="form-row">
-                            <label for="nomAsesorExterno">Nombre del Asesor externo:</label>
-                            <input type="text" name="nomAsesorExterno" id="nomAsesorExterno" value="<?php echo $empresa['enombreacuerdo']?>" disabled='disabled' required>
-                        </div>
-                        <div class="form-row">
-                            <label for="puestoAsesor">Puesto:</label>
-                            <input type="text" name="puestoAsesor" id="puestoAsesor" value="<?php echo $empresa['epuestoacuerdo']?>" required disabled>
-                        </div>
-                        <div class="form-row">
-                            <label for="ENombreEncargado">Nombre de la persona que firmará el acuerdo de trabajo. Estudiante- Escuela-Empresa:</label>
-                            <input type="text" name="ENombreEncargado" id="ENombreEncargado" value="<?php echo $empresa['enombreacuerdo']?>" required disabled>
-                        </div>                     
+                    <div class="col">
+                        <label for="" class="form-label h6">AT'N C:</label>
+                        <input type="text" class="form-control" value="<?php echo $residente['nomcarrera'] ?>" readonly>
                     </div>
-                </section>
-            </article>
-        </fieldset>
-        <br>
-        <!------------------------------------------------------------ Datos del residente --------------------------------------------->
-        <fieldset class="bg-fldst">
-            <legend class="legend">Datos del residente</legend>
-            <article>
-                <section id = "residentData">
-                    <div class="columnaL">
-                        <div class="form-row">
-                            <label for="nombreResidente">Nombre:</label>
-                            <input type="text" id="nombreResidente" name="nombreResidente" value="<?php echo $residente['nombre'] ?>" disabled='disabled' required>
-                        </div>
-                        <div class="form-row">
-                            <label for="carrera">Carrera:</label>
-                            <input type="text" id="carrera" name="carrera" value="<?php echo $residente['nomcarrera'] ?>" disabled='disabled' required>
-                        </div>
-                        <div class="form-row">
-                            <label for="numControl">Número de Control:</label>
-                            <input type="text" id="numControl" name="numControl" value="<?php echo $residente['numcontrol'] ?>" disabled='disabled' required>
-                        </div>
-                        <div class="form-row">
-                            <label for="numSemestre">Semestre a cursar:</label>
-                            <input type="text" id="numSemestre" name="numSemestre" value="<?php echo $residente['semestre'] ?>" required disabled>
-                        </div>
-                        <div class="form-row">
-                            <label for="domicilio">Domicilio:</label>
-                            <input type="text" id="domicilio" name="domicilio" value="<?php echo $residente['domicilio'] ?>" disabled='disabled' required>
-                        </div>
-                        <div class="form-row">
-                            <label for="email">Email:</label>
-                            <input type="email" id="email" name="email" value="<?php echo $residente['email'] ?>" disabled='disabled' required>
+                </div>
+            </div>
+
+            <div class="container p-3">
+                <div class="row">
+                    <div class="col">
+                        <label for="periodoProyect" class="form-label h6">Periodo proyectado:</label>
+                        <input type="text" class="form-control" value="<?php echo $residencia['sdtiempoestimado'] . ' meses'; ?>" readonly>
+                    </div>
+                    <div class="col">
+                        <label for="nomAsesorInterno" class="form-label h6">Nombre Asesor Interno:</label>
+                        <input type="text" class="form-control" value="<?php echo $asesorI['nombreasesor'] ?>" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container p-3">
+                <div class="row">
+                    <div class="col">
+                        <label for="fecha" class="form-label h6">Fecha:</label>
+                        <input type="date" class="form-control" value="<?php echo date('Y-m-d'); ?>" readonly>
+                    </div>
+                    <div class="col">
+                        <label for="opcionElegida" class="form-label h6">Opción elegida:</label>
+                        <select id="opcionElegida" name="opcionElegida" disabled class="form-select">
+                            <option class="form-control" value="Op1" <?php if ($residencia['sropcionelegida'] == 'Op1') echo 'selected'; ?>>Propuesta Propia</option>
+                            <option class="form-control" value="Op2" <?php if ($residencia['sropcionelegida'] == 'Op2') echo 'selected'; ?>>Trabajador</option>
+                            <option class="form-control" value="Op3" <?php if ($residencia['sropcionelegida'] == 'Op3') echo 'selected'; ?>>Banco de Proyectos</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="SPVacantes" class="form-label h6">Número Residentes:</label>
+                        <input type="number" class="form-control" min="1" max="4" placeholder="0" value="<?php echo $residencia['spestudiantesrequeridos']; ?>" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-9 d-flex mb-3 p-3">
+                <label for="Anteproyecto" class="form-label h6">Anteproyecto:</label>
+                <a href="exc/downloadAnteproy.php?SRID=<?php echo $SRID?>" download target="blank">Descargar Anteproyecto</a>
+            </div>
+
+            <div class="p-4 rounded-bottom" style="background-color: #384970;">
+                <div class="row text-center">
+                    <div class="col-md-6 mb-2">
+                        <div class="row">
+                            <div class="col">
+                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                    data-bs-target="#datosEmpresaModal"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="16" height="16" fill="currentColor" class="bi bi-buildings"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022ZM6 8.694 1 10.36V15h5V8.694ZM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15Z" />
+                                        <path
+                                            d="M2 11h1v1H2v-1Zm2 0h1v1H4v-1Zm-2 2h1v1H2v-1Zm2 0h1v1H4v-1Zm4-4h1v1H8V9Zm2 0h1v1h-1V9Zm-2 2h1v1H8v-1Zm2 0h1v1h-1v-1Zm2-2h1v1h-1V9Zm0 2h1v1h-1v-1ZM8 7h1v1H8V7Zm2 0h1v1h-1V7Zm2 0h1v1h-1V7ZM8 5h1v1H8V5Zm2 0h1v1h-1V5Zm2 0h1v1h-1V5Zm0-2h1v1h-1V3Z" />
+                                    </svg> Datos de la Empresa
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                    data-bs-target="#datosResidenteModal"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="16" height="16" fill="currentColor" class="bi bi-person-fill"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                                    </svg> Datos del Residente
+                                </button>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="columnaR">
-                        <div class="form-row">
-                            <label for="numeroSeguro">Para seguridad social acudir:</label>
-                            <input type="text" name="numeroSeguro" value="<?php echo $residente['seguro_social'] ?>" required disabled>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col">
+                                <button type="button" class="btn btn-success"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="16" height="16" fill="currentColor" class="bi bi-check-circle"
+                                        viewBox="0 0 16 16" onclick="enviarValor('APROBADO')">
+                                        <path
+                                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                        <path
+                                            d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
+                                    </svg> Aceptar
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="16" height="16" fill="currentColor" class="bi bi-x-circle"
+                                        viewBox="0 0 16 16" onclick="enviarValor('RECHAZADO')">
+                                        <path
+                                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                        <path
+                                            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                                    </svg> Rechazar
+                                </button>
+                            </div>
+                            <div class="col">
+                                <a href="./profesorListadoSoliRes.php" class="btn btn-secondary mt-md-0 mt-2" onclick=""><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-x-circle" viewBox="0 0 16 16">
+                                        <path
+                                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                        <path
+                                            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                                    </svg> Cancelar</a>
+                            </div>
                         </div>
-                        <div class="form-row">
-                            <input type="radio" id="imss" name="tipoSeguro" value="IMSS" <?php if($residente['institucionseguro'] == 'IMSS') echo 'checked'; ?> required disabled>
-                            <label for="imss">IMSS</label>
-                            <input type="radio" id="issste" name="tipoSeguro" value="ISSSTE" <?php if($residente['institucionseguro'] == 'ISSSTE') echo 'checked'; ?> required disabled>
-                            <label for="issste">ISSSTE</label>
-                            <input type="radio" id="otro" name="tipoSeguro" value="OTROS" <?php if(empty($residente['institucionseguro']) || $residente['institucionseguro'] == 'Otro' || ($residente['institucionseguro'] != 'IMSS' && $residente['institucionseguro'] != 'ISSSTE')) echo 'checked'; ?> required disabled>
-                            <label for="otro">OTROS</label>
-                        </div>
-                        <div class="form-row">
-                            <label for="cuidad">Ciudad:</label>
-                            <input type="text" id="cuidad" name="cuidad" value="<?php echo $residente['ciudad'] ?>" disabled ='disabled' required>
-                        </div>
-                        <div class="form-row">
-                            <label for="telefono">Teléfono:</label>
-                            <input type="tel" name="telAlumno" id="telefono" value="<?php echo $residente['tel'] ?>" required disabled>
-                        </div>
-                        <div class="form-row">
-                                <label for="Anteproyecto">Anteproyecto:</label>
-                                <a href="exc/downloadAnteproy.php?SRID=<?php echo $SRID?>" target="_blank">DESCARGAR</a>
-                        </div>
-                    </div>  
-
-
-                </section>
-            <!-- <div align="left">
-                <label for="SRAnteProyecto">Constancia: </label>
-                    <div class="form-group" align="left">
-                            <label for="file-input">
-                                <img src="../img/archivo.jpg" width="70px"/>
-                            </label>
-                        <input id="file-input" type="file" name ="constancia" required/>
                     </div>
-                </div> -->
-            </article>
-        </fieldset>
-    </form>
-    <form method="POST" action="funcionesFProfesor.php">
-        <div id="myDiv" style="background-color: gray; width: 100%; margin-top: 20px; margin-bottom: 20px;">
-            <div style="margin-bottom: 10px;" align="center">
-              <textarea id="myTextArea" name="observaciones" style="width: 60%; margin-top: 10px; margin-bottom: 10px;" rows="4" cols="50">Observaciones:</textarea>
-          </div>
-          <div style="text-align: center;  margin-top: 10px; margin-bottom: 10px;">
-            <input type="hidden" name="SRID" value="<?php echo $SRID?>">
-            <input type="hidden" name="accion" id="accion" value="">
-            <input type="submit" name="aceptar" value="Aprobar" onclick="if(confirm('¿Está seguro que desea aprobar esta solicitud?')) { document.getElementById('accion').value = 'APROBADO'; } else { return false; }" style="margin-right: 10px; padding: 5px 10px; background-color: green; color: white;">
-            <input type="submit" name="rechazar" value="Rechazar" onclick="if(confirm('¿Está seguro que desea rechazar esta solicitud?')) { document.getElementById('accion').value = 'RECHAZADO'; } else { return false; }" style="padding: 5px 10px; background-color: red; color: white;">
-        </div>
-        <div></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col text-center text-white">
+                        <label for="observaciones" class="form-label h6">Observaciones:</label>
+                        <textarea class="form-control" rows="3" name="observaciones"></textarea>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
-</form>
-<footer style="background-color: #E8EDEB; padding: 20px; text-align: center; color: #333;"></footer>
+</div>
+
+<!-- Modal de Datos de la Empresa -->
+<div class="modal fade" id="datosEmpresaModal">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content" style="background-color: #E9ECEF;">
+
+            <div class="modal-header" style="background-color: #384970;">
+                <h5 class="modal-title text-white">Datos de la Empresa</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="mb-2">
+                    <label for="ENombre">Nombre:</label>
+                    <input type="text" class="form-control" value="<?php echo $empresa['nombre'] ?>" readonly>
+                </div>
+                <div class="mb-2">
+                    <label for="EActPrincipal">Actividad principal de la empresa:</label>
+                    <input type="text" class="form-control" value="<?php echo $empresa['eactprincipal'] ?>" readonly>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="Eramo">Ramo:</label>
+                        <select id="Eramo" name="Eramo" disabled class="form-select">
+                            <option value="Industrial" <?php if($empresa['ramo'] == 'Industrial') echo 'selected'; ?>>Industrial</option>
+                            <option value="Servicios" <?php if($empresa['ramo'] == 'Servicios') echo 'selected'; ?>>Servicios</option>
+                            <option value="Escolar" <?php if($empresa['ramo'] == 'Escolar') echo 'selected'; ?>>Escolar</option>
+                            <option value="Otro" <?php if(empty($empresa['ramo']) || $empresa['ramo'] == 'Otro' || ($empresa['ramo'] != 'Industrial' && $empresa['ramo'] != 'Servicios' && $empresa['ramo'] != 'Escolar')) echo 'selected'; ?>>Otro</option>
+                        </select>
+                    </div>
+                    <div class="col mb-3">
+                        <label for="ESector">Sector:</label>
+                        <select id="ESector" name="ESector" disabled class="form-select">
+                            <option value="Publico" <?php if($empresa['esector'] == 'Publico') echo 'selected'; ?>>Publico</option>
+                            <option value="Privado" <?php if($empresa['esector'] == 'Privado') echo 'selected'; ?>>Privado</option>
+                            <option value="Otro" <?php if(empty($empresa['esector']) || $empresa['esector'] == 'Otro' || ($empresa['esector'] != 'Publico' && $empresa['esector'] != 'Privado')) echo 'selected'; ?>>Otro</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="ERFC">RFC:</label>
+                        <input type="text" class="form-control" value="<?php echo $empresa['erfc'] ?>" readonly>
+                    </div>
+                    <div class="col mb-3">
+                        <label for="ECp">CP:</label>
+                        <input type="text" class="form-control" value="<?php echo $empresa['ecp'] ?>" readonly>
+                    </div>
+                    <div class="col mb-3">
+                        <label for="EFax">FAX:</label>
+                        <input type="text" class="form-control" value="<?php echo $empresa['efax'] ?>" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="EColonia">Colonia:</label>
+                        <input type="text" class="form-control" value="<?php echo $empresa['ecolonia'] ?>" readonly>
+                    </div>
+                    <div class="col mb-3">
+                        <label for="ECiudad">Ciudad:</label>
+                        <input type="text" class="form-control" value="<?php echo $empresa['eciudad'] ?>" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col mb-3">
+                        <label for="EDomicilio">Domicilio:</label>
+                        <input type="text" class="form-control" value="<?php echo $empresa['edomicilio'] ?>" readonly>
+                    </div>
+                    <div class="col mb-3">
+                        <label for="ETelefono">Teléfono:</label>
+                        <input type="tel" class="form-control" value="<?php echo $empresa['etelefono'] ?>" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="nombreTitular">Nombre del titular de la empresa:</label>
+                        <input type="text" class="form-control" value="<?php echo $empresa['enombretitular']?>" readonly>
+                    </div>
+
+                    <div class="col mb-3">
+                        <label for="puestoTitular">Puesto:</label>
+                        <input type="text" class="form-control" value="<?php echo $empresa['epuestotitular']?>" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="nomAsesorExterno">Nombre del Asesor externo:</label>
+                        <input type="text" class="form-control" value="<?php echo $empresa['enombreacuerdo']?>" readonly>
+                    </div>
+
+                    <div class="col mb-3">
+                        <label for="puestoAsesor">Puesto:</label>
+                        <input type="text" class="form-control" value="<?php echo $empresa['epuestoacuerdo']?>" readonly>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="ENombreEncargado">Nombre de la persona que firmará el acuerdo de trabajo.
+                        Estudiante- Escuela-Empresa:</label>
+                    <input type="text" class="form-control" value="<?php echo $empresa['enombreacuerdo']?>" readonly>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center" style="background-color: #384970;">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- MODAL DE EL RESIDENTE-->
+<div class="modal fade" id="datosResidenteModal">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content" style="background-color: #E9ECEF;">
+            <div class="modal-header" style="background-color: #384970;">
+                <h5 class="modal-title text-white" id="datosResidenteModalLabel">Datos del Residente</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="nombreResidente">Nombre:</label>
+                        <input type="text" class="form-control" value="<?php echo $residente['nombre'] ?>" readonly>
+                    </div>
+                    <div class="col mb-3">
+                        <label for="carrera">Carrera:</label>
+                        <input type="text" class="form-control" value="<?php echo $residente['nomcarrera'] ?>" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="numControl">Número de Control:</label>
+                        <input type="text" class="form-control" value="<?php echo $residente['numcontrol'] ?>" readonly>
+                    </div>
+                    <div class="col mb-3">
+                        <label for="numSemestre">Semestre a cursar:</label>
+                        <input type="text" class="form-control" value="<?php echo $residente['semestre'] ?>" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="numeroSeguro">Para seguridad social acudir:</label>
+                        <input type="text" class="form-control" placeholder="No.:" value="<?php echo $residente['seguro_social'] ?>" readonly>
+                        <div class="mb-3">
+                            <input class="form-check-input" type="radio" id="imss" name="tipoSeguro" value="IMSS" <?php if($residente['institucionseguro'] == 'IMSS') echo 'checked'; ?> readonly disabled>
+                            <label class="form-check-label" for="imss">IMSS</label>
+                            <input class="form-check-input" type="radio" id="issste" name="tipoSeguro" value="ISSSTE" <?php if($residente['institucionseguro'] == 'ISSSTE') echo 'checked'; ?> readonly disabled>
+                            <label class="form-check-label" for="issste">ISSSTE</label>
+                            <input class="form-check-input" type="radio" id="otro" name="tipoSeguro" value="OTROS" <?php if(empty($residente['institucionseguro']) || $residente['institucionseguro'] == 'Otro' || ($residente['institucionseguro'] != 'IMSS' && $residente['institucionseguro'] != 'ISSSTE')) echo 'checked'; ?> readonly disabled>
+                            <label class="form-check-label" for="otro">OTROS</label>
+                        </div>
+                    </div>
+                    <div class="col mb-3">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" value="<?php echo $residente['email'] ?>" readonly>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="domicilio">Domicilio:</label>
+                    <input type="text" class="form-control" value="<?php echo $residente['domicilio'] ?>" readonly>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="cuidad">Ciudad:</label>
+                        <input type="text" class="form-control" value="<?php echo $residente['ciudad'] ?>" readonly>
+                    </div>
+                    <div class="col mb-3">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" class="form-control" value="<?php echo $residente['tel'] ?>" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center" style="background-color: #384970;">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
-    window.location.href = "#myDiv";
+    function enviarValor(valor) {
+        document.getElementById("accion").value = valor;
+        document.getElementById("myForm").submit();
+    }
 </script>
-</body>
-</html>
+<?php
+include 'footer.php';
+?>
