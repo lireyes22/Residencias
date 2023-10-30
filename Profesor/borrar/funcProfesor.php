@@ -285,20 +285,4 @@
         while (mysqli_next_result($conection)) { }
         return $query;
     }
-    function SolicitudData($SPID){
-        $link = conn();
-        $query = "SELECT * FROM SolicitudProyecto WHERE SPID = '$SPID'";
-        $result = mysqli_query($link, $query);
-        // vaciar el buffer de resultados
-        while (mysqli_next_result($link)) { }
-        return mysqli_fetch_array($result);
-    }
-    function empresa($SPID){
-        $conection = conn();
-        $sql = "SELECT Empresas.ENombre FROM Empresas INNER JOIN SolicitudProyecto ON Empresas.ERFC = SolicitudProyecto.ERFC WHERE SolicitudProyecto.SPID = $SPID;";
-        $query = mysqli_query($conection, $sql);
-        // vaciar el buffer de resultados
-        while (mysqli_next_result($conection)) { }
-        return $query;
-    }
 ?>
