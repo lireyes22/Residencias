@@ -3,9 +3,10 @@ include 'headAlumnos.php';
 ?>
 <div class="col ms-sm-auto px-4">
     <div class="container col-9">
+
         <form action="#" class="mb-5 mt-5 shadow-lg" style="background-color: #E9ECEF;">
             <div class="rounded-top p-2" style=" background-color: #384970; color: white;">
-                <h2 class="text-center text-white">Solicitar Proyecto</h2>
+                <h2 class="text-center text-white">Editar Solicitud de Residencia</h2>
             </div>
 
             <div class="mt-3 p-3">
@@ -75,8 +76,8 @@ include 'headAlumnos.php';
                 </div>
             </div>
 
-            <div class="d-flex justify-content-around mb-3 p-3">
-                <label for="Anteproyecto" class="form-label h6">Anteproyecto</label>
+            <div class="col-9 d-flex justify-content-around mb-3 p-3">
+                <label for="Anteproyecto" class="form-label h6">Anteproyecto corregido:</label>
                 <input type="file" class="form-control" name="Anteproyecto" accept="application/pdf">
             </div>
 
@@ -99,7 +100,7 @@ include 'headAlumnos.php';
                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                         <path
                             d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-                    </svg> Enviar Solicitud</button>
+                    </svg> Reenviar Solicitud</button>
 
                 <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
                     data-bs-target="#datosResidenteModal">
@@ -146,7 +147,7 @@ include 'headAlumnos.php';
                     </div>
                     <div class="col mb-3">
                         <label for="ESector">Sector:</label>
-                        <select class="form-select">
+                        <select class="form-selet">
                             <option>Público</option>
                             <option>Privado</option>
                             <option>Otro</option>
@@ -285,7 +286,7 @@ include 'headAlumnos.php';
                 </div>
             </div>
             <div class="modal-footer d-flex justify-content-center" style="background-color: #384970;">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"></button>
             </div>
         </div>
     </div>
