@@ -67,5 +67,5 @@ include 'headAlumnos.php';
 
 
 <?php
-include 'footprofesores.php';
+include 'footer.php';
 ?>
