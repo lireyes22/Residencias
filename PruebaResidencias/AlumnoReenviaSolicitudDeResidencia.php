@@ -82,7 +82,7 @@ include 'headAlumnos.php';
             </div>
 
             <div class="d-flex justify-content-around p-4 rounded-bottom" style="background-color: #384970;">
-                <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                <button type="button" class="btn btn-light" data-bs-toggle="modal"
                     data-bs-target="#datosEmpresaModal">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-buildings" viewBox="0 0 16 16">
@@ -102,7 +102,7 @@ include 'headAlumnos.php';
                             d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
                     </svg> Reenviar Solicitud</button>
 
-                <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                <button type="button" class="btn btn-light" data-bs-toggle="modal"
                     data-bs-target="#datosResidenteModal">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-person-fill" viewBox="0 0 16 16">
