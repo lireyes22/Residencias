@@ -17,7 +17,7 @@ $docenteResProy = $IDUser;
 $estatus="PENDIENTE";
 $RFCEmpresa=$_POST['Empresas'];
 $carreraReqProy = $_POST['carreraReq'];
-
+/*
 echo $nameProy;
 echo $objetivoProy;
 echo $descripcionProy;
@@ -29,7 +29,7 @@ echo $lineaInvsProy;
 echo $referebciasEProy;
 echo $docenteResProy;
 echo $RFCEmpresa;
-
+*/
 
 $query = "INSERT INTO SolicitudProyecto (SPID,SPNombreProyecto, SPObjetivo, SPDescripcion, SPImpacto, SPLugar, SPEstudiantesRequeridos, SDTiempoEstimado, SPTipo, SPLineaInvestigacion , SPReferencias, UIDResponsable,SPEstatus,ERFC) 
 VALUES(null,'$nameProy','$objetivoProy','$descripcionProy','$impactoProy','$lugarProy','$estudiantesReqProy','$tiempoEst','$tipoPropProy','$lineaInvsProy','$referebciasEProy','$docenteResProy','$estatus','$RFCEmpresa')";
@@ -45,6 +45,7 @@ foreach($carreraReqProy as $checkbox){
     if($result)
     {
         echo"<script  language='javascript'>window.location='../profesorMisProyectos.php'</script>"; 
+        echo"<script>alert('Realizado Correctamente')</script>";
 
     }
     else
