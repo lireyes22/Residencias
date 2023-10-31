@@ -324,4 +324,29 @@
             'jefeDivision' => $query['NombreCompleto']
         );
     }
+    function comentarios($SPID){
+        $conection = conn();
+        $sql = "SELECT profesor.`NombreCompleto`, profesor.`CorreoInstitucional`, comisionproyectoprofesor.`CPPFechaLimite`, comisionproyectoprofesor.`CPPEstatus`, comisionproyectoprofesor.`CPPObservaciones`
+        FROM profesor INNER JOIN profesor_usuarios ON profesor.`RFCProfesor` = profesor_usuarios.`RFCProfesor` INNER JOIN comisionproyectoprofesor ON comisionproyectoprofesor.`UProfesor` = profesor_usuarios.`UID`
+        WHERE comisionproyectoprofesor.`SPID` = $SPID;";
+        $query = mysqli_fetch_assoc(mysqli_query($conection, $sql));
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        if(!isset($query)){
+            return array(
+                'Nombre' => 'Sin revision asignada',
+                'Correo' => '-',
+                'Fecha' => '-',
+                'Estatus' => '-',
+                'Comentarios' => '-'
+            );
+        }
+        return array(
+            'Nombre' => $query['NombreCompleto'],
+            'Correo' => $query['CorreoInstitucional'],
+            'Fecha' => $query['CPPFechaLimite'],
+            'Estatus' => $query['CPPEstatus'],
+            'Comentarios' => $query['CPPObservaciones']
+        );
+    }
 ?>
