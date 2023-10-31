@@ -96,7 +96,7 @@ include 'headprofesores.php';
                 </div>
             </div>
 
-            <div class="col-9 d-flex mb-3 p-3">
+            <div class="container p-3">
                 <label for="Anteproyecto" class="form-label h6">Anteproyecto:</label>
                 <a href="exc/downloadAnteproy.php?SRID=<?php echo $SRID?>" download target="blank">Descargar Anteproyecto</a>
             </div>
