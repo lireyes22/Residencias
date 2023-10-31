@@ -61,7 +61,7 @@
 
             <div id="contenedor" class="row">
 
-                <div id="menu" class="collapse collapse-horizontal bg-white menu col-sm-12 col-md-5 col-lx-4 col-xxl-2">
+                <div id="menu" class="collapse collapse-horizontal bg-white menu col-sm-12 col-md-3 col-lx-3 col-xxl-2">
                 
                     <ul id="lista"  class="nav flex-column">
                         <li class="nav-item  p-3 row">

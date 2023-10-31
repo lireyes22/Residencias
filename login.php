@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Residencias</title>
     <link
       rel="stylesheet"
@@ -15,7 +15,7 @@
   <body>
     <div class="login_form_container">
       <div class="login_form">
-        <h2>Login</h2>
+        <h2>Residencias</h2>
         <form action="procesarLogin.php" method="POST">
           <div class="input_group">
           <i class="fa fa-user"></i>
