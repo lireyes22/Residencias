@@ -6,7 +6,7 @@
     
     //Llamo a funciones
     $empresa = getEmpresa($SPID);
-    $residente = getResidente($_SESSION['id']);
+    $residente = getResidente($_SESSION['id']); 
     $residencia = getResidencia($SPID);
     $asesorI = getAsesor($SPID);   
     $validar = validarRes($SPID, $_SESSION['id']);
@@ -100,7 +100,7 @@ include 'headAlumnos.php';
                 </div>
             </div>
 
-            <div class="d-flex justify-content-around mb-3 p-3">
+            <div class="container p-3">
                 <label for="Anteproyecto" class="form-label h6">Anteproyecto</label>
                 <input type="file" class="form-control" name="Anteproyecto" accept="application/pdf">
             </div>
