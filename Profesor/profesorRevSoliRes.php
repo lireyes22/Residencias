@@ -102,8 +102,8 @@ include 'headprofesores.php';
             </div>
 
                <div class="p-4 rounded-bottom" style="background-color: #384970;">
-                    <div class="d-flex justify-content-around">
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal"
+                    <div class="d-flex flex-wrap justify-content-around">
+                            <button type="button" class="btn btn-light mb-2" data-bs-toggle="modal"
                                     data-bs-target="#datosEmpresaModal"><svg xmlns="http://www.w3.org/2000/svg"
                                     width="16" height="16" fill="currentColor" class="bi bi-buildings"
                                     viewBox="0 0 16 16">
@@ -113,7 +113,7 @@ include 'headprofesores.php';
                                     d="M2 11h1v1H2v-1Zm2 0h1v1H4v-1Zm-2 2h1v1H2v-1Zm2 0h1v1H4v-1Zm4-4h1v1H8V9Zm2 0h1v1h-1V9Zm-2 2h1v1H8v-1Zm2 0h1v1h-1v-1Zm2-2h1v1h-1V9Zm0 2h1v1h-1v-1ZM8 7h1v1H8V7Zm2 0h1v1h-1V7Zm2 0h1v1h-1V7ZM8 5h1v1H8V5Zm2 0h1v1h-1V5Zm2 0h1v1h-1V5Zm0-2h1v1h-1V3Z" />
                                     </svg> Datos de la Empresa
                             </button>
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal"
+                            <button type="button" class="btn btn-light mb-2" data-bs-toggle="modal"
                                     data-bs-target="#datosResidenteModal"><svg xmlns="http://www.w3.org/2000/svg"
                                     width="16" height="16" fill="currentColor" class="bi bi-person-fill"
                                     viewBox="0 0 16 16">
@@ -128,7 +128,7 @@ include 'headprofesores.php';
                              <textarea class="form-control" rows="3"></textarea>
                         </div>
                    </div>
-                    <div class="d-flex justify-content-around">
+                    <div class="d-flex flex-wrap justify-content-around">
                             <button type="button" class="btn btn-success" onclick="enviarValor('APROBADO')"><svg xmlns="http://www.w3.org/2000/svg"
                                     width="16" height="16" fill="currentColor" class="bi bi-check-circle"
                                     viewBox="0 0 16 16">

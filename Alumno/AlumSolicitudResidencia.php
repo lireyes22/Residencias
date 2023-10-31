@@ -107,8 +107,8 @@ include 'headAlumnos.php';
                 <input class="form-control" accept=".pdf" type="file" name="anteproyecto">
             </div>
 
-            <div class="d-flex justify-content-around p-4 rounded-bottom" style="background-color: #384970;">
-                <button type="button" class="btn btn-light" data-bs-toggle="modal"
+            <div class="d-flex flex-wrap justify-content-around p-4 rounded-bottom" style="background-color: #384970;">
+                <button type="button" class="btn btn-light mb-2" data-bs-toggle="modal"
                     data-bs-target="#datosEmpresaModal">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-buildings" viewBox="0 0 16 16">
@@ -119,7 +119,7 @@ include 'headAlumnos.php';
                     </svg> Datos de la Empresa
                 </button>
 
-                <button type="button" class="btn btn-light" data-bs-toggle="modal"
+                <button type="button" class="btn btn-light mb-2" data-bs-toggle="modal"
                     data-bs-target="#datosResidenteModal">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-person-fill" viewBox="0 0 16 16">
@@ -128,7 +128,7 @@ include 'headAlumnos.php';
                 </button>
                 <?php
                     if ($validar['activo'] == false) {
-                        echo '<button type="submit" name="EnviarSolicitud" value="Enviar Solicitud" formaction="AlumSubeSolicitud.php" class="btn btn-success" onclick="return confirm(\'¿Estás seguro de que deseas enviar la solicitud?\')">
+                        echo '<button type="submit" name="EnviarSolicitud" value="Enviar Solicitud" formaction="AlumSubeSolicitud.php" class="btn btn-success mb-2" onclick="return confirm(\'¿Estás seguro de que deseas enviar la solicitud?\')">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                     <path
@@ -137,7 +137,7 @@ include 'headAlumnos.php';
                                 Enviar Solicitud
                               </button>';
                     } else {
-                        echo '<button type="submit" name="EnviarSolicitud" value="Enviar Solicitud" formaction="AlumSubeSolicitud.php" class="btn btn-success" onclick="alert(\'Esta opción no está disponible por lo siguiente: ' . $validar['mensaje'] . '\'); return false;">
+                        echo '<button type="submit" name="EnviarSolicitud" value="Enviar Solicitud" formaction="AlumSubeSolicitud.php" class="btn btn-success mb-2" onclick="alert(\'Esta opción no está disponible por lo siguiente: ' . $validar['mensaje'] . '\'); return false;">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                     <path

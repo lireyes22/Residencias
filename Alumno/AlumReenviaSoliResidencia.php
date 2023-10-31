@@ -137,8 +137,8 @@ include 'headAlumnos.php';
             </div>
             
 
-            <div class="d-flex justify-content-around p-4 rounded-bottom" style="background-color: #384970;">
-                <button type="button" class="btn btn-light" data-bs-toggle="modal"
+            <div class="d-flex flex-wrap justify-content-around p-4 rounded-bottom" style="background-color: #384970;">
+                <button type="button" class="btn btn-light mb-2" data-bs-toggle="modal"
                     data-bs-target="#datosEmpresaModal">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-buildings" viewBox="0 0 16 16">
@@ -149,17 +149,15 @@ include 'headAlumnos.php';
                     </svg> Datos de la Empresa
                 </button>
 
-                <button type="button" class="btn btn-light" data-bs-toggle="modal"
+                <button type="button" class="btn btn-light mb-2" data-bs-toggle="modal"
                     data-bs-target="#datosResidenteModal">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-person-fill" viewBox="0 0 16 16">
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                     </svg> Datos del Residente
                 </button>
-                
-                    
                         <input type="hidden" name="SRID" value="<?php echo $SRID; ?>">
-                        <button type="submit" class="btn btn-success" formaction="inserts/updateAnteproyecto.php" onclick="return confirm('¿Estás seguro de que deseas enviar la solicitud?')">
+                        <button type="submit" class="btn btn-success mb-2" formaction="inserts/updateAnteproyecto.php" onclick="return confirm('¿Estás seguro de que deseas enviar la solicitud?')">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                 <path
