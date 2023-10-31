@@ -1,6 +1,6 @@
 <?php
 include '../InicioSessionSeg.php';
-  $idAlumno = $_SESSION['id']; 
+$idAlumno = $_SESSION['id'];
 include 'headAlumnos.php';
 ?>
 <!-- Main -->
@@ -138,9 +138,10 @@ include 'headAlumnos.php';
         <div class="card-body">
           <p class="card-text">Referencias bibliográficas.</p>
         </div>
+        <div class="footer">Recuerda tener todo en orden</div>
       </div>
     </div>
-    
+
   </div>
   <!-- Boton enviar -->
   <div class="container">
