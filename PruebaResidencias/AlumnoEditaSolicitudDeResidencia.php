@@ -290,7 +290,7 @@ include 'headAlumnos.php';
                 </div>
             </div>
             <div class="modal-footer d-flex justify-content-center" style="background-color: #384970;">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"></button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
