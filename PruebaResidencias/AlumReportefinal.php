@@ -7,6 +7,17 @@ include 'headAlumnos.php';
   <!-- Cards -->
   <h1 class="text-center mt-5">Estructura del Reporte Final</h1>
   <br>
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Bienvenido, aquí podrás visualizar los componentes necesarios para tu reporte final</h4>
+      <p class="card-text">El reporte final es el último paso para concluir tu residencia profesional, por lo que es importante
+        desarrollarlo correctemente. Si tienes dudas sobre los requerimientos necesarios para tu reporte, puedes consultarlo más
+        abajo en el orden indicado y con una breve descripción.
+      </p>
+      <a href="#reporteLink" class="card-link">¿Tu reporte final está listo? Subelo aquí</a>
+    </div>
+  </div>
+  <br>
   <div class="row">
     <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
       <div class="card">
@@ -144,7 +155,7 @@ include 'headAlumnos.php';
   <!-- Boton enviar -->
   <div class="container">
     <form>
-      <div class="mb-3">
+      <div class="mb-3" id="reporteLink">
         <label for="archivo" class="form-label">Carga aquí tu reporte final</label>
         <input type="file" class="form-control w-25" id="archivo" name="archivo">
       </div>
