@@ -24,7 +24,7 @@
             </div>
         
             <div id="titulo" class="col-lg-10">
-                <h1>Profesor</h1>
+                <h1>Jefe de Departamento</h1>
             </div>
 
             <div id="user" class="container my-1 col-lg-1">
