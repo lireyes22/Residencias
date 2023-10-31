@@ -57,7 +57,7 @@ while ($proy = mysqli_fetch_array($result)){
 	<div class="container mt-3 text-center">
 		<div class="container text-start mb-4">
 			<div class="h4"><?php echo $row[0]; ?></div>
-			<div class=" container text-end mb-2">
+			<div class="d-flex justify-content-end container mb-2">
 				<?php 
 				if($row[1] != 'ACEPTADO' && $row[1] != 'RECHAZADO' && $row[1] != 'REVISION'){
 			?>
