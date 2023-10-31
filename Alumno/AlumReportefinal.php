@@ -138,7 +138,7 @@ include 'headAlumnos.php';
         <div class="card-body">
           <p class="card-text">Referencias bibliográficas.</p>
         </div>
-        <div class="card-footer">Recuerda tener todo en orden</div>
+        <div class="card-footer">Procura tener este apartado correctamente estructurado</div>
       </div>
     </div>
 
