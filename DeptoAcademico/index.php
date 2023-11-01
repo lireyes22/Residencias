@@ -1,38 +1,23 @@
 <?php
 	include ('../InicioSessionSeg.php');
 	$UID = $_SESSION['id'];
+	include 'funcionesDepto.php';
+	$nombreCompleto = bienvenida($UID);
+	$nombre = explode(" ", $nombreCompleto);
+	include 'headDeptoAca.php';
 ?>
-<!DOCTYPE html>
-<html>
-
-<head>
-	<title>Departamento Academico</title>
-	<link rel="stylesheet" href="../style/style.css">
-</head>
-
-<body style="margin: 0;">
-	<div class="container">
-		<div class="row">
-			<div class="left-column">
-				<a class="home-btn" href="index.php">
-					<h2><span style="margin-right: 10px;">Dep. Academico</span></h2>
-					<img src="../img/sombrero.png" width="50px">
-				</a>
-			</div>
-			<div class="center-column">
-				<h1>Lista de Proyectos</h1>
-			</div>
-			<div class="right-column">
-				<a href="../usuariosConfig.php?idUsuario=<?php echo $_SESSION['id'];?>"><img src="../img/configuraciones.png" width="50px"></a> &nbsp; &nbsp;
-				<a href="../logout.php"><img src="../img/logout.png" width="40px"></a>
-			</div>
-		</div>
-		<?php
-        include 'MenuDeptoAcademico.html';
-        ?>
-	</div> 
-	<div>
-		<h1></h1>
-	</div>
-</body>
-</html>
+<div class="container col ms-sm-auto px-4">
+<div class="card">
+  <div class="card-header">
+    ¡BIENVENIDO!
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Sistema de Residencias Profesionales.</h5>
+    <p class="card-text">Nos alegra verte de nuevo, <?php echo $nombre[0] ?>.</p>
+    <a href="./deptoAcaAsigProyResV2.php" class="btn btn-primary">Nuevos Proyectos</a>
+  </div>
+</div>
+</div>
+<?php
+include 'footer.php';
+?>

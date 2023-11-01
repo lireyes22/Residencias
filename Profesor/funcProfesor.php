@@ -324,6 +324,14 @@
             'jefeDivision' => $query['NombreCompleto']
         );
     }
+    function bienvenida($UID){
+        $conection = conn();
+        $sql = "SELECT Profesor.NombreCompleto FROM profesor INNER JOIN profesor_usuarios ON profesor.`RFCProfesor` = profesor_usuarios.`RFCProfesor` WHERE profesor_usuarios.UID = '$UID'";
+        $query = mysqli_fetch_assoc(mysqli_query($conection, $sql));
+        // vaciar el buffer de resultados
+        while (mysqli_next_result($conection)) { }
+        return $query['NombreCompleto'];
+    }
     function comentarios($SPID){
         $conection = conn();
         $sql = "SELECT profesor.`NombreCompleto`, profesor.`CorreoInstitucional`, comisionproyectoprofesor.`CPPFechaLimite`, comisionproyectoprofesor.`CPPEstatus`, comisionproyectoprofesor.`CPPObservaciones`
