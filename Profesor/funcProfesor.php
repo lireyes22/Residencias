@@ -258,7 +258,7 @@
 
     function listSPIDsolicitudes($UID){ //DEVUELVE EL SPID
         $conection = conn();
-        $sql = "SELECT SolicitudProyecto.`SPID` FROM `SolicitudProyecto` WHERE `SolicitudProyecto`.UIDResponsable = $UID;";
+        $sql = "SELECT SolicitudProyecto.`SPID` FROM `SolicitudProyecto` WHERE `SolicitudProyecto`.UIDResponsable = $UID AND SolicitudProyecto.SPEstatus != 'CANCELADO';";
         $query = mysqli_query($conection, $sql);
         // vaciar el buffer de resultados
         while (mysqli_next_result($conection)) { }

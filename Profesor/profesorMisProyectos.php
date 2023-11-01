@@ -60,7 +60,7 @@ while ($proy = mysqli_fetch_array($result)){
 			<div class="d-flex justify-content-end container mb-2">
 				<?php 
 				if($row[1] != 'ACEPTADO' && $row[1] != 'RECHAZADO' && $row[1] != 'REVISION'){
-			?>
+				?>
 				<form class="form" action="profesorEditProyRes.php" method="POST" target="blank">
 					<input type="hidden" name="SPID" value="<?php echo $proy[0]; ?>">
 					<button type="submit" class="btn btn-outline-primary">
@@ -80,10 +80,11 @@ while ($proy = mysqli_fetch_array($result)){
 				</form>
 				<?php
 				}
+				if($row[1] != 'ACEPTADO' && $row[1] != 'RECHAZADO' && $row[1] != 'REVISION'){
 				?>
 				<form action="exc/eliminar.php" method="post" id="formEliminar">
-					<input type="hidden" name="SPID" value="<?php echo $proy[0]; ?>" onclick="eliminar()">
-					<button type="submit" class="btn btn-outline-danger">
+					<input type="hidden" name="SPID" value="<?php echo $proy[0]; ?>">
+					<button type="button" class="btn btn-outline-danger" onclick="eliminar()">
 						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
 							class="bi bi-file-earmark-minus" viewBox="0 0 16 16">
 							<path d="M5.5 9a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z" />
@@ -92,11 +93,14 @@ while ($proy = mysqli_fetch_array($result)){
 						</svg>
 						<style>
 							.btn-outline-danger:hover::before {
-								content: "Eliminar";
+								content: "Cancelar";
 							}
 						</style>
 					</button>
 				</form>
+				<?php 
+				}
+				?>
 				<button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#myModal<?php echo $proy[0] ?>" role="tab">
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
 						class="bi bi-search" viewBox="0 0 16 16">
