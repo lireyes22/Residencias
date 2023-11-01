@@ -35,10 +35,10 @@ include 'headprofesores.php';
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
 						<?php
 						while ($row = mysqli_fetch_array($result)) {
 						?>
+						<tr>
 							<td><?php echo $row['SPNombreProyecto']; ?></td>
 							<td><?php echo $row['NombreCompleto']; ?></td>
 							<td><?php echo $row['ENombre']; ?></td>
@@ -60,10 +60,10 @@ include 'headprofesores.php';
 									</button>
 								</td>
 							</form>
-						<?php
-						}
-						?>
 						</tr>
+						<?php
+						} 
+						?>
 					</tbody>
 				</table>
 			</div>

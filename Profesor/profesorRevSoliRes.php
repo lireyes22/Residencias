@@ -124,7 +124,7 @@ include 'headprofesores.php';
                         </div>
                     <div class="row mb-3">
                         <div class="col text-center text-white">
-                             <label for="Observaciones" class="form-label h6">Observaciones:</label>
+                             <label for="observaciones" class="form-label h6">Observaciones:</label>
                              <textarea class="form-control" rows="3"></textarea>
                         </div>
                    </div>
