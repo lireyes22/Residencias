@@ -14,7 +14,7 @@ include 'headAsesorExterno.php';
           <a class="nav-link active border-3 text-black" id="parcial1-tab" data-bs-toggle="tab" href="#parcial1" role="tab" aria-controls="parcial1" aria-selected="true">Primer Parcial</a>
         </li>
         <li class="nav-item" role="presentation">
-          <a class="nav-link border-3 text-black" id="parcial2-tab" data-bs-toggle="tab" href="#parcial2" role="tab" aria-controls="parcial2" aria-selected="false">Segundo Parcial</a>
+          <a class="nav-link -3 text-black" id="parcial2-tab" data-bs-toggle="tab" href="#parcial2" role="tab" aria-controls="parcial2" aria-selected="false">Segundo Parcial</a>
         </li>
         <li class="nav-item col-md-3 text-center" role="presentation">
           <a class="nav-link border-2 border-2 text-black" id="informacionGeneral-tab" data-bs-toggle="modal" data-bs-target="#myModal" role="tab" aria-controls="informacionGeneral" aria-selected="false">
