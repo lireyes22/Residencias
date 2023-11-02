@@ -30,7 +30,7 @@ include 'headprofesores.php';
 						$i = 0;
 						while ($SPID_Pendiente = mysqli_fetch_array($result)){
 							   $row = mysqli_fetch_array(basicInfoProy($SPID_Pendiente[0]));
-					?>
+						?>
 						<tr>
 							<td><p><?php echo $row[1]?></p></td>
 							<td><p><?php echo $row[2]?></p></td>

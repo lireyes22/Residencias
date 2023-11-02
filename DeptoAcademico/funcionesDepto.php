@@ -9,6 +9,14 @@ function Ejemplo() {
     $query = mysqli_query($conection, $consulta);
     return $query;
 }
+function bienvenida($UID){
+    $conection = conn();
+    $sql = "SELECT Profesor.NombreCompleto FROM profesor INNER JOIN profesor_usuarios ON profesor.`RFCProfesor` = profesor_usuarios.`RFCProfesor` WHERE profesor_usuarios.UID = '$UID'";
+    $query = mysqli_fetch_assoc(mysqli_query($conection, $sql));
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    return $query['NombreCompleto'];
+}
     //Funciones NEFTALI logueo
 function GenerarLogAlum($correo) {
     $sql = "SELECT Alumnos.CorreoInstitucional, Alumnos.ContrasenaCorreo, Usuarios.URol, Usuarios.UID

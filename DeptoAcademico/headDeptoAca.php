@@ -24,7 +24,7 @@
             </div>
         
             <div id="titulo" class="col-lg-10">
-                <h1>Departamento Academico</h1>
+            <a href="./index.php" style="text-decoration: none;" class="text-white"><h1>Departamento Academico</h1></a>
             </div>
 
             <div id="user" class="container my-1 col-lg-1">

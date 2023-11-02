@@ -32,5 +32,5 @@
         echo 'n_';
     } 
     //Código JavaScript para cerrar la ventana
-    //echo "<script>window.close();</script>";
+    echo "<script>window.close();</script>";
 ?>
