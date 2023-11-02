@@ -7,7 +7,7 @@
 	include 'headDeptoAca.php';
 ?>
 <div class="container col ms-sm-auto px-4">
-<div class="card">
+<div class="card mt-4">
   <div class="card-header">
     ¡BIENVENIDO!
   </div>
