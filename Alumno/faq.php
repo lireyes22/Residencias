@@ -8,7 +8,7 @@ include 'headAlumnos.php';
       <nav class="navbar navbar-expand-sm rounded-2 justify-content-between" style="background-color: #384970;">
          <!-- Logo y texto a la izquierda -->
          <a class="navbar-brand">
-            <img src="recursos/image/faqIco.png" alt="Avatar Logo" style="width:40px; margin-left: 10px;" class="rounded-2">
+            <img src="../recursos/image/faqIco.png" alt="Avatar Logo" style="width:40px; margin-left: 10px;" class="rounded-2">
          </a>
          <!-- Menú de navegación a la derecha -->
          <ul class="navbar-nav">
@@ -38,21 +38,21 @@ include 'headAlumnos.php';
          <!-- carousel -->
          <div class="carousel-inner">
             <div class="carousel-item active">
-               <img src="recursos/image/a.png" alt="Imagen 1" class="d-block w-100">
+               <img src="../recursos/image/a.png" alt="Imagen 1" class="d-block w-100">
                <div class="carousel-caption" style="background-color: rgba(0, 0, 0, 0.5);">
                   <h3>¡Realiza tu residencia profesional!</h3>
                   <p>Ofrecemos una amplia variedad de proyectos de residencias profesionales en diferentes áreas de estudio.</p>
                </div>
             </div>
             <div class="carousel-item">
-               <img src="recursos/image/b.png" alt="Imagen 2" class="d-block w-100">
+               <img src="../recursos/image/b.png" alt="Imagen 2" class="d-block w-100">
                <div class="carousel-caption" style="background-color: rgba(0, 0, 0, 0.5);">
                   <h3>¡Conoce la Feria de Residencias Profesionales del ITCH!</h3>
                   <p>¿Quieres conocer las últimas tendencias en residencias profesionales? ¡No te pierdas la Feria de Residencias Profesionales del ITCH!</p>
                </div>
             </div>
             <div class="carousel-item">
-               <img src="recursos/image/c.png" alt="Imagen 3" class="d-block w-100">
+               <img src="../recursos/image/c.png" alt="Imagen 3" class="d-block w-100">
                <div class="carousel-caption" style="background-color: rgba(0, 0, 0, 0.5);">
                   <h3>¿Tienes todo listo?</h3>
                   <p>Da el siguiente paso en tu carrera profesional, ¡Inscríbete hoy mismo a una residencia profesional en el ITCH! </p>
