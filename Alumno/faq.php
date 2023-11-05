@@ -11,15 +11,15 @@ include 'headAlumnos.php';
             <img src="../recursos/image/faqIco.png" alt="Avatar Logo" style="width:40px; margin-left: 10px;" class="rounded-2">
          </a>
          <!-- Menú de navegación a la derecha -->
-         <ul class="navbar-nav">
+         <ul class="navbar-nav btn-group">
             <li class="nav-item">
-               <a class="nav-link text-white" href="#acordeon">Preguntas frecuentes</a>
+               <a class="nav-link text-white" href="#acordeon"><button type="button" class="btn btn-primary">Preguntas frecuentes</button></a>
             </li>
             <li class="nav-item">
-               <a class="nav-link text-white" data-bs-toggle="offcanvas" data-bs-target="#pasos" href="">Pasos a seguir</a>
+               <a class="nav-link text-white" data-bs-toggle="offcanvas" data-bs-target="#pasos" href=""><button type="button" class="btn btn-primary">Pasos a seguir</button></a>
             </li>
             <li class="nav-item">
-               <a class="nav-link text-white" href="#contacto">Contacto</a>
+               <a class="nav-link text-white" href="#contacto"><button type="button" class="btn btn-primary">Contacto</button></a>
             </li>
          </ul>
       </nav>
@@ -109,13 +109,15 @@ include 'headAlumnos.php';
          </div>
          <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
             <div class="card-body">
-               Para tramitar la residencia profesional, se deben cumplir los siguientes requisitos:
-               <ul>
-                  <li>Acreditación del servicio social.</li>
-                  <li>Acreditación de todas las actividades complementarias.</li>
-                  <li>Haber aprobado al menos el 80% de créditos del plan de estudios.</li>
-                  <li>No contar con ninguna asignatura en condiciones de curso especial.</li>
-               </ul>
+            <ul class="list-group">
+                  <li class="list-group-item active list-group-flush"> Para tramitar la residencia profesional, se deben cumplir los siguientes requisitos:</li>
+            </ul>
+               <ol class="list-group list-group-numbered">
+                  <li class="list-group-item">Acreditación del servicio social.</li>
+                  <li class="list-group-item">Acreditación de todas las actividades complementarias.</li>
+                  <li class="list-group-item">Haber aprobado al menos el 80% de créditos del plan de estudios.</li>
+                  <li  class="list-group-item">No contar con ninguna asignatura en condiciones de curso especial.</li>
+               </ol>
             </div>
          </div>
 
