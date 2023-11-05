@@ -389,7 +389,7 @@ include 'headAsesorInterno.php';
                 </div>
                 <div class="row mb-3">
                   <div class="col-md-4">
-                    <p>Total de puntos:</p>
+                    <abbr title="Suma de los 2 parciales" class="initialism"><p class="text-capitalize">Total de puntos:</p></abbr>
                   </div>
                   <div class="col-md-8">
                     <p><?php  echo $ParcialUno['ERCalificacion'] + $ParcialDos['ERCalificacion']?></p>
