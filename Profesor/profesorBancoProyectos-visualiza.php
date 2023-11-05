@@ -24,8 +24,8 @@ include 'headprofesores.php';
 				<textarea class="form-control" rows="4" readonly><?php echo $row[3] ?></textarea>
 			</div>
 			<div class="p-3">
-				<label for="impactoProyecto" class="form-label h6">Impacto del Proyecto:</label>
-				<p class="text-muted">Establecer la importancia y aporte de la investigación propuesta en
+				<label for="impactoProyecto" class="form-label h6 ">Impacto del Proyecto:</label>
+				<p class="mark">Establecer la importancia y aporte de la investigación propuesta en
 					función de la generación de conocimiento, el desarrollo tecnológico, la innovación y la
 					solución de problemas locales, nacionales o internacionales.</p>
 				<textarea class="form-control" rows="4" readonly><?php echo $row[4] ?></textarea>
