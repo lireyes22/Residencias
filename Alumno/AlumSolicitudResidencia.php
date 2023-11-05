@@ -71,7 +71,7 @@ include 'headAlumnos.php';
                 <div class="row">
                     <div class="col">
                         <label for="fecha" class="form-label h6">Fecha:</label>
-                        <input type="date" class="form-control" value="<?php echo date('Y-m-d'); ?>" readonly>
+                        <input class="form-control" value="<?php echo date('Y-m-d'); ?>" readonly>
                     </div>
                     <div class="col">
                         <label for="opcionElegida" class="form-label h6">Opción elegida:</label>
@@ -291,11 +291,11 @@ include 'headAlumnos.php';
                         <label for="numeroSeguro">Para seguridad social acudir:</label>
                         <input type="text" class="form-control" placeholder="No.:" value="<?php echo $residente['seguro_social'] ?>" readonly>
                         <div class="mb-3">
-                            <input type="radio" <?php if($residente['institucionseguro'] == 'IMSS') echo 'checked'; ?> readonly>
+                            <input type="radio" <?php if($residente['institucionseguro'] == 'IMSS') echo 'checked'; ?> disabled>
                             <label for="imss">IMSS</label>
-                            <input type="radio" <?php if($residente['institucionseguro'] == 'ISSSTE') echo 'checked'; ?> readonly>
+                            <input type="radio" <?php if($residente['institucionseguro'] == 'ISSSTE') echo 'checked'; ?> disabled>
                             <label for="issste">ISSSTE</label>
-                            <input type="radio" <?php if(empty($residente['institucionseguro']) || $residente['institucionseguro'] == 'Otro' || ($residente['institucionseguro'] != 'IMSS' && $residente['institucionseguro'] != 'ISSSTE')) echo 'checked'; ?> readonly>
+                            <input type="radio" <?php if(empty($residente['institucionseguro']) || $residente['institucionseguro'] == 'Otro' || ($residente['institucionseguro'] != 'IMSS' && $residente['institucionseguro'] != 'ISSSTE')) echo 'checked'; ?> disabled>
                             <label for="otro">OTROS</label>
                         </div>
                     </div>
