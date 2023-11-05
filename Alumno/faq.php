@@ -225,6 +225,14 @@ include 'headAlumnos.php';
    </div>
    <br>
    <br>
+   <figure class="text-center">
+   <div class="row">
+      <blockquote class="blockquote col-12">
+         <pre>Cultura, Ciencia y Tecnología para la Superación de México</pre>
+         <figcaption class="blockquote-footer">ITCH</figcaption>
+      </blockquote>
+   </div>
+   <figure>
    <!-- Fin contacto -->
 
    <!-- Offcanvas Sidebar -->

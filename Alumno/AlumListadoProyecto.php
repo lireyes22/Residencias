@@ -53,9 +53,9 @@ include 'headAlumnos.php';
 
 				        <div class="container-fluid text-start mb-4">
 				        	<div class="table-responsive text-start">
-					        	<table id="example" class="display table-striped table-hover" style="width:100%; background-color: #ededed;">
+					        	<table id="example" class="table display table-primary table-striped table-hover" style="width:100%; background-color: #ededed;">
 							        <thead>
-							            <tr>
+							            <tr class="table-dark">
 							                <th>Nombre del proyecto</th>
 							                <th>Objetivo del proyecto</th>
 							                <th>Descripción</th>
