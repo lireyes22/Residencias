@@ -9,6 +9,8 @@
     <link href="../recursos/css/jquery.dataTables.min.css" rel="stylesheet"> 
 
 
+
+
 </head>
 <body> 
     <div class="container-fluid">
