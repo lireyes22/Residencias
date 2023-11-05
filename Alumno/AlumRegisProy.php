@@ -15,8 +15,13 @@ include 'headAlumnos.php';
 <div class="col ms-sm-auto px-4">
     <div class="container col-9">
 
+
         <form action="inserts/insertAlumRegisProy.php" method="POST" class="mt-5 mb-5 shadow-lg" style="background-color: #E9ECEF;">
 
+            <div class="alert alert-warning alert-dismissible fade show">
+              <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+              <strong>Recordatorio:</strong> Ponerse en contacto con el maestro responsable antes de asignarle un proyecto.
+            </div>
             <div class="p-2 rounded-top" style=" background-color: #384970; color: white;">
                <h2 class="text-center text-white">Proponer Proyecto</h2>
             </div>
