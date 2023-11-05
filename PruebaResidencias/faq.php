@@ -187,7 +187,7 @@ include 'headAlumnos.php';
    <div class="container mt-5">
       <div class="row">
          <div class="col-md-4">
-            <div class="card">
+            <div class="card bg-primary text-light">
                
                <div class="card-body">
                   <h5 class="card-title">Juan Pérez</h5>
@@ -200,7 +200,7 @@ include 'headAlumnos.php';
 
          <div class="col-md-4">
             <div class="card">
-               <div class="card-body">
+               <div class="card-body bg-success text-light">
                   <h5 class="card-title">Carla Hernández</h5>
                   <p class="card-text">Cargo: Jefe de Departamento</p>
                   <p class="card-text">Email: contacto2@example.com</p>
@@ -210,7 +210,7 @@ include 'headAlumnos.php';
          </div>
 
          <div class="col-md-4">
-            <div class="card">
+            <div class="card bg-danger text-light">
                <div class="card-body">
                   <h5 class="card-title">Pedro Zamora</h5>
                   <p class="card-text">Cargo: Servicios Escolares</p>
