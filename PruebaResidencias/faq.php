@@ -186,9 +186,9 @@ include 'headAlumnos.php';
    </div>
    <div class="container mt-5">
       <div class="row">
-         <div class="col-md-4">
-            <div class="card bg-primary text-light">
-               
+         
+         <div class="col-md-4 order-3">
+            <div class="card bg-primary text-light">      
                <div class="card-body">
                   <h5 class="card-title">Juan Pérez</h5>
                   <p class="card-text">Cargo: Coordinador</p>
@@ -198,9 +198,9 @@ include 'headAlumnos.php';
             </div>
          </div>
 
-         <div class="col-md-4">
-            <div class="card">
-               <div class="card-body bg-success text-light">
+         <div class="col-md-4 order-2">
+            <div class="card bg-success text-light">
+               <div class="card-body">
                   <h5 class="card-title">Carla Hernández</h5>
                   <p class="card-text">Cargo: Jefe de Departamento</p>
                   <p class="card-text">Email: contacto2@example.com</p>
@@ -209,7 +209,7 @@ include 'headAlumnos.php';
             </div>
          </div>
 
-         <div class="col-md-4">
+         <div class="col-md-4 order-1">
             <div class="card bg-danger text-light">
                <div class="card-body">
                   <h5 class="card-title">Pedro Zamora</h5>
@@ -237,7 +237,7 @@ include 'headAlumnos.php';
             <li>Asegúrate de haber liberado el Servicio Social y 5 Créditos de Actividades Complementarias.</li><br>
             <li>Asiste a las pláticas informativas por parte de tu coordinador de carrera.</li><br>
             <li>Realiza la solicitud de residencia profesional previamente al semestre inmediato a la reinscripción del estudiante.</li><br>
-            <li>Entrega la solicitud a tu coordinador de carrera anexando tu anteproyecto.</li><br>
+            <li>Entrega la solicitud mediante el sistema anexando tu anteproyecto.</li><br>
             <li>Sigue el procedimiento indicado para dar por concluido el trámite.</li><br>
          </ol>
       </div>
