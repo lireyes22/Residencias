@@ -39,7 +39,7 @@ while ($proy = mysqli_fetch_array($result)){
 	$row = mysqli_fetch_array(listProySolicitados($proy[0]));
 	$SPID_s[$i] = $proy[0];
 	$Nombres[$i] = $row[0];
-	echo $row[1] ;
+	//echo $row[1] ;
 	$i++;
 	if($row[1] == 'PENDIENTE'){
 		$value = 33;

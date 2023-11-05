@@ -11,15 +11,15 @@ include 'headAlumnos.php';
             <img src="recursos/image/faqIco.png" alt="Avatar Logo" style="width:40px; margin-left: 10px;" class="rounded-2">
          </a>
          <!-- Menú de navegación a la derecha -->
-         <ul class="navbar-nav">
+         <ul class="navbar-nav btn-group">
             <li class="nav-item">
-               <a class="nav-link text-white" href="#acordeon">Preguntas frecuentes</a>
+               <a class="nav-link text-white" href="#acordeon"><button type="button" class="btn btn-primary">Preguntas frecuentes</button></a>
             </li>
             <li class="nav-item">
-               <a class="nav-link text-white" data-bs-toggle="offcanvas" data-bs-target="#pasos" href="">Pasos a seguir</a>
+               <a class="nav-link text-white" data-bs-toggle="offcanvas" data-bs-target="#pasos" href=""><button type="button" class="btn btn-primary">Pasos a seguir</button></a>
             </li>
             <li class="nav-item">
-               <a class="nav-link text-white" href="#contacto">Contacto</a>
+               <a class="nav-link text-white" href="#contacto"><button type="button" class="btn btn-primary">Contactanos</button></a>
             </li>
          </ul>
       </nav>
