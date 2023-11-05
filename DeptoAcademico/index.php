@@ -11,10 +11,10 @@
   <div class="card-header">
     ¡BIENVENIDO!
   </div>
-  <!-- href="./deptoAcaAsigProyResV2.php" -->
+  <!-- href="./deptoAcaAsigProyResV2.php" //<p class="card-text">Nos alegra verte de nuevo, <?php //echo $nombre[0] ?>.</p>-->
   <div class="card-body">
     <h5 class="card-title">Sistema de Residencias Profesionales.</h5>
-    <p class="card-text">Nos alegra verte de nuevo, <?php echo $nombre[0] ?>.</p>
+    <h5 class="card-text">Nos alegra verte de nuevo, <small><?php echo $nombre[0] ?></small>.</h5>
     <button class="btn btn-primary" type="button" class="btn btn-outline-primary"
 		data-bs-toggle="modal" data-bs-target="#index">
     ANUNCIOS</button>
