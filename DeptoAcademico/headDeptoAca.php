@@ -79,8 +79,8 @@
                                 </svg>
                             </div>
             
-                            <div class="col-9  d-flex align-items-center text-break">
-                                <span class="p-1">Asignación Asesor</span>
+                            <div class="col-9  d-flex align-items-center ">
+                                <span class="p-1 text-break">Asignación Asesor</span>
                             </div>
                             </a>
                         </li>
@@ -93,8 +93,8 @@
                                   </svg>
                             </div>
             
-                            <div class="col-9  d-flex align-items-center text-break">
-                                <span class="p-1">Solicitudes de Proyectos</span>
+                            <div class="col-9  d-flex align-items-center ">
+                                <span class="p-1 text-break">Solicitudes de Proyectos</span>
                             </div>
                             </a>
                         </li>
@@ -106,8 +106,8 @@
                                   </svg>
                             </div>
             
-                            <div class="col-9  d-flex align-items-center text-break">
-                                <span class="p-1">Profesores</span>
+                            <div class="col-9  d-flex align-items-center ">
+                                <span class="p-1 text-break">Profesores</span>
                             </div>
                             </a>
                         </li>
@@ -120,8 +120,8 @@
                                 </svg>
                             </div>
             
-                            <div class="col-9  d-flex align-items-center text-break">
-                                <span class="p-1">Actualizar Fecha de Tramites</span>
+                            <div class="col-9  d-flex align-items-center">
+                                <span class="p-1 text-break">Actualizar Fecha de Tramites</span>
                             </div>
                             </a>
                         </li>

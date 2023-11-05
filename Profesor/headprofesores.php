@@ -80,8 +80,8 @@
                                     </svg>
                             </div>
                 
-                            <div class="col-9  d-flex align-items-center text-break">
-                                    <span class="p-1">Proyectos Propuestos</span>
+                            <div class="col-9  d-flex align-items-center">
+                                    <span class="p-1 text-break">Proyectos Propuestos</span>
                             </div>
                             </a>
                         </li>
@@ -93,8 +93,8 @@
                                 </svg>
                             </div>
             
-                            <div class="col-9  d-flex align-items-center text-break">
-                                <span class="p-1">Banco de Proyectos</span>
+                            <div class="col-9  d-flex align-items-center">
+                                <span class="p-1 text-break">Banco de Proyectos</span>
                             </div>
                             </a>
                         </li>
@@ -107,8 +107,8 @@
                                 </svg>
                             </div>
             
-                            <div class="col-9  d-flex align-items-center text-break">
-                                <span class="p-1">Solicitudes de Residencia</span>
+                            <div class="col-9  d-flex align-items-center">
+                                <span class="p-1 text-break">Solicitudes de Residencia</span>
                             </div>
                             </a>
                         </li>
@@ -121,8 +121,8 @@
                                 </svg>
                             </div>
             
-                            <div class="col-9  d-flex align-items-center text-break">
-                                <span class="p-1">Solicitudes de Proyectos</span>
+                            <div class="col-9  d-flex align-items-center">
+                                <span class="p-1 text-break">Solicitudes de Proyectos</span>
                             </div>
                             </a>
                         </li>
@@ -134,8 +134,8 @@
                                 </svg>
                             </div>
             
-                            <div class="col-9  d-flex align-items-center text-break">
-                                <span class="p-1">Comisiones</span>
+                            <div class="col-9  d-flex align-items-center">
+                                <span class="p-1 text-break">Comisiones</span>
                             </div>
                             </a>
                         </li>

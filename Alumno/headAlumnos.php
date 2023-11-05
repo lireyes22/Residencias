@@ -78,8 +78,8 @@
                                   </svg>
                             </div>
                 
-                            <div class="col-9 d-flex align-items-center text-break">
-                                    <span>Traking</span>
+                            <div class="col-9 d-flex align-items-center">
+                                    <span class="p-1 text-break">Traking</span>
                             </div>
                             </a>
                         </li>
@@ -91,8 +91,8 @@
                                   </svg>
                             </div>
             
-                            <div class="col-9 d-flex align-items-center text-break">
-                                <span>Banco de Proyectos</span>
+                            <div class="col-9 d-flex align-items-center">
+                                <span class="p-1 text-break">Banco de Proyectos</span>
                             </div>
                             </a>
                         </li>
@@ -106,8 +106,8 @@
                                                                  
                             </div>
             
-                            <div class="col-9 d-flex align-items-center text-break">
-                                <span>Reporte Final</span>
+                            <div class="col-9 d-flex align-items-center">
+                                <span class="p-1 text-break">Reporte Final</span>
                             </div>
                             </a>
                         </li>
@@ -119,8 +119,8 @@
                                   </svg>
                             </div>
             
-                            <div class="col-9 d-flex align-items-center text-break">
-                                <span>Asesorias</span>
+                            <div class="col-9 d-flex align-items-center">
+                                <span class="p-1 text-break">Asesorias</span>
                             </div>
                             </a>
                         </li>
@@ -133,8 +133,8 @@
                                   </svg>
                             </div>
             
-                            <div class="col-9  d-flex align-items-center text-break">
-                                <span>Faq</span>
+                            <div class="col-9  d-flex align-items-center">
+                                <span class="p-1 text-break">Faq</span>
                             </div>
                             </a>
                         </li>

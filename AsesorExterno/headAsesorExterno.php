@@ -75,8 +75,8 @@
                                 </svg>
                             </div>
                 
-                            <div class="col-9 d-flex align-items-center text-break">
-                                    <span class="p-1">Alumnos</span>
+                            <div class="col-9 d-flex align-items-center">
+                                    <span class="p-1 text-break">Alumnos</span>
                             </div>
                             </a>
                         </li>
@@ -88,8 +88,8 @@
                                 </svg>
                             </div>
             
-                            <div class="col-9 d-flex align-items-center text-break">
-                                <span class="p-1">Otro</span>
+                            <div class="col-9 d-flex align-items-center">
+                                <span class="p-1 text-break">Otro</span>
                             </div>
                             </a>
                         </li>
