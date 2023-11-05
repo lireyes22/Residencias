@@ -97,7 +97,7 @@
                         </div>
 
                         <div class="col-9 d-flex align-items-center">
-                            <span>Residencias</span>
+                            <span class="p-1 text-break" >Residencias</span>
                         </div>
                         </a>
                     </li>
@@ -109,7 +109,7 @@
                             </svg>
                         </div>
                         <div class="col-9 d-flex align-items-center">
-                            <span>Alumnos</span>
+                            <span class="p-1 text-break">Alumnos</span>
                         </div>
                         </a>
                     </li>
@@ -126,7 +126,7 @@
                         </div>
 
                         <div class="col-9 d-flex align-items-center">
-                            <span>Reporte Semestral</span>
+                            <span class="p-1 text-break">Reporte Semestral</span>
                         </div>
                         </a>
                     </li>
@@ -142,7 +142,7 @@
                             </svg>
                         </div>
                         <div class="col-9 d-flex align-items-center">
-                            <span>Asesorias</span>
+                            <span class="p-1 text-break">Asesorias</span>
                         </div>
                         </a>
                     </li>

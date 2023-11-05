@@ -84,7 +84,7 @@
                             </div>
                 
                             <div class="col-9 d-flex align-items-center">
-                                    <span>Traking</span>
+                                    <span class="p-1 text-break">Traking</span>
                             </div>
                             </a>
                         </li>
@@ -97,7 +97,7 @@
                             </div>
             
                             <div class="col-9 d-flex align-items-center">
-                                <span>Banco de Proyectos</span>
+                                <span class="p-1 text-break">Banco de Proyectos</span>
                             </div>
                             </a>
                         </li>
@@ -112,7 +112,7 @@
                             </div>
             
                             <div class="col-9 d-flex align-items-center">
-                                <span>Reporte Final</span>
+                                <span class="p-1 text-break">Reporte Final</span>
                             </div>
                             </a>
                         </li>
@@ -125,7 +125,7 @@
                             </div>
             
                             <div class="col-9 d-flex align-items-center">
-                                <span>Asesorias</span>
+                                <span class="p-1 text-break">Asesorias</span>
                             </div>
                             </a>
                         </li>
@@ -139,7 +139,7 @@
                             </div>
             
                             <div class="col-9  d-flex align-items-center">
-                                <span>Faq</span>
+                                <span class="p-1 text-break">Faq</span>
                             </div>
                             </a>
                         </li>

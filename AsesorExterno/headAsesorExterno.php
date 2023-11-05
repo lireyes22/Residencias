@@ -76,7 +76,7 @@
                             </div>
                 
                             <div class="col-9 d-flex align-items-center">
-                                    <span class="p-1">Alumnos</span>
+                                    <span class="p-1 text-break">Alumnos</span>
                             </div>
                             </a>
                         </li>
@@ -89,7 +89,7 @@
                             </div>
             
                             <div class="col-9 d-flex align-items-center">
-                                <span class="p-1">Otro</span>
+                                <span class="p-1 text-break">Otro</span>
                             </div>
                             </a>
                         </li>
