@@ -226,7 +226,7 @@ include 'headAlumnos.php';
    <!-- Fin contacto -->
 
    <!-- Offcanvas Sidebar -->
-   <div class="offcanvas offcanvas-start" style="background-color: whitesmoke;" id="pasos">
+   <div class="offcanvas offcanvas-start" data-bs-theme="dark" id="pasos">
       <div class="offcanvas-header">
          <h1 class="offcanvas-title display-6 ">Pasos para realizar tu Residencia</h1>
          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
