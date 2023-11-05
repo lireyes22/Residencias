@@ -16,8 +16,8 @@ include 'headAsesorInterno.php';
                         <th>Número de control</th>
                         <th>Nombre completo</th>
                         <th>Semestre actual</th>
-                        <th>Seguimiento</th>
                         <th>Correo Institucional</th>
+                        <th>Seguimiento</th>
                         <th>Reporte final</th>
                     </tr>
                 </thead>
