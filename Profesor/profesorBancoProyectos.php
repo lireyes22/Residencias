@@ -14,9 +14,9 @@ include 'headprofesores.php';
 		<h2>Banco de proyectos</h2>
 		<div class="container-fluid text-start mb-4">
 			<div class="table-responsive text-start">
-				<table id="example" class="display table-striped table-hover"
+				<table id="example" class="table display table-primary table-striped table-hover"
 					style="width:100%; background-color: #ededed;">
-					<thead>
+					<thead class="table-dark">
 						<tr>
 							<th>Nombre</th>
 							<th>Objetivo</th>
