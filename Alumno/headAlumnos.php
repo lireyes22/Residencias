@@ -78,7 +78,7 @@
                                   </svg>
                             </div>
                 
-                            <div class="col-9 d-flex align-items-center">
+                            <div class="col-9 d-flex align-items-center text-break">
                                     <span>Traking</span>
                             </div>
                             </a>
@@ -91,7 +91,7 @@
                                   </svg>
                             </div>
             
-                            <div class="col-9 d-flex align-items-center">
+                            <div class="col-9 d-flex align-items-center text-break">
                                 <span>Banco de Proyectos</span>
                             </div>
                             </a>
@@ -106,7 +106,7 @@
                                                                  
                             </div>
             
-                            <div class="col-9 d-flex align-items-center">
+                            <div class="col-9 d-flex align-items-center text-break">
                                 <span>Reporte Final</span>
                             </div>
                             </a>
@@ -119,7 +119,7 @@
                                   </svg>
                             </div>
             
-                            <div class="col-9 d-flex align-items-center">
+                            <div class="col-9 d-flex align-items-center text-break">
                                 <span>Asesorias</span>
                             </div>
                             </a>
@@ -133,7 +133,7 @@
                                   </svg>
                             </div>
             
-                            <div class="col-9  d-flex align-items-center">
+                            <div class="col-9  d-flex align-items-center text-break">
                                 <span>Faq</span>
                             </div>
                             </a>

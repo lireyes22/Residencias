@@ -80,7 +80,7 @@
                                     </svg>
                             </div>
                 
-                            <div class="col-9  d-flex align-items-center">
+                            <div class="col-9  d-flex align-items-center text-break">
                                     <span class="p-1">Proyectos Propuestos</span>
                             </div>
                             </a>
@@ -93,7 +93,7 @@
                                 </svg>
                             </div>
             
-                            <div class="col-9  d-flex align-items-center">
+                            <div class="col-9  d-flex align-items-center text-break">
                                 <span class="p-1">Banco de Proyectos</span>
                             </div>
                             </a>
@@ -107,7 +107,7 @@
                                 </svg>
                             </div>
             
-                            <div class="col-9  d-flex align-items-center">
+                            <div class="col-9  d-flex align-items-center text-break">
                                 <span class="p-1">Solicitudes de Residencia</span>
                             </div>
                             </a>
@@ -121,7 +121,7 @@
                                 </svg>
                             </div>
             
-                            <div class="col-9  d-flex align-items-center">
+                            <div class="col-9  d-flex align-items-center text-break">
                                 <span class="p-1">Solicitudes de Proyectos</span>
                             </div>
                             </a>
@@ -134,7 +134,7 @@
                                 </svg>
                             </div>
             
-                            <div class="col-9  d-flex align-items-center">
+                            <div class="col-9  d-flex align-items-center text-break">
                                 <span class="p-1">Comisiones</span>
                             </div>
                             </a>

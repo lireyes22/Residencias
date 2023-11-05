@@ -79,7 +79,7 @@
                                 </svg>
                             </div>
             
-                            <div class="col-9  d-flex align-items-center">
+                            <div class="col-9  d-flex align-items-center text-break">
                                 <span class="p-1">Asignación Asesor</span>
                             </div>
                             </a>
@@ -93,7 +93,7 @@
                                   </svg>
                             </div>
             
-                            <div class="col-9  d-flex align-items-center">
+                            <div class="col-9  d-flex align-items-center text-break">
                                 <span class="p-1">Solicitudes de Proyectos</span>
                             </div>
                             </a>
@@ -106,7 +106,7 @@
                                   </svg>
                             </div>
             
-                            <div class="col-9  d-flex align-items-center">
+                            <div class="col-9  d-flex align-items-center text-break">
                                 <span class="p-1">Profesores</span>
                             </div>
                             </a>
@@ -120,7 +120,7 @@
                                 </svg>
                             </div>
             
-                            <div class="col-9  d-flex align-items-center">
+                            <div class="col-9  d-flex align-items-center text-break">
                                 <span class="p-1">Actualizar Fecha de Tramites</span>
                             </div>
                             </a>

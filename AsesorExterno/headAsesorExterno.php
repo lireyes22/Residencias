@@ -75,7 +75,7 @@
                                 </svg>
                             </div>
                 
-                            <div class="col-9 d-flex align-items-center">
+                            <div class="col-9 d-flex align-items-center text-break">
                                     <span class="p-1">Alumnos</span>
                             </div>
                             </a>
@@ -88,7 +88,7 @@
                                 </svg>
                             </div>
             
-                            <div class="col-9 d-flex align-items-center">
+                            <div class="col-9 d-flex align-items-center text-break">
                                 <span class="p-1">Otro</span>
                             </div>
                             </a>
