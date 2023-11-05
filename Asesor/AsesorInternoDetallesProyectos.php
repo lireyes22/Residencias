@@ -22,7 +22,7 @@ $ProyectoS = ObtenerSolicitudProyecto($SPID);
                     </div>
                     <div class="col">
                         <label for="" class="form-label h6">Lugar</label>
-                        <input type="text" class="form-control" value="<?php echo $ProyectoS['SPLugar']; ?>" readonly>
+                        <input type="text" class="form-control text-capitalize" value="<?php echo $ProyectoS['SPLugar']; ?>" readonly>
                     </div>
                 </div>
             </div>
@@ -246,13 +246,13 @@ $ProyectoS = ObtenerSolicitudProyecto($SPID);
                                     <td>
                                         <?php echo $result['NumeroControl'] ?>
                                     </td>
-                                    <td>
+                                    <td class="text-uppercase">
                                         <?php echo $result['NombreCompleto'] ?>
                                     </td>
                                     <td>
                                         <?php echo $result['SemestreActual'] ?>
-                                    </td>
-                                    <td>
+                                    </td> 
+                                    <td class="text-lowercase">
                                         <?php echo $result['CorreoInstitucional'] ?>
                                     </td>
                                 </tr>
