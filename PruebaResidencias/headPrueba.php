@@ -48,7 +48,7 @@
                                     </svg>
                                 </div>
 
-                                <div class="col-9 d-flex align-items-center">
+                                <div class="col-9 d-flex items-center">
                                     Log Out
                                 </div>
                             </a>
