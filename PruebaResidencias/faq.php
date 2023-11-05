@@ -19,6 +19,9 @@ include 'headAlumnos.php';
                <a class="nav-link text-white" data-bs-toggle="offcanvas" data-bs-target="#pasos" href=""><button type="button" class="btn btn-primary">Pasos a seguir</button></a>
             </li>
             <li class="nav-item">
+               <a class="nav-link text-white" href="#testimonios"><button type="button" class="btn btn-primary">Testimonios</button></a>
+            </li>
+            <li class="nav-item">
                <a class="nav-link text-white" href="#contacto"><button type="button" class="btn btn-primary">Contactanos</button></a>
             </li>
          </ul>
@@ -38,21 +41,21 @@ include 'headAlumnos.php';
          <!-- carousel -->
          <div class="carousel-inner">
             <div class="carousel-item active">
-               <img src="recursos/image/a.png" alt="Imagen 1" class="d-block w-100">
+               <img src="recursos/image/a.png" alt="Imagen 1" class="d-block w-100 h-100">
                <div class="carousel-caption" style="background-color: rgba(0, 0, 0, 0.5);">
                   <h3>¡Realiza tu residencia profesional!</h3>
                   <p>Ofrecemos una amplia variedad de proyectos de residencias profesionales en diferentes áreas de estudio.</p>
                </div>
             </div>
             <div class="carousel-item">
-               <img src="recursos/image/b.png" alt="Imagen 2" class="d-block w-100">
+               <img src="recursos/image/b.png" alt="Imagen 2" class="d-block w-100 h-100">
                <div class="carousel-caption" style="background-color: rgba(0, 0, 0, 0.5);">
                   <h3>¡Conoce la Feria de Residencias Profesionales del ITCH!</h3>
                   <p>¿Quieres conocer las últimas tendencias en residencias profesionales? ¡No te pierdas la Feria de Residencias Profesionales del ITCH!</p>
                </div>
             </div>
             <div class="carousel-item">
-               <img src="recursos/image/c.png" alt="Imagen 3" class="d-block w-100">
+               <img src="recursos/image/c.png" alt="Imagen 3" class="d-block w-100 h-100">
                <div class="carousel-caption" style="background-color: rgba(0, 0, 0, 0.5);">
                   <h3>¿Tienes todo listo?</h3>
                   <p>Da el siguiente paso en tu carrera profesional, ¡Inscríbete hoy mismo a una residencia profesional en el ITCH! </p>
@@ -76,7 +79,7 @@ include 'headAlumnos.php';
       <div class="display-6 text-center " id="acordeon">"Preguntas frecuentes"</div>
       <br>
       <!-- Inicio Acordeon Faq -->
-      <div class="card">
+      <div class="card bg-light">
          <!-- Pregunta 1 -->
          <div class="card-header">
             <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
@@ -171,6 +174,38 @@ include 'headAlumnos.php';
       <!-- Fin Acordeon Faq -->
    </div>
    <br>
+   <div class="display-6 text-center " id="testimonios">"Increibles testimonios de nuestros Residentes"</div>
+   <br>
+   <!-- List Group Testimonios -->
+   <ul class="list-group mx-auto w-75">
+      <li class="list-group-item list-group-item-success">
+         <div class="d-flex justify-content-between">
+            <h5 class="mb-1">Testimonio de Éxito</h5>
+            <small>Moi, Ingeniero</small>
+         </div>
+         <p class="mb-1">"El proceso de residencias profesionales en el ITCH fue una experiencia increíble.
+            Los pasos eran fáciles de seguir y la evaluación fue valiosa para mi crecimiento profesional."</p>
+      </li>
+      <li class="list-group-item list-group-item-success">
+         <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Oportunidad de Carrera</h5>
+            <small>Charly, Arquitecto</small>
+         </div>
+         <p class="mb-1">"Gracias al ITCH, obtuve experiencia laboral relevante. Las empresas 
+            buscan estudiantes bien preparados, y el proceso fue gratificante y enriquecedor."</p>
+      </li>
+      <li class="list-group-item list-group-item-success">
+         <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Crecimiento Profesional</h5>
+            <small>Sofía, Biologa</small>
+         </div>
+         <p class="mb-1">"Mi residencia profesional en el ITCH fue un paso importante en mi carrera. 
+            Los pasos eran claros, y gracias a ello, fui contratada por una empresa que valora el crecimiento profesional."</p>
+      </li>
+   </ul>
+   <!-- Fin Testimonios -->
+   <br>
+   <br>
    <!-- Contacto -->
    <div class="display-6 text-center " id="contacto">"Contactanos"</div>
    <br>
@@ -186,9 +221,9 @@ include 'headAlumnos.php';
    </div>
    <div class="container mt-5">
       <div class="row">
-         
+
          <div class="col-md-4 order-3">
-            <div class="card bg-primary border border-black border-3  text-light">      
+            <div class="card bg-primary border border-black border-3  text-light">
                <div class="card-body">
                   <h5 class="card-title">Juan Pérez</h5>
                   <p class="card-text">Cargo: Coordinador</p>
