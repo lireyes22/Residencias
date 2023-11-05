@@ -23,10 +23,10 @@ include 'headprofesores.php';
 		<h2>Solicitudes de Residencias</h2>
 		<div class="container-fluid text-start mb-4">
 			<div class="table-responsive text-start">
-				<table id="example" class="display table-striped table-hover"
+				<table id="example" class="table display table-primary table-striped table-hover"
 					style="width:100%; background-color: #ededed;">
 					<thead>
-						<tr>
+						<tr class="table-dark">
 							<th>Nombre del Proyecto</th>
 							<th>Nombre Residente</th>
 							<th>Nombre Empresa</th>
