@@ -188,7 +188,7 @@ include 'headAlumnos.php';
       <div class="row">
          
          <div class="col-md-4 order-3">
-            <div class="card bg-primary text-light">      
+            <div class="card bg-primary border border-black border-3  text-light">      
                <div class="card-body">
                   <h5 class="card-title">Juan Pérez</h5>
                   <p class="card-text">Cargo: Coordinador</p>
@@ -199,7 +199,7 @@ include 'headAlumnos.php';
          </div>
 
          <div class="col-md-4 order-2">
-            <div class="card bg-success text-light">
+            <div class="card bg-success border border-black border-3 text-light">
                <div class="card-body">
                   <h5 class="card-title">Carla Hernández</h5>
                   <p class="card-text">Cargo: Jefe de Departamento</p>
@@ -210,7 +210,7 @@ include 'headAlumnos.php';
          </div>
 
          <div class="col-md-4 order-1">
-            <div class="card bg-danger text-light">
+            <div class="card bg-danger border border-black border-3 text-light">
                <div class="card-body">
                   <h5 class="card-title">Pedro Zamora</h5>
                   <p class="card-text">Cargo: Servicios Escolares</p>
