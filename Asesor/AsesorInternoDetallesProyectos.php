@@ -17,7 +17,7 @@ $ProyectoS = ObtenerSolicitudProyecto($SPID);
                 <div class="row">
                     <div class="col">
                         <label for="coordinador" class="form-label h6">Nombre Proyecto</label>
-                        <input type="text" class="form-control" value="<?php echo $ProyectoS['SPNombreProyecto']; ?>"
+                        <input type="text" class="form-control text-capitalize" value="<?php echo $ProyectoS['SPNombreProyecto']; ?>"
                             readonly>
                     </div>
                     <div class="col">
@@ -31,12 +31,12 @@ $ProyectoS = ObtenerSolicitudProyecto($SPID);
                 <div class="row">
                     <div class="col">
                         <label for="jefeDiv" class="form-label h6">Obejtivo</label>
-                        <input type="text" class="form-control" value="<?php echo $ProyectoS['SPObjetivo']; ?>"
+                        <input type="text" class="form-control text-capitalize" value="<?php echo $ProyectoS['SPObjetivo']; ?>"
                             readonly>
                     </div>
                     <div class="col">
                         <label for="tipoProyecto" class="form-label h6">Tipo Proyecto:</label>
-                        <input type="text" class="form-control" value="<?php echo $ProyectoS['SPTipo']; ?>" readonly>
+                        <input type="text" class="form-control text-capitalize" value="<?php echo $ProyectoS['SPTipo']; ?>" readonly>
                     </div>
                 </div>
             </div>
@@ -45,12 +45,12 @@ $ProyectoS = ObtenerSolicitudProyecto($SPID);
                 <div class="row">
                     <div class="col">
                         <label for="coordinador" class="form-label h6">Descripción</label>
-                        <input type="text" class="form-control" value="<?php echo $ProyectoS['SPDescripcion']; ?>"
+                        <input type="text" class="form-control text-capitalize" value="<?php echo $ProyectoS['SPDescripcion']; ?>"
                             readonly>
                     </div>
                     <div class="col">
                         <label for="" class="form-label h6">Impacto</label>
-                        <input type="text" class="form-control" value="<?php echo $ProyectoS['SPImpacto'] ?>" readonly>
+                        <input type="text" class="form-control text-capitalize" value="<?php echo $ProyectoS['SPImpacto'] ?>" readonly>
                     </div>
                 </div>
             </div>
@@ -59,12 +59,12 @@ $ProyectoS = ObtenerSolicitudProyecto($SPID);
                 <div class="row">
                     <div class="col">
                         <label for="nomAsesorInterno" class="form-label h6">Linea de investigación</label>
-                        <input type="text" class="form-control"
+                        <input type="text" class="form-control text-capitalize"
                             value="<?php echo $ProyectoS['SPLineaInvestigacion']; ?>" readonly>
                     </div>
                     <div class="col">
                         <label for="SPVacantes" class="form-label h6">Estudiantes Requeridos</label>
-                        <input type="number" class="form-control" min="1" max="4" placeholder="0"
+                        <input type="number" class="form-control text-capitalize" min="1" max="4" placeholder="0"
                             value="<?php echo $ProyectoS['SPEstudiantesRequeridos']; ?>" readonly>
                     </div>
                 </div>
@@ -74,12 +74,12 @@ $ProyectoS = ObtenerSolicitudProyecto($SPID);
                 <div class="row">
                     <div class="col">
                         <label for="fecha" class="form-label h6">Tiempo estimado</label>
-                        <input type="text" class="form-control"
+                        <input type="text" class="form-control text-capitalize"
                             value="<?php echo $ProyectoS['SDTiempoEstimado'] . ' Meses'; ?>" readonly>
                     </div>
                     <div class="col">
                         <label for="opcionElegida" class="form-label h6">Referencias</label>
-                        <input type="text" class="form-control" value="<?php echo $ProyectoS['SPReferencias']; ?>"
+                        <input type="text" class="form-control text-capitalize" value="<?php echo $ProyectoS['SPReferencias']; ?>"
                             readonly>
                     </div>
                 </div>
