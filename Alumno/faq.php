@@ -76,11 +76,11 @@ include 'headAlumnos.php';
       <div class="display-6 text-center " id="acordeon">"Preguntas frecuentes"</div>
       <br>
       <!-- Inicio Acordeon Faq -->
-      <div class="card">
+      <div class="card bg-light">
          <!-- Pregunta 1 -->
          <div class="card-header">
             <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
-               1. ¿Qué es una residencia profesional? <span class="badge bg-secondary">Importante</span>
+               1. ¿Qué es una residencia profesional? <span class="badge bg-primary">Importante</span>
             </a>
          </div>
          <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
@@ -109,13 +109,15 @@ include 'headAlumnos.php';
          </div>
          <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
             <div class="card-body">
-               Para tramitar la residencia profesional, se deben cumplir los siguientes requisitos:
-               <ul>
-                  <li>Acreditación del servicio social.</li>
-                  <li>Acreditación de todas las actividades complementarias.</li>
-                  <li>Haber aprobado al menos el 80% de créditos del plan de estudios.</li>
-                  <li>No contar con ninguna asignatura en condiciones de curso especial.</li>
-               </ul>
+            <ul class="list-group">
+                  <li class="list-group-item active list-group-flush"> Para tramitar la residencia profesional, se deben cumplir los siguientes requisitos:</li>
+            </ul>
+               <ol class="list-group list-group-numbered">
+                  <li class="list-group-item">Acreditación del servicio social.</li>
+                  <li class="list-group-item">Acreditación de todas las actividades complementarias.</li>
+                  <li class="list-group-item">Haber aprobado al menos el 80% de créditos del plan de estudios.</li>
+                  <li  class="list-group-item">No contar con ninguna asignatura en condiciones de curso especial.</li>
+               </ol>
             </div>
          </div>
 
