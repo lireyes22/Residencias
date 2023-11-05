@@ -191,7 +191,7 @@ include 'headAlumnos.php';
             <h5 class="mb-1">Oportunidad de Carrera</h5>
             <small>Charly, Arquitecto</small>
          </div>
-         <p class="mb-1">"Gracias al ITCH, obtuve experiencia laboral relevante. Las empresas 
+         <p class="mb-1">"Gracias al ITCH, obtuve experiencia laboral relevante. Las empresas
             buscan estudiantes bien preparados, y el proceso fue gratificante y enriquecedor."</p>
       </li>
       <li class="list-group-item list-group-item-success">
@@ -199,7 +199,7 @@ include 'headAlumnos.php';
             <h5 class="mb-1">Crecimiento Profesional</h5>
             <small>Sofía, Biologa</small>
          </div>
-         <p class="mb-1">"Mi residencia profesional en el ITCH fue un paso importante en mi carrera. 
+         <p class="mb-1">"Mi residencia profesional en el ITCH fue un paso importante en mi carrera.
             Los pasos eran claros, y gracias a ello, fui contratada por una empresa que valora el crecimiento profesional."</p>
       </li>
    </ul>
