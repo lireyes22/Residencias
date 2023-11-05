@@ -18,6 +18,9 @@ include 'headAlumnos.php';
                 <div class="col ms-sm-auto px-4">
                     <div class="container mt-3 text-center">
                         <h2>Traking</h2>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                Si no ves tu proyecto intenta actualizar la pagina con <kbd>F5</kbd> <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
                         <div class="container text-start mb-4">
                             <div class="h4 d-block">Proyectos Propuestos 
                                 <button type="button" class="btn btn-info" data-bs-toggle="popover" title="Información" data-bs-content="Listado de todos los proyectos que has propuesto, asi como el progreso de cada uno.">
