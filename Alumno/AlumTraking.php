@@ -20,6 +20,16 @@ include 'headAlumnos.php';
                         <h2>Traking</h2>
                         <div class="container text-start mb-4">
                             <div class="h4 d-block">Proyectos Propuestos 
+                                <button type="button" class="btn btn-info" data-bs-toggle="popover" title="Popover Header" data-bs-content="Some content inside the popover">
+                                    Toggle popover
+                                </button>
+
+                                  <script>
+                                    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+                                    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+                                      return new bootstrap.Popover(popoverTriggerEl);
+                                    });
+                                  </script>
                                 <div class="d-block small text-end">Fecha Límite: <?php echo retornarFechaLimite('ProponerProyecto'); ?></div>
                             </div>
                             <?php 
