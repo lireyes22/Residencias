@@ -157,13 +157,17 @@ include 'headAlumnos.php';
   <!-- Boton enviar -->
   <div class="container">
     <form action="AlumnoInsertarReporte.php" method="post" enctype="multipart/form-data">
-      <div class="mb-3" id="reporteLink">
-        <label for="archivo" class="form-label">Carga aquí tu reporte final</label>
-        <input type="file" class="form-control w-25" id="archivo" name="ReporteFinal">
-      </div>
-      <button type="submit" class="btn btn-outline-secondary btn-lg">Enviar</button>
+    <div class="input-group mb-3" id="reporteLink">
+      <label for="archivo" class="form-label w-25 h6">Carga aquí tu reporte final</label>
+      <input type="file" class="form-control" id="archivo" name="ReporteFinal">
+      <button type="submit" class="btn btn-outline-primary btn-sm">Enviar</button>
+    </div>
+
     </form>
   </div>
+
+
+
   <br>
   <!-- Fin Main -->
 </div>

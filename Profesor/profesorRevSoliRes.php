@@ -123,9 +123,9 @@ include 'headprofesores.php';
                             </button>
                         </div>
                     <div class="row mb-3">
-                        <div class="col text-center text-white">
+                        <div class="col text-center text-dark form-floating">
+                             <textarea class="form-control" id="comment" name="text" placeholder="0" rows="3"></textarea>
                              <label for="observaciones" class="form-label h6">Observaciones:</label>
-                             <textarea class="form-control" rows="3"></textarea>
                         </div>
                    </div>
                     <div class="d-flex flex-wrap justify-content-around">

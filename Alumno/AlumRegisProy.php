@@ -74,7 +74,7 @@ include 'headAlumnos.php';
                 <div class="row">
                     <div class="col">
                         <label for="tipoPropuesta" class="form-label h6">Tipo de propuesta:</label>
-                        <select class="form-select" name="tipoProp">
+                        <select class="form-select form-select-sm" name="tipoProp">
                             <option value="INTERNO">INTERNO</option>
                             <option value="EXTERNO">EXTERNO</option>
                             <option value="DUAL">DUAL</option>
