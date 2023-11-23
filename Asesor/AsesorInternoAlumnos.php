@@ -52,7 +52,7 @@ include 'headAsesorInterno.php';
                                     <input type="hidden" name="idAlumno" value="<?php echo $idAlumno; ?>">
                                     <input type="hidden" name="idAsesor" value="<?php echo $idAsesor; ?>">
                                     <input type="submit" formaction="AsesorInternoEvaluacionSeguimiento.php"
-                                        value="Evaluación de Seguimiento" class="btn btn-primary">
+                                        value="Evaluar" class="btn btn-primary">
                                 </form>
                             </td>
                             <td>
@@ -60,7 +60,7 @@ include 'headAsesorInterno.php';
                                     <input type="hidden" name="idAlumno" value="<?php echo $idAlumno; ?>">
                                     <input type="hidden" name="idAsesor" value="<?php echo $idAsesor; ?>">
                                     <input type="submit" formaction="AsesorInternoEvaluacionReporte.php"
-                                        value="Evaluación de Reporte Final" class="btn btn-primary">
+                                        value="Evaluar" class="btn btn-primary">
                                 </form>
                             </td>
                         </tr>

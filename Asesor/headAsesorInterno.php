@@ -29,7 +29,7 @@
             </div>
 
             <div id="titulo" class="col-lg-10">
-                <h1>Asesor Interno</h1>
+            <a href="./indexAI.php" style="text-decoration: none;" class="text-white"><h1>Asesor Interno</h1></a>
             </div>
 
             <div id="user" class="container my-1 col-lg-1">
