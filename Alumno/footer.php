@@ -12,7 +12,5 @@
     <script src="../recursos/js/jquery-3.6.0.min.js"></script>
     <script src="../recursos/js/jquery.dataTables.min.js"></script>     
     <script src="../recursos/js/Nefta.js"></script>
-    <script src="../recursos/js/jquery-3.6.0.min.js"></script>
-    <script src="../recursos/js/bootstrap.min.js"></script>
 </body>
 </html>
