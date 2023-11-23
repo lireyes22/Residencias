@@ -20,7 +20,7 @@ include 'headprofesores.php';
     <div class="container col-9">
         <form method="POST" action="funcionesFProfesor.php" class="mb-5 mt-5 shadow-lg" style="background-color: #E9ECEF;" id="myForm">
             <input type="hidden" name="SRID" value="<?php echo $SRID?>">
-            <input type="hidden" id="accion" name="accion" value="">
+            <input type="hidden" id="accion" name="accion" value=""> 
             <div class="rounded-top p-2" style=" background-color: #384970; color: white;">
                 <h2 class="text-center text-white">Revisión Solicitud de Residencia</h2>
             </div>
@@ -124,7 +124,7 @@ include 'headprofesores.php';
                         </div>
                     <div class="row mb-3">
                         <div class="col text-center text-dark form-floating">
-                             <textarea class="form-control" id="comment" name="text" placeholder="0" rows="3"></textarea>
+                             <textarea class="form-control" id="comment" name="observaciones" placeholder="0" rows="3"></textarea>
                              <label for="observaciones" class="form-label h6">Observaciones:</label>
                         </div>
                    </div>
