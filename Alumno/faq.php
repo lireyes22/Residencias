@@ -4,6 +4,9 @@ include 'headAlumnos.php';
 <!-- Conteido FAQ -->
 <div class="col ms-sm-auto px-4">
    <div class="container col-9">
+      <!-- Imagen circular flotante -->
+    <img src="../recursos/image/logo.png" alt="Imagen Circular" class="rounded-circle position-fixed" style="bottom: 20px; right: 20px; width: 200px; height: 150px; z-index: 999;">
+
       <br>
       <nav class="navbar navbar-expand-sm rounded-2 justify-content-between" style="background-color: #384970;">
          <!-- Logo y texto a la izquierda -->
