@@ -55,11 +55,11 @@ include 'headprofesores.php';
 				<div class="row">
 					<div class="col">
 						<label for="tipoPropuesta" class="form-label h6">Tipo de propuesta:</label>
-						<select class="form-select">
-							<option <?php if($row[8]=='INTERNO') echo "selected='true'" ?> disabled> INTERNO </option>	 
-							<option <?php if($row[8]=='EXTERNO') echo "selected='true'" ?> disabled>EXTERNO </option>
-							<option <?php if($row[8]=='DUAL') echo "selected='true'" ?> disabled>DUAL</option> 
-							<option <?php if($row[8]=='CIIE') echo "selected='true'" ?> disabled>CIIE </option>
+						<select class="form-select " disabled>
+							<option <?php if($row[8]=='INTERNO') echo "selected='true'" ?> > INTERNO </option>	 
+							<option <?php if($row[8]=='EXTERNO') echo "selected='true'" ?> >EXTERNO </option>
+							<option <?php if($row[8]=='DUAL') echo "selected='true'" ?> >DUAL</option> 
+							<option <?php if($row[8]=='CIIE') echo "selected='true'" ?> >CIIE </option>
 						</select>
 					</div>
 					<div class="col">

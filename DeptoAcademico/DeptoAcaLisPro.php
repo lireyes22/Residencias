@@ -173,7 +173,7 @@ include 'headDeptoAca.php';
 				<!-- Modal body --> 
 				<div class="modal-body">
 					<!--Formulario-->
-					<form action="exc/insert.php" method="POST">
+					<form action="exc/insert.php" class="was-validated" method="POST">
 					<input type="hidden" name="IDfuncion" value="asignacion">
 					<input type="hidden" name="origin" value="../DeptoAcaLisPro.php">
 						<div class="row">
@@ -217,14 +217,20 @@ include 'headDeptoAca.php';
 	echo '
 							</div>
 						</div>
+						<div class="form-check mb-3">
+							<input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
+							<label class="form-check-label" for="myCheck">¿Esta seguro de la asignación?.</label>
+							<div class="valid-feedback">Aceptado.</div>
+							<div class="invalid-feedback">pulse el checkbox para continuar.</div>
+						</div>
 						<input type="hidden" name="periodo" value="'.$solicitudResidencia[5].'"> <br> <br>
 						<input type="hidden" name="BPID" value="'.$BPID[0].'">
-						<button type="submit" class="btn btn-primary">Submit</button>
+						<button type="submit" class="btn btn-primary">Aceptar</button>
 					</form>
 				</div>
 				<!-- Modal footer -->
 				<div class="modal-footer">
-					<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
 				</div>
 			</div>
 		</div>
@@ -250,7 +256,7 @@ include 'headDeptoAca.php';
 					<!-- Modal body --> 
 					<div class="modal-body">
 						<!--Formulario-->
-						<form action="exc/insert.php" method="POST">
+						<form action="exc/insert.php" class="was-validated" method="POST">
 						<input type="hidden" name="IDfuncion" value="reAsignacion">
 						<input type="hidden" name="origin" value="../DeptoAcaLisPro.php">
 							<div class="row">
@@ -289,7 +295,7 @@ include 'headDeptoAca.php';
 							</div>
 							<div class="row">
 								<div class="col-md-12 mb-3">
-									<label for="profesor" class="form-label">Razon de la Reasignacion:</label>
+									<label for="profesor" class="form-label">Razon de la Reasignación:</label>
 									<input type="text" class="form-control" id="razon" name="razon" placeholder="¿Cual fue el motivo?">
 								</div>
 							</div>
@@ -305,14 +311,20 @@ include 'headDeptoAca.php';
 		echo '
 								</div>
 							</div>
+							<div class="form-check mb-3">
+								<input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
+								<label class="form-check-label" for="myCheck">¿Esta seguro de la reasignación?.</label>
+								<div class="valid-feedback">Correcto</div>
+								<div class="invalid-feedback">Pulse el checkbox para continuar.</div>
+							</div>
 							<input type="hidden" name="periodo" value="'.$solicitudResidencia[5].'"> <br> <br>
 							<input type="hidden" name="BPID" value="'.$BPID[0].'">
-							<button type="submit" class="btn btn-primary">Submit</button>
+							<button type="submit" class="btn btn-primary">Aceptar</button>
 						</form>
 					</div>
 					<!-- Modal footer -->
 					<div class="modal-footer">
-						<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
 					</div>
 				</div>
 			</div>
@@ -321,6 +333,7 @@ include 'headDeptoAca.php';
 	}
 		} //TERMINA CICLO
 	?>
+
 <?php
 include 'footer.php';
 ?>
