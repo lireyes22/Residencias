@@ -48,20 +48,20 @@ include 'headAsesorExterno.php';
                         <td>
                             <?php echo $consultaAlumno['CorreoInstitucional'] ?>
                         </td>
-                        <td>
+                        <td class="text-center">
                             <form method="POST">
                                 <input type="hidden" name="idAlumno" value="<?php echo $idAlumno; ?>">
                                 <input type="hidden" name="idAsesor" value="<?php echo $idAsesor; ?>">
                                 <input name="EvSeg" type="submit" formaction="AsesorExternoEvaluacionSeguimiento.php"
-                                    value="Evaluación de Seguimiento" class="btn btn-primary">
+                                    value="Evaluar" class="btn btn-primary text-center">
                             </form>
                         </td>
-                        <td>
+                        <td class="text-center">
                             <form method="POST">
                                 <input type="hidden" name="idAlumno" value="<?php echo $idAlumno; ?>">
                                 <input type="hidden" name="idAsesor" value="<?php echo $idAsesor; ?>">
                                 <input name="EvRep" type="submit" formaction="AsesorExternoEvaluacionReporte.php"
-                                    value="Evaluación de Reporte Final" class="btn btn-primary">
+                                    value="Evaluar" class="btn btn-primary">
                             </form>
                         </td>
                     </tbody>
