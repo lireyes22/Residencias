@@ -5,7 +5,7 @@ include 'headAlumnos.php';
 <div class="col ms-sm-auto px-4">
    <div class="container col-9">
       <!-- Imagen circular flotante -->
-    <img src="../recursos/image/logo.png" alt="Imagen Circular" class="rounded-circle position-fixed" style="bottom: 20px; right: 20px; width: 200px; height: 150px; z-index: 999;">
+      <img src="../recursos/image/logo.png" alt="Imagen Circular" class="rounded-circle position-fixed" style="bottom: 20px; right: 20px; width: 200px; height: 150px; z-index: 999;">
 
       <br>
       <nav class="navbar navbar-expand-sm rounded-2 justify-content-between" style="background-color: #384970;">
@@ -112,14 +112,14 @@ include 'headAlumnos.php';
          </div>
          <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
             <div class="card-body">
-            <ul class="list-group">
+               <ul class="list-group">
                   <li class="list-group-item active list-group-flush"> Para tramitar la residencia profesional, se deben cumplir los siguientes requisitos:</li>
-            </ul>
+               </ul>
                <ol class="list-group list-group-numbered">
                   <li class="list-group-item">Acreditación del servicio social.</li>
                   <li class="list-group-item">Acreditación de todas las actividades complementarias.</li>
                   <li class="list-group-item">Haber aprobado al menos el 80% de créditos del plan de estudios.</li>
-                  <li  class="list-group-item">No contar con ninguna asignatura en condiciones de curso especial.</li>
+                  <li class="list-group-item">No contar con ninguna asignatura en condiciones de curso especial.</li>
                </ol>
             </div>
          </div>
@@ -176,6 +176,39 @@ include 'headAlumnos.php';
       <!-- Fin Acordeon Faq -->
    </div>
    <br>
+   <br>
+   <div class="display-6 text-center " id="testimonios">"Increibles testimonios de nuestros Residentes"</div>
+   <br>
+   <!-- List Group Testimonios -->
+   <ul class="list-group mx-auto w-75">
+      <li class="list-group-item list-group-item-success">
+         <div class="d-flex justify-content-between">
+            <h5 class="mb-1">Testimonio de Éxito</h5>
+            <small>Moi, Ingeniero</small>
+         </div>
+         <p class="mb-1">"El proceso de residencias profesionales en el ITCH fue una experiencia increíble.
+            Los pasos eran fáciles de seguir y la evaluación fue valiosa para mi crecimiento profesional."</p>
+      </li>
+      <li class="list-group-item list-group-item-success">
+         <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Oportunidad de Carrera</h5>
+            <small>Charly, Arquitecto</small>
+         </div>
+         <p class="mb-1">"Gracias al ITCH, obtuve experiencia laboral relevante. Las empresas
+            buscan estudiantes bien preparados, y el proceso fue gratificante y enriquecedor."</p>
+      </li>
+      <li class="list-group-item list-group-item-success">
+         <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Crecimiento Profesional</h5>
+            <small>Sofía, Biologa</small>
+         </div>
+         <p class="mb-1">"Mi residencia profesional en el ITCH fue un paso importante en mi carrera.
+            Los pasos eran claros, y gracias a ello, fui contratada por una empresa que valora el crecimiento profesional."</p>
+      </li>
+   </ul>
+   <!-- Fin Testimonios -->
+   <br>
+   <br>
    <!-- Contacto -->
    <div class="display-6 text-center " id="contacto">"Contactanos"</div>
    <br>
@@ -191,9 +224,9 @@ include 'headAlumnos.php';
    </div>
    <div class="container mt-5">
       <div class="row">
-         <div class="col-md-4">
-            <div class="card">
-               
+
+         <div class="col-md-4 order-3">
+            <div class="card bg-primary border border-black border-3  text-light">
                <div class="card-body">
                   <h5 class="card-title">Juan Pérez</h5>
                   <p class="card-text">Cargo: Coordinador</p>
@@ -203,8 +236,8 @@ include 'headAlumnos.php';
             </div>
          </div>
 
-         <div class="col-md-4">
-            <div class="card">
+         <div class="col-md-4 order-2">
+            <div class="card bg-success border border-black border-3 text-light">
                <div class="card-body">
                   <h5 class="card-title">Carla Hernández</h5>
                   <p class="card-text">Cargo: Jefe de Departamento</p>
@@ -214,8 +247,8 @@ include 'headAlumnos.php';
             </div>
          </div>
 
-         <div class="col-md-4">
-            <div class="card">
+         <div class="col-md-4 order-1">
+            <div class="card bg-danger border border-black border-3 text-light">
                <div class="card-body">
                   <h5 class="card-title">Pedro Zamora</h5>
                   <p class="card-text">Cargo: Servicios Escolares</p>
@@ -229,33 +262,33 @@ include 'headAlumnos.php';
    <br>
    <br>
    <figure class="text-center">
-   <div class="row">
-      <blockquote class="blockquote col-12">
-         <pre>Cultura, Ciencia y Tecnología para la Superación de México</pre>
-         <figcaption class="blockquote-footer">ITCH</figcaption>
-      </blockquote>
-   </div>
-   <figure>
-   <!-- Fin contacto -->
+      <div class="row">
+         <blockquote class="blockquote col-12">
+            <pre>Cultura, Ciencia y Tecnología para la Superación de México</pre>
+            <figcaption class="blockquote-footer">ITCH</figcaption>
+         </blockquote>
+      </div>
+      <figure>
+         <!-- Fin contacto -->
 
-   <!-- Offcanvas Sidebar -->
-   <div class="offcanvas offcanvas-start" style="background-color: whitesmoke;" id="pasos">
-      <div class="offcanvas-header">
-         <h1 class="offcanvas-title display-6 ">Pasos para realizar tu Residencia</h1>
-         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
-      </div>
-      <div class="offcanvas-body">
-         <ol>
-            <li>Asegúrate de no adeudar ningún Curso Especial y haber aprobado el 80% de los créditos de tu plan de estudios.</li><br>
-            <li>Asegúrate de haber liberado el Servicio Social y 5 Créditos de Actividades Complementarias.</li><br>
-            <li>Asiste a las pláticas informativas por parte de tu coordinador de carrera.</li><br>
-            <li>Realiza la solicitud de residencia profesional previamente al semestre inmediato a la reinscripción del estudiante.</li><br>
-            <li>Entrega la solicitud a tu coordinador de carrera anexando tu anteproyecto.</li><br>
-            <li>Sigue el procedimiento indicado para dar por concluido el trámite.</li><br>
-         </ol>
-      </div>
-   </div>
-   <!-- Fin Offcanvas -->
+         <!-- Offcanvas Sidebar -->
+         <div class="offcanvas offcanvas-start" data-bs-theme="dark" id="pasos">
+            <div class="offcanvas-header">
+               <h1 class="offcanvas-title display-6 ">Pasos para realizar tu Residencia</h1>
+               <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+            </div>
+            <div class="offcanvas-body">
+               <ol>
+                  <li>Asegúrate de no adeudar ningún Curso Especial y haber aprobado el 80% de los créditos de tu plan de estudios.</li><br>
+                  <li>Asegúrate de haber liberado el Servicio Social y 5 Créditos de Actividades Complementarias.</li><br>
+                  <li>Asiste a las pláticas informativas por parte de tu coordinador de carrera.</li><br>
+                  <li>Realiza la solicitud de residencia profesional previamente al semestre inmediato a la reinscripción del estudiante.</li><br>
+                  <li>Entrega la solicitud a tu coordinador de carrera anexando tu anteproyecto.</li><br>
+                  <li>Sigue el procedimiento indicado para dar por concluido el trámite.</li><br>
+               </ol>
+            </div>
+         </div>
+         <!-- Fin Offcanvas -->
 </div>
 <?php
 include 'footer.php';
