@@ -9,7 +9,10 @@
     <link href="../recursos/css/Nefta.css" rel="stylesheet">
     <link href="../recursos/css/bootstrap.min.css" rel="stylesheet">
     <link href="../recursos/css/jquery.dataTables.min.css" rel="stylesheet">
-
+    <?php
+        $idAseint = getIDAsesorInterno($_SESSION['id']);
+        $_SESSION['AIID'] = $idAseint;
+    ?>
     
 </head>
 
