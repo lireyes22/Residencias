@@ -122,12 +122,10 @@ include 'headprofesores.php';
                                     </svg> Datos del Residente
                             </button>
                         </div>
-                    <div class="row mb-3">
-                        <div class="col text-center text-dark form-floating">
+                       <div class="mb-3 form-floating">
                              <textarea class="form-control" id="comment" name="observaciones" placeholder="0" rows="3"></textarea>
                              <label for="observaciones" class="form-label h6">Observaciones:</label>
-                        </div>
-                   </div>
+                      </div>
                     <div class="d-flex flex-wrap justify-content-around">
                             <button type="button" class="btn btn-success" onclick="enviarValor('APROBADO')"><svg xmlns="http://www.w3.org/2000/svg"
                                     width="16" height="16" fill="currentColor" class="bi bi-check-circle"
