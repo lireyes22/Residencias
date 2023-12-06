@@ -18,7 +18,7 @@ include 'headAlumnos.php';
                 <div class="col ms-sm-auto px-4">
                     <div class="container mt-3 text-center">
                         <div id="tr" align="center">
-                            <h2>Traking</h2>
+                            <h2>Tracking</h2>
                         </div>                        
                         <script>
                         $(document).ready(function(){
