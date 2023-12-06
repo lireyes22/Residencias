@@ -11,6 +11,34 @@
 <?php
 include 'headDeptoAca.php';
 ?>
+<script>
+			function activarFiltro(divItems){
+				const listaProfesores = divItems+' *'
+				console.log(listaProfesores)
+				$(".filtroAsesor").on("keyup", function() {
+				var value = $(this).val().toLowerCase();
+				var last = null, coincide = 0;
+				$(listaProfesores).filter(function() {
+				var exito = $(this).toggle($(this).text().normalize("NFD").replace(/[\u0300-\u036f]/g, '').toLowerCase().indexOf(value) > -1)
+				if((exito.attr("style")+'') == 'undefined' || (exito.attr("style")+'') == ''){
+					last = exito;
+					coincide++
+				}else{
+					exito.removeAttr("selected");
+				}
+				});
+				if(!$.isEmptyObject(last)){
+					$(".coincidencias").text((coincide));
+					$(".coincidencias").attr("class", "coincidencias badge bg-success")
+					last.attr("selected", "selected")
+				}else{
+					$(".coincidencias").text(('0'));
+					$(".coincidencias").attr("class", "coincidencias badge bg-danger")
+				}
+			});
+			}
+
+	</script>
 <!-- Contenido principal -->
 <div class="col ms-sm-auto px-4">
 	<div class="container-fluid mt-3 text-center">
@@ -96,7 +124,7 @@ include 'headDeptoAca.php';
 									<div class="row">
 										<div class="col container-fluid">
 											<button <?php echo $asigna; ?> type="button" class="btn btn-outline-success"
-												data-bs-toggle="modal" data-bs-target="#Asignar<?php echo $i - 1; ?>">
+												data-bs-toggle="modal" data-bs-target="#Asignar<?php echo $i - 1; ?>" onclick="activarFiltro('#elegirProfesorA<?php echo $i - 1; ?>')">
 												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 													fill="currentColor" class="bi bi-person-plus-fill"
 													viewBox="0 0 16 16">
@@ -114,7 +142,7 @@ include 'headDeptoAca.php';
 										</div>
 										<div class="col container-fluid">
 											<button <?php echo $reasigna; ?> type="button" class="btn btn-outline-warning"
-												data-bs-toggle="modal" data-bs-target="#Reasignar<?php echo $i - 1; ?>">
+												data-bs-toggle="modal" data-bs-target="#Reasignar<?php echo $i - 1; ?>" onclick="activarFiltro('#elegirProfesorR<?php echo $i - 1; ?>')">
 												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 													fill="currentColor" class="bi bi-person-fill-gear"
 													viewBox="0 0 16 16">
@@ -184,7 +212,8 @@ include 'headDeptoAca.php';
 							</div>
 							<div class="col-md-6 mb-3">
 								<label for="profesor" class="form-label">Profesor:</label>
-								<select name="docente" class="form-select">
+								<input class="filtroAsesor" type="text" placeholder="Buscar..."><span class="coincidencias badge bg-success" id="">0</span>
+								<select name="docente" id="elegirProfesorA'.$j.'" class="form-select">
 								'.$optionProfesores.'
 								</select>
 							</div>
@@ -265,9 +294,10 @@ include 'headDeptoAca.php';
 									<input type="text" class="form-control" id="oficio" placeholder="Número de oficio"
 										name="noOficio" value="">
 								</div>
-								<div class="col-md-6 mb-3">
+								<div class="col-md-6 mb-3">									
 									<label for="profesor" class="form-label">Nuevo Asesor:</label>
-									<select name="docente" class="form-select">
+									<input class="filtroAsesor" type="text" placeholder="Buscar..."><span class="coincidencias badge bg-success" id="">0</span>
+									<select name="docente" id="elegirProfesorR'.$j.'" class="form-select">
 									'.$optionProfesores2.'
 									</select>
 								</div>
@@ -333,7 +363,34 @@ include 'headDeptoAca.php';
 	}
 		} //TERMINA CICLO
 	?>
-
+	<script>
+		/*$(document).ready(function(){
+			function activarFiltro(divItems){
+				const listaProfesores = divItems+' *'
+				console.log(listaProfesores)
+				$(".filtroAsesor").on("keyup", function() {
+				var value = $(this).val().toLowerCase();
+				var last = null, coincide = 0;
+				$(listaProfesores).filter(function() {
+				var exito = $(this).toggle($(this).text().normalize("NFD").replace(/[\u0300-\u036f]/g, '').toLowerCase().indexOf(value) > -1)
+				if((exito.attr("style")+'') == 'undefined' || (exito.attr("style")+'') == ''){
+					last = exito;
+					coincide++
+				}else{
+					exito.removeAttr("selected");
+				}
+				});
+				if(!$.isEmptyObject(last)){
+					$(".coincidencias").text((coincide/3));
+					last.attr("selected", "selected")
+				}else{
+					$(".coincidencias").text(('0'));
+				}
+			});
+			}
+		});
+		*/
+	</script>
 <?php
 include 'footer.php';
 ?>

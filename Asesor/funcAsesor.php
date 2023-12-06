@@ -177,9 +177,11 @@ function getBoton($botonName)
 
     #compararlas
     if ($fechaActual > $fechaComparar) {
-        echo '<td colspan="3" style="color: rgb(180, 0, 0);"><strong>NOTA: Fuera de periodo de evaluacion</strong></td>';
+        #echo '<td id="FueraPeriodo" colspan="3" style="color: rgb(180, 0, 0);"><strong id="FueraPeriodoS">NOTA: Fuera de periodo de evaluacion</strong></td>';
+        return false;
     } elseif ($fechaActual <= $fechaComparar) {
-        echo '<input class="btn btn-success" type="submit" value="Guardar" name="' . $botonName . '" formaction="procesos/AsesorInternoGuardarEvSeguimiento.php">';
+        #echo '<input class="btn btn-success" type="submit" value="Guardar" name="' . $botonName . '" formaction="procesos/AsesorInternoGuardarEvSeguimiento.php">';
+        return true;
     }
 }
 function getBotonRF($idSRID)

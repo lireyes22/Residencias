@@ -5,17 +5,19 @@ $idAsesor = $_POST['idAsesor'];
 $idAlumno = $_POST['idAlumno'];
 
 #Esto es para poder usar las consultas mas adelante
-$consultaAlumno;$consultaAlumnoProyecto;$consultaAlumnoCarrera;
+$consultaAlumno;
+$consultaAlumnoProyecto;
+$consultaAlumnoCarrera;
 #Se consulta la informacion del alumno
 if (!($consultaAlumno = mysqli_fetch_array(consultaUsuarioAlumno($idAlumno)))) {
-    echo 'error1';
+  echo 'error1';
 }
 #La informacion del Pro
 if (!($consultaAlumnoProyecto = mysqli_fetch_array(consultaProyectoAlumno($idAlumno)))) {
-    echo 'error2';
+  echo 'error2';
 }
 if (!($consultaAlumnoCarrera = mysqli_fetch_array(consultaCarreraAlumno($consultaAlumno['NumeroControl'])))) {
-    echo 'error3';
+  echo 'error3';
 }
 
 #Se obtiene la id de la solicitud de residencia para saber con que solicitud se guarda la ev. Parcial
@@ -25,7 +27,7 @@ $idSolicitudResidencia = $consultaAlumnoProyecto['SRID'];
 $queryAsesor = consultaProfesorAsesor($idAsesor);
 $consultaAsesor;
 if (!($consultaAsesor = mysqli_fetch_array($queryAsesor))) {
-    echo 'error4';
+  echo 'error4';
 }
 
 #Obtener calificaciones parciales
@@ -43,13 +45,16 @@ include 'headAsesorInterno.php';
     <div class="col-md-9 mx-auto my-auto">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-          <a class="nav-link active border-3 text-black" id="parcial1-tab" data-bs-toggle="tab" href="#parcial1" role="tab" aria-controls="parcial1" aria-selected="true">Primer Parcial</a>
+          <a class="nav-link active border-3 text-black" id="parcial1-tab" data-bs-toggle="tab" href="#parcial1"
+            role="tab" aria-controls="parcial1" aria-selected="true">Primer Parcial</a>
         </li>
         <li class="nav-item" role="presentation">
-          <a class="nav-link border-3 text-black" id="parcial2-tab" data-bs-toggle="tab" href="#parcial2" role="tab" aria-controls="parcial2" aria-selected="false">Segundo Parcial</a>
+          <a class="nav-link border-3 text-black" id="parcial2-tab" data-bs-toggle="tab" href="#parcial2" role="tab"
+            aria-controls="parcial2" aria-selected="false">Segundo Parcial</a>
         </li>
         <li class="nav-item col-md-3 text-center" role="presentation">
-          <button class="nav-link border-2 border-2 text-black" id="informacionGeneral-tab" data-bs-toggle="modal" data-bs-target="#myModal" role="tab" aria-controls="informacionGeneral" aria-selected="false">
+          <button class="nav-link border-2 border-2 text-black" id="informacionGeneral-tab" data-bs-toggle="modal"
+            data-bs-target="#myModal" role="tab" aria-controls="informacionGeneral" aria-selected="false">
             Información General
           </button>
         </li>
@@ -79,7 +84,8 @@ include 'headAsesorInterno.php';
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="PuntualidadP1" class="form-control" min="0" max="10" step="1" value="<?php  echo $ParcialUno['ERPuntualidad'] ?>" required>
+                  <input type="number" name="PuntualidadP1" class="form-control" min="0" max="10" step="1"
+                    value="<?php echo $ParcialUno['ERPuntualidad'] ?>" required>
                 </div>
               </div>
             </div>
@@ -93,7 +99,8 @@ include 'headAsesorInterno.php';
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="ConocimientoP1" class="form-control" min="0" max="20" step="1" value="<?php  echo $ParcialUno['ERConocimiento'] ?>" required>
+                  <input type="number" name="ConocimientoP1" class="form-control" min="0" max="20" step="1"
+                    value="<?php echo $ParcialUno['ERConocimiento'] ?>" required>
                 </div>
               </div>
             </div>
@@ -107,35 +114,39 @@ include 'headAsesorInterno.php';
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="TrabajoEquipoP1" class="form-control" min="0" max="15" step="1" value="<?php  echo $ParcialUno['ERTrabajoEquipo'] ?>" required>
+                  <input type="number" name="TrabajoEquipoP1" class="form-control" min="0" max="15" step="1"
+                    value="<?php echo $ParcialUno['ERTrabajoEquipo'] ?>" required>
                 </div>
               </div>
             </div>
 
             <div class="row" style="background-color: #FFFFFF; padding: 10px;">
               <div class="col-md-4">
-                <p>Es dedicado y proactivo en las actividades encomendadas	</p>
+                <p>Es dedicado y proactivo en las actividades encomendadas </p>
               </div>
               <div class="col-md-4 text-center">
                 <p>20</p>
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="DedicacionP1" class="form-control" min="0" max="20" step="1" value="<?php  echo $ParcialUno['ERDedicacion'] ?>" required>
+                  <input type="number" name="DedicacionP1" class="form-control" min="0" max="20" step="1"
+                    value="<?php echo $ParcialUno['ERDedicacion'] ?>" required>
                 </div>
               </div>
             </div>
 
             <div class="row" style="background-color: #E9ECEF; padding: 10px;">
               <div class="col-md-4">
-                <p>Es ordenado y cumple satisfactoriamente con las actividades encomendadas en los tiempos establecidos	</p>
+                <p>Es ordenado y cumple satisfactoriamente con las actividades encomendadas en los tiempos establecidos
+                </p>
               </div>
               <div class="col-md-4 text-center">
                 <p>20</p>
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="OrdenadoP1" class="form-control" min="0" max="20" step="1" value="<?php  echo $ParcialUno['EROrdenado'] ?>" required>
+                  <input type="number" name="OrdenadoP1" class="form-control" min="0" max="20" step="1"
+                    value="<?php echo $ParcialUno['EROrdenado'] ?>" required>
                 </div>
               </div>
             </div>
@@ -149,23 +160,27 @@ include 'headAsesorInterno.php';
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="DaMejorasP1" class="form-control" min="0" max="15" step="1" value="<?php  echo $ParcialUno['ERDaMejoras'] ?>" required>
+                  <input type="number" name="DaMejorasP1" class="form-control" min="0" max="15" step="1"
+                    value="<?php echo $ParcialUno['ERDaMejoras'] ?>" required>
                 </div>
               </div>
             </div>
 
             <div class="row" style="background-color: #384970E6; padding: 10px;">
-              <div class="col-md-4">
-                <strong style="color: White">Total de Puntos del Primer Parcial:</strong>
+              <div id="puntosP1" class="col-md-4">
+                <strong style="color: White">Total de Puntos del</strong>
               </div>
               <div class="col-md-4 text-center ">
                 <strong style="color: white">Al hacer clic en guardar se actualizarán los datos</strong>
               </div>
               <div class="col-md-4">
-                <input type="number" name="ERCalificacionP1" disabled class="form-control" value="<?php  echo $ParcialUno['ERCalificacion'] ?>">
+                <input type="number" name="ERCalificacionP1" disabled class="form-control"
+                  value="<?php echo $ParcialUno['ERCalificacion'] ?>">
               </div>
             </div>
-
+            <script>
+              $("#puntosP1").append('<strong id="stParcial1">Primer Parcial:</Strong>');
+            </script>
             <div class="row" style="background-color: #384970E6;">
               <div class="col-md-12 text-center">
                 <label class="lb-inp" style="color: white; font-size: 20px;"><strong>Observaciones:</strong></label>
@@ -173,13 +188,33 @@ include 'headAsesorInterno.php';
             </div>
             <div class="row" style="background-color:  #384970E6;">
               <div class="col-md-12">
-                <textarea class="form-control" name="Observaciones" style="resize: none;"><?php  echo $ParcialUno['ERObservaciones'] ?></textarea>
+                <textarea class="form-control" name="Observaciones"
+                  style="resize: none;"><?php echo $ParcialUno['ERObservaciones'] ?></textarea>
               </div>
             </div>
 
             <div class="row rounded-bottom p-2" style="background-color: #384970E6;">
               <div class="col-md-12 text-center ">
-              <?php getBoton('Par1'); ?>
+              <td id="" colspan="3" style="color: rgb(180, 0, 0);"><strong id="test1"></strong></td>
+                <div id="espDivBtn"></div>
+                <?php if (getBoton('Par1')) { ?>
+                  <script>
+                    $("#test1").text('Actualiza mientras no estes fuera del periodo'); //SET TEXT
+                    $("#espDivBtn").html('<input id="espBtn1">'); //SET HTML
+                    $("#espBtn1").val("Guardar"); //SET VAL
+                    $("#espBtn1").attr({ //SET ATTRIBUTO
+                      "name": "Par1",
+                      "formaction": "procesos/AsesorInternoGuardarEvSeguimiento.php",
+                      "type": "submit"
+                    });
+                    $("#espBtn1").addClass("btn btn-success");// ADD CLASS
+                    $("#test1").css("color", "yellow");//ADD CSS
+                  </script>
+                <?php } else { ?>
+                  <script>$("#test1").text("Fuera del Periodo de evaluacion");
+                    $("#test1").css("color", "yellow");
+                  </script>
+                <?php } ?>
               </div>
             </div>
             <input type="hidden" name="idSoliRes" value="<?php echo $idSolicitudResidencia; ?>">
@@ -213,7 +248,8 @@ include 'headAsesorInterno.php';
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="PuntualidadP2" class="form-control" min="0" max="10" step="1" value="<?php  echo $ParcialDos['ERPuntualidad'] ?>" required>
+                  <input type="number" name="PuntualidadP2" class="form-control" min="0" max="10" step="1"
+                    value="<?php echo $ParcialDos['ERPuntualidad'] ?>" required>
                 </div>
               </div>
             </div>
@@ -227,7 +263,8 @@ include 'headAsesorInterno.php';
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="ConocimientoP2" class="form-control" min="0" max="20" step="1" value="<?php  echo $ParcialDos['ERConocimiento'] ?>" required>
+                  <input type="number" name="ConocimientoP2" class="form-control" min="0" max="20" step="1"
+                    value="<?php echo $ParcialDos['ERConocimiento'] ?>" required>
                 </div>
               </div>
             </div>
@@ -241,35 +278,39 @@ include 'headAsesorInterno.php';
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="TrabajoEquipoP2" class="form-control" min="0" max="15" step="1" value="<?php  echo $ParcialDos['ERTrabajoEquipo'] ?>" required>
+                  <input type="number" name="TrabajoEquipoP2" class="form-control" min="0" max="15" step="1"
+                    value="<?php echo $ParcialDos['ERTrabajoEquipo'] ?>" required>
                 </div>
               </div>
             </div>
 
             <div class="row" style="background-color: #FFFFFF; padding: 10px;">
               <div class="col-md-4">
-                <p>Es dedicado y proactivo en las actividades encomendadas	</p>
+                <p>Es dedicado y proactivo en las actividades encomendadas </p>
               </div>
               <div class="col-md-4 text-center">
                 <p>20</p>
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="DedicacionP2" class="form-control" min="0" max="20" step="1" value="<?php  echo $ParcialDos['ERDedicacion'] ?>" required>
+                  <input type="number" name="DedicacionP2" class="form-control" min="0" max="20" step="1"
+                    value="<?php echo $ParcialDos['ERDedicacion'] ?>" required>
                 </div>
               </div>
             </div>
 
             <div class="row" style="background-color: #E9ECEF; padding: 10px;">
               <div class="col-md-4">
-                <p>Es ordenado y cumple satisfactoriamente con las actividades encomendadas en los tiempos establecidos	</p>
+                <p>Es ordenado y cumple satisfactoriamente con las actividades encomendadas en los tiempos establecidos
+                </p>
               </div>
               <div class="col-md-4 text-center">
                 <p>20</p>
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="OrdenadoP2" class="form-control" min="0" max="20" step="1" value="<?php  echo $ParcialDos['EROrdenado'] ?>" required>
+                  <input type="number" name="OrdenadoP2" class="form-control" min="0" max="20" step="1"
+                    value="<?php echo $ParcialDos['EROrdenado'] ?>" required>
                 </div>
               </div>
             </div>
@@ -283,7 +324,8 @@ include 'headAsesorInterno.php';
               </div>
               <div class="col-md-4">
                 <div class="input-group">
-                  <input type="number" name="DaMejorasP2" class="form-control" min="0" max="15" step="1" value="<?php  echo $ParcialDos['ERDaMejoras'] ?>" required>
+                  <input type="number" name="DaMejorasP2" class="form-control" min="0" max="15" step="1"
+                    value="<?php echo $ParcialDos['ERDaMejoras'] ?>" required>
                 </div>
               </div>
             </div>
@@ -296,7 +338,8 @@ include 'headAsesorInterno.php';
                 <strong style="color: white">Al hacer clic en guardar se actualizarán los datos</strong>
               </div>
               <div class="col-md-4">
-                <input type="number"  disabled class="form-control" name="ERCalificacionP2" value="<?php  echo $ParcialDos['ERCalificacion'] ?>">
+                <input type="number" disabled class="form-control" name="ERCalificacionP2"
+                  value="<?php echo $ParcialDos['ERCalificacion'] ?>">
               </div>
             </div>
 
@@ -307,13 +350,31 @@ include 'headAsesorInterno.php';
             </div>
             <div class="row" style="background-color:  #384970E6;">
               <div class="col-md-12">
-                <textarea class="form-control" name="Observaciones" style="resize: none;"><?php  echo $ParcialDos['ERObservaciones'] ?></textarea>
+                <textarea class="form-control" name="Observaciones"
+                  style="resize: none;"><?php echo $ParcialDos['ERObservaciones'] ?></textarea>
               </div>
             </div>
 
             <div class="row rounded-bottom p-2" style="background-color: #384970E6;">
               <div class="col-md-12 text-center ">
-              <?php getBoton('Par2'); ?>
+              <td id="" colspan="3" style="color: rgb(180, 0, 0);"><strong id="test2" style="color: yellow"></strong></td>
+                <div id="espDivBtn2"></div>
+                <?php if (getBoton('Par2')) { ?>
+                  <script>
+                    $("#espDivBtn2").html('<input id="espBtn2">'); //SET HTML
+                    $("#espBtn2").val("Guardar"); //SET VAL
+                    $("#espBtn2").attr({ //SET ATTRIBUTO
+                      "name": "Par2",
+                      "formaction": "procesos/AsesorInternoGuardarEvSeguimiento.php",
+                      "type": "submit"
+                    });
+                    $("#espBtn2").addClass("btn btn-success");//ADD CLASS
+                    
+                  </script>
+                <?php }?>
+                <script>
+                  $("#test2").append($("#test1").html());
+                </script>
               </div>
             </div>
             <input type="hidden" name="idSoliRes" value="<?php echo $idSolicitudResidencia; ?>">
@@ -336,7 +397,9 @@ include 'headAsesorInterno.php';
                     <p>Número de control:</p>
                   </div>
                   <div class="col-md-8">
-                    <p><?php echo $consultaAlumno['NumeroControl']; ?></p>
+                    <p>
+                      <?php echo $consultaAlumno['NumeroControl']; ?>
+                    </p>
                   </div>
                 </div>
                 <div class="row mb-3">
@@ -344,7 +407,9 @@ include 'headAsesorInterno.php';
                     <p>Nombre del Residente:</p>
                   </div>
                   <div class="col-md-8">
-                    <p><?php echo $consultaAlumno['NombreCompleto']; ?></p>
+                    <p id="eNombreCompletoAlumno">
+                      <?php echo $consultaAlumno['NombreCompleto']; ?>
+                    </p>
                   </div>
                 </div>
                 <div class="row mb-3">
@@ -352,7 +417,9 @@ include 'headAsesorInterno.php';
                     <p>Nombre del Proyecto:</p>
                   </div>
                   <div class="col-md-8">
-                    <p><?php echo $consultaAlumnoProyecto['SPNombreProyecto']; ?></p>
+                    <p>
+                      <?php echo $consultaAlumnoProyecto['SPNombreProyecto']; ?>
+                    </p>
                   </div>
                 </div>
                 <div class="row mb-3">
@@ -360,7 +427,9 @@ include 'headAsesorInterno.php';
                     <p>Programa Educativo:</p>
                   </div>
                   <div class="col-md-8">
-                    <p><?php echo $consultaAlumnoCarrera['Nombre']; ?></p>
+                    <p>
+                      <?php echo $consultaAlumnoCarrera['Nombre']; ?>
+                    </p>
                   </div>
                 </div>
                 <div class="row mb-3">
@@ -368,7 +437,9 @@ include 'headAsesorInterno.php';
                     <p>Periodo de Realización:</p>
                   </div>
                   <div class="col-md-8">
-                    <p><?php echo $consultaAlumnoProyecto['SRPeriodo']; ?></p>
+                    <p>
+                      <?php echo $consultaAlumnoProyecto['SRPeriodo']; ?>
+                    </p>
                   </div>
                 </div>
                 <div class="row mb-3">
@@ -376,7 +447,9 @@ include 'headAsesorInterno.php';
                     <p>Nombre del Asesor Interno:</p>
                   </div>
                   <div class="col-md-8">
-                    <p><?php echo $consultaAsesor['NombreCompleto']; ?></p>
+                    <p>
+                      <?php echo $consultaAsesor['NombreCompleto']; ?>
+                    </p>
                   </div>
                 </div>
                 <div class="row mb-3">
@@ -384,15 +457,21 @@ include 'headAsesorInterno.php';
                     <p>Fecha:</p>
                   </div>
                   <div class="col-md-8">
-                    <p><?php echo date('Y-m-d'); ?></p>
+                    <p>
+                      <?php echo date('Y-m-d'); ?>
+                    </p>
                   </div>
                 </div>
                 <div class="row mb-3">
                   <div class="col-md-4">
-                    <abbr title="Suma de los 2 parciales" class="initialism"><p class="text-capitalize">Total de puntos:</p></abbr>
+                    <abbr title="Suma de los 2 parciales" class="initialism">
+                      <p class="text-capitalize">Total de puntos:</p>
+                    </abbr>
                   </div>
                   <div class="col-md-8">
-                    <p><?php  echo $ParcialUno['ERCalificacion'] + $ParcialDos['ERCalificacion']?></p>
+                    <p>
+                      <?php echo $ParcialUno['ERCalificacion'] + $ParcialDos['ERCalificacion'] ?>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -400,7 +479,8 @@ include 'headAsesorInterno.php';
                 <form method="post">
                   <input type="hidden" name="redireccionar" value="../Asesor/AsesorInternoAlumnos.php">
                   <input type="hidden" name="idUAlumno" value="<?php echo $idAlumno; ?>">
-                  <input type="submit" value="Descargar Evaluacion" class="btn btn-outline-primary" formaction="../GenerarDocs/GenerarEvaluacionSeguimiento.php" target="_blank">
+                  <input type="submit" value="Descargar Evaluacion" class="btn btn-outline-primary"
+                    formaction="../GenerarDocs/GenerarEvaluacionSeguimiento.php" target="_blank">
                 </form>
               </div>
             </div>

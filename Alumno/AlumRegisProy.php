@@ -12,7 +12,7 @@
     $docentes = listaDocentes($DID[0], ''); 
 include 'headAlumnos.php';
 ?>
-<div class="col ms-sm-auto px-4">
+<div class="col ms-sm-auto px-4" id="principalRegisProy">
     <div class="container col-9">
 
 
@@ -41,7 +41,7 @@ include 'headAlumnos.php';
                 <textarea class="form-control" name="descripcion" rows="4"></textarea>
             </div>
 
-            <div class="p-3">
+            <div class="p-3" id="">
                 <label for="impactoProyecto" class="form-label h6">Impacto del Proyecto:</label>
                 <p class="text-muted">Establecer la importancia y aporte de la investigación propuesta en
                     función de la generación de conocimiento, el desarrollo tecnológico, la innovación y la
@@ -49,12 +49,12 @@ include 'headAlumnos.php';
                 <textarea class="form-control" name="impacto" rows="4"></textarea>
             </div>
 
-            <div class="p-3">
-                <label for="lugarDesarrollo" class="form-label h6">Lugar donde se va a desarrollar:</label>
-                <input type="text" class="form-control" name="lugar">
+            <div class="p-3" id="LugarDesarrollo">
+                <label for="lugarDesarrollo" class="form-label h6" >Lugar donde se va a desarrollar:</label>
+                <input type="text" class="form-control" name="lugar" id="LugarDesarrollo2">
             </div>
 
-            <div class="container p-3">
+            <div class="container p-3" id="datosRegisProy">
                 <div class="row">
                     <div class="col">
                         <label for="cantidadEstudiantes" class="form-label h6">Cantidad de estudiantes:</label>
@@ -62,7 +62,7 @@ include 'headAlumnos.php';
                     </div>
                     <div class="col">
                         <label for="tiempoProyecto" class="form-label h6">Tiempo estimado de proyecto:</label>
-                        <div class="input-group">
+                        <div class="input-group" id="datosRegisProy1">
                             <input type="number" class="form-control" name="tiempoProy" min="0" placeholder="0">
                             <span class="input-group-text">MES(ES)</span>
                         </div>
@@ -96,12 +96,12 @@ include 'headAlumnos.php';
                 </div>
             </div>
 
-            <div class="p-3">
+            <div class="p-3" id="carrerasElegidas">
                 <label for="lineaInvestigacion" class="form-label h6">Línea de investigación que beneficia:</label>
                 <input type="text" class="form-control" name="lineaInv">
             </div>
 
-            <div class="p-3">
+            <div class="p-3" id="referenciasEsenciales">
                 <label for="referencias" class="form-label h6">Incluya las referencias esenciales para enmarcar el contenido de su propuesta:</label>
                 <textarea class="form-control" name="refEsenciales" rows="4"></textarea>
             </div>
@@ -122,7 +122,7 @@ include 'headAlumnos.php';
             <div class="mb-3 p-3">
                 <label class="form-label h6">Carrera Requerida de los estudiantes:</label>
                 
-                <div class="form-check">
+                <div class="form-check" >
                     <?php
                             #$row2 = mysqli_fetch_array($result4)
                             $query = getCarreras();

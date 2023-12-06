@@ -9,15 +9,15 @@
 <div class="container col ms-sm-auto px-4">
 <div class="card mt-4">
   <div class="card-header">
-    ¡BIENVENIDO!
+    ¡BIENVENIDO! 
   </div>
   <!-- href="./deptoAcaAsigProyResV2.php" //<p class="card-text">Nos alegra verte de nuevo, <?php //echo $nombre[0] ?>.</p>-->
   <div class="card-body">
     <h5 class="card-title">Sistema de Residencias Profesionales.</h5>
     <h5 class="card-text">Nos alegra verte de nuevo, <small><?php echo $nombre[0] ?></small>.</h5>
     <button class="btn btn-primary" type="button" class="btn btn-outline-primary"
-		data-bs-toggle="modal" data-bs-target="#index">
-    ANUNCIOS</button>
+		data-bs-toggle="modal" data-bs-target="#index" >
+    ANUNCIOS <span class="badge bg-danger" id="alerta">!</span></button>
   </div>
 </div>
 </div>
@@ -43,7 +43,7 @@
           </div>
           <div class="row">
             <div class="col-4">
-              <button type="button" class="btn btn-lg btn-primary mt-5 w-100" data-bs-dismiss="modal">Listo!</button>
+              <button type="button" class="btn btn-lg btn-primary mt-5 w-100" data-bs-dismiss="modal" id="listo">Listo!</button>
             </div>
             <div class="col-8">
               <a class="btn btn-lg btn-info mt-5 w-100" href="http://www.itchetumal.edu.mx" target="blank">Visita nuestra WEB!</a>
@@ -53,6 +53,14 @@
   </div>
 </div>
 </div>
+<script>
+  var jq = $.noConflict();
+  jq(document).ready(function(){
+    jq("#listo").click(function(){
+      jq("#alerta").text("");
+    });
+  });
+</script>
 <?php
 include 'footer.php';
 ?>
