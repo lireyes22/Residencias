@@ -5,11 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
 	<title>Residencias</title>
-	<link href="../recursos/css/Nefta.css" rel="stylesheet">
+	
     <link href="../recursos/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../recursos/js/jquery-3.6.0.min.js"></script>
     <link href="../recursos/css/jquery.dataTables.min.css" rel="stylesheet"> 
-    
+    <link href="../recursos/css/Nefta.css" rel="stylesheet">
 
+  <script>
+    $(document).ready(function(){
+      $("#datosRegisProy1").parents().css({"color": "black", "border": "2px solid white"});
+    });
+
+    $(document).ready(function(){
+      $("#datosRegisProy1").parents("#datosRegisProy").css({"color": "black", "border": "2px solid gray"});
+    });
+  </script>
 
 </head>
 <body> 

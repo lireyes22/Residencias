@@ -54,7 +54,7 @@ include 'headAlumnos.php';
                 <input type="text" class="form-control" name="lugar">
             </div>
 
-            <div class="container p-3">
+            <div class="container p-3" id="datosRegisProy">
                 <div class="row">
                     <div class="col">
                         <label for="cantidadEstudiantes" class="form-label h6">Cantidad de estudiantes:</label>
@@ -62,7 +62,7 @@ include 'headAlumnos.php';
                     </div>
                     <div class="col">
                         <label for="tiempoProyecto" class="form-label h6">Tiempo estimado de proyecto:</label>
-                        <div class="input-group">
+                        <div class="input-group" id="datosRegisProy1">
                             <input type="number" class="form-control" name="tiempoProy" min="0" placeholder="0">
                             <span class="input-group-text">MES(ES)</span>
                         </div>
