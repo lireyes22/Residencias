@@ -64,6 +64,8 @@ include 'headAsesorInterno.php';
           </button>
         </li>
       </ul>
+      <script>
+      </script>
       <div class="tab-content" id="myTabContent">
         <!-- Parcial 1 -->
         <div class="tab-pane fade show active" id="parcial1" role="tabpanel" aria-labelledby="parcial1-tab">
@@ -397,10 +399,9 @@ include 'headAsesorInterno.php';
 
         <!-- Main -->
         <script>
+          $("#parcial1-tab, #parcial2-tab, #informacionGeneral-tab, #btnCmbColor").remove("text-white");
             $("#btnCmbColor").click(function () {
-              $("#parcial1-tab, #parcial2-tab, #informacionGeneral-tab, #btnCmbColor").remove("texto-dark");
-              $("#parcial1-tab, #parcial2-tab, #informacionGeneral-tab, #btnCmbColor").toggleClass("text-white");
-              $("#parcial1-tab, #parcial2-tab, #informacionGeneral-tab, #btnCmbColor").toggleClass("text-white");
+              $("#parcial1-tab, #parcial2-tab, #informacionGeneral-tab, #btnCmbColor").toggleClass("text-dark");
               $("#contbg").toggleClass("bg-dark");
               
             });
