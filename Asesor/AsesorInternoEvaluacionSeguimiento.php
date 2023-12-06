@@ -35,8 +35,7 @@ $ParcialUno = consultaEvaluacionSeguimiento($idAsesor, $idAlumno, 1, 0);
 $ParcialDos = consultaEvaluacionSeguimiento($idAsesor, $idAlumno, 2, 0);
 include 'headAsesorInterno.php';
 ?>
-<!-- Main -->
-<div class="col ms-sm-auto px-4" style="background-color: whitesmoke;">
+<div class="col ms-sm-auto px-4" style="background-color: whitesmoke;" id="contbg">
   <br>
   <!-- #384970 Color -->
   <!-- Contenido Principal -->
@@ -45,17 +44,23 @@ include 'headAsesorInterno.php';
     <div class="col-md-9 mx-auto my-auto">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-          <a class="nav-link active border-3 text-black" id="parcial1-tab" data-bs-toggle="tab" href="#parcial1"
+          <a class="nav-link active border-3" id="parcial1-tab" data-bs-toggle="tab" href="#parcial1"
             role="tab" aria-controls="parcial1" aria-selected="true">Primer Parcial</a>
         </li>
         <li class="nav-item" role="presentation">
-          <a class="nav-link border-3 text-black" id="parcial2-tab" data-bs-toggle="tab" href="#parcial2" role="tab"
+          <a class="nav-link border-3" id="parcial2-tab" data-bs-toggle="tab" href="#parcial2" role="tab"
             aria-controls="parcial2" aria-selected="false">Segundo Parcial</a>
         </li>
         <li class="nav-item col-md-3 text-center" role="presentation">
-          <button class="nav-link border-2 border-2 text-black" id="informacionGeneral-tab" data-bs-toggle="modal"
+          <button class="nav-link border-2 border-2" id="informacionGeneral-tab" data-bs-toggle="modal"
             data-bs-target="#myModal" role="tab" aria-controls="informacionGeneral" aria-selected="false">
             Información General
+          </button>
+        </li>
+        <li class="nav-item col-md-3 text-center">
+          <button class="nav-link border-2 border-2" id="btnCmbColor" data-bs-toggle="modal"
+            data-bs-target="" role="tab" aria-controls="" aria-selected="false">
+            Color
           </button>
         </li>
       </ul>
@@ -104,7 +109,6 @@ include 'headAsesorInterno.php';
                 </div>
               </div>
             </div>
-
             <div class="row" style="background-color: #E9ECEF; padding: 10px;">
               <div class="col-md-4">
                 <p>Trabaja en equipo y se comunica en forma efectiva (oral y escrita)</p>
@@ -119,7 +123,6 @@ include 'headAsesorInterno.php';
                 </div>
               </div>
             </div>
-
             <div class="row" style="background-color: #FFFFFF; padding: 10px;">
               <div class="col-md-4">
                 <p>Es dedicado y proactivo en las actividades encomendadas </p>
@@ -134,7 +137,6 @@ include 'headAsesorInterno.php';
                 </div>
               </div>
             </div>
-
             <div class="row" style="background-color: #E9ECEF; padding: 10px;">
               <div class="col-md-4">
                 <p>Es ordenado y cumple satisfactoriamente con las actividades encomendadas en los tiempos establecidos
@@ -150,7 +152,6 @@ include 'headAsesorInterno.php';
                 </div>
               </div>
             </div>
-
             <div class="row" style="background-color: #FFFFFF; padding: 10px;">
               <div class="col-md-4">
                 <p>Propone mejoras al proyecto</p>
@@ -165,10 +166,9 @@ include 'headAsesorInterno.php';
                 </div>
               </div>
             </div>
-
             <div class="row" style="background-color: #384970E6; padding: 10px;">
               <div id="puntosP1" class="col-md-4">
-                <strong style="color: White">Total de Puntos del</strong>
+                <strong style="color: White">Total de Puntos del Primer Parcial:</strong>
               </div>
               <div class="col-md-4 text-center ">
                 <strong style="color: white">Al hacer clic en guardar se actualizarán los datos</strong>
@@ -179,7 +179,6 @@ include 'headAsesorInterno.php';
               </div>
             </div>
             <script>
-              $("#puntosP1").append('<strong id="stParcial1">Primer Parcial:</Strong>');
             </script>
             <div class="row" style="background-color: #384970E6;">
               <div class="col-md-12 text-center">
@@ -195,7 +194,7 @@ include 'headAsesorInterno.php';
 
             <div class="row rounded-bottom p-2" style="background-color: #384970E6;">
               <div class="col-md-12 text-center ">
-              <td id="" colspan="3" style="color: rgb(180, 0, 0);"><strong id="test1"></strong></td>
+                <td id="" colspan="3" style="color: rgb(180, 0, 0);"><strong id="test1"></strong></td>
                 <div id="espDivBtn"></div>
                 <?php if (getBoton('Par1')) { ?>
                   <script>
@@ -357,7 +356,8 @@ include 'headAsesorInterno.php';
 
             <div class="row rounded-bottom p-2" style="background-color: #384970E6;">
               <div class="col-md-12 text-center ">
-              <td id="" colspan="3" style="color: rgb(180, 0, 0);"><strong id="test2" style="color: yellow"></strong></td>
+                <td id="" colspan="3" style="color: rgb(180, 0, 0);"><strong id="test2" style="color: yellow"></strong>
+                </td>
                 <div id="espDivBtn2"></div>
                 <?php if (getBoton('Par2')) { ?>
                   <script>
@@ -369,9 +369,9 @@ include 'headAsesorInterno.php';
                       "type": "submit"
                     });
                     $("#espBtn2").addClass("btn btn-success");//ADD CLASS
-                    
+
                   </script>
-                <?php }?>
+                <?php } ?>
                 <script>
                   $("#test2").append($("#test1").html());
                 </script>
@@ -383,6 +383,28 @@ include 'headAsesorInterno.php';
           </form>
         </div>
         <!-- Fin Parcial 2 -->
+        <style>
+          .texto-negro {
+            color: black;
+          }
+          .texto-blanco {
+            color: white;
+          }
+          .bg-darks {
+            background-color: black;
+          }
+        </style>
+
+        <!-- Main -->
+        <script>
+            $("#btnCmbColor").click(function () {
+              $("#parcial1-tab, #parcial2-tab, #informacionGeneral-tab, #btnCmbColor").remove("texto-dark");
+              $("#parcial1-tab, #parcial2-tab, #informacionGeneral-tab, #btnCmbColor").toggleClass("text-white");
+              $("#parcial1-tab, #parcial2-tab, #informacionGeneral-tab, #btnCmbColor").toggleClass("text-white");
+              $("#contbg").toggleClass("bg-dark");
+              
+            });
+        </script>
         <!--Tab Informacion General -->
         <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -469,7 +491,7 @@ include 'headAsesorInterno.php';
                     </abbr>
                   </div>
                   <div class="col-md-8">
-                    <p >
+                    <p>
                       <?php echo $ParcialUno['ERCalificacion'] + $ParcialDos['ERCalificacion'] ?>
                     </p>
                   </div>
@@ -484,7 +506,7 @@ include 'headAsesorInterno.php';
                 </form>
               </div>
             </div>
-              <script>$("form").prepend("<hr>");</script>
+            <script>$("form").prepend("<hr>");</script>
           </div>
         </div>
         <!-- Fin Informacion General -->
