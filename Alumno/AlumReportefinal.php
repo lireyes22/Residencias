@@ -3,13 +3,38 @@ include '../InicioSessionSeg.php';
 $idAlumno = $_SESSION['id'];
 include 'headAlumnos.php';
 ?>
+
 <!-- Main -->
 <div class="col ms-sm-auto px-4" style="background: whitesmoke;">
   <!-- Contenido Principal -->
   <!-- Cards -->
   <h1 class="text-center mt-5">Estructura del Reporte Final</h1>
   <br>
-  <div class="card">
+
+  <script>
+    $(document).ready(function(){
+      $("h4").first().css("background-color", "#cccccc");
+    });  
+    $(document).ready(function(){
+      $(".card-footer").last().css("background-color", "#cccccc");
+    });
+    $(document).ready(function(){
+      $(".card-text").eq(0).css("background-color", "#f4f4f4");
+    });
+    $(document).ready(function(){
+      $("div").filter("#hermano3").css("background-color", "#cccccc");
+    });
+    $(document).ready(function(){
+      $(".card").not("#hermano32").css("background-color", "#ededed");
+    });
+    $(document).ready(function(){
+      $("#hermano3").find("p").css({"color": "grey"});
+    });
+    $(document).ready(function(){
+      $("#hermano33").parentsUntil("#hermano3").css({"border": "2px solid black"});
+    });
+  </script>
+  <div class="card"  id="hermano32">
     <div class="card-body">
       <h4 class="card-title">Bienvenido, aquí podrás visualizar los componentes necesarios para tu reporte final</h4>
       <p class="card-text">El reporte final es el último paso para concluir tu residencia profesional, por lo que es importante
@@ -21,7 +46,7 @@ include 'headAlumnos.php';
   </div>
   <br>
   <div class="row">
-    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-4" id="hermano1">
       <div class="card">
         <div class="card-header text-white" style="background-color: #384970E6;">
           1.- Portada
@@ -31,9 +56,9 @@ include 'headAlumnos.php';
         </div>
       </div>
     </div>
-    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-4" id="hermano3">
       <div class="card">
-        <div class="card-header text-white" style="background-color: #384970E6;">
+        <div class="card-header text-white" style="background-color: #384970E6;" id="hermano33">
           2.- Agradecimientos
         </div>
         <div class="card-body">
@@ -71,7 +96,7 @@ include 'headAlumnos.php';
         </div>
       </div>
     </div>
-    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-4" id="hermano6">
       <div class="card">
         <div class="card-header text-white" style="background-color: #384970E6;">
           6.- Antecedentes
@@ -81,7 +106,7 @@ include 'headAlumnos.php';
         </div>
       </div>
     </div>
-    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-4" id="hermano5">
       <div class="card">
         <div class="card-header text-white" style="background-color: #384970E6;">
           7.- Justificación
@@ -101,7 +126,7 @@ include 'headAlumnos.php';
         </div>
       </div>
     </div>
-    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-4" id="hermano2">
       <div class="card">
         <div class="card-header text-white" style="background-color: #384970E6;">
           9.- Metodología
@@ -111,7 +136,7 @@ include 'headAlumnos.php';
         </div>
       </div>
     </div>
-    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-4" id="hermano10">
       <div class="card">
         <div class="card-header text-white" style="background-color: #384970E6;">
           10.- Resultados

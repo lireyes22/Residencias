@@ -19,6 +19,36 @@
     $(document).ready(function(){
       $("#datosRegisProy1").parents("#datosRegisProy").css({"color": "black", "border": "2px solid gray"});
     });
+    /*$(document).ready(function(){
+      $("#LugarDesarrollo2").parentsUntil("#LugarDesarrollo").css({"color": "black", "border": "2px solid green"});
+    });*/
+    $(document).ready(function(){
+      $("#carrerasElegidas").children().css({"color": "black", "border": "2px solid white"});
+    });
+    /*$(document).ready(function(){
+      $("div").children("div.p-3").css({"color": "red", "border": "2px solid white"});
+    });*/
+    $(document).ready(function(){
+      $("#hermano1").siblings().css({"color": "red", "border": "2px solid white"});
+    });
+    $(document).ready(function(){
+      $("#hermano1").next().css({"color": "red", "border": "2px solid #cccccc"});
+    });
+    $(document).ready(function(){
+      $("#hermano2").nextAll().css({"color": "red", "border": "2px solid #cccccc"});
+    });
+    $(document).ready(function(){
+      $("#hermano6").nextUntil("#hermano10").css({"color": "red", "border": "2px solid #cccccc"});
+    });
+    $(document).ready(function(){
+      $("#hermano3").prev().css({"color": "red", "border": "2px solid #cccccc"});
+    });
+    $(document).ready(function(){
+      $("#hermano5").prevAll().css({"color": "red", "border": "2px solid #cccccc"});
+    });
+    $(document).ready(function(){
+      $("div").first().css("background-color", "yellow");
+    });
   </script>
 
 </head>
