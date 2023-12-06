@@ -46,9 +46,6 @@
     $(document).ready(function(){
       $("#hermano5").prevAll().css({"color": "red", "border": "2px solid #cccccc"});
     });
-    $(document).ready(function(){
-      $("div").first().css("background-color", "yellow");
-    });
   </script>
 
 </head>

@@ -17,9 +17,18 @@ include 'headAlumnos.php';
             <!--Notas: Incorporar botones al incorporar el backlog-->
                 <div class="col ms-sm-auto px-4">
                     <div class="container mt-3 text-center">
-                        <h2>Traking</h2>
+                        <div id="tr" align="center">
+                            <h2>Traking</h2>
+                        </div>                        
+                        <script>
+                        $(document).ready(function(){
+                          $("#alert").click(function(){
+                            $("#tr").width(1300).height(100);
+                          });
+                        });
+                        </script>
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                Si no ves tu proyecto intenta actualizar la pagina con <kbd>F5</kbd> <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                Si no ves tu proyecto intenta actualizar la pagina con <kbd>F5</kbd> <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" id="alert"></button>
                             </div>
                         <div class="container text-start mb-4">
                             <div class="h4 d-block">Proyectos Propuestos 
