@@ -12,9 +12,9 @@
 include 'headDeptoAca.php';
 ?>
 <script>
-			function activarFiltro(divItems){
+			function activarFiltro(divItems,animacionAceptar,buttonHidden){
 				const listaProfesores = divItems+' *'
-				console.log(listaProfesores)
+				//console.log(listaProfesores)
 				$(".filtroAsesor").on("keyup", function() {
 				var value = $(this).val().toLowerCase();
 				var last = null, coincide = 0;
@@ -35,6 +35,32 @@ include 'headDeptoAca.php';
 					$(".coincidencias").text(('0'));
 					$(".coincidencias").attr("class", "coincidencias badge bg-danger")
 				}
+			});
+			$(animacionAceptar).click(function(e){
+					//e.preventDefault();
+					e.stopImmediatePropagation();
+					$(buttonHidden).animate({
+						height: 'toggle'
+					});
+					if($(animacionAceptar).prop('checked')){
+						$(".divAceptar").animate({
+							left: '250px',
+							opacity: '0.5'
+						});
+						$(".divRechazar").animate({
+							left: '250px',
+							opacity: '0.5'
+						});
+					}else{
+						$(".divAceptar").animate({
+							left: '40px',
+							opacity: '1'
+						});
+						$(".divRechazar").animate({
+							left: '40px',
+							opacity: '1'
+						});
+					}
 			});
 			}
 
@@ -124,7 +150,7 @@ include 'headDeptoAca.php';
 									<div class="row">
 										<div class="col container-fluid">
 											<button <?php echo $asigna; ?> type="button" class="btn btn-outline-success"
-												data-bs-toggle="modal" data-bs-target="#Asignar<?php echo $i - 1; ?>" onclick="activarFiltro('#elegirProfesorA<?php echo $i - 1; ?>')">
+												data-bs-toggle="modal" data-bs-target="#Asignar<?php echo $i - 1; ?>" onclick="activarFiltro('#elegirProfesorA<?php echo $i - 1; ?>','#checkA<?php echo $i - 1; ?>','#buttonHidA<?php echo $i - 1; ?>')">
 												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 													fill="currentColor" class="bi bi-person-plus-fill"
 													viewBox="0 0 16 16">
@@ -142,7 +168,7 @@ include 'headDeptoAca.php';
 										</div>
 										<div class="col container-fluid">
 											<button <?php echo $reasigna; ?> type="button" class="btn btn-outline-warning"
-												data-bs-toggle="modal" data-bs-target="#Reasignar<?php echo $i - 1; ?>" onclick="activarFiltro('#elegirProfesorR<?php echo $i - 1; ?>')">
+												data-bs-toggle="modal" data-bs-target="#Reasignar<?php echo $i - 1; ?>" onclick="activarFiltro('#elegirProfesorR<?php echo $i - 1; ?>','#checkR<?php echo $i - 1; ?>','#buttonHidR<?php echo $i - 1; ?>')">
 												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 													fill="currentColor" class="bi bi-person-fill-gear"
 													viewBox="0 0 16 16">
@@ -247,14 +273,16 @@ include 'headDeptoAca.php';
 							</div>
 						</div>
 						<div class="form-check mb-3">
-							<input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
-							<label class="form-check-label" for="myCheck">¿Esta seguro de la asignación?.</label>
-							<div class="valid-feedback">Aceptado.</div>
-							<div class="invalid-feedback">pulse el checkbox para continuar.</div>
+							<input class="form-check-input" type="checkbox" id="checkA'.$j.'" name="remember" required>
+							<label class="form-check-label" for="checkA'.$j.'">¿Esta seguro de la asignación?.</label>
+							<div class="divAceptar valid-feedback" style="position:absolute;">Aceptado.</div>
+							<div class="divRechazar invalid-feedback" style="position:absolute;">Acepte para continuar.</div>
 						</div>
 						<input type="hidden" name="periodo" value="'.$solicitudResidencia[5].'"> <br> <br>
 						<input type="hidden" name="BPID" value="'.$BPID[0].'">
-						<button type="submit" class="btn btn-primary">Aceptar</button>
+						<div id="buttonHidA'.$j.'" style="display:none;"">
+							<button type="submit" class="btn btn-success">Enviar</button>
+						</div>
 					</form>
 				</div>
 				<!-- Modal footer -->
@@ -341,15 +369,17 @@ include 'headDeptoAca.php';
 		echo '
 								</div>
 							</div>
-							<div class="form-check mb-3">
-								<input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
-								<label class="form-check-label" for="myCheck">¿Esta seguro de la reasignación?.</label>
-								<div class="valid-feedback">Correcto</div>
-								<div class="invalid-feedback">Pulse el checkbox para continuar.</div>
+							<div class="form-check mb-3"> <!--- ANIMACION--!>
+								<input class="aceptar form-check-input" type="checkbox" id="checkR'.$j.'" name="remember" required>
+								<label class="form-check-label" for="checkR'.$j.'">¿Esta seguro de la reasignación?.</label>
+								<div class="divAceptar valid-feedback" style="position:absolute;">Correcto</div>
+								<div class="divRechazar invalid-feedback" style="position:absolute;">Acepte para continuar.</div>
 							</div>
 							<input type="hidden" name="periodo" value="'.$solicitudResidencia[5].'"> <br> <br>
 							<input type="hidden" name="BPID" value="'.$BPID[0].'">
-							<button type="submit" class="btn btn-primary">Aceptar</button>
+							<div id="buttonHidR'.$j.'" style="display:none;">
+								<button type="submit" class="btn btn-success">Enviar</button>
+							</div>
 						</form>
 					</div>
 					<!-- Modal footer -->
@@ -364,32 +394,10 @@ include 'headDeptoAca.php';
 		} //TERMINA CICLO
 	?>
 	<script>
-		/*$(document).ready(function(){
-			function activarFiltro(divItems){
-				const listaProfesores = divItems+' *'
-				console.log(listaProfesores)
-				$(".filtroAsesor").on("keyup", function() {
-				var value = $(this).val().toLowerCase();
-				var last = null, coincide = 0;
-				$(listaProfesores).filter(function() {
-				var exito = $(this).toggle($(this).text().normalize("NFD").replace(/[\u0300-\u036f]/g, '').toLowerCase().indexOf(value) > -1)
-				if((exito.attr("style")+'') == 'undefined' || (exito.attr("style")+'') == ''){
-					last = exito;
-					coincide++
-				}else{
-					exito.removeAttr("selected");
-				}
-				});
-				if(!$.isEmptyObject(last)){
-					$(".coincidencias").text((coincide/3));
-					last.attr("selected", "selected")
-				}else{
-					$(".coincidencias").text(('0'));
-				}
-			});
-			}
+		
+		$(document).ready(function(){
+			
 		});
-		*/
 	</script>
 <?php
 include 'footer.php';

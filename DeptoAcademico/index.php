@@ -30,14 +30,26 @@
       <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
     </div>
       <div class="modal-body p-5">
-          <div class="row">
-            <div class="col-md-4 col-12">
+          <button type="button" class="btn btn-outline-info" id="zoom">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-search" viewBox="0 0 16 16">
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+            </svg>
+            <style>
+              .btn-outline-info:hover::after {
+                content: "Zoom";
+              }
+            </style>
+          </button>
+          <div class="row" id="">
+            <div class="col-md-4 col-12 imagenes">
               <img src="../img/comunicados/periodo_2023.png" alt="x" class="img-responsive img-fluid">
             </div>
-            <div class="col-md-4 col-12">
+            <div class="col-md-4 col-12 imagenes">
             <img src="../img/comunicados/platicas_2023.jpeg" alt="x" class="img-responsive img-fluid">
             </div>
-            <div class="col-md-4 col-12">
+            <div class="col-md-4 col-12 imagenes">
             <img src="../img/comunicados/banco_2023.png" alt="x" class="img-responsive img-fluid">
             </div>
           </div>
@@ -59,6 +71,20 @@
     jq("#listo").click(function(){
       jq("#alerta").text("");
     });
+  });
+  jq("#zoom").click(function(){
+    //console.log(jq(".imagenes").height()+'-'+jq(".imagenes").width())
+    if(jq(".imagenes").height()<=1000 && jq(".imagenes").width()<=1000){
+      jq(".imagenes").animate({
+        left: '250px',
+        height: '+=150px',
+        width: '+=150px'
+      });
+    }else{
+      jq("#zoom").attr('disabled','true')
+      alert('¡Ha llegado al maximo del zoom posible!')
+    }
+
   });
 </script>
 <?php
