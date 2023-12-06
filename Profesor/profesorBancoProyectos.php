@@ -13,7 +13,11 @@ include 'headprofesores.php';
 	<div class="container-fluid mt-3 text-center">
 		<h2>Banco de proyectos</h2>
 		<div class="container-fluid text-start mb-4">
-			<div class="table-responsive text-start">
+			<div class="d-flex justify-content-start">
+				<button id='fadeToButton' type="submit" class="btn btn-primary">Opacidad de Tabla</button>
+				<button id='toggleButton' type="submit" class="btn btn-primary">Hide/Show</button>
+			</div>
+			<div id="tablaDiv" class="table-responsive text-start">
 				<table id="example" class="table display table-primary table-striped table-hover"
 					style="width:100%; background-color: #ededed;">
 					<thead class="table-dark">

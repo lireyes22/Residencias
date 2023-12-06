@@ -34,27 +34,27 @@ include 'headprofesores.php';
 		</div>
 	</div>
 	<?php
-$i = 0;
-while ($proy = mysqli_fetch_array($result)){
-	$row = mysqli_fetch_array(listProySolicitados($proy[0]));
-	$SPID_s[$i] = $proy[0];
-	$Nombres[$i] = $row[0];
-	//echo $row[1] ;
-	$i++;
-	if($row[1] == 'PENDIENTE'){
-		$value = 33;
-		$color = 'text-bg-primary';
-	}else if($row[1] == 'REVISION'){
-		$value = 66;
-		$color = 'text-bg-warning';
-	}else if($row[1] == 'ACEPTADO'){
-		$value = 100;
-		$color = 'text-bg-success';
-	}else if($row[1] == 'RECHAZADO'){
-		$value = 100;
-		$color = 'text-bg-danger';
-	}
-?>
+	$i = 0;
+	while ($proy = mysqli_fetch_array($result)){
+		$row = mysqli_fetch_array(listProySolicitados($proy[0]));
+		$SPID_s[$i] = $proy[0];
+		$Nombres[$i] = $row[0];
+		//echo $row[1] ;
+		$i++;
+		if($row[1] == 'PENDIENTE'){
+			$value = 33;
+			$color = 'text-bg-primary';
+		}else if($row[1] == 'REVISION'){
+			$value = 66;
+			$color = 'text-bg-warning';
+		}else if($row[1] == 'ACEPTADO'){
+			$value = 100;
+			$color = 'text-bg-success';
+		}else if($row[1] == 'RECHAZADO'){
+			$value = 100;
+			$color = 'text-bg-danger';
+		}
+	?>
 	<div class="container mt-3 text-center">
 		<div class="container text-start mb-4">
 			<div class="h4"><?php echo $row[0]; ?></div>

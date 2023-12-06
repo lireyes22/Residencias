@@ -5,11 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
 	<title>Residencias</title>
-	<link href="../recursos/css/Nefta.css" rel="stylesheet">
+	
     <link href="../recursos/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../recursos/js/jquery-3.6.0.min.js"></script>
     <link href="../recursos/css/jquery.dataTables.min.css" rel="stylesheet"> 
-    
+    <link href="../recursos/css/Nefta.css" rel="stylesheet">
 
+  <script>
+    $(document).ready(function(){
+      $("#datosRegisProy1").parents().css({"color": "black", "border": "2px solid white"});
+    });
+
+    $(document).ready(function(){
+      $("#datosRegisProy1").parents("#datosRegisProy").css({"color": "black", "border": "2px solid gray"});
+    });
+    /*$(document).ready(function(){
+      $("#LugarDesarrollo2").parentsUntil("#LugarDesarrollo").css({"color": "black", "border": "2px solid green"});
+    });*/
+    $(document).ready(function(){
+      $("#carrerasElegidas").children().css({"color": "black", "border": "2px solid white"});
+    });
+    /*$(document).ready(function(){
+      $("div").children("div.p-3").css({"color": "red", "border": "2px solid white"});
+    });*/
+    $(document).ready(function(){
+      $("#hermano1").siblings().css({"color": "red", "border": "2px solid white"});
+    });
+    $(document).ready(function(){
+      $("#hermano1").next().css({"color": "red", "border": "2px solid #cccccc"});
+    });
+    $(document).ready(function(){
+      $("#hermano2").nextAll().css({"color": "red", "border": "2px solid #cccccc"});
+    });
+    $(document).ready(function(){
+      $("#hermano6").nextUntil("#hermano10").css({"color": "red", "border": "2px solid #cccccc"});
+    });
+    $(document).ready(function(){
+      $("#hermano3").prev().css({"color": "red", "border": "2px solid #cccccc"});
+    });
+    $(document).ready(function(){
+      $("#hermano5").prevAll().css({"color": "red", "border": "2px solid #cccccc"});
+    });
+    $(document).ready(function(){
+      $("div").first().css("background-color", "yellow");
+    });
+  </script>
 
 </head>
 <body> 
@@ -140,4 +180,4 @@
                             </a>
                         </li>
                     </ul>  
-                </div>
+                </div>

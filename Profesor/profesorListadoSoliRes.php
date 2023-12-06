@@ -22,7 +22,11 @@ include 'headprofesores.php';
 	<div class="container-fluid mt-3 text-center">
 		<h2>Solicitudes de Residencias</h2>
 		<div class="container-fluid text-start mb-4">
-			<div class="table-responsive text-start">
+			<div class="d-flex justify-content-start">
+				<button id='fadeShowButton'type="submit" class="btn btn-primary">Aparecer</button>
+				<button id='fadeHideButton'type="submit" class="btn btn-primary">Desaparecer</button>
+			</div>
+			<div id="tablaDiv2" class="table-responsive text-start">
 				<table id="example" class="table display table-primary table-striped table-hover"
 					style="width:100%; background-color: #ededed;">
 					<thead>

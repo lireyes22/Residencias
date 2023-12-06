@@ -9,7 +9,10 @@ include 'headAsesorExterno.php';
 <div class="col ms-sm-auto px-4">
     <div class="container-fluid mt-3">
         <h2>Residentes</h2>
-        <div class="table-responsive">
+        <div class="d-flex justify-content-start">
+			<button id='slideToggleButton'type="submit" class="btn btn-primary">Extender/Contraer</button>
+		</div>
+        <div id="slideToggleDiv" class="table-responsive">
             <table id="example" class="table display table-primary table-striped table-hover"
                 style="width:100%; background-color: #ededed;">
                 <thead>

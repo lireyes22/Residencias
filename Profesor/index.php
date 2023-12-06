@@ -6,8 +6,14 @@ $nombreCompleto = bienvenida($UID);
 $nombre = explode(" ", $nombreCompleto);
 include 'headprofesores.php';
 ?>
+
+
 <div class="container col ms-sm-auto px-4">
-<div class="card">
+  <div class="d-flex justify-content-start mt-3 mb-3">
+		<button id='fadeInButton' type="submit" class="btn btn-primary">Ver Tarjeta</button>
+		<button id='fadeOutButton' type="submit" class="btn btn-primary">Ocultar Tarjeta</button>
+	</div>
+<div id="cardDiv" class="card">
   <div class="card-header">
     ¡BIENVENIDO!
   </div>
