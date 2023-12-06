@@ -469,7 +469,7 @@ include 'headAsesorInterno.php';
                     </abbr>
                   </div>
                   <div class="col-md-8">
-                    <p>
+                    <p >
                       <?php echo $ParcialUno['ERCalificacion'] + $ParcialDos['ERCalificacion'] ?>
                     </p>
                   </div>
@@ -484,7 +484,7 @@ include 'headAsesorInterno.php';
                 </form>
               </div>
             </div>
-
+              <script>$("form").prepend("<hr>");</script>
           </div>
         </div>
         <!-- Fin Informacion General -->

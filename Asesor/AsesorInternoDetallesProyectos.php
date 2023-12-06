@@ -56,7 +56,7 @@ $ProyectoS = ObtenerSolicitudProyecto($SPID);
             </div>
 
             <div class="container p-3">
-                <div class="row">
+                <div class="row" id="fil4">
                     <div class="col">
                         <label for="nomAsesorInterno" class="form-label h6">Linea de investigación</label>
                         <input type="text" class="form-control text-capitalize"
@@ -69,7 +69,6 @@ $ProyectoS = ObtenerSolicitudProyecto($SPID);
                     </div>
                 </div>
             </div>
-
             <div class="container p-3">
                 <div class="row">
                     <div class="col">
@@ -84,7 +83,10 @@ $ProyectoS = ObtenerSolicitudProyecto($SPID);
                     </div>
                 </div>
             </div>
-
+            <script>
+                $("label").after("<hr>");
+                $("label").before("- ");
+            </script>
             <div class="d-flex justify-content-around p-4 rounded-bottom" style="background-color: #384970;">
                 <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
                     data-bs-target="#datosEmpresaModal">
@@ -266,7 +268,7 @@ $ProyectoS = ObtenerSolicitudProyecto($SPID);
             </div>
         </div>
     </div>
-
+    
 </div>
 
 
