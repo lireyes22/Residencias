@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<title>Residencias</title>
 	<link href="../recursos/css/Nefta.css" rel="stylesheet">
@@ -9,7 +9,7 @@
     <link href="../recursos/css/jquery.dataTables.min.css" rel="stylesheet"> 
 
     <!--Scripts-->
-
+    <script src="../recursos/js/jquery-3.6.0.min.js"></script>
 </head>
 <body> 
     <div class="container-fluid">
