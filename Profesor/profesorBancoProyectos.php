@@ -13,7 +13,7 @@ include 'headprofesores.php';
 	<div class="container-fluid mt-3 text-center">
 		<h2>Banco de proyectos</h2>
 		<div class="container-fluid text-start mb-4">
-			<div class="d-flex justify-content-start">
+			<div class="d-flex justify-content-start btn-group col-3">
 				<button id='fadeToButton' type="submit" class="btn btn-primary">Opacidad de Tabla</button>
 				<button id='toggleButton' type="submit" class="btn btn-primary">Hide/Show</button>
 			</div>

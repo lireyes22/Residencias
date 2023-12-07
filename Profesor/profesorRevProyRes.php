@@ -12,11 +12,11 @@ include 'headprofesores.php';
 	<div class="container-fluid mt-3 text-center">
 		<h2>Solicitudes de Proyectos</h2>
 		<div class="container-fluid text-start mb-4">
-			<div class="d-flex justify-content-start">
+			<div class="d-flex justify-content-start btn-group col-2">
 				<button id='slideUpButton' type="submit" class="btn btn-primary">Subir</button>
 				<button id='slideDownButton' type="submit" class="btn btn-primary">Bajar</button>
 			</div>
-			<div id="slideDiv" class="table-responsive text-start">
+			<div id="slideDiv" class="table-responsive text-start ">
 				<table id="example" class="table display table-primary table-striped table-hover"
 					style="width:100%; background-color: #ededed;">
 					<thead>
