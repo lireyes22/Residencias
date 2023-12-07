@@ -9,7 +9,7 @@ include 'headprofesores.php';
 
 
 <div class="container col ms-sm-auto px-4">
-  <div class="d-flex justify-content-start mt-3 mb-3">
+  <div class="d-flex justify-content-start mt-3 mb-3 btn-group col-2">
 		<button id='fadeInButton' type="submit" class="btn btn-primary">Ver Tarjeta</button>
 		<button id='fadeOutButton' type="submit" class="btn btn-primary">Ocultar Tarjeta</button>
 	</div>
