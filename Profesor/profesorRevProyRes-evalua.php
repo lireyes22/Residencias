@@ -117,12 +117,10 @@ include 'headprofesores.php';
 			</div>
 
 			<div class="p-4 rounded-bottom" style="background-color: #384970;">
-				<div class="row mb-3">
-						<div class="col text-center text-dark form-floating">
+						<div class="form-floating mb-3">
                              <textarea class="form-control" id="comment" name="observaciones" placeholder="0" rows="3"></textarea>
                              <label for="observaciones" class="form-label h6">Observaciones:</label>
                         </div>
-				</div>
 				<div class="d-flex justify-content-around">
 					<button type="button" class="btn btn-success" onclick="enviarValor('ACEPTADO');">
 						<svg xmlns="http://www.w3.org/2000/svg" width="16"
