@@ -75,6 +75,9 @@ include 'headAlumnos.php';
          <button type="button" class="btn btn-outline-success" data-bs-toggle="tooltip" title="Hagamoslo">¡Estoy Listo!</button>
       </div>
       <br>
+      <!-- Boton Post Ajax -->
+      <button type="submit" id="daAjaxPost" class="mx-auto mt-2 btn btn-primary">Enviar</button>
+      
       <!-- Acordeon Faq -->
       <div class="display-6 text-center " id="acordeon">"Preguntas frecuentes"</div>
       <br>
@@ -180,34 +183,40 @@ include 'headAlumnos.php';
    <div class="display-6 text-center " id="testimonios">"Increibles testimonios de nuestros Residentes"</div>
    <br>
    <!-- List Group Testimonios -->
-   <ul class="list-group mx-auto w-75">
-      <li class="list-group-item list-group-item-success">
-         <div class="d-flex justify-content-between">
-            <h5 class="mb-1">Testimonio de Éxito</h5>
-            <small>Moi, Ingeniero</small>
-         </div>
-         <p class="mb-1">"El proceso de residencias profesionales en el ITCH fue una experiencia increíble.
-            Los pasos eran fáciles de seguir y la evaluación fue valiosa para mi crecimiento profesional."</p>
-      </li>
-      <li class="list-group-item list-group-item-success">
-         <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Oportunidad de Carrera</h5>
-            <small>Charly, Arquitecto</small>
-         </div>
-         <p class="mb-1">"Gracias al ITCH, obtuve experiencia laboral relevante. Las empresas
-            buscan estudiantes bien preparados, y el proceso fue gratificante y enriquecedor."</p>
-      </li>
-      <li class="list-group-item list-group-item-success">
-         <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Crecimiento Profesional</h5>
-            <small>Sofía, Biologa</small>
-         </div>
-         <p class="mb-1">"Mi residencia profesional en el ITCH fue un paso importante en mi carrera.
-            Los pasos eran claros, y gracias a ello, fui contratada por una empresa que valora el crecimiento profesional."</p>
-      </li>
-   </ul>
-   <!-- Fin Testimonios -->
+   <div class="text-center">
+      <button class="btn btn-primary m-2" id="daSlide">Mostrar testimonios</button>
+      <button class="btn btn-danger" id="daStop">Parar testimonios</button>
+   </div>
    <br>
+   <div id="daPanelTestimonio">
+      <ul class="list-group mx-auto w-75">
+         <li class="list-group-item list-group-item-success">
+            <div class="d-flex justify-content-between">
+               <h5 class="mb-1">Testimonio de Éxito</h5>
+               <small>Moi, Ingeniero</small>
+            </div>
+            <p class="mb-1">"El proceso de residencias profesionales en el ITCH fue una experiencia increíble.
+               Los pasos eran fáciles de seguir y la evaluación fue valiosa para mi crecimiento profesional."</p>
+         </li>
+         <li class="list-group-item list-group-item-success">
+            <div class="d-flex w-100 justify-content-between">
+               <h5 class="mb-1">Oportunidad de Carrera</h5>
+               <small>Charly, Arquitecto</small>
+            </div>
+            <p class="mb-1">"Gracias al ITCH, obtuve experiencia laboral relevante. Las empresas
+               buscan estudiantes bien preparados, y el proceso fue gratificante y enriquecedor."</p>
+         </li>
+         <li class="list-group-item list-group-item-success">
+            <div class="d-flex w-100 justify-content-between">
+               <h5 class="mb-1">Crecimiento Profesional</h5>
+               <small>Sofía, Biologa</small>
+            </div>
+            <p class="mb-1">"Mi residencia profesional en el ITCH fue un paso importante en mi carrera.
+               Los pasos eran claros, y gracias a ello, fui contratada por una empresa que valora el crecimiento profesional."</p>
+         </li>
+      </ul>
+   </div>
+   <!-- Fin Testimonios -->
    <br>
    <!-- Contacto -->
    <div class="display-6 text-center " id="contacto">"Contactanos"</div>
@@ -258,37 +267,44 @@ include 'headAlumnos.php';
             </div>
          </div>
       </div>
-   </div>
-   <br>
-   <br>
-   <figure class="text-center">
-      <div class="row">
-         <blockquote class="blockquote col-12">
-            <pre>Cultura, Ciencia y Tecnología para la Superación de México</pre>
-            <figcaption class="blockquote-footer">ITCH</figcaption>
-         </blockquote>
-      </div>
-      <figure>
-         <!-- Fin contacto -->
-
-         <!-- Offcanvas Sidebar -->
-         <div class="offcanvas offcanvas-start" data-bs-theme="dark" id="pasos">
-            <div class="offcanvas-header">
-               <h1 class="offcanvas-title display-6 ">Pasos para realizar tu Residencia</h1>
-               <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
-            </div>
-            <div class="offcanvas-body">
-               <ol>
-                  <li>Asegúrate de no adeudar ningún Curso Especial y haber aprobado el 80% de los créditos de tu plan de estudios.</li><br>
-                  <li>Asegúrate de haber liberado el Servicio Social y 5 Créditos de Actividades Complementarias.</li><br>
-                  <li>Asiste a las pláticas informativas por parte de tu coordinador de carrera.</li><br>
-                  <li>Realiza la solicitud de residencia profesional previamente al semestre inmediato a la reinscripción del estudiante.</li><br>
-                  <li>Entrega la solicitud a tu coordinador de carrera anexando tu anteproyecto.</li><br>
-                  <li>Sigue el procedimiento indicado para dar por concluido el trámite.</li><br>
-               </ol>
-            </div>
+      <br>
+      <br>
+      <figure class="text-center">
+         <div class="row">
+            <blockquote class="blockquote col-12">
+               <pre>Cultura, Ciencia y Tecnología para la Superación de México</pre>
+               <figcaption class="blockquote-footer">ITCH</figcaption>
+            </blockquote>
          </div>
-         <!-- Fin Offcanvas -->
+      </figure>
+   </div>
+
+   <!-- Fin contacto -->
+
+   <!-- Offcanvas Sidebar -->
+   <div class="offcanvas offcanvas-start" data-bs-theme="dark" id="pasos">
+      <div class="offcanvas-header">
+         <h1 class="offcanvas-title display-6 ">Pasos para realizar tu Residencia</h1>
+         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body">
+         <ol>
+            <li>Asegúrate de no adeudar ningún Curso Especial y haber aprobado el 80% de los créditos de tu plan de estudios.</li><br>
+            <li>Asegúrate de haber liberado el Servicio Social y 5 Créditos de Actividades Complementarias.</li><br>
+            <li>Asiste a las pláticas informativas por parte de tu coordinador de carrera.</li><br>
+            <li>Realiza la solicitud de residencia profesional previamente al semestre inmediato a la reinscripción del estudiante.</li><br>
+            <li>Entrega la solicitud a tu coordinador de carrera anexando tu anteproyecto.</li><br>
+            <li>Sigue el procedimiento indicado para dar por concluido el trámite.</li><br>
+         </ol>
+         <!-- Ajax Zone -->
+         <div id="div1">
+            <h5>Nota importante</h5>
+         </div>
+         <button id="daImportante">Importante</button>
+
+      </div>
+   </div>
+   <!-- Fin Offcanvas -->
 </div>
 <?php
 include 'footer.php';
