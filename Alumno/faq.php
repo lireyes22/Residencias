@@ -62,6 +62,7 @@ include 'headAlumnos.php';
                </div>
             </div>
          </div>
+         <br>
          <!-- controles de navegación -->
          <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon"></span>
@@ -75,9 +76,6 @@ include 'headAlumnos.php';
          <button type="button" class="btn btn-outline-success" data-bs-toggle="tooltip" title="Hagamoslo">¡Estoy Listo!</button>
       </div>
       <br>
-      <!-- Boton Post Ajax -->
-      <button type="submit" id="daAjaxPost" class="mx-auto mt-2 btn btn-primary">Enviar</button>
-      
       <!-- Acordeon Faq -->
       <div class="display-6 text-center " id="acordeon">"Preguntas frecuentes"</div>
       <br>
