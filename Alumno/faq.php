@@ -212,10 +212,22 @@ include 'headAlumnos.php';
             <p class="mb-1">"Mi residencia profesional en el ITCH fue un paso importante en mi carrera.
                Los pasos eran claros, y gracias a ello, fui contratada por una empresa que valora el crecimiento profesional."</p>
          </li>
+         <li class="nav-item">
+            <a class="nav-link text-white" href="#contacto">
+               <button type="button" class="btn btn-primary" id="BorrarCarrusel">Borrar Carrusel</button>
+            </a>
+         </li>
       </ul>
    </div>
    <!-- Fin Testimonios -->
    <br>
+   <script>
+         $(document).ready(function(){
+         $("#BorrarCarrusel").click(function(){
+            $("#myCarousel").remove();
+         });
+         });
+      </script>
    <!-- Contacto -->
    <div class="display-6 text-center " id="contacto">"Contactanos"</div>
    <br>
