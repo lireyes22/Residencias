@@ -45,7 +45,8 @@ include 'headDeptoAca.php';
              legend: {display: false},
              title: {
                display: true,
-               text: "Proyectos asignados a profesores"
+               text: "Proyectos asignados a profesores",
+               fontSize: 30 
              }
            }
          });
