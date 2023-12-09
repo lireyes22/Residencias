@@ -191,12 +191,13 @@ include 'headAlumnos.php';
    <br>
    <div class="display-6 text-center " id="testimonios">"Increibles testimonios de nuestros Residentes"</div>
    <br>
-   <!-- List Group Testimonios -->
+   <!-- Botones Ajax -->
    <div class="text-center">
       <button class="btn btn-primary m-2" id="daSlide">Mostrar testimonios</button>
       <button class="btn btn-danger" id="daStop">Parar testimonios</button>
    </div>
    <br>
+   <!-- List Group Testimonios -->
    <div id="daPanelTestimonio">
       <ul class="list-group mx-auto w-75">
          <li class="list-group-item list-group-item-success">
@@ -227,6 +228,33 @@ include 'headAlumnos.php';
    </div>
    <!-- Fin Testimonios -->
    <br>
+   <br>
+   <div class="display-6 text-center " id="testimonios">"¿Aún no estás listo? Recuerda que este es un paso importante"</div>
+   <br>
+   <div class="text-center">
+      <button class="btn btn-success" id="buttonFrase">Aún no estoy listo. ¡Inspírame!</button>
+   </div>
+   <br>
+   <!-- Seccion comentarios -->
+   <div>
+      <p class="text-center" id="testimonios">Si necesitas mayor atención, añade tu nombre y correo electrónico,
+         estaremos encantados de atenderte.
+      </p>
+      <form id="name-form">
+         <div class="m-3 input-group w-50 text-center mx-auto">
+            <div class="w-25 form-floating">
+               <input type="text" class="form-control" id="name" class="form-control" required>
+               <label for="name" class="form-label text-dark">Nombre:</label>
+            </div>
+            <div class="w-25 form-floating">
+               <input type="text" class="form-control" id="email">
+               <label for="email" class="form-label text-dark">Email</label>
+            </div>
+            <button type="button" id="enviarDatos" class="btn btn-primary">Enviar</button>
+         </div>
+      </form>
+      <div id="respuesta" class="mt-3 alert alert-info mx-auto w-25 d-none"></div>
+   </div>
    <!-- Contacto -->
    <div class="display-6 text-center " id="contacto">"Contactanos"</div>
    <br>

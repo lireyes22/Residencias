@@ -15,6 +15,12 @@ while($consulta = mysqli_fetch_assoc($query)){
 
 <?php
 include 'headDeptoAca.php';
+$result = profesoresXProyecto('5');
+$result2 = estatusDeProyectos('5');
+/*while($profesorxd = $result){
+   var_dump($profesorxd);
+}*/
+
 ?>
 
 <!-- Main -->
@@ -43,9 +49,21 @@ include 'headDeptoAca.php';
               }
               return color;
             }
-  
-            const xValues = ["Blandy Sarai", "Gustavo", "Carlos Azueta", "Julio Rodriguez", "Isaias"];
-            const yValues = [55, 49, 44, 24, 15];
+            let xValues = []
+            let yValues = []
+            <?php 
+               $lml = 0;
+               foreach ($result as $r) {
+                  if($lml%2==0){
+                     echo 'xValues.push("'.$r.'");';
+                  }else{
+                     echo 'yValues.push("'.$r.'");';
+                  }
+                  $lml++;
+               }
+            ?>
+            //const xValues = ["Blandy Sarai", "Gustavo", "Carlos Azueta", "Julio Rodriguez", "Isaias"];
+            //const yValues = [55, 49, 44, 24, 15];
             const barColors = Array.from({ length: 5 }, () => getRandomColor());
 
             new Chart("myChart", {
@@ -59,6 +77,13 @@ include 'headDeptoAca.php';
                },
                options: {
                   legend: {display: false},
+                  scales: {
+                     yAxes: [{
+                     ticks: {
+                        beginAtZero: true
+                     }
+                     }],
+                  },
                   title: {
                      display: true,
                      text: "Proyectos asignados a profesores",
@@ -76,8 +101,21 @@ include 'headDeptoAca.php';
          </div>
 
          <script>
-            const xValues2 = ["En revisión", "En espera", "Terminados", "USA", "Argentina"];
-            const yValues2 = [55, 49, 44, 24, 15];
+            let xValues2 = []
+            let yValues2 = []
+            <?php  
+               $lml = 0;
+               foreach ($result2 as $r2) {
+                  if($lml%2==0){
+                     echo 'xValues2.push("'.$r2.'");';
+                  }else{
+                     echo 'yValues2.push("'.$r2.'");';
+                  }
+                  $lml++;
+               }
+            ?>
+            //const xValues2 = ["Pendiente", "En revision", "Aceptado", "Cancelado"];
+            //const yValues2 = [55, 49, 44, 24];
             // Array para almacenar colores generados aleatoriamente
             const barColors2 = Array.from({ length: 5 }, () => getRandomColor());
 
