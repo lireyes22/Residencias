@@ -264,5 +264,30 @@ function getFechas(){
     while (mysqli_next_result($conection)) { }
     return $query;
 }
+function profesoresXProyecto($DID){
+    $result = array();
+    $i = 0;
+    $conection = conn();
+    $sql = "SELECT solicitudProyecto.`UIDResponsable`, count(*) AS Proyectos FROM solicitudproyecto INNER JOIN usuariosdepartamentos INNER JOIN usuarios 
+    ON  solicitudproyecto.`UIDResponsable` = usuarios.`UID`
+    AND  solicitudproyecto.`UIDResponsable` = usuariosdepartamentos.`UID`
+    WHERE usuariosdepartamentos.`DID` = $DID AND solicitudproyecto.`SPEstatus` = 'ACEPTADO'
+    GROUP BY solicitudProyecto.`UIDResponsable`;";
+    $query = mysqli_query($conection, $sql);
+    // vaciar el buffer de resultados
+    while (mysqli_next_result($conection)) { }
+    while($UID = mysqli_fetch_array($query)){ //
+        $id = $UID['UIDResponsable'];
+        $sql2 = "SELECT profesor.`NombreCompleto` FROM profesor INNER JOIN profesor_usuarios 
+        ON profesor.`RFCProfesor` = profesor_usuarios.`RFCProfesor`
+        WHERE profesor_usuarios.`UID` = '$id';";
+        $query2 = mysqli_fetch_array(mysqli_query($conection, $sql2));
+        $result[$i] = $query2['NombreCompleto'];
+        $i++;
+        $result[$i] = $UID['Proyectos'];
+        $i++;
+     }
 
+    return $result;
+}
 ?>
