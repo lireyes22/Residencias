@@ -24,6 +24,9 @@ include 'headAlumnos.php';
             <li class="nav-item">
                <a class="nav-link text-white" href="#contacto"><button type="button" class="btn btn-primary">Contacto</button></a>
             </li>
+            <li class="nav-item">
+               <a class="nav-link text-white" id="BorrarCarrusel"><button type="button" id="BorrarCarrusel" class="btn btn-primary">Borrar Carrusel</button></a>
+            </li>
          </ul>
       </nav>
       <br>
@@ -71,11 +74,19 @@ include 'headAlumnos.php';
             <span class="carousel-control-next-icon"></span>
          </button>
       </div>
+      <script>
+         $(document).ready(function(){
+            $("#BorrarCarrusel").click(function(){
+               $("#myCarousel").remove();
+            });
+         });
+      </script>
       <br>
       <div class="text-center">
          <button type="button" class="btn btn-outline-success" data-bs-toggle="tooltip" title="Hagamoslo">¡Estoy Listo!</button>
       </div>
       <br>
+      
       <!-- Acordeon Faq -->
       <div class="display-6 text-center " id="acordeon">"Preguntas frecuentes"</div>
       <br>
