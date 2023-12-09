@@ -16,7 +16,7 @@ while($consulta = mysqli_fetch_assoc($query)){
 <?php
 include 'headDeptoAca.php';
 $result = profesoresXProyecto('5');
-
+$result2 = estatusDeProyectos('5');
 /*while($profesorxd = $result){
    var_dump($profesorxd);
 }*/
@@ -101,8 +101,21 @@ $result = profesoresXProyecto('5');
          </div>
 
          <script>
-            const xValues2 = ["En revisión", "En espera", "Terminados", "USA", "Argentina"];
-            const yValues2 = [55, 49, 44, 24, 15];
+            let xValues2 = []
+            let yValues2 = []
+            <?php  
+               $lml = 0;
+               foreach ($result2 as $r2) {
+                  if($lml%2==0){
+                     echo 'xValues2.push("'.$r2.'");';
+                  }else{
+                     echo 'yValues2.push("'.$r2.'");';
+                  }
+                  $lml++;
+               }
+            ?>
+            //const xValues2 = ["Pendiente", "En revision", "Aceptado", "Cancelado"];
+            //const yValues2 = [55, 49, 44, 24];
             // Array para almacenar colores generados aleatoriamente
             const barColors2 = Array.from({ length: 5 }, () => getRandomColor());
 
