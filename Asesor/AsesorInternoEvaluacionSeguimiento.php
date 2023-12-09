@@ -385,21 +385,11 @@ include 'headAsesorInterno.php';
           </form>
         </div>
         <!-- Fin Parcial 2 -->
-        <style>
-          .texto-negro {
-            color: black;
-          }
-          .texto-blanco {
-            color: white;
-          }
-          .bg-darks {
-            background-color: black;
-          }
-        </style>
+
 
         <!-- Main -->
         <script>
-          $("#parcial1-tab, #parcial2-tab, #informacionGeneral-tab, #btnCmbColor").remove("text-white");
+          $("#parcial1-tab, #parcial2-tab, #informacionGeneral-tab, #btnCmbColor").removeClass("text-white");
             $("#btnCmbColor").click(function () {
               $("#parcial1-tab, #parcial2-tab, #informacionGeneral-tab, #btnCmbColor").toggleClass("text-dark");
               $("#contbg").toggleClass("bg-dark");
