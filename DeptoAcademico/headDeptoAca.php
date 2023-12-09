@@ -148,6 +148,21 @@
                             </div>
                             </a>
                         </li>
+                        <li id="opcion" class="nav-item p-3  row">
+                            <a href="graficas.php" class="d-flex">
+                            <div class="col-3 centrar">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="40" fill="#ccc" />
+                                <circle cx="50" cy="50" r="40" fill="none" stroke="#696969" stroke-width="20" stroke-dasharray="251.2" stroke-dashoffset="83.7" />
+                                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="25" fill="#000">%</text>
+                                </svg>
+                            </div>
+
+                            <div class="col-9 d-flex align-items-center">
+                                <span class="p-1 text-break">Gráficas</span>
+                            </div>
+                            </a>
+                        </li>
                     </ul>   
                 </div>
 
