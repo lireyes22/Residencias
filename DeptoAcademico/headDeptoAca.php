@@ -8,7 +8,10 @@
     <link href="../recursos/css/bootstrap.min.css" rel="stylesheet">
     <link href="../recursos/css/jquery.dataTables.min.css" rel="stylesheet"> 
 
+
     <!--Scripts-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
     <script src="../recursos/js/jquery-3.6.0.min.js"></script>
     <script> 
     $(document).ready(function(){

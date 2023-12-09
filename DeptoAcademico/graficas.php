@@ -25,11 +25,10 @@ include 'headDeptoAca.php';
       </div>
       <!-- Sección de Estadisticas-->
       <div class="row mt-4">
-         <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+         <canvas id="myChart" style="width:100%;max-width:100%"></canvas>
 
-         <script>
-            
-         const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+         <script>            
+         const xValues = ["Blandy Sarai", "Gustavo", "Carlos Azueta", "Julio Rodriguez", "Isaias"];
          const yValues = [55, 49, 44, 24, 15];
          const barColors = ["red", "green","blue","orange","brown"];
 
@@ -46,7 +45,7 @@ include 'headDeptoAca.php';
              legend: {display: false},
              title: {
                display: true,
-               text: "World Wine Production 2018"
+               text: "Proyectos asignados a profesores"
              }
            }
          });
