@@ -120,7 +120,7 @@
 
     //Ajax Post
     $(document).ready(function() {
-      $("#submit-button").click(function() {
+      $("#enviarDatos").click(function() {
         var name = $("#name").val();
         var email = $("#email").val();
 
@@ -129,7 +129,7 @@
           email: email
         }, function(data, status) {
           $("#respuesta").html("<strong>Confirmación de envío exitoso: </strong>" + data)
-            .removeClass('d-none'); // Muestra el alert después de completar la solicitud POST
+            .removeClass('d-none');
         });
       });
     });

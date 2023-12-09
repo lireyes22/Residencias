@@ -250,7 +250,7 @@ include 'headAlumnos.php';
                <input type="text" class="form-control" id="email">
                <label for="email" class="form-label text-dark">Email</label>
             </div>
-            <button type="button" id="submit-button" class="btn btn-primary">Enviar</button>
+            <button type="button" id="enviarDatos" class="btn btn-primary">Enviar</button>
          </div>
       </form>
       <div id="respuesta" class="mt-3 alert alert-info mx-auto w-25 d-none"></div>
