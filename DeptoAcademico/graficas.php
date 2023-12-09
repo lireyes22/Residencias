@@ -33,10 +33,20 @@ include 'headDeptoAca.php';
             <canvas id="myChart" style="width:100%;max-width:100%"></canvas>
          </div>
 
-         <script>            
+         <script>          
+            // Función para generar un color aleatorio
+            function getRandomColor() {
+              const letters = "0123456789ABCDEF";
+              let color = "#";
+              for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+              }
+              return color;
+            }
+  
             const xValues = ["Blandy Sarai", "Gustavo", "Carlos Azueta", "Julio Rodriguez", "Isaias"];
             const yValues = [55, 49, 44, 24, 15];
-            const barColors = ["red", "green","blue","orange","brown"];
+            const barColors = Array.from({ length: 5 }, () => getRandomColor());
 
             new Chart("myChart", {
                type: "bar",
@@ -68,13 +78,8 @@ include 'headDeptoAca.php';
          <script>
             const xValues2 = ["En revisión", "En espera", "Terminados", "USA", "Argentina"];
             const yValues2 = [55, 49, 44, 24, 15];
-            const barColors2 = [
-               "#b91d47",
-               "#00aba9",
-               "#2b5797",
-               "#e8c3b9",
-               "#1e7145"
-            ];
+            // Array para almacenar colores generados aleatoriamente
+            const barColors2 = Array.from({ length: 5 }, () => getRandomColor());
 
             new Chart("myChart2", {
                type: "doughnut",
