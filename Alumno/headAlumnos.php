@@ -109,49 +109,30 @@
       });
     });
 
-    // GET y POST
-    $("#daGetPost").click(function(event) {
-      // Obtener los valores del nombre y el apellido
-      var nombre = $("#nombre").val();
-      var apellido = $("#apellido").val();
+    // Ajax Get
+    $(document).ready(function() {
+      $("#buttonFrase").click(function() {
+        $.get("Ajaxfrases.php", function(data, status) {
+          $("#buttonFrase").text(data.frase);
+        }, "json");
+      });
+    });
 
-      // Ejercicio POST
-      $.post('Ajax.php', {
-        tarea: 'enviarDatos',
-        nombre: nombre,
-        apellido: apellido
-      }, function(responsePost) {
-        // Ejercicio GET
-        $.get('Ajax.php', {
-          tarea: 'obtenerDatos',
-          nombre: nombre,
-          apellido: apellido
-        }, function(responseGet) {
-          alert('Respuesta del servidor (GET): Nombre - ' + responseGet);
+    //Ajax Post
+    $(document).ready(function() {
+      $("#enviarDatos").click(function() {
+        var name = $("#name").val();
+        var email = $("#email").val();
+
+        $.post("Ajaxprocesar.php", {
+          name: name,
+          email: email
+        }, function(data, status) {
+          $("#respuesta").html("<strong>Confirmación de envío exitoso: </strong>" + data)
+            .removeClass('d-none');
         });
       });
     });
-    // $("#dan").click(function() {
-    //   event.preventDefault();
-    //   var nombre = $("#nombre").val();
-    //   var apellido = $("#apellido").val();
-
-    //   // Envia el nombre POST
-    //   $.post('Ajax.php', {
-    //     datos: 'enviarDatos',
-    //     nombre: nombre,
-    //     apellido: apellido
-    //   }, function(responsePost) {
-    //     // Recibe el nombre GET
-    //     $.get('Ajax.php', {
-    //       datos: 'obtenerDatos',
-    //       nombre: nombre,
-    //       apellido: apellido
-    //     }, function(responseGet) {
-    //       alert('Hola ' + nombre);
-    //     });
-    //   });
-    // });
   </script>
 </head>
 
